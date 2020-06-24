@@ -3,11 +3,11 @@ Grupo 6 - E-commerce. Especificar temática...
 :hourglass: En construcción...
 
 ## Tecnologías que se van a utilizar :hammer_and_pick:
--HTML
--CSS
--JavaScript
--Node 
--React
+- HTML
+- CSS
+- JavaScript
+- Node 
+- React
 
 ### Integrantes :nerd_face:
 - [Mariela Vargas](https://github.com/mar156)
