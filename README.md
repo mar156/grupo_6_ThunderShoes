@@ -5,14 +5,14 @@
 
 ### Integrantes
 - [Mariela Vargas](https://github.com/mar156)
-- [Stefano Vallarella](https://github.com/stefanovallarella)
+- [Stefano Vallarella](https://github.com/stefanovallarella): Mi nombre es Stefano, amante de la música y la tecnología. Me encanta aprender cosas nuevas todo el tiempo.
 - [Adriana Gonzalez](https://github.com/AdrianaEG): Mi nombre es Adri, amo la naturaleza :cactus::ocean: y los animales :cat::dog::cow::panda_face: Me divierte programar y cocinar.
 - [Matias Vieira]()
 
 ### Webs en las que nos inspiramos... :pencil:
--
--
--
+- [NEW BALANCE](https://www.newbalance.com/)
+- [PUMA](https://us.puma.com/)
+- [REEBOK](https://www.reebok.com.ar/)
 -
 -
 
