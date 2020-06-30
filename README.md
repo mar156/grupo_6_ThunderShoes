@@ -6,7 +6,7 @@
 ### Integrantes
 - [Mariela Vargas](https://github.com/mar156)
 - [Stefano Vallarella](https://github.com/stefanovallarella)
-- [Adriana Gonzalez](https://github.com/AdrianaEG): Mi nombre es Adri, amo la naturaleza :cactus: :ocean: y los animales :cat: :dog: :cow: :panda_face:. Me divierte programar y cocinar.
+- [Adriana Gonzalez](https://github.com/AdrianaEG): Mi nombre es Adri, amo la naturaleza :cactus::ocean: y los animales :cat::dog::cow::panda_face: Me divierte programar y cocinar.
 - [Matias Vieira]()
 
 ### Webs en las que nos inspiramos... :pencil:
