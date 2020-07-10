@@ -10,11 +10,11 @@
 - [Matias Vieira](https://github.com/MatuteDV): Me dicen Matiti, soy analista en sistemas informáticos. Me gusta la ciencia y tecnología, aprender y claro, me gusta programar.
 
 ### Webs en las que nos inspiramos... :pencil:
-- [NEW BALANCE](https://www.newbalance.com/): Barra de navegación Desktop y Mobile - Footer Desktop y Mobile. 
+- [NEW BALANCE](https://www.newbalance.com/): Barra de navegación Desktop y Mobile - Footer Desktop y Mobile - Product on scroll Mobile. 
 - [PUMA](https://us.puma.com/): Detalle de producto Desktop y Mobile.
 - [REEBOK](https://www.reebok.com.ar/): Detalle de producto y breadcrumbs.
 - [SKULL CANDY](https://www.skullcandy.com/): Banner principal de bienvenida.
-- [CRISTÓBAL COLÓN](https://www.cristobalcolon.com/): 
+- [Dr Martens](https://www.drmartens.com/ar/es_ar/): Colores y estética.
 
 ### Tecnologías que se van a utilizar :hammer_and_pick:
 - HTML
