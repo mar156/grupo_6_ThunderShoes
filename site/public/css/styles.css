@@ -1,0 +1,103 @@
+/* ESTILOS FOOTER */
+footer{
+    display: flex;
+    flex-direction: column;
+    font-size: 18px;
+    background-color: #0c0c0c;
+    color: #ffe512;
+}
+
+footer .categorias-footer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    margin: 6px 24px;
+}
+
+footer .categorias-footer-redes{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 24px;
+}
+
+footer .categorias-footer h3{
+    flex-grow: 1;
+}
+
+footer .separador{
+    background: #3a3636;
+    width: 100%;
+    height: 1px;
+}
+
+footer .categorias-footer-redes .titulo-redes{
+    display: none;
+    font-size: 18px;
+    color: #ffe512;
+}
+
+footer .categorias-footer-redes p{
+    font-size: 16px;
+    color: rgba(255, 229, 18, 0.4);
+}
+
+
+footer .categorias-footer-redes .contenedor-redes i{
+    margin-right: 10px;
+    font-size: 25px;
+}
+
+@media(min-width:768px) and (max-width:1023px){
+    footer{
+        font-size: 20px;
+    }
+
+    footer .categorias-footer{
+        margin: 6px 80px;
+    }
+
+    footer .categorias-footer i{
+        font-size: 24px;
+    }
+
+    footer .categorias-footer-redes .contenedor-redes i {
+        font-size: 30px;
+    }
+}
+
+@media(min-width: 1024px){
+    footer{
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    footer .categorias-footer h3{
+        display: flex;
+        margin: 24px 10px;
+        font-size: 20px;
+    }
+
+    footer .categorias-footer-redes{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 6px 24px;
+    }
+
+    footer .categorias-footer-redes .titulo-redes{
+        display: flex;
+        margin: 24px 10px;
+        font-size: 20px;
+    }
+    
+    footer .categorias-footer-redes .contenedor-redes{
+        display: flex;
+        flex-direction: row;
+    }
+
+    footer .categorias-footer-redes p{
+        display: none;
+    }
+}
