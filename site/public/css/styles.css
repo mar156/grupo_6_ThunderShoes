@@ -23,10 +23,10 @@ header{
 
 /*Top Header*/
 
-/*Main header*/
+/*Main header mobile*/
 
 .main-header{
-   padding: 8px 8px 0px 8px;
+   padding: 8px 16px 0px 16px;
    background-color: #0C0C0C;
    min-height: 10vh;
 }
@@ -50,7 +50,7 @@ header{
     position: absolute;
     bottom: 0;
     left: -100vw;
-    transition: all 500ms;
+    transition: all ease 750ms;
     width: 100vw;
     height: 90vh;
     background-color: #0C0C0C;
@@ -108,6 +108,94 @@ header{
 .profile-menu a:nth-child(1){
     border-bottom: 1px #0C0C0C solid ;
 }
+
+/*Main Header Desktop*/
+
+.top-header{
+    display: none;
+}
+
+.container-desktop{
+    display: none;
+}
+
+.container-desktop i{
+    font-size: 24px;
+    color: whitesmoke;
+}
+
+.container-desktop .right-mainheader{
+    display: flex;
+    align-items: center;
+}
+
+.search-desktop{
+    position: relative;
+    margin-right: 8px;
+}
+
+.search-desktop input{
+    padding: 4px;
+
+}
+.search-desktop i{
+    position: absolute;
+    top: 22%;
+    right: 1%;
+    font-size: 1rem;
+    color: #0C0C0C;
+    background-color: white;
+}
+
+
+@media only screen and (min-width: 1024px){
+
+    .main-header{
+        min-height: 0;
+        padding: 8px 16px 8px 16px;
+    }
+    
+    .container{
+        display: none;
+    }
+
+    .container-desktop{
+        display: flex;
+        justify-content: space-between;
+        max-width: 1024px;
+        margin: 0 auto;
+    }
+
+    .menu-desktop{
+        align-self: center;
+        width: 50%;
+    }
+    
+    .main-menudesktop{
+        display: flex;
+        justify-content: space-around;
+        
+    }
+
+    .main-menudesktop a{
+        text-decoration: none;
+        color: whitesmoke;
+        padding: 4px 8px;
+        border: 1px solid #0C0C0C;
+        border-radius: 3px;
+
+    }
+    
+    .main-menudesktop a:hover{
+        color: #0C0C0C;
+        background-color: #ffe512;
+        border-color:#3a3636;
+    }
+    
+}
+
+
+
 
 
 
