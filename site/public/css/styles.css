@@ -44,6 +44,14 @@ header{
     font-size: 24px;
     }
 
+    .logo {
+
+        text-align: center;
+
+    }
+    .container .logo img{
+        width: 35%;
+    }
   
     /*Navegador menu*/  
 .menu{
@@ -109,11 +117,16 @@ header{
     border-bottom: 1px #0C0C0C solid ;
 }
 
-/*Main Header Desktop*/
+
+/*Top header Desktop*/
+
 
 .top-header{
     display: none;
 }
+
+/*Main Header Desktop*/
+
 
 .container-desktop{
     display: none;
@@ -127,6 +140,11 @@ header{
 .container-desktop .right-mainheader{
     display: flex;
     align-items: center;
+}
+
+.logo-completo{
+    align-self: flex-start;
+    width: 13%;  
 }
 
 .search-desktop{
@@ -148,8 +166,43 @@ header{
 }
 
 
+
 @media only screen and (min-width: 1024px){
 
+    /*Top header*/
+
+    .top-header{
+        display: block;
+        width: 100%;
+        background-color: #3A3636;
+    }
+
+    .container-top {
+        display: flex;
+        justify-content: flex-end;
+        max-width: 1024px;
+        margin: 0 auto;
+    }
+
+    .right-top-header{
+    }
+    
+    .right-top-header a{
+        font-size: 1rem;
+        color: whitesmoke;
+        text-decoration: none;
+        margin-left: 10px;
+        padding-left: 10px;
+    }    
+
+    .right-top-header a.border-line{
+        
+        border-left: whitesmoke 1.5px solid;
+    
+
+    }
+
+    /*Main header*/
     .main-header{
         min-height: 0;
         padding: 8px 16px 8px 16px;
@@ -191,6 +244,9 @@ header{
         background-color: #ffe512;
         border-color:#3a3636;
     }
+
+    
+
     
 }
 
