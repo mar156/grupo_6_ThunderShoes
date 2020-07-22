@@ -111,3 +111,112 @@ header{
 
 
 
+/* ESTILOS FOOTER */
+footer{
+    display: flex;
+    flex-direction: column;
+    font-size: 18px;
+    background-color: #0c0c0c;
+    color: #ffe512;
+}
+
+footer .contenedor-secciones{
+    display: flex;
+    flex-direction: column;
+}
+
+footer .contenedor-secciones .content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: solid 1px #3a3636;
+}
+
+footer .contenedor-secciones .categorias-footer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 6px 24px;
+}
+
+footer .contenedor-secciones .content .categorias-footer h3{
+    margin: 30px;
+    flex-grow: 1;
+}
+
+footer .contenedor-secciones .content p{
+    padding: 0 30px;
+}
+
+
+footer .contenedor-redes{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 24px;
+}
+
+footer .contenedor-redes .titulo-redes{
+    display: none;
+    font-size: 18px;
+    color: #ffe512;
+}
+
+footer .contenedor-redes p{
+    font-size: 16px;
+    color: rgba(255, 229, 18, 0.4);
+}
+
+footer .contenedor-redes .contenedor-iconos i{
+    margin-right: 10px;
+    font-size: 25px;
+}
+
+/*FOOTER TABLETS*/
+@media(min-width:768px) and (max-width:1023px){
+    footer{
+        font-size: 20px;
+    }
+
+    footer .content .categorias-footer{
+        margin: 6px 80px;
+    }
+
+    footer .content .categorias-footer i{
+        font-size: 24px;
+    }
+
+    footer .contenedor-redes .contenedor-iconos i {
+        font-size: 30px;
+    }
+}
+
+/*FOOTER ESCRITORIO*/
+@media(min-width: 1024px){
+    footer .contenedor-secciones{
+        display: flex;
+        flex-direction: row;
+    }
+
+    footer .contenedor-secciones .content{
+        border-left: solid 1px #3a3636;
+    }
+
+    footer .contenedor-secciones .content .categorias-footer{
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        /*grid-template-rows: repeat(2, auto);*/
+        grid-template-rows: 60px auto;
+        align-items: baseline;
+        text-align: center;
+    }
+
+    footer .contenedor-secciones .content p{
+        display: block;
+    }   
+}
+
+/*.categorias-footer p{
+    display: none;
+}  luego se utiliza para ocultar esto irá dentro de un desplegable*/
+
