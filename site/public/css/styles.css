@@ -36,6 +36,7 @@ a{
     justify-content: space-between;
     align-items: center;
     position: relative;
+    margin-top: 5px;
     }
     
     .container i{
