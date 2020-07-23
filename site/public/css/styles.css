@@ -49,9 +49,11 @@ a{
         text-align: center;
         width: 80%;
         left: 10%;
+        top: -14px;
     }
     .container .logo img{
-        width: 124px;
+        /* width: 124px; */
+        height: 10vh;
     }
   
     /*Navegador menu*/  
