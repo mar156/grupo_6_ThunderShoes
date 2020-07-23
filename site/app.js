@@ -5,27 +5,27 @@ app.use(express.static('public'));
 
 /* Aquí luego algunos serán por POST */
 app.get('/', (req, res)=>{
-    res.sendfile(__dirname + '/views/index.html');
+    res.sendFile(__dirname + '/views/index.html');
 });
 
 app.get('/productDetail', (req, res)=>{
-    res.sendfile(__dirname + '/views/productDetail.html');
+    res.sendFile(__dirname + '/views/productDetail.html');
 });
 
 app.get('/productCart', (req, res)=>{
-    res.sendfile(__dirname + '/views/productCart.html');
+    res.sendFile(__dirname + '/views/productCart.html');
 });
 
 app.get('/register', (req, res)=>{
-    res.sendfile(__dirname + '/views/register.html');
+    res.sendFile(__dirname + '/views/register.html');
 });
 
 app.get('/login', (req, res)=>{
-    res.sendfile(__dirname + '/views/login.html');
+    res.sendFile(__dirname + '/views/login.html');
 });
 
 app.get('/footer', (req, res)=>{
-    res.sendfile(__dirname + '/views/footer.html');
+    res.sendFile(__dirname + '/views/footer.html');
 });
 
 

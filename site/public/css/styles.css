@@ -17,18 +17,16 @@ a{
 
 /*Header*/
 
-header{
-
-}
-
 /*Top Header*/
 
 /*Main header mobile*/
 
 .main-header{
-   padding: 8px 16px 0px 16px;
-   background-color: #0C0C0C;
-   min-height: 10vh;
+    position: sticky;
+    top: 0;
+    padding: 8px 16px 0px 16px;
+    background-color: #0C0C0C;
+    min-height: 10vh;
 }
 
 .container{
@@ -37,6 +35,7 @@ header{
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
+    position: relative;
     }
     
     .container i{
@@ -45,17 +44,18 @@ header{
     }
 
     .logo {
-
+        position: absolute;
         text-align: center;
-
+        width: 80%;
+        left: 10%;
     }
     .container .logo img{
-        width: 35%;
+        width: 124px;
     }
   
     /*Navegador menu*/  
 .menu{
-    position: absolute;
+    position: fixed;
     bottom: 0;
     left: -100vw;
     transition: all ease 750ms;
@@ -133,32 +133,37 @@ header{
 }
 
 .container-desktop i{
-    font-size: 24px;
+    font-size: 1.3rem;
     color: whitesmoke;
 }
 
 .container-desktop .right-mainheader{
     display: flex;
     align-items: center;
+    margin-left: 2%;
 }
 
 .logo-completo{
+    position: absolute;
     align-self: flex-start;
-    width: 13%;  
+    width: 19%;
+    left: 1%;
+    top: -10px;
 }
 
 .search-desktop{
     position: relative;
-    margin-right: 8px;
+    margin-right: 1rem;
 }
 
 .search-desktop input{
     padding: 4px;
-
+    border: 0px;
+    border-radius: 2px;
 }
 .search-desktop i{
     position: absolute;
-    top: 22%;
+    top: 18%;
     right: 1%;
     font-size: 1rem;
     color: #0C0C0C;
@@ -182,9 +187,6 @@ header{
         justify-content: flex-end;
         max-width: 1024px;
         margin: 0 auto;
-    }
-
-    .right-top-header{
     }
     
     .right-top-header a{
@@ -213,10 +215,12 @@ header{
     }
 
     .container-desktop{
+        position: relative;
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-end;
         max-width: 1024px;
         margin: 0 auto;
+        padding: 1.5rem 0;
     }
 
     .menu-desktop{
@@ -233,10 +237,10 @@ header{
     .main-menudesktop a{
         text-decoration: none;
         color: whitesmoke;
-        padding: 4px 8px;
+        padding: 8px 12px;
         border: 1px solid #0C0C0C;
         border-radius: 3px;
-
+        font-size: 1.3rem;
     }
     
     .main-menudesktop a:hover{
@@ -249,8 +253,6 @@ header{
 
     
 }
-
-
 
 
 
