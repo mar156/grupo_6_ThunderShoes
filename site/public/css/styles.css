@@ -256,7 +256,6 @@ a{
 
 
 
-
 /* ESTILOS FOOTER */
 footer{
     display: flex;
@@ -289,6 +288,22 @@ footer .contenedor-secciones .content .categorias-footer h3{
     margin: 30px;
     flex-grow: 1;
 }
+
+footer .contenedor-secciones .content .categorias-footer .fa-hands-helping { 
+    display:none; 
+}  
+
+footer .contenedor-secciones .content .categorias-footer .fa-shopping-bag { 
+    display:none; 
+}  
+
+footer .contenedor-secciones .content .categorias-footer .fa-envelope { 
+    display:none; 
+}  
+
+footer .contenedor-secciones .content .categorias-footer .fa-angle-down { 
+    font-size:20px; 
+} 
 
 footer .contenedor-secciones .content p{
     display: none;
@@ -359,6 +374,22 @@ footer .contenedor-redes .contenedor-iconos i{
         align-items: baseline;
         text-align: center;
     }
+
+    footer .contenedor-secciones .content .categorias-footer .fa-hands-helping { 
+        display:block; 
+    }  
+
+    footer .contenedor-secciones .content .categorias-footer .fa-shopping-bag { 
+        display:block; 
+    }  
+
+    footer .contenedor-secciones .content .categorias-footer .fa-envelope { 
+        display:block; 
+    }  
+
+    footer i.fas.fa-angle-down.desplegable { 
+        display:none;     
+    } 
 
     footer .contenedor-secciones .content p{
         display: block !important;
