@@ -590,3 +590,116 @@ footer .contenedor-redes .contenedor-iconos i{
     }
 }
 
+/*ESTILOS DEL HOME*/
+.main-index{
+    max-width: 1024px; 
+    /*margin: 0 auto;*/
+    width: 100vw;
+    margin: 0;
+}
+
+.main-index .contenedor-imagenes-boton{
+    position: relative;
+}
+
+.main-index .contenedor-imagenes-boton .imagenes{
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: 50% 50%;
+    grid-template-areas: "imagengrande imagenpequeniasuperior"
+                            "imagengrande imagenpequeniainferior";
+}
+
+.main-index .contenedor-imagenes-boton .imagenes .imagen-principal{
+    display: grid;
+    grid-area: imagengrande;
+    width: 50vw;
+}
+
+.main-index .contenedor-imagenes-boton .imagenes .imagenes-secundarias{
+    display: grid;
+    width: 50vw;
+    height: 100%;
+}
+
+.main-index .contenedor-imagenes-boton .imagenes .imagenes-secundarias.imagen-superior{
+    grid-area: imagenpequeniasuperior;
+}
+
+.main-index .contenedor-imagenes-boton .imagenes .imagenes-secundarias.imagen-inferior{
+    grid-area: imagenpequeniainferior;
+}
+
+.main-index .contenedor-imagenes-boton .contenedor-boton-shop-now-icono{
+    position: absolute;
+    /*width: 30vw;
+    height: 8vh;
+    top: 42%;
+    left: 35%;*/
+    top: calc( 50% - 3vh);
+    left: calc( 50% - 10vh);
+}
+
+.main-index .contenedor-imagenes-boton .contenedor-boton-shop-now-icono .boton-shop-now{
+    position: relative;
+    position: relative;
+    width: 120px;
+    height: 40px;
+    border: none;
+    text-align: inherit;
+    padding: 0 15px;
+    font-weight: bold;
+    border: solid;
+    border-radius: 50px;
+    /* width: 30vw; */
+    /* height: 8vh; */
+    background: rgba(255, 229, 18, 0.8);
+
+}
+
+.main-index .contenedor-imagenes-boton .contenedor-boton-shop-now-icono i{
+    position: absolute;
+    top: 25%;
+    right: 10%;
+    font-size: 1.2rem;
+}
+
+.main-index .contenedor-seccion-deporte{
+    display: grid;
+    grid-template-columns: repeat(2, 50vw);
+    grid-template-rows: repeat(2, auto);
+}
+
+.main-index .contenedor-seccion-deporte article{
+    display: grid;
+    grid-template-rows: auto auto;
+    margin: 10%;
+    position: relative;
+}
+
+.main-index .contenedor-seccion-deporte article img{
+    margin: 0 auto;
+    width: 80%;
+}
+
+.main-index .contenedor-seccion-deporte article .btn-article-deporte{
+    position: absolute;
+    right: calc(50% - 50px);
+    top: calc(100% - 30px);
+    border: none;
+    border-radius: 50px;
+    font-weight: bold;
+    padding: 5px;
+    background: rgba(255, 229, 18, 0.8);
+}
+
+
+/*ESTILOS DEL PRODUCTCART*/
+
+/*ESTILOS DEL PRODUCT DETAIL*/
+
+/*ESTILOS DEL SHOP*/
+
+/*ESTILOS DEL LOGIN*/
+
+/*ESTILOS DEL REGISTER*/
