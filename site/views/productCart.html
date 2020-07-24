@@ -3,10 +3,272 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carrito de productos</title>
+    <title>Product Cart</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+
+
+<!--Header-->    
+<!--Top Header-->
+<div class="top-header">
+    <div class="container-top">
+        <div class="right-top-header">
+            <a href="#">Mi cuenta</a>
+            <a class="border-line" href="#">Mi lista de deseos</a>
+            <a class="border-line" href="#">Iniciar sesión</a>
+        </div>
+    </div>    
+</div>
+<!--Main Header-->
+<header class="main-header">
+    <div class="container">
+        <div id="btn-menu" class="btn-menu"><i class="fas fa-bars"></i></div>
+        <div class="logo"> <img src="../img/IconoThunderShoes.svg" alt="icono-thunder-shoes"> </div>
+        <div class="btn-cart"><i class="fas fa-shopping-cart"></i></div>
+    </div>
+    <div class="container-desktop">
+        <div class="logo-completo">
+            <img src="../img/LogoyTipografia.svg" alt="Logo y tipo">
+        </div>
+        <nav class="menu-desktop">
+            <div class="main-menudesktop">
+                <a href="#">Hombres</a>
+                <a href="#">Mujeres</a>
+                <a href="#">Colección</a>
+                <a href="#">Ofertas</a>
+            </div>
+        </nav>
+        <div class="right-mainheader">
+            <div class="search-desktop">
+                <input type="text" name="search" placeholder="Buscar...">
+                <i class='fas fa-search'></i>
+            </div>    
+            <div class="btn-cart">
+                <i class="fas fa-shopping-cart"></i>
+            </div>
+        </div>
+    </div>
+
+</header>
+
+<!--Menu-->
+<nav id="menu" class="menu">
+    <div class="main-menu">
+        <a href="#">Hombres</a>
+        <a href="#">Mujeres</a>
+        <a href="#">Colección</a>
+        <a href="#">Oferta</a>
+        <a href="#">Buscar</a>
+    </div>
+    <div class="profile-menu">
+        <a class="btn-pmenu" href="#">
+            <i class='fas fa-heart'></i>
+            <span>Mi lista de deseos</span>
+        </a> 
+        <a class="btn-pmenu" href="#">
+            <i class="fas fa-user-circle"></i>
+            <span>Mi cuenta - Iniciar sesión</span>
+        </a>  
+    </div>
+</nav>
+
+
+<!--Banner-->   
+<div class="banner-cart">
+    <!-- <img src="../img/banner-hombre-logo.jpg" alt="Banner carrito"> -->
+</div>
+
+
+
+<!--Main-->
+<main class="main-product-cart">
+
+    <h3>Resumen</h3>
+<div class="resumen-carrito">
+    <div class="item-container">
+
+        <div class="item-cart">
+            <div class="item-detail-container">   
+                <img src="../img/product.jpg" alt="">
+                <div class="item-detail">
+                    <span class="item-name">Nombre Zapatilla</span> 
+                    <span class="item-size">Talle X</span>  
+                    <span class="item-model">Modelo/cod xx</span>
+                </div>
+            </div> 
+            <div class="item-value">
+                    <div class="precio-item"> 
+                        <span class="item-price">Precio</span>
+                        <span> $4500 </span>  
+                    </div>
+                    <div class="cantidad-item"> 
+                        <span> <input type="number" name="cantidad" id="cantidad" value="2"></span>
+                    </div>
+                    <div class="subtotal-item"> 
+                        <span class="item-subtotal">Subtotal</span>
+                        <span> $9000</span>  
+                    </div>
+            </div>
+        </div>
+        <div class="delete-item">
+            <i class="far fa-trash-alt"></i>
+        </div>
+    </div>
     
+    <div class="item-container">
+
+        <div class="item-cart">
+            <div class="item-detail-container">   
+                <img src="../img/product.jpg" alt="">
+                <div class="item-detail">
+                    <span class="item-name">Nombre Zapatilla</span> 
+                    <span class="item-size">Talle X</span>  
+                    <span class="item-model">Modelo/cod xx</span>
+                </div>
+            </div> 
+            <div class="item-value">
+                    <div class="precio-item"> 
+                        <span class="item-price">Precio</span>
+                        <span> $4500 </span>  
+                    </div>
+                    <div class="cantidad-item"> 
+                        <span> <input type="number" name="cantidad" id="cantidad" value="2"></span>
+                    </div>
+                    <div class="subtotal-item"> 
+                        <span class="item-subtotal">Subtotal</span>
+                        <span> $9000</span>  
+                    </div>
+            </div>
+        </div>
+        <div class="delete-item">
+            <i class="far fa-trash-alt"></i>
+        </div>
+    </div>
+
+    <div class="item-container">
+
+        <div class="item-cart">
+            <div class="item-detail-container">   
+                <img src="../img/product.jpg" alt="">
+                <div class="item-detail">
+                    <span class="item-name">Nombre Zapatilla</span> 
+                    <span class="item-size">Talle X</span>  
+                    <span class="item-model">Modelo/cod xx</span>
+                </div>
+            </div> 
+            <div class="item-value">
+                    <div class="precio-item"> 
+                        <span class="item-price">Precio</span>
+                        <span> $4500 </span>  
+                    </div>
+                    <div class="cantidad-item"> 
+                        <span> <input type="number" name="cantidad" id="cantidad" value="2"></span>
+                    </div>
+                    <div class="subtotal-item"> 
+                        <span class="item-subtotal">Subtotal</span>
+                        <span> $9000</span>  
+                    </div>
+            </div>
+        </div>
+        <div class="delete-item">
+            <i class="far fa-trash-alt"></i>
+        </div>
+    </div>
+
+    <div class="item-container">
+
+        <div class="item-cart">
+            <div class="item-detail-container">   
+                <img src="../img/product.jpg" alt="">
+                <div class="item-detail">
+                    <span class="item-name">Nombre Zapatilla</span> 
+                    <span class="item-size">Talle X</span>  
+                    <span class="item-model">Modelo/cod xx</span>
+                </div>
+            </div> 
+            <div class="item-value">
+                    <div class="precio-item"> 
+                        <span class="item-price">Precio</span>
+                        <span> $4500 </span>  
+                    </div>
+                    <div class="cantidad-item"> 
+                        <span> <input type="number" name="cantidad" id="cantidad" value="2"></span>
+                    </div>
+                    <div class="subtotal-item"> 
+                        <span class="item-subtotal">Subtotal</span>
+                        <span> $9000</span>  
+                    </div>
+            </div>
+        </div>
+        <div class="delete-item">
+            <i class="far fa-trash-alt"></i>
+        </div>
+    </div>
+</div>
+
+
+<div class="datos-carrito"></div>
+<div class="btn-confirm"></div>
+
+
+
+
+
+</main>
+
+
+
+
+
+
+
+
+<footer>
+    <div class="contenedor-secciones"> 
+        <div class="content noborderleft"> 
+            <div class="categorias-footer"> 
+                <h3>CONTACTANOS</h3> 
+                <i class="fas fa-envelope desplegable"></i> 
+                <i class="fas fa-angle-down desplegable"></i> 
+            </div> 
+            <p>Contenido de contacto Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque deleniti velit at ipsam? Saepe aperiam id enim cum earum nesciunt temporibus quos eveniet qui eaque expedita tempora sed, provident officia!</p> 
+        </div> 
+
+        <div class="content"> 
+            <div class="categorias-footer"> 
+                <h3>CATEGORÍAS</h3> 
+                <i class="fas fa-shopping-bag desplegable"></i> 
+                <i class="fas fa-angle-down desplegable"></i> 
+            </div> 
+            <p>Contenido de contacto Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci, corrupti pariatur cum iure odit eveniet ex consequatur minus! Deserunt voluptatibus, corporis nulla praesentium molestias cupiditate vero enim porro quidem hic?</p>                  
+        </div> 
+
+        <div class="content"> 
+            <div class="categorias-footer ayuda"> 
+                <h3>AYUDA</h3> 
+                <i class="fas fa-hands-helping desplegable"></i> 
+                <i class="fas fa-angle-down desplegable"></i> 
+            </div> 
+            <p>Contenido de contacto Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut qui fugit ipsum quaerat sed optio provident accusamus, odio ex eos, assumenda impedit fugiat laudantium ea sint debitis architecto quo? Vitae!</p> 
+        </div> 
+
+    </div> 
+    <div class="contenedor-redes">
+        <h3 class="titulo-redes">REDES</h3>
+        <div class="contenedor-iconos">
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-whatsapp"></i>
+        </div>
+        <p>todos los derechos reservados</p>
+    </div>
+</footer>
+
+
+<script src="script/script.js"></script>
+<script src="script/footer.js"></script>
+
 </body>
 </html>
