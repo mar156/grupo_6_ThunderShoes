@@ -23,3 +23,6 @@
 - Node 
 - React
 - MySQL
+
+### Tablero de trabajo:
+ - [Trello](https://trello.com/b/e4QPLD2E)
