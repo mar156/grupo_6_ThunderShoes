@@ -21,35 +21,36 @@ a{
 
 /*Main header mobile*/
 
-.main-header{
+.main-header {
+    z-index: 999;
     position: sticky;
     top: 0;
-    padding: 8px 16px 0px 16px;
+    padding: 0 1rem;
     background-color: #0C0C0C;
     min-height: 10vh;
 }
 
-.container{
+.container {
     display: flex;
     min-height: 50px;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    position: relative;
-    margin-top: 5px;
+    /* position: relative; */
+    /* margin-top: 5px; */
     }
     
-    .container i{
+    .container i {
     color:whitesmoke;
     font-size: 24px;
     }
 
     .logo {
-        position: absolute;
+        /* position: absolute; */
         text-align: center;
         width: 80%;
-        left: 10%;
-        top: -14px;
+        /* left: 10%;
+        top: -14px; */
     }
     .container .logo img{
         /* width: 124px; */
@@ -58,6 +59,7 @@ a{
   
     /*Navegador menu*/  
 .menu{
+    z-index: 999;
     position: fixed;
     bottom: 0;
     left: -100vw;
@@ -126,6 +128,7 @@ a{
 
 .top-header{
     display: none;
+    z-index: 9;
 }
 
 /*Main Header Desktop*/
@@ -171,6 +174,13 @@ a{
     font-size: 1rem;
     color: #0C0C0C;
     background-color: white;
+}
+
+.btn-cart i {
+    cursor: pointer;
+}
+.btn-cart i:hover {
+    color: #ffe512;
 }
 
 
