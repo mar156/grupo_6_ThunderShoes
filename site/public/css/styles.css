@@ -676,20 +676,20 @@ footer .contenedor-redes .contenedor-iconos i{
 
 .main-index .contenedor-seccion-deporte{
     display: grid;
-    grid-template-columns: repeat(2, 50vw);
+    grid-template-columns: repeat(2, 40vw);
     grid-template-rows: repeat(2, auto);
+    margin: 5% 10%;
 }
 
 .main-index .contenedor-seccion-deporte article{
     display: grid;
     grid-template-rows: auto auto;
-    margin: 10%;
     position: relative;
 }
 
 .main-index .contenedor-seccion-deporte article img{
     margin: 0 auto;
-    width: 80%;
+    width: 100%;
 }
 
 .main-index .contenedor-seccion-deporte article .btn-article-deporte{
