@@ -25,7 +25,9 @@
     <div class="container">
         <div id="btn-menu" class="btn-menu"><i class="fas fa-bars"></i></div>
         <div class="logo"> <img src="../img/IconoThunderShoes.svg" alt="icono-thunder-shoes"> </div>
-        <div class="btn-cart"><i class="fas fa-shopping-cart"></i></div>
+        <div class="btn-cart">
+            <i class="fas fa-shopping-cart" onclick="toogleSummary()"></i>
+        </div>
     </div>
     <div class="container-desktop">
         <div class="logo-completo">
@@ -44,7 +46,7 @@
                 <input type="text" name="search" placeholder="Buscar...">
                 <i class='fas fa-search'></i>
             </div>    
-            <div class="btn-cart">
+            <div class="btn-cart" onclick="toogleSummary()">
                 <i class="fas fa-shopping-cart"></i>
             </div>
         </div>
@@ -73,6 +75,59 @@
     </div>
 </nav>
 
+<!-- Summary cart -->
+<div id="summary-container" class="summary-container" style="display: none;">
+    <p>PRODUCTOS AGREGADOS</p>
+    <span  onclick="toogleSummary()" >x</span>
+
+    <div class="summary-content">
+        <div class="summary-item">
+            <img src="/img/product.jpg" alt="">
+            <div class="item-detail">
+                <span>Zapatillas deportiva Ultra light</span>
+                <span>Color: Blanco</span>
+                <span>Cantidad: 1</span>
+                <span>$4.5600</span>
+            </div>
+        </div>
+        <div class="summary-item">
+            <img src="/img/product.jpg" alt="">
+            <div class="item-detail">
+                <span>Zapatillas deportiva Ultra light</span>
+                <span>Color: Blanco</span>
+                <span>Cantidad: 1</span>
+                <span>$4.5600</span>
+            </div>
+        </div>
+        <div class="summary-item">
+            <img src="/img/product.jpg" alt="">
+            <div class="item-detail">
+                <span>Zapatillas deportiva Ultra light</span>
+                <span>Color: Blanco</span>
+                <span>Cantidad: 1</span>
+                <span>$4.5600</span>
+            </div>
+        </div>
+        <div class="summary-item">
+            <img src="/img/product.jpg" alt="">
+            <div class="item-detail">
+                <span>Zapatillas deportiva Ultra light</span>
+                <span>Color: Blanco</span>
+                <span>Cantidad: 1</span>
+                <span>$4.5600</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="summary-footer">
+        <button>PAGAR</button>
+        <a href="productCart">
+            Ver carrito completo
+        </a>
+    </div>
+</div>
+
+<!-- Main Index -->
 <main class="main-index">
     <div class="contenedor-imagenes-boton">
         <div class="imagenes">
