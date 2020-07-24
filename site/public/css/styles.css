@@ -693,6 +693,7 @@ footer .contenedor-redes .contenedor-iconos i{
 }
 
 .main-index .contenedor-seccion-deporte article .btn-article-deporte{
+    width: 100px;
     position: absolute;
     right: calc(50% - 50px);
     top: calc(100% - 30px);
