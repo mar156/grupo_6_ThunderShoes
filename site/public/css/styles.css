@@ -361,10 +361,19 @@ footer .contenedor-redes .contenedor-iconos i{
     footer .contenedor-secciones{
         display: flex;
         flex-direction: row;
+        max-width: 1024px;
+        margin: 0 auto;
+        margin-top: 2rem;
     }
+
 
     footer .contenedor-secciones .content{
         border-left: solid 1px #3a3636;
+        border-bottom: none;
+    }
+
+    footer .contenedor-secciones .noborderleft{
+        border-left: none;
     }
 
     footer .contenedor-secciones .content .categorias-footer{
@@ -396,12 +405,17 @@ footer .contenedor-redes .contenedor-iconos i{
         display: block !important;
     }
 
+    footer .contenedor-redes{
+        border-top: solid 1px #3a3636;
+        max-width: 1024px;
+        margin: 0 auto;
+        width: 100%;
+        margin-top: 2rem;
+        padding-top: 2rem;
+    }
+
     footer .content .categorias-footer i{
         pointer-events: none;
     }
 }
-
-/*.categorias-footer p{
-    display: none;
-}  luego se utiliza para ocultar esto irá dentro de un desplegable*/
 
