@@ -421,3 +421,22 @@ footer .contenedor-redes .contenedor-iconos i{
     }
 }
 
+/*ESTILOS DEL HOME*/
+.main-index{
+    max-width: 1024px; 
+    margin: 0 auto;
+}
+
+.main-index .contenedor-imagenes-boton .imagenes .imagen-principal{
+    width: 50vw;
+}
+
+/*ESTILOS DEL PRODUCTCART*/
+
+/*ESTILOS DEL PRODUCT DETAIL*/
+
+/*ESTILOS DEL SHOP*/
+
+/*ESTILOS DEL LOGIN*/
+
+/*ESTILOS DEL REGISTER*/
