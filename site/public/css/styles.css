@@ -893,6 +893,50 @@ footer .contenedor-redes .contenedor-iconos i{
     background: rgba(255, 229, 18, 0.8);
 }
 
+.main-index .carousel-productos-destacados .oculto{
+    display: none;
+}
+
+
+.main-index .carousel-productos-destacados{
+    width: 100vw;
+    text-align: center;
+}
+
+
+.main-index .carousel-productos-destacados .contenedor-productos-destacados .producto img{
+    width: 85%;
+}
+
+
+.main-index .contenedor-genero{
+    display: flex;
+    width: 100vw;
+    max-width: 1024px;
+    margin: 0 auto;
+}
+
+.main-index .contenedor-genero .mujer img, .main-index .contenedor-genero .hombre img{
+    width: 100%;
+}
+
+.main-index .contenedor-genero .mujer, .main-index .contenedor-genero .hombre{
+    position: relative;
+    width: 50vw;
+}
+
+.main-index .contenedor-genero .btn-genero{
+    position: absolute;
+    bottom: calc(50% - 3vh);
+    left: calc(50% - 25%);
+    border: none;
+    background: rgba(255, 229, 18, 0.8);
+    padding: 10px;
+    border-radius: 20px;
+}
+
+
+
 
 /*ESTILOS DEL PRODUCTCART*/
 
