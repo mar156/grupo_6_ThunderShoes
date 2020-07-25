@@ -944,12 +944,14 @@ footer .contenedor-redes .contenedor-iconos i{
 
 /*ESTILOS DEL SHOP*/
 
-div .bannerSection {
+
+.main-shop .bannerSection{
     max-width: 1024px; 
     width: 99vw;
     margin: 0;
-    position:absolute;
+    position:relative;
 }
+
 .bannerSection .bannerShop {
     display: grid;
     margin-top: 1vh; 
@@ -960,15 +962,15 @@ div .bannerSection {
     z-index: 10;
     
 }
-.bannerSection .ubicacion {
-    position: relative;
-    width: 120px;
+.main-shop .bannerSection .ubicacion {
+    position: absolute;
+    /*width: 120px;*/
     height: 40px;
     border: none;
     text-align: inherit;
     padding: 0 15px;
     font-weight: bold;
-       
+    z-index: 100; 
 }
 .opciones {
     background-color:whitesmoke;
