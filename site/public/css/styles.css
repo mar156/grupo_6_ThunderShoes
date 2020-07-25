@@ -277,6 +277,18 @@ a{
 
 
 /*Banner Cart*/
+.banner-cart { position: relative; }
+
+.banner-cart > span {
+    position: absolute;
+    left: 15%;
+    top: 25%;
+    font-size: 5vw;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: whitesmoke;
+    text-shadow: 2px 2px 4px #000000;
+}
 
 .banner-cart img{
     width: 100%;
@@ -379,7 +391,16 @@ a{
                     padding: 5px;
                     border: 1px solid #ccc;
                     border-radius: 5px;
+                    
                 }
+                /* Eliminando Spin campos input (desktop) */ 
+                input[type=number]::-webkit-inner-spin-button, 
+                input[type=number]::-webkit-outer-spin-button { 
+                -webkit-appearance: none; 
+                margin: 0; 
+                }
+                
+                input[type=number] { -moz-appearance:textfield; }
 
 
                 .item-value .subtotal-item{
