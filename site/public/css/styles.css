@@ -277,6 +277,18 @@ a{
 
 
 /*Banner Cart*/
+.banner-cart { position: relative; }
+
+.banner-cart > span {
+    position: absolute;
+    left: 15%;
+    top: 25%;
+    font-size: 5vw;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: whitesmoke;
+    text-shadow: 2px 2px 4px #000000;
+}
 
 .banner-cart img{
     width: 100%;
@@ -379,7 +391,16 @@ a{
                     padding: 5px;
                     border: 1px solid #ccc;
                     border-radius: 5px;
+                    
                 }
+                /* Eliminando Spin campos input (desktop) */ 
+                input[type=number]::-webkit-inner-spin-button, 
+                input[type=number]::-webkit-outer-spin-button { 
+                -webkit-appearance: none; 
+                margin: 0; 
+                }
+                
+                input[type=number] { -moz-appearance:textfield; }
 
 
                 .item-value .subtotal-item{
@@ -871,6 +892,50 @@ footer .contenedor-redes .contenedor-iconos i{
     padding: 5px;
     background: rgba(255, 229, 18, 0.8);
 }
+
+.main-index .carousel-productos-destacados .oculto{
+    display: none;
+}
+
+
+.main-index .carousel-productos-destacados{
+    width: 100vw;
+    text-align: center;
+}
+
+
+.main-index .carousel-productos-destacados .contenedor-productos-destacados .producto img{
+    width: 85%;
+}
+
+
+.main-index .contenedor-genero{
+    display: flex;
+    width: 100vw;
+    max-width: 1024px;
+    margin: 0 auto;
+}
+
+.main-index .contenedor-genero .mujer img, .main-index .contenedor-genero .hombre img{
+    width: 100%;
+}
+
+.main-index .contenedor-genero .mujer, .main-index .contenedor-genero .hombre{
+    position: relative;
+    width: 50vw;
+}
+
+.main-index .contenedor-genero .btn-genero{
+    position: absolute;
+    bottom: calc(50% - 3vh);
+    left: calc(50% - 25%);
+    border: none;
+    background: rgba(255, 229, 18, 0.8);
+    padding: 10px;
+    border-radius: 20px;
+}
+
+
 
 
 /*ESTILOS DEL PRODUCTCART*/
