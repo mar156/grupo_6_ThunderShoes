@@ -28,6 +28,9 @@ app.get('/footer', (req, res)=>{
     res.sendFile(__dirname + '/views/footer.html');
 });
 
+app.get('/shop', (req, res) => {
+    res.sendFile(__dirname + '/views/shop.html');
+});
 
 app.listen(3000, ()=>{
     console.log('Servidor escuchando en el puerto 3000');
