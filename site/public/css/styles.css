@@ -879,6 +879,66 @@ footer .contenedor-redes .contenedor-iconos i{
 
 /*ESTILOS DEL SHOP*/
 
+div .bannerSection {
+    max-width: 1024px; 
+    width: 99vw;
+    margin: 0;
+    position:absolute;
+}
+.bannerSection .bannerShop {
+    display: grid;
+    margin-top: 1vh; 
+    width: 98%;
+    margin-left:1%;
+    margin-right: 1%;
+    position: relative;
+    z-index: 10;
+    
+}
+.bannerSection .ubicacion {
+    position: relative;
+    width: 120px;
+    height: 40px;
+    border: none;
+    text-align: inherit;
+    padding: 0 15px;
+    font-weight: bold;
+       
+}
+.opciones {
+    background-color:whitesmoke;
+    text-align: center;
+    padding:20px;
+    font-size: 16px;
+    border: solid 1px grey;
+    margin-top:10px;
+}
+.vidrieraYfiltros {
+    width: 100%;
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction:row;
+}
+
+.vidrieraYfiltros .menuFiltros {
+    margin-top: 2%;
+    margin-left: 4%;
+    background-color: lightgrey;
+    padding: 0 13vh;
+    font-size: 18px;
+    display: block;
+}
+.vidrieraShop {
+    display:flex;
+    flex-direction:column;
+    
+}
+div .productoVidriera img {
+    width:49%;
+    border: solid 0.5px grey; 
+    display:block;
+}
+
 /*ESTILOS DEL LOGIN*/
 
 /*ESTILOS DEL REGISTER*/
