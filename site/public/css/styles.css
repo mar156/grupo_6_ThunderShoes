@@ -1089,12 +1089,118 @@ footer .contenedor-redes .contenedor-iconos i{
     background: rgba(255, 229, 18, 0.8);
 }
 
+.main-index .carousel-productos-destacados .oculto{
+    display: none;
+}
+
+
+.main-index .carousel-productos-destacados{
+    width: 100vw;
+    text-align: center;
+}
+
+
+.main-index .carousel-productos-destacados .contenedor-productos-destacados .producto img{
+    width: 85%;
+}
+
+
+.main-index .contenedor-genero{
+    display: flex;
+    width: 100vw;
+    max-width: 1024px;
+    margin: 0 auto;
+}
+
+.main-index .contenedor-genero .mujer img, .main-index .contenedor-genero .hombre img{
+    width: 100%;
+}
+
+.main-index .contenedor-genero .mujer, .main-index .contenedor-genero .hombre{
+    position: relative;
+    width: 50vw;
+}
+
+.main-index .contenedor-genero .btn-genero{
+    position: absolute;
+    bottom: calc(50% - 3vh);
+    left: calc(50% - 25%);
+    border: none;
+    background: rgba(255, 229, 18, 0.8);
+    padding: 10px;
+    border-radius: 20px;
+}
+
+
+
 
 /*ESTILOS DEL PRODUCTCART*/
 
 /*ESTILOS DEL PRODUCT DETAIL*/
 
 /*ESTILOS DEL SHOP*/
+
+
+.main-shop .bannerSection{
+    max-width: 1024px; 
+    width: 99vw;
+    margin: 0;
+    position:relative;
+}
+
+.bannerSection .bannerShop {
+    display: grid;
+    margin-top: 1vh; 
+    width: 98%;
+    margin-left:1%;
+    margin-right: 1%;
+    position: relative;
+    z-index: 10;
+    
+}
+.main-shop .bannerSection .ubicacion {
+    position: absolute;
+    /*width: 120px;*/
+    height: 40px;
+    border: none;
+    text-align: inherit;
+    padding: 0 15px;
+    font-weight: bold;
+    z-index: 100; 
+}
+.opciones {
+    background-color:whitesmoke;
+    text-align: center;
+    padding:20px;
+    font-size: 16px;
+    border: solid 1px grey;
+    margin-top:10px;
+}
+.vidrieraYfiltros {
+    width: 100%;
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction:row;
+}
+
+.vidrieraYfiltros .menuFiltros {
+    margin-top: 2%;
+    margin-left: 4%;
+    background-color: lightgrey;
+    padding: 0 13vh;
+    font-size: 18px;
+    display: block;
+}
+.vidrieraShop {
+    display:flex;
+    flex-direction:column;
+    
+}
+div .productoVidriera img {
+    width:49%;
+    border: solid 0.5px grey; 
+    display:block;
+}
 
 /*ESTILOS DEL LOGIN*/
 
