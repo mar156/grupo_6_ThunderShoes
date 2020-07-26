@@ -1257,39 +1257,46 @@ footer .contenedor-redes .contenedor-iconos i{
     margin: 8px;
 }
 
-
-.opciones {
-    background-color:whitesmoke;
-    text-align: center;
-    padding:20px;
-    font-size: 16px;
-    border: solid 1px grey;
-    margin-top:10px;
-}
-.vidrieraYfiltros {
-    width: 100%;
+.main-shop .vidrieraShop {
     display:flex;
     flex-wrap: wrap;
-    flex-direction:row;
+    width:100%;
+    flex-direction: row;
 }
-
-.vidrieraYfiltros .menuFiltros {
-    margin-top: 2%;
-    margin-left: 4%;
-    background-color: lightgrey;
-    padding: 0 13vh;
-    font-size: 18px;
-    display: block;
-}
-.vidrieraShop {
+.main-shop .vidrieraShop .productoVidriera {
     display:flex;
-    flex-direction:column;
+    flex-wrap: wrap;
+    width:50vw;
     
 }
-div .productoVidriera img {
-    width:49%;
-    border: solid 0.5px grey; 
+.main-shop .vidrieraShop .productoVidriera .descripcion {
+    font-size: 15px;
+    padding-left: 2%;
+    margin-left:10%;
+    /*margin: 0.5px 9px 0.5px 5px;*/
+    width:100%;
+    display:flex;
+
+}
+.main-shop .vidrieraShop .productoVidriera .descripcion p {
+margin: 0.5px 15px 5px 7px;
+}
+.main-shop .vidrieraShop .productoVidriera .precio {
+    display:flex;
+    width:100%;
+    margin-left:10%
+    
+}
+.main-shop .vidrieraShop .productoVidriera .precio p {
+    margin: 0.5px 15px 10px 15px;
+}
+
+.main-shop .vidrieraShop .productoVidriera img{
     display:block;
+    width:96%;
+    padding:5px;
+    border: solid 1px #d3d3d3; 
+    margin:2% 1% 2% 2% ;
 }
 
 /*ESTILOS DEL LOGIN*/
