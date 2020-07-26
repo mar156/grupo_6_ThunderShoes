@@ -1180,6 +1180,10 @@ footer .contenedor-redes .contenedor-iconos i{
     border: solid;
 }
 
+.main-shop .filtros.oculto{
+    display: none;
+}
+
 .main-shop .filtros .contenedor-titulo-filtros{
     justify-content: space-between;
     display: flex;
