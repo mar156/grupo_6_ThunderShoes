@@ -1236,6 +1236,22 @@ footer .contenedor-redes .contenedor-iconos i{
     margin-left: 10px;
 }
 
+/*.main-shop .filtros .contenedor-filtro-talle {
+  width: 80%;
+}*/
+.main-shop .filtros div.tabla-talles {
+    display: flex;
+    flex-wrap:wrap;
+    width:80%;
+    margin: 0 9vw;
+}
+
+.main-shop .filtros button {
+    display: block;
+    width: 25%;
+    justify-content: center;
+    margin: 8px;
+}
 
 
 .opciones {
