@@ -1100,7 +1100,7 @@ footer .contenedor-redes .contenedor-iconos i{
     background: rgba(255, 229, 18, 0.8);
 }
 
-.main-index .carousel-productos-destacados .oculto{
+/*.main-index .carousel-productos-destacados .oculto{
     display: none;
 }
 
@@ -1113,6 +1113,61 @@ footer .contenedor-redes .contenedor-iconos i{
 
 .main-index .carousel-productos-destacados .contenedor-productos-destacados .producto img{
     width: 85%;
+}
+*/
+
+.carousel-productos-destacados{
+    width: 80vw;
+    margin: 0 auto;
+}
+
+.carousel-productos-destacados .carousel-contenedor{
+    position: relative;
+}
+
+.carousel-productos-destacados .carousel-contenedor .carousel-anterior, .carousel-productos-destacados .carousel-contenedor .carousel-siguiente{
+    position: absolute;
+    display: block;
+    width: 30px;
+    height: 30px;
+    border: none;
+    top: calc(50% - 35px);
+    cursor: pointer;
+    line-height: 30px;
+    text-align: center;
+    background-color: rgba(255, 229, 18, 0.8);
+    color: #000000;
+    opacity: 100%;
+    z-index: 100;
+    border-radius: 100%;
+    margin: 0 15px;
+}
+
+.carousel-productos-destacados .carousel-contenedor .carousel-anterior{
+    left: 0px;
+}
+
+.carousel-productos-destacados .carousel-contenedor .carousel-siguiente{
+    right: 0px;
+}
+
+.carousel-productos-destacados .carousel-contenedor .carousel-lista{
+    overflow: hidden; /*Elimino scroll que aparece en firefox*/
+    border: solid 1px #d6d6d6;
+    border-radius: 30px;
+    padding: 5% 0;
+}
+
+.carousel-productos-destacados .carousel-contenedor .carousel-lista .carousel-elemento{
+    text-align: center;
+    margin: 0 15px;
+    cursor: pointer;
+}
+
+.carousel-productos-destacados .carousel-contenedor .carousel-lista .carousel-elemento:hover{
+    box-shadow: 7px 7px 21px -10px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 7px 7px 21px -10px rgba(0,0,0,0.75);
+    -moz-box-shadow: 7px 7px 21px -10px rgba(0,0,0,0.75);
 }
 
 
