@@ -3,8 +3,8 @@ let menu = document.getElementById("menu");
 
 let summaryCart = document.getElementById("summary-container");
 
-let thumnails = document.getElementsByClassName("thumnails");
-
+/* 
+let thumnails = document.getElementsByClassName("thumnails"); */
 
 
 btn.addEventListener("click", function(e){
@@ -44,3 +44,26 @@ if(menu.style.left == "-100vw"){
 
 // thumnails.map( thumnail => {
 // });
+
+
+
+/* Prueba slideshow product detail*/
+
+let thumnails = document.getElementsByClassName("thumnails");
+
+let selectedImg = document.getElementsByClassName("thumnails selected")
+
+for(let i = 0; i < thumnails.length; i++){
+
+    thumnails[i].addEventListener("mouseover", function(){
+       
+        if(selectedImg.length > 0){
+            selectedImg[0].classList.remove("selected");
+        }
+ 
+        this.classList.add("selected");
+        document.getElementById("img-principal").src = this.src;
+
+    })
+
+}
