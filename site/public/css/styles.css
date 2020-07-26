@@ -439,7 +439,9 @@ a{
     max-width: 512px;
 }
 
-.envio-gratis {
+.envio-gratis, 
+.devolucion-gratis,
+.paga-seguro {
     border-top: 1px solid #ccc;
     border-bottom: 1px solid #ccc;
 
@@ -447,12 +449,17 @@ a{
     padding: .8rem;
 }
 
-    .envio-gratis i {
+    .envio-gratis i,
+    .devolucion-gratis i,
+    .paga-seguro i {
         margin-right: .8rem;
+        width: 20px;
         /* color: #3A3636; */
     }
 
-    .envio-gratis span { color: #3a3636; }
+    .envio-gratis span,
+    .devolucion-gratis span,
+    .paga-seguro span { color: #3a3636; }
 
 .ckeckout-content {
     margin: .5rem 1rem;
@@ -503,6 +510,164 @@ a{
         color:  #ffe512;
         background-color: black;
     }
+
+
+/* Product detail */
+.main-product-detail {
+    font-family: "Raleway";
+    margin: .5rem 0;
+}
+
+.breadcrumbs {
+    padding: 0 .5rem;
+    font-size: .8rem;
+    color: #3a3636;
+}
+
+.product-detail-flex-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.product-detail-slideshow img {
+    width: 100%;
+    margin-top: .5rem;
+}
+
+.product-detail-thumnails {
+    width: calc(1024px - 1rem - 320px);
+    display: flex;
+    flex-wrap: wrap;
+}
+.product-detail-thumnails img {
+    width: 25%;
+    cursor: pointer;
+}
+
+.product-detail-thumnails img.selected,
+.product-detail-thumnails img:hover {
+    opacity: 60%;
+}
+
+.product-detail-sticky { 
+    position: relative;
+}
+
+.product-detail-content {
+    padding: 0 .5rem;
+}
+
+.product-detail-content h1 {
+    font-weight: normal;
+    margin: .5rem 0;
+}
+
+.product-detail-content span:nth-child(2) {
+    font-size: 2rem;
+    font-weight: bold;
+    display: block;
+    text-align: center;
+}
+
+.product-detail-content span:nth-child(4) {
+    display: block;
+    text-align: center;
+}
+
+.product-colors {
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.color {
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    height: 40px;
+    width: 40px;
+    /* text-align: center; */
+    margin-right: 1.5rem;
+}
+.color:nth-child(1){ background-color: #0c0c0c; }
+.color:nth-child(2){ background-color: white; }
+.color:nth-child(3){ background-color: brown; }
+.color:nth-child(4){ background-color: red; }
+
+.color.selected {
+    outline: 1.5px solid #0c0c0c;
+    outline-offset: 2px;
+}
+
+
+.product-sizes-container {
+    margin-top: 1rem;
+    padding: 0 .5rem;
+}
+
+.product-sizes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    max-width: 304px;
+    margin-top: .3rem;
+}
+
+.size {
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    height: 40px;
+    width: 40px;
+    text-align: center;
+    line-height: 40px;
+    margin-right: .3rem;
+    margin-bottom: .3rem;
+    font-size: 0.8rem;
+}
+.size.selected { 
+    border-color: #0c0c0c; 
+    background-color: #0c0c0c;
+    color: #ffe512;
+}
+
+.purchase-detail {
+    margin-top: 1rem;
+    padding: 0 .5rem;
+}
+
+.purchase-detail .envio-gratis,
+.purchase-detail .devolucion-gratis,
+.purchase-detail .paga-seguro { font-weight: normal; }
+
+.purchase-detail .envio-gratis,
+.purchase-detail .devolucion-gratis { border-bottom: none; }
+
+.product-description { 
+    padding: 0 .5rem; 
+}
+
+.product-description p { font-size: .9rem; }
+
+.btn-add-cart {
+    background-color: #ffe512;
+    color: #0c0c0c;
+    width: 80%;
+    height: 2rem;
+    margin: 1rem auto;
+    text-align: center;
+    border: none;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: block;
+}
+
+.btn-add-cart:hover {
+    color: #ffe512;
+    background-color: #0c0c0c;
+}
 
 @media only screen and ( min-width: 1024px ){
 
@@ -608,6 +773,37 @@ a{
 
     .item-value .cantidad-item input{
         width: 3rem;
+    }
+
+    .main-product-detail {
+        max-width: 1024px;
+        margin: 0 auto;
+    }
+
+    .breadcrumbs { 
+        font-size: 1rem;
+        padding: .5rem;
+    }
+
+    .product-detail-slideshow > img {
+        width: calc(1024px - 1rem - 320px);
+    }
+
+    .product-detail-sticky {
+        width: 320px;
+    }
+
+    .product-detail-container {
+        position: sticky;
+        width: 100%;
+        background-color: white;
+        top: 110px;
+    }
+
+    .product-description {
+        width: calc(1024px - 1rem - 320px);
+        font-size: 1rem;
+        line-height: 1.1rem;
     }
 }
 
