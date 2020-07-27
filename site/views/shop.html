@@ -91,104 +91,101 @@
             <i class="fas fa-chevron-down"></i>
         </div>
     </div>
-    <div class="filtros oculto"> 
-        <div class="contenedor-titulo-filtros">
-            <h4>FILTRAR POR</h4>
-            <div class="borrar-cerrar">
-                <span>Borrar todo</span>
-                <button class="cerrar"><i class="fas fa-times"></i></button>
-            </div> 
-        </div>
-        <div class="contenedor-filtros">
-           <div>
-               <div class="filtro-sexo">
-                <h4>SEXO</h4>
-                <i class="fas fa-chevron-down menudesplegable"></i>
-            </div>
-            <span class="categoria-filtro contenedor-filtro-sexo">
-                <form>
-                    <div>
-                        <input type="checkbox" name="sexo" id="mujer" value="f">
-                        <label for="mujer">MUJER</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" name="sexo" id="hombre" value="m">
-                        <label for="hombre">HOMBRE</label>
-                    </div>   
-                </form>
-            </span>
-        </div>
-            <div class="talle">
-                <div class="filtro-talle">
-                <h4>TALLE</h4>
-                <i class="fas fa-chevron-down menudesplegable"></i>
-            </div>
-            <span class="categoria-filtro contenedor-filtro-talle">
-                <div class="tabla-talles">
-                    <button> 35 </button>
-                    <button> 36 </button>
-                    <button> 37 </button>
-                    <button> 38 </button>
-                    <button> 39 </button>
-                    <button> 40 </button>
-                    <button> 41 </button>
-                   <button> 42 </button>
-                   <button> 43 </button>
+
+    <div class="relativo">
+
+    </div>
+    <div class="filtros oculto">
+        <form>
+            <div class="contenedor-titulo-filtros">
+                <h4>FILTRAR POR</h4>
+                <div class="borrar-cerrar">
+                    <button type="reset">Borrar todo</button>
+                    <div class="cerrar"><i class="fas fa-times" aria-hidden="true"></i></div>
                 </div>
-                
-            </span> 
-        </div>
-        <div>
-            <div class="filtro-deporte">
-                <h4>DEPORTE</h4>
-                <i class="fas fa-chevron-down menudesplegable"></i>
             </div>
-            <span class="categoria-filtro contenedor-filtro-sexo">
-                <form>
-                    <div>
-                        <input type="checkbox" name="deporte" id="tenis" value="T">
-                        <label for="tenis">TENIS</label>
+
+            <div class="contenedor-filtros">
+                <div class="filtro-sexo">
+                    <div class="titulo">
+                        <h4 class="menu-desplegable">SEXO</h4>
+                        <i class="fas fa-chevron-down menu-desplegable"></i>
                     </div>
-                    <div>
-                        <input type="checkbox" name="deporte" id="football" value="F">
-                        <label for="football">FOOTBALL</label>
+                    <div class="contenido oculto">
+                        <div>
+                            <input type="checkbox" name="sexo" id="mujer" value="f">
+                            <label for="mujer">MUJER</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="sexo" id="hombre" value="m">
+                            <label for="hombre">HOMBRE</label>
+                        </div>  
                     </div> 
-                    <div>
-                        <input type="checkbox" name="deporte" id="running" value="R">
-                        <label for="running">RUNNING</label>
+                </div>
+                <div class="filtro-talle">
+                    <div class="titulo">
+                        <h4 class="menu-desplegable">TALLE</h4>
+                        <i class="fas fa-chevron-down menu-desplegable"></i>
                     </div>
-                    <div>
-                        <input type="checkbox" name="deporte" id="volley" value="V">
-                        <label for="volley">VOLLEY</label>
-                    </div> 
-                </form>    
-            </span>
-        </div>    
-           
-            
+                    <div class="contenido oculto">
+                        <div class="talles">
+                            <button> 35 </button>
+                            <button> 36 </button>
+                            <button> 37 </button>
+                            <button> 38 </button>
+                            <button> 39 </button>
+                            <button> 40 </button>
+                            <button> 41 </button>
+                            <button> 42 </button>
+                            <button> 43 </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="filtro-deporte">
+                    <div class="titulo">
+                        <h4 class="menu-desplegable">DEPORTE</h4>
+                        <i class="fas fa-chevron-down menu-desplegable"></i>
+                    </div>
+                    <div class="contenido oculto">
+                        <div>
+                            <input type="checkbox" name="deporte" id="tenis" value="T">
+                            <label for="tenis">TENIS</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="deporte" id="football" value="F">
+                            <label for="football">FOOTBALL</label>
+                        </div> 
+                        <div>
+                            <input type="checkbox" name="deporte" id="running" value="R">
+                            <label for="running">RUNNING</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="deporte" id="volley" value="V">
+                            <label for="volley">VOLLEY</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit">
+                APLICAR
+            </button>
+        </form>
     </div>
-    </div>
-    <!--<div class="opciones">
-        <label for="opciones" id="opciones">Ordenar por </label>
-        <select name="opciones" id="opciones"> 
-            <option value="posicion">Posición</option>
-            <option value="nombre">Nombre</option>
-            <option value="precio">Precio</option>
-            <option value="descuento">Descuento</option>
-        </select>
-    </div>-->
-    <!--<div class="vidrieraYfiltros"> 
-        <div class="menuFiltros">
-            <h3>Filtro</h3> 
-            <p> Categoría</p> 
-            <p> Marca</p>
-            <p> Talle</p>
-            <p> Género</p>
-            <p> Deporte</p>
-            <p> Precio </p>  
-            <p>Color</p>  
+
+    <div class="ordenar-por oculto">
+        <div class="contenedor-titulo-ordenar">
+            <h4>ORDENAR POR</h4>
+            <div class="borrar-cerrar">
+                <div class="cerrar"><i class="fas fa-times" aria-hidden="true"></i></div>
+            </div>
         </div>
-    </div>-->
+        <div class="contenido">
+            <button>PRECIO(DE MAYOR A MENOR)</button>
+            <button>PRECIO(DE MENOR A MAYOR)</button>
+            <button>ORDEN ALFABÉTICO</button>
+        </div>
+    </div>
 
     <div class="vidrieraShop">
         <div class="productoVidriera">
@@ -304,8 +301,7 @@
         </div>
     </footer>
 
-    <script src="script/main-shop.js"></script>
     <script src="script/footer.js"></script>
-    <script src="script/shop-filter-menu.js"></script>
+    <script src="script/shop.js"></script>
 </body>
 </html>
