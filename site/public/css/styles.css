@@ -1078,19 +1078,20 @@ footer .contenedor-redes .contenedor-iconos i{
 .main-index .contenedor-seccion-deporte{
     display: grid;
     grid-template-columns: repeat(2, 40vw);
-    grid-template-rows: repeat(2, auto);
+    grid-template-rows: repeat(2, 50%);
     margin: 10% 10%;
 }
 
 .main-index .contenedor-seccion-deporte article{
     display: grid;
-    grid-template-rows: auto auto;
+    grid-template-rows: 30vh auto;
     position: relative;
 }
 
 .main-index .contenedor-seccion-deporte article img{
     margin: 0 auto;
     width: 100%;
+    height: 100%;
 }
 
 .main-index .contenedor-seccion-deporte article .btn-article-deporte{
@@ -1167,9 +1168,9 @@ footer .contenedor-redes .contenedor-iconos i{
 
 .main-index .contenedor-genero{
     display: flex;
-    width: 100vw;
-    max-width: 1024px;
-    margin: 0 auto;
+    width: 100%;
+    /*max-width: 1024px;
+    margin: 0 auto;*/
 }
 
 .main-index .contenedor-genero .mujer img, .main-index .contenedor-genero .hombre img{
@@ -1196,7 +1197,7 @@ footer .contenedor-redes .contenedor-iconos i{
 /*Creo para tablets y el desktop del home después las unifico con las otras :D */
 @media(min-width:768px){
     .main-index .contenedor-imagenes-boton{
-        height: 80vh;
+        height: 60vh;
         width: auto;
     }
 
@@ -1221,9 +1222,37 @@ footer .contenedor-redes .contenedor-iconos i{
         width: 100% !important;
     }
 
+    .main-index .contenedor-seccion-deporte {
+        display: grid;
+        grid-template-columns: repeat(4, 20vw);
+        grid-template-rows: 28vh;
+        margin: 5% 10%;
+    }
+
+    .main-index .contenedor-seccion-deporte article {
+        display: grid;
+        grid-template-rows: 40vh auto;
+        position: relative;
+    }
+
+    .main-index .contenedor-seccion-deporte article img{
+        height: 100%;
+    }
+    .main-index .contenedor-genero .btn-genero{
+        font-size: 1.3rem;
+        left: calc(50% - 5vw);
+        font-weight: bold;
+        padding: 15px;
+    }
+
 }
 
 @media(min-width:1024px){
+    .main-index .contenedor-imagenes-boton{
+        height: 80vh;
+        width: auto;
+    }
+
     .main-index .contenedor-imagenes-boton .contenedor-boton-shop-now-icono{
         top: calc( 50% - 4vh);
         left: calc(50% - 11vw);
@@ -1236,6 +1265,13 @@ footer .contenedor-redes .contenedor-iconos i{
     .main-index .contenedor-imagenes-boton .contenedor-boton-shop-now-icono i{
         font-size: 1.5rem;
         top: 30%;
+    }
+
+    .main-index .contenedor-seccion-deporte {
+        display: grid;
+        grid-template-columns: repeat(4, 20vw);
+        grid-template-rows: 40vh;
+        margin: 5% 10%;
     }
 }
 
