@@ -1,31 +1,29 @@
 let $desplegables = document.querySelectorAll('.menu-desplegable');
 let $btnCerrar = document.querySelector('.cerrar');
 
+function desplegar(elementoADesplegar){
+    if(elementoADesplegar.classList.contains('oculto')){
+        elementoADesplegar.classList.remove('oculto');
+        elementoADesplegar.style.display = "block";
+    }
+    else{
+        elementoADesplegar.classList.add('oculto');
+        elementoADesplegar.style.display="none";
+    }
+}
+
 /*Desplegar filtros*/
 document.querySelector('.filtrar').onclick = function(e){
     let $filtros = document.querySelector('.filtros');
-    if($filtros.classList.contains('oculto')){
-        $filtros.classList.remove('oculto');
-        $filtros.style.display = "block";
-    }
-    else{
-        $filtros.classList.add('oculto');
-        $filtros.style.display="none";
-    }
+    desplegar($filtros);
     e.preventDefault();
 }
 
 /*Desplegar ordenar por*/
 document.querySelector('.ordenar').onclick = function(e){
     let $lista = document.querySelector('.ordenar-por');
-    if($lista.classList.contains('oculto')){
-        $lista.classList.remove('oculto');
-        $lista.style.display = "block";
-    }
-    else{
-        $lista.classList.add('oculto');
-        $lista.style.display="none";
-    }
+    desplegar($lista);
+    e.preventDefault();
 }
 
 /*Cerrar filtros al hacer click en cerrar*/
