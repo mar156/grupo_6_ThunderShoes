@@ -998,10 +998,11 @@ footer .contenedor-redes .contenedor-iconos i{
 
 /*ESTILOS DEL HOME*/
 .main-index{
-    max-width: 1024px; 
-    /*margin: 0 auto;*/
+   /* max-width: 1024px;
+    /*margin: 0 auto;
     width: 100vw;
-    margin: 0;
+    margin: 0;*/
+    width: auto;
 }
 
 .main-index .contenedor-imagenes-boton{
@@ -1026,6 +1027,10 @@ footer .contenedor-redes .contenedor-iconos i{
     display: grid;
     width: 50vw;
     height: 100%;
+}
+
+.main-index .contenedor-imagenes-boton .imagenes .gifs{
+    display: none;
 }
 
 .main-index .contenedor-imagenes-boton .imagenes .imagenes-secundarias.imagen-superior{
@@ -1186,6 +1191,54 @@ footer .contenedor-redes .contenedor-iconos i{
     padding: 10px;
     border-radius: 20px;
 }
+
+
+/*Creo para tablets y el desktop del home después las unifico con las otras :D */
+@media(min-width:768px){
+    .main-index .contenedor-imagenes-boton{
+        height: 80vh;
+        width: auto;
+    }
+
+    .main-index .contenedor-imagenes-boton .imagenes{
+        height: 100%;
+        grid-template-columns: 30% 35% auto;
+        grid-template-rows: auto auto;
+        /*grid-template-areas:
+        "imagengrande imagenpequeniasuperior primerGif"
+        "imagengrande imagenpequeniainferior segundoGif";*/
+    }
+    .main-index .contenedor-imagenes-boton .imagenes img{
+        width: auto !important;
+        height: 100%;
+    }
+    .main-index .contenedor-imagenes-boton .imagenes .gifs{
+        display: grid;
+        width: 100% !important;
+    }
+
+    .main-index .contenedor-imagenes-boton .imagenes .imagen-principal, .main-index .contenedor-imagenes-boton .imagenes .imagenes-secundarias{
+        width: 100% !important;
+    }
+
+}
+
+@media(min-width:1024px){
+    .main-index .contenedor-imagenes-boton .contenedor-boton-shop-now-icono{
+        top: calc( 50% - 4vh);
+        left: calc(50% - 11vw);
+    }
+    .main-index .contenedor-imagenes-boton .contenedor-boton-shop-now-icono .boton-shop-now{
+        width: 180px;
+        height: 60px;
+        font-size: 1.3rem;
+    }
+    .main-index .contenedor-imagenes-boton .contenedor-boton-shop-now-icono i{
+        font-size: 1.5rem;
+        top: 30%;
+    }
+}
+
 
 
 /*ESTILOS DEL PRODUCTCART*/
