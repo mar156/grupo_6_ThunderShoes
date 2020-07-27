@@ -673,6 +673,104 @@ a{
     background-color: #0c0c0c;
 }
 
+/* LOGIN y REGISTER */
+.main-login, .main-register {
+    font-family: "Raleway";
+}
+
+.form-container {
+    /* background-image: url("../img/login-modelo.jpg"); */
+    width: 100%;
+    padding: .5rem .5rem 0 ;
+}
+
+.form-container h2 {
+    text-align: center;
+}
+
+.form-content form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-content form input[type="email"],
+.form-content form input[type="password"],
+.form-content form input[type="text"],
+.form-content form input[type="tel"] {
+    width: 90%;
+    padding: 4px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-top: .5rem;
+    margin-bottom: 1rem;
+}
+
+.form-content form > div {
+    width: 90%;
+    margin-top: .5rem;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.form-content form div:nth-child(1) input, 
+.form-content form div:nth-child(1) label {
+    cursor: pointer;
+}
+
+.form-content form div:nth-child(2) {
+    height: 1.6rem;
+    width: 30%;
+    font-size: .8rem;
+}
+
+.form-content form div a { 
+    color: #0C0C0C;
+    text-decoration: underline;
+}
+
+.form-content form button,
+.form-content form > a {
+    width: 90%;
+    padding: 4px;
+    margin-top: .5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    height: 2rem;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.form-content form button[type="submit"] {
+    background-color: #ffe512;
+    color: #0C0C0C;
+    border: none;
+}
+
+.form-content form button[type="submit"]:hover {
+    color: #ffe512;
+    background-color: #0c0c0c;
+}
+
+.form-content form > a {
+    border: 1px solid #ccc;
+    color: #0c0c0c;
+    line-height: 1.5rem;
+}
+
+.form-content form > a:hover {
+    color: white;
+    background-color: #0c0c0c;
+}
+
+.form-container img, 
+.main-login-nav,
+.main-register-nav { display: none; }
+
 @media only screen and ( min-width: 1024px ){
 
     /*Top header*/
@@ -810,11 +908,73 @@ a{
         line-height: 1.1rem;
     }
 
-    /*Slide*/
+    .width-side-sticky {
+        width: 1024px !important;
+        margin: 1rem auto !important;
+        padding-left: .5rem;
+    }
 
+    /*Slide*/
     .product-detail-thumnails {
         width: calc(1024px - 1rem - 320px);
     }
+
+    /* Main login */ 
+    .main-login,
+    .main-register {
+        max-width: 1024px;
+        margin: 0 auto;
+    }
+
+    .main-login-nav,
+    .main-register-nav {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+        margin-top: 1rem;
+        border: 1px solid #ccc;
+    }
+
+    .main-login-nav a,
+    .main-register-nav a {
+        color: #0c0c0c;
+        font-size: 1.2rem;
+        font-weight: bold;
+        padding: 1rem;
+    }
+    .main-login-nav a:hover,
+    .main-register-nav a:hover {
+        text-decoration: underline;
+    }
+
+    .main-login-nav a:nth-child(1),
+    .main-register-nav a:nth-child(2) {
+        text-decoration: underline;
+    }
+
+    .form-container {
+        display: flex;
+        padding: 0;
+        margin: 1rem 0;
+    }
+
+    .form-content { 
+        border: 1px solid #ccc;
+        border-right: none;
+        padding: 2rem 4rem;
+    }
+
+    .main-register .form-content {
+        border: 1px solid #ccc;
+        border-left: none;
+    }
+
+    .form-content h2 { margin-bottom: 3rem; }
+
+    .form-content, .form-container img { width: 50%; }
+
+    .form-container img { display: block; }
 
 }
 
