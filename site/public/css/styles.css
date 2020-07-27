@@ -998,10 +998,11 @@ footer .contenedor-redes .contenedor-iconos i{
 
 /*ESTILOS DEL HOME*/
 .main-index{
-    max-width: 1024px; 
-    /*margin: 0 auto;*/
+   /* max-width: 1024px;
+    /*margin: 0 auto;
     width: 100vw;
-    margin: 0;
+    margin: 0;*/
+    width: auto;
 }
 
 .main-index .contenedor-imagenes-boton{
@@ -1026,6 +1027,10 @@ footer .contenedor-redes .contenedor-iconos i{
     display: grid;
     width: 50vw;
     height: 100%;
+}
+
+.main-index .contenedor-imagenes-boton .imagenes .gifs{
+    display: none;
 }
 
 .main-index .contenedor-imagenes-boton .imagenes .imagenes-secundarias.imagen-superior{
@@ -1073,19 +1078,20 @@ footer .contenedor-redes .contenedor-iconos i{
 .main-index .contenedor-seccion-deporte{
     display: grid;
     grid-template-columns: repeat(2, 40vw);
-    grid-template-rows: repeat(2, auto);
-    margin: 5% 10%;
+    grid-template-rows: repeat(2, 50%);
+    margin: 10% 10%;
 }
 
 .main-index .contenedor-seccion-deporte article{
     display: grid;
-    grid-template-rows: auto auto;
+    grid-template-rows: 30vh auto;
     position: relative;
 }
 
 .main-index .contenedor-seccion-deporte article img{
     margin: 0 auto;
     width: 100%;
+    height: 100%;
 }
 
 .main-index .contenedor-seccion-deporte article .btn-article-deporte{
@@ -1100,25 +1106,15 @@ footer .contenedor-redes .contenedor-iconos i{
     background: rgba(255, 229, 18, 0.8);
 }
 
-/*.main-index .carousel-productos-destacados .oculto{
-    display: none;
-}
-
-
-.main-index .carousel-productos-destacados{
-    width: 100vw;
+.main-index .titulo-productos-destacados{
     text-align: center;
+    line-height: 1px;
 }
-
-
-.main-index .carousel-productos-destacados .contenedor-productos-destacados .producto img{
-    width: 85%;
-}
-*/
 
 .carousel-productos-destacados{
     width: 80vw;
     margin: 0 auto;
+    margin-bottom: 5vh;
 }
 
 .carousel-productos-destacados .carousel-contenedor{
@@ -1170,12 +1166,11 @@ footer .contenedor-redes .contenedor-iconos i{
     -moz-box-shadow: 7px 7px 21px -10px rgba(0,0,0,0.75);
 }
 
-
 .main-index .contenedor-genero{
     display: flex;
-    width: 100vw;
-    max-width: 1024px;
-    margin: 0 auto;
+    width: 100%;
+    /*max-width: 1024px;
+    margin: 0 auto;*/
 }
 
 .main-index .contenedor-genero .mujer img, .main-index .contenedor-genero .hombre img{
@@ -1183,6 +1178,7 @@ footer .contenedor-redes .contenedor-iconos i{
 }
 
 .main-index .contenedor-genero .mujer, .main-index .contenedor-genero .hombre{
+    margin-bottom: -10px;
     position: relative;
     width: 50vw;
 }
@@ -1197,7 +1193,94 @@ footer .contenedor-redes .contenedor-iconos i{
     border-radius: 20px;
 }
 
-/*ESTILOS DEL PRODUCTCART*/
+/*<<<<<< HEAD
+=======
+
+Creo para tablets y el desktop del home después las unifico con las otras :D */
+@media(min-width:768px){
+    .main-index .contenedor-imagenes-boton{
+        height: 60vh;
+        width: auto;
+    }
+
+    .main-index .contenedor-imagenes-boton .imagenes{
+        height: 100%;
+        grid-template-columns: 30% 35% auto;
+        grid-template-rows: auto auto;
+        /*grid-template-areas:
+        "imagengrande imagenpequeniasuperior primerGif"
+        "imagengrande imagenpequeniainferior segundoGif";*/
+    }
+    .main-index .contenedor-imagenes-boton .imagenes img{
+        width: auto !important;
+        height: 100%;
+    }
+    .main-index .contenedor-imagenes-boton .imagenes .gifs{
+        display: grid;
+        width: 100% !important;
+    }
+
+    .main-index .contenedor-imagenes-boton .imagenes .imagen-principal, .main-index .contenedor-imagenes-boton .imagenes .imagenes-secundarias{
+        width: 100% !important;
+    }
+
+    .main-index .contenedor-seccion-deporte {
+        display: grid;
+        grid-template-columns: repeat(4, 20vw);
+        grid-template-rows: 28vh;
+        margin: 5% 10%;
+    }
+
+    .main-index .contenedor-seccion-deporte article {
+        display: grid;
+        grid-template-rows: 40vh auto;
+        position: relative;
+    }
+
+    .main-index .contenedor-seccion-deporte article img{
+        height: 100%;
+    }
+    .main-index .contenedor-genero .btn-genero{
+        font-size: 1.3rem;
+        left: calc(50% - 5vw);
+        font-weight: bold;
+        padding: 15px;
+    }
+
+}
+
+@media(min-width:1024px){
+    .main-index .contenedor-imagenes-boton{
+        height: 80vh;
+        width: auto;
+    }
+
+    .main-index .contenedor-imagenes-boton .contenedor-boton-shop-now-icono{
+        top: calc( 50% - 4vh);
+        left: calc(50% - 11vw);
+    }
+    .main-index .contenedor-imagenes-boton .contenedor-boton-shop-now-icono .boton-shop-now{
+        width: 180px;
+        height: 60px;
+        font-size: 1.3rem;
+    }
+    .main-index .contenedor-imagenes-boton .contenedor-boton-shop-now-icono i{
+        font-size: 1.5rem;
+        top: 30%;
+    }
+
+    .main-index .contenedor-seccion-deporte {
+        display: grid;
+        grid-template-columns: repeat(4, 20vw);
+        grid-template-rows: 40vh;
+        margin: 5% 10%;
+    }
+}
+
+
+
+/*>>>>>>> 991ec4b9b289d94062583605f7130cd403e95bde
+ESTILOS DEL PRODUCTCART*/
 
 /*ESTILOS DEL PRODUCT DETAIL*/
 
