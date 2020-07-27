@@ -1415,6 +1415,7 @@ ESTILOS DEL PRODUCTCART*/
 }
 .main-shop .vidrieraShop .productoVidriera .descripcion p {
     margin: 0.5px 15px 5px 7px;
+    font-size: 1em;
 }
 .main-shop .vidrieraShop .productoVidriera .precio {
     display:flex;
@@ -1424,6 +1425,7 @@ ESTILOS DEL PRODUCTCART*/
 }
 .main-shop .vidrieraShop .productoVidriera .precio p {
     margin: 0.5px 15px 10px 15px;
+    font-size: 1em;
 }
 
 .main-shop .vidrieraShop .productoVidriera img{
@@ -1443,14 +1445,18 @@ ESTILOS DEL PRODUCTCART*/
     }
    .main-shop .vidrieraShop {
     justify-content: center;
+
    }
 }
 
 /* Shop Deskopt*/
 @media(min-width: 1024px){
+    .main-shop .bannerSection .bannerShop{
+        width:100vw;
+    }
     .main-shop .vidrieraShop .productoVidriera {
-        width:25vw;
-
+        width: 25%;;
+     
     }
 
 }
