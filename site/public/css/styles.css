@@ -1326,7 +1326,7 @@ ESTILOS DEL PRODUCTCART*/
     border: solid;
 }
 
-.main-shop .filtros.oculto{
+.main-shop .filtros.oculto, .main-shop .ordenar-por.oculto{
     display: none;
 }
 
@@ -1336,7 +1336,7 @@ ESTILOS DEL PRODUCTCART*/
 }
 
 
-.main-shop .filtros form .contenedor-titulo-filtros{
+.main-shop .filtros form .contenedor-titulo-filtros, .main-shop .ordenar-por .contenedor-titulo-ordenar{
     justify-content: space-between;
     display: flex;
     align-items: center;
@@ -1406,6 +1406,16 @@ ESTILOS DEL PRODUCTCART*/
     width: 25%;
     justify-content: center;
     margin: 8px;
+}
+
+.main-shop .ordenar-por{
+    border: solid;
+}
+
+.main-shop .ordenar-por .contenido{
+    display: flex;
+    flex-direction: column;
+    margin: 12px 24px;
 }
 
 .main-shop .vidrieraShop {

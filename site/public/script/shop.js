@@ -15,6 +15,19 @@ document.querySelector('.filtrar').onclick = function(e){
     e.preventDefault();
 }
 
+/*Desplegar ordenar por*/
+document.querySelector('.ordenar').onclick = function(e){
+    let $lista = document.querySelector('.ordenar-por');
+    if($lista.classList.contains('oculto')){
+        $lista.classList.remove('oculto');
+        $lista.style.display = "block";
+    }
+    else{
+        $lista.classList.add('oculto');
+        $lista.style.display="none";
+    }
+}
+
 /*Cerrar filtros al hacer click en cerrar*/
 $btnCerrar.addEventListener('click', cerrarFiltros);
 function cerrarFiltros(){
