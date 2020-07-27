@@ -1379,6 +1379,10 @@ ESTILOS DEL PRODUCTCART*/
     justify-content: space-between;
 }
 
+.main-shop .filtros form .contenedor-filtros div .contenido.oculto{
+    display: none;
+}
+
 .main-shop .filtros form .contenedor-filtros div i{
     margin-left: 10px;
 }
