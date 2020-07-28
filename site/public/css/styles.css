@@ -1457,8 +1457,8 @@ ESTILOS DEL PRODUCTCART*/
 
 .bannerSection .bannerShop {
     display: grid;
-    margin-top: 1vh; 
-    margin-bottom: 1vh;
+    /*margin-top: 1vh; 
+    margin-bottom: 1vh;*/
     width: 100%;
     justify-content: center;
     position: relative;
