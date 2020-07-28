@@ -654,7 +654,7 @@ a{
 
 .product-description p { font-size: .9rem; }
 
-.btn-add-cart, .main-shop .filtros form .btn-aplicar-estilos {
+.btn-add-cart, .main-shop .filtros form .btn-aplicar-estilos, .contenedor-vidriera-filtros form .btn-aplicar-estilos {
     background-color: #ffe512;
     color: #0c0c0c;
     width: 80%;
@@ -1448,8 +1448,9 @@ ESTILOS DEL PRODUCTCART*/
 
 
 .main-shop .bannerSection{
-    max-width: 1024px; 
-    width: 100vw;
+    /*max-width: 1024px; */
+    /*width: 100vw;*/
+    width: auto;
     margin: 0;
     position:relative;
 }
@@ -1675,7 +1676,7 @@ ESTILOS DEL PRODUCTCART*/
     position: relative;
 }
 .main-shop .vidrieraShop .productoVidriera .contenedor-boton-shop-now-icono {
-    
+    display: none;
     /*width: 30vw;
     height: 8vh;
     top: 42%;
@@ -1754,7 +1755,8 @@ ESTILOS DEL PRODUCTCART*/
     }
 
     .contenedor-vidriera-filtros{
-        width: 100vw;
+        /*width: 100vw;*/
+        width: auto;
         max-width: 1440px;
         display: flex;
     }
@@ -1766,7 +1768,7 @@ ESTILOS DEL PRODUCTCART*/
     }
 
     .main-shop .bannerSection .bannerShop{
-        width:100vw;
+        width:100%;
     }
     .main-shop .vidrieraShop .productoVidriera {
         width: 25%;;
@@ -1783,6 +1785,16 @@ ESTILOS DEL PRODUCTCART*/
     .main-shop .vidrieraShop .productoVidriera .contenedor-boton-shop-now-icono {
         width: 11vw;
     }
+
+    .contenedor-vidriera-filtros form .contenedor-filtros .filtro-talle .contenido .talles{
+        margin: 0 6px;
+    }
+
+    .contenedor-vidriera-filtros form .contenedor-filtros .filtro-talle .contenido .talles button{
+        display: inline-block;
+        margin: 4px;
+    }
+
 }
 
 
