@@ -1500,11 +1500,11 @@ ESTILOS DEL PRODUCTCART*/
     flex-direction: column;
 }
 
-.main-shop .filtros form input[type=checkbox], .contenedor-vidriera-filtros form input[type=checkbox]{
+.main-shop form input[type=checkbox]{
     display: none;
 }
 
-.main-shop .filtros form input[type=checkbox] + label:before, .contenedor-vidriera-filtros form input[type=checkbox] + label:before{
+.main-shop form input[type=checkbox] + label:before{
     content: '';
     background: transparent;
     border: 2px solid rgba(255, 229, 18);
@@ -1517,22 +1517,22 @@ ESTILOS DEL PRODUCTCART*/
     height: 20px;
 }
 
-.main-shop .filtros form input[type=checkbox]:checked + label:before, .contenedor-vidriera-filtros form input[type=checkbox]:checked + label:before{
+.main-shop form input[type=checkbox]:checked + label:before{
     content: '✔';
     font-size: 1rem;
     color: #000000;
 }
 
-.main-shop .filtros form .contenedor-filtros div .contenido div{
+.main-shop form .contenedor-filtros div .contenido div{
     margin: 5px 0;
 }
 
-.main-shop .filtros form label, .contenedor-vidriera-filtros form label{
+.main-shop form label{
     font-size: 0.9rem;
 
 }
 
-.main-shop .filtros form .contenedor-titulo-filtros, .contenedor-vidriera-filtros form .contenedor-titulo-filtros, .main-shop .ordenar-por .contenedor-titulo-ordenar{
+.main-shop form .contenedor-titulo-filtros, .main-shop .ordenar-por .contenedor-titulo-ordenar{
     justify-content: space-between;
     display: flex;
     align-items: center;
@@ -1541,14 +1541,14 @@ ESTILOS DEL PRODUCTCART*/
     border-bottom: solid 1px #d3d3d3;
 }
 
-.main-shop .filtros form .contenedor-titulo-filtros .borrar-cerrar, .contenedor-vidriera-filtros form .contenedor-titulo-filtros .borrar-cerrar{
+.main-shop form .contenedor-titulo-filtros .borrar-cerrar{
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
 }
 
-.main-shop .filtros form .contenedor-titulo-filtros .borrar-cerrar button, .contenedor-vidriera-filtros form .contenedor-titulo-filtros .borrar-cerrar button{
+.main-shop form .contenedor-titulo-filtros .borrar-cerrar button{
     width: auto;
     border: none;
     background: rgba(255, 229, 18);
@@ -1557,23 +1557,22 @@ ESTILOS DEL PRODUCTCART*/
     font-weight: bold;
 }
 
-.main-shop .filtros form .contenedor-titulo-filtros .borrar-cerrar .cerrar, .main-shop .ordenar-por .contenedor-titulo-ordenar .borrar-cerrar .cerrar, .contenedor-vidriera-filtros form .contenedor-titulo-filtros .borrar-cerrar .cerrar{
+.main-shop form .contenedor-titulo-filtros .borrar-cerrar .cerrar, .main-shop .ordenar-por .contenedor-titulo-ordenar .borrar-cerrar .cerrar{
     margin-left: 12px;
     border: none;
     font-size: 1.5rem;
 }
 
-.main-shop .filtros form .contenedor-filtros, .contenedor-vidriera-filtros form .contenedor-filtros{
+.main-shop form .contenedor-filtros{
     display: flex;
     flex-direction: column;
     margin: 12px;
     padding: 0 12px;
 }
 
-.main-shop .filtros form .contenedor-filtros .filtro-sexo, 
-.main-shop .filtros form .contenedor-filtros .filtro-talle,
-.main-shop .filtros form .contenedor-filtros .filtro-deporte, .contenedor-vidriera-filtros form .contenedor-filtros .filtro-sexo,
-.contenedor-vidriera-filtros form .contenedor-filtros .filtro-talle, .contenedor-vidriera-filtros form .contenedor-filtros .filtro-deporte{
+.main-shop form .contenedor-filtros .filtro-sexo, 
+.main-shop form .contenedor-filtros .filtro-talle,
+.main-shop form .contenedor-filtros .filtro-deporte{
     display: flex;
     flex-direction: column;
     border-bottom: solid 1px #d3d3d3;
@@ -1584,25 +1583,25 @@ ESTILOS DEL PRODUCTCART*/
     display: none;
 }
 
-.main-shop .filtros form .contenedor-filtros div i, .contenedor-vidriera-filtros form .contenedor-filtros div i{
+.main-shop form .contenedor-filtros div i{
     margin-left: 10px;
 }
 
-.main-shop .filtros form .contenedor-filtros div .titulo, .contenedor-vidriera-filtros form .contenedor-filtros div .titulo{
+.main-shop form .contenedor-filtros div .titulo{
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
 }
 
-.main-shop .filtros form .contenedor-filtros .filtro-talle .contenido .talles, .contenedor-vidriera-filtros form .contenedor-filtros .filtro-talle .contenido-talles{
+.main-shop form .contenedor-filtros .filtro-talle .contenido .talles{
     display: flex;
     flex-wrap:wrap;
     width:80%;
     margin: 0 9vw;
 }
 
-.main-shop .filtros form .contenedor-filtros .filtro-talle .contenido .talles button, .contenedor-vidriera-filtros form .contenedor-filtros .filtro-talle .contenido .talles button{
+.main-shop form .contenedor-filtros .filtro-talle .contenido .talles button{
     display: block;
     width: 25%;
     justify-content: center;
