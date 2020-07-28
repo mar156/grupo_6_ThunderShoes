@@ -654,7 +654,7 @@ a{
 
 .product-description p { font-size: .9rem; }
 
-.btn-add-cart, .main-shop .filtros form .btn-aplicar-estilos, .contenedor-vidriera-filtros form .btn-aplicar-estilos {
+.btn-add-cart, .main-shop form .btn-aplicar-estilos{
     background-color: #ffe512;
     color: #0c0c0c;
     width: 80%;
@@ -668,7 +668,7 @@ a{
     display: block;
 }
 
-.btn-add-cart:hover, .main-shop .filtros form .btn-aplicar-estilos:hover {
+.btn-add-cart:hover, .main-shop form .btn-aplicar-estilos:hover {
     color: #ffe512;
     background-color: #0c0c0c;
 }
