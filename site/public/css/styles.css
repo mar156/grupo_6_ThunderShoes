@@ -1671,13 +1671,13 @@ ESTILOS DEL PRODUCTCART*/
     top: calc( 76% - 3vh);
     left: calc( 73% - 10vh);
     position:absolute;
-    
+    width: 15vh;
 }
 
 .main-shop .vidrieraShop .productoVidriera .boton-shop-now {
     position: relative;
-    width: 18vh;
-    height: 6vh;
+    width: 17vh;
+    height: 5vh;
     border: none;
     text-align: inherit;
     padding: 0 15px;
@@ -1687,6 +1687,7 @@ ESTILOS DEL PRODUCTCART*/
     /* width: 30vw; */
     /* height: 8vh; */
     background: rgba(255, 229, 18, 0.8);   
+    font-size: 0.7em;
 }
 
 .main-shop .vidrieraShop .productoVidriera .contenedor-boton-shop-now-icono i{
@@ -1709,9 +1710,13 @@ ESTILOS DEL PRODUCTCART*/
 
    }
    .main-shop .vidrieraShop .productoVidriera .boton-shop-now {
-   width:12vw;
+   width:15vw;
    height:6vh;
-   margin-right: 5px
+   margin-right: 5px;
+   
+   }
+   .main-shop .vidrieraShop .productoVidriera .contenedor-boton-shop-now-icono { 
+       width:15vw;
    }
 }
 
@@ -1732,6 +1737,9 @@ ESTILOS DEL PRODUCTCART*/
         }
     .main-shop .vidrieraShop .productoVidriera .boton-shop-now i {
         padding-left:2px;
+    }
+    .main-shop .vidrieraShop .productoVidriera .contenedor-boton-shop-now-icono {
+        width: 11vw;
     }
 }
 
