@@ -1482,6 +1482,7 @@ ESTILOS DEL PRODUCTCART*/
     justify-content: space-around;
     font-weight: bold;
     font-size: 0.8rem;
+    margin: 15px 0;
 }
 
 .main-shop .filtros, .main-shop .ordenar-por{
@@ -1555,12 +1556,11 @@ ESTILOS DEL PRODUCTCART*/
     font-weight: bold;
 }
 
-.main-shop .filtros form .contenedor-titulo-filtros .borrar-cerrar .cerrar{
+.main-shop .filtros form .contenedor-titulo-filtros .borrar-cerrar .cerrar, .main-shop .ordenar-por .contenedor-titulo-ordenar .borrar-cerrar .cerrar{
     margin-left: 12px;
     border: none;
     font-size: 1.5rem;
 }
-
 
 .main-shop .filtros form .contenedor-filtros{
     display: flex;
@@ -1611,6 +1611,15 @@ ESTILOS DEL PRODUCTCART*/
     display: flex;
     flex-direction: column;
     margin: 12px 24px;
+}
+
+.main-shop .ordenar-por .contenido button{
+    cursor: pointer;
+    border: none;
+    background: none;
+    border-bottom: solid 1px #d6d6d6;
+    padding: 5px;
+    margin-bottom: 5px;
 }
 
 .main-shop .vidrieraShop {
