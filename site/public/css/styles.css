@@ -1735,6 +1735,13 @@ ESTILOS DEL PRODUCTCART*/
    }
 }
 
+.main-shop .vidrieraShop .productoVidriera img:hover{ 
+    padding:0;
+
+}
+.main-shop .vidrieraShop .productoVidriera:hover {
+    border:solid 1px rgba(255, 229, 18, 0.8) ;
+}
 
 /* Shop Deskopt*/
 @media(min-width: 1024px){
@@ -1795,7 +1802,6 @@ ESTILOS DEL PRODUCTCART*/
     }
 
 }
-
 
 /*ESTILOS DEL LOGIN*/
 
