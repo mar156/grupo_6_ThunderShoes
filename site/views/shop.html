@@ -92,9 +92,6 @@
         </div>
     </div>
 
-    <div class="relativo">
-
-    </div>
     <div class="filtros oculto">
         <form>
             <div class="contenedor-titulo-filtros">
@@ -187,145 +184,223 @@
         </div>
     </div>
 
-    <div class="vidrieraShop">
-        <div class="productoVidriera">
-            <img alt="zapatilla" src="img/product.jpg">
-            <div class="contenedor-boton-shop-now-icono">
-                <button class="boton-shop-now">
-                    Agregar al carrito
-                </button>
-                <i class="fas fa-bolt"></i>
-            </div>  
-            <div class="descripcion"> 
-                <i class="fas fa-tags"></i>
-                <p> Zapatillas para running Mujer</p>
+    <div class="contenedor-vidriera-filtros">
+        <form>
+            <div class="contenedor-titulo-filtros">
+                <h4>FILTRAR POR</h4>
+                <div class="borrar-cerrar">
+                    <button type="reset">Borrar todo</button>
+                    <div class="cerrar"><i class="fas fa-times" aria-hidden="true"></i></div>
+                </div>
             </div>
-             <div class="precio">
-                <i class="fas fa-hand-holding-usd"></i>
-                <p>$2500</p>
-            </div>   
-        </div> 
-        <div class="productoVidriera" >
-            <img alt="zapatilla" src="img/product.jpg">
-            <div class="contenedor-boton-shop-now-icono">
-                <button class="boton-shop-now">
-                    Agregar al carrito
-                </button>
-                <i class="fas fa-bolt"></i>
-            </div>  
-            <div class="descripcion"> 
-                <i class="fas fa-tags"></i>
-                <p class="descripcion"> Zapatillas para running Mujer</p>
-            </div>
-             <div class="precio">
-                <i class="fas fa-hand-holding-usd"></i>
-                <p class="precio">$2500</p>
-            </div>   
 
-        </div>
-        <div class="productoVidriera">
-            <img alt="zapatilla" src="img/product.jpg">
-            <div class="contenedor-boton-shop-now-icono">
-                <button class="boton-shop-now">
-                    Agregar al carrito
-                </button>
-                <i class="fas fa-bolt"></i>
-            </div>  
-            <div class="descripcion"> 
-                <i class="fas fa-tags"></i>
-                <p class="descripcion"> Zapatillas para running Mujer</p>
+            <div class="contenedor-filtros">
+                <div class="filtro-sexo">
+                    <div class="titulo">
+                        <h4 class="menu-desplegable">SEXO</h4>
+                        <i class="fas fa-chevron-down menu-desplegable"></i>
+                    </div>
+                    <div class="contenido oculto">
+                        <div>
+                            <input type="checkbox" name="sexo" id="mujer" value="f">
+                            <label for="mujer">MUJER</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="sexo" id="hombre" value="m">
+                            <label for="hombre">HOMBRE</label>
+                        </div>  
+                    </div> 
+                </div>
+                <div class="filtro-talle">
+                    <div class="titulo">
+                        <h4 class="menu-desplegable">TALLE</h4>
+                        <i class="fas fa-chevron-down menu-desplegable"></i>
+                    </div>
+                    <div class="contenido oculto">
+                        <div class="talles">
+                            <button class="size selected"> 35 </button>
+                            <button class="size"> 36 </button>
+                            <button class="size"> 37 </button>
+                            <button class="size"> 38 </button>
+                            <button class="size"> 39 </button>
+                            <button class="size"> 40 </button>
+                            <button class="size"> 41 </button>
+                            <button class="size"> 42 </button>
+                            <button class="size"> 43 </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="filtro-deporte">
+                    <div class="titulo">
+                        <h4 class="menu-desplegable">DEPORTE</h4>
+                        <i class="fas fa-chevron-down menu-desplegable"></i>
+                    </div>
+                    <div class="contenido oculto">
+                        <div>
+                            <input type="checkbox" name="deporte" id="tenis" value="T">
+                            <label for="tenis">TENIS</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="deporte" id="football" value="F">
+                            <label for="football">FOOTBALL</label>
+                        </div> 
+                        <div>
+                            <input type="checkbox" name="deporte" id="running" value="R">
+                            <label for="running">RUNNING</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="deporte" id="volley" value="V">
+                            <label for="volley">VOLLEY</label>
+                        </div>
+                    </div>
+                </div>
             </div>
-             <div class="precio">
-                <i class="fas fa-hand-holding-usd"></i>
-                <p class="precio">$2500</p>
-            </div>   
-        </div>
-        <div class="productoVidriera">
-            <img alt="zapatilla" src="img/product.jpg">
-            <div class="contenedor-boton-shop-now-icono">
-                <button class="boton-shop-now">
-                    Agregar al carrito
-                </button>
-                <i class="fas fa-bolt"></i>
-            </div>  
-            <div class="descripcion"> 
-                <i class="fas fa-tags"></i>
-                <p class="descripcion"> Zapatillas para running Mujer</p>
+
+            <button class="btn-aplicar-estilos" type="submit">
+                APLICAR
+            </button>
+        </form>
+        <div class="vidrieraShop">
+            <div class="productoVidriera">
+                <img alt="zapatilla" src="img/product.jpg">
+                <div class="contenedor-boton-shop-now-icono">
+                    <button class="boton-shop-now">
+                        Agregar al carrito
+                    </button>
+                    <i class="fas fa-bolt"></i>
+                </div>  
+                <div class="descripcion"> 
+                    <i class="fas fa-tags"></i>
+                    <p> Zapatillas para running Mujer</p>
+                </div>
+                 <div class="precio">
+                    <i class="fas fa-hand-holding-usd"></i>
+                    <p>$2500</p>
+                </div>   
+            </div> 
+            <div class="productoVidriera" >
+                <img alt="zapatilla" src="img/product.jpg">
+                <div class="contenedor-boton-shop-now-icono">
+                    <button class="boton-shop-now">
+                        Agregar al carrito
+                    </button>
+                    <i class="fas fa-bolt"></i>
+                </div>  
+                <div class="descripcion"> 
+                    <i class="fas fa-tags"></i>
+                    <p class="descripcion"> Zapatillas para running Mujer</p>
+                </div>
+                 <div class="precio">
+                    <i class="fas fa-hand-holding-usd"></i>
+                    <p class="precio">$2500</p>
+                </div>   
+    
             </div>
-             <div class="precio">
-                <i class="fas fa-hand-holding-usd"></i>
-                <p class="precio">$2500</p>
-            </div>   
-        </div>
-        <div class="productoVidriera">
-            <img alt="zapatilla" src="img/product.jpg">
-            <div class="contenedor-boton-shop-now-icono">
-                <button class="boton-shop-now">
-                    Agregar al carrito
-                </button>
-                <i class="fas fa-bolt"></i>
-            </div>  
-            <div class="descripcion"> 
-                <i class="fas fa-tags"></i>
-                <p class="descripcion"> Zapatillas para running Mujer</p>
+            <div class="productoVidriera">
+                <img alt="zapatilla" src="img/product.jpg">
+                <div class="contenedor-boton-shop-now-icono">
+                    <button class="boton-shop-now">
+                        Agregar al carrito
+                    </button>
+                    <i class="fas fa-bolt"></i>
+                </div>  
+                <div class="descripcion"> 
+                    <i class="fas fa-tags"></i>
+                    <p class="descripcion"> Zapatillas para running Mujer</p>
+                </div>
+                 <div class="precio">
+                    <i class="fas fa-hand-holding-usd"></i>
+                    <p class="precio">$2500</p>
+                </div>   
             </div>
-             <div class="precio">
-                <i class="fas fa-hand-holding-usd"></i>
-                <p class="precio">$2500</p>
-            </div>   
-        </div>
-        <div class="productoVidriera">
-            <img alt="zapatilla" src="img/product.jpg">
-            <div class="contenedor-boton-shop-now-icono">
-                <button class="boton-shop-now">
-                    Agregar al carrito
-                </button>
-                <i class="fas fa-bolt"></i>
-            </div>  
-            <div class="descripcion"> 
-                <i class="fas fa-tags"></i>
-                <p class="descripcion"> Zapatillas para running Mujer</p>
+            <div class="productoVidriera">
+                <img alt="zapatilla" src="img/product.jpg">
+                <div class="contenedor-boton-shop-now-icono">
+                    <button class="boton-shop-now">
+                        Agregar al carrito
+                    </button>
+                    <i class="fas fa-bolt"></i>
+                </div>  
+                <div class="descripcion"> 
+                    <i class="fas fa-tags"></i>
+                    <p class="descripcion"> Zapatillas para running Mujer</p>
+                </div>
+                 <div class="precio">
+                    <i class="fas fa-hand-holding-usd"></i>
+                    <p class="precio">$2500</p>
+                </div>   
             </div>
-             <div class="precio">
-                <i class="fas fa-hand-holding-usd"></i>
-                <p class="precio">$2500</p>
-            </div>    
-        </div>
-        <div class="productoVidriera">
-            <img alt="zapatilla" src="img/product.jpg">
-            <div class="contenedor-boton-shop-now-icono">
-                <button class="boton-shop-now">
-                    Agregar al carrito
-                </button>
-                <i class="fas fa-bolt"></i>
-            </div>  
-            <div class="descripcion"> 
-                <i class="fas fa-tags"></i>
-                <p class="descripcion"> Zapatillas para running Mujer</p>
+            <div class="productoVidriera">
+                <img alt="zapatilla" src="img/product.jpg">
+                <div class="contenedor-boton-shop-now-icono">
+                    <button class="boton-shop-now">
+                        Agregar al carrito
+                    </button>
+                    <i class="fas fa-bolt"></i>
+                </div>  
+                <div class="descripcion"> 
+                    <i class="fas fa-tags"></i>
+                    <p class="descripcion"> Zapatillas para running Mujer</p>
+                </div>
+                 <div class="precio">
+                    <i class="fas fa-hand-holding-usd"></i>
+                    <p class="precio">$2500</p>
+                </div>   
             </div>
-             <div class="precio">
-                <i class="fas fa-hand-holding-usd"></i>
-                <p class="precio">$2500</p>
-            </div>    
-        </div>
-        <div class="productoVidriera">
-            <img alt="zapatilla" src="img/product.jpg">
-            <div class="contenedor-boton-shop-now-icono">
-                <button class="boton-shop-now">
-                    Agregar al carrito
-                </button>
-                <i class="fas fa-bolt"></i>
-            </div>  
-            <div class="descripcion"> 
-                <i class="fas fa-tags"></i>
-                <p class="descripcion"> Zapatillas para running Mujer</p>
+            <div class="productoVidriera">
+                <img alt="zapatilla" src="img/product.jpg">
+                <div class="contenedor-boton-shop-now-icono">
+                    <button class="boton-shop-now">
+                        Agregar al carrito
+                    </button>
+                    <i class="fas fa-bolt"></i>
+                </div>  
+                <div class="descripcion"> 
+                    <i class="fas fa-tags"></i>
+                    <p class="descripcion"> Zapatillas para running Mujer</p>
+                </div>
+                 <div class="precio">
+                    <i class="fas fa-hand-holding-usd"></i>
+                    <p class="precio">$2500</p>
+                </div>    
             </div>
-             <div class="precio">
-                <i class="fas fa-hand-holding-usd"></i>
-                <p class="precio">$2500</p>
-            </div>    
+            <div class="productoVidriera">
+                <img alt="zapatilla" src="img/product.jpg">
+                <div class="contenedor-boton-shop-now-icono">
+                    <button class="boton-shop-now">
+                        Agregar al carrito
+                    </button>
+                    <i class="fas fa-bolt"></i>
+                </div>  
+                <div class="descripcion"> 
+                    <i class="fas fa-tags"></i>
+                    <p class="descripcion"> Zapatillas para running Mujer</p>
+                </div>
+                 <div class="precio">
+                    <i class="fas fa-hand-holding-usd"></i>
+                    <p class="precio">$2500</p>
+                </div>    
+            </div>
+            <div class="productoVidriera">
+                <img alt="zapatilla" src="img/product.jpg">
+                <div class="contenedor-boton-shop-now-icono">
+                    <button class="boton-shop-now">
+                        Agregar al carrito
+                    </button>
+                    <i class="fas fa-bolt"></i>
+                </div>  
+                <div class="descripcion"> 
+                    <i class="fas fa-tags"></i>
+                    <p class="descripcion"> Zapatillas para running Mujer</p>
+                </div>
+                 <div class="precio">
+                    <i class="fas fa-hand-holding-usd"></i>
+                    <p class="precio">$2500</p>
+                </div>    
+            </div>
         </div>
     </div>
+    
 </main>
 
 
