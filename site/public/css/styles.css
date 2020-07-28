@@ -1627,40 +1627,42 @@ ESTILOS DEL PRODUCTCART*/
     flex-wrap: wrap;
     width:100%;
     flex-direction: row;
-    position:relative;
+    /*position:relative;*/
+    max-width: 1024px;
+    margin: 0 auto;
 }
 .main-shop .vidrieraShop .productoVidriera {
     display:flex;
     flex-wrap: wrap;
     width:50vw;
-    position:relative;
+    /*position:relative;*/
 }
 .main-shop .vidrieraShop .productoVidriera .descripcion {
     font-size: 15px;
     padding-left: 2%;
     margin-left:15%;
     /*margin: 0.5px 9px 0.5px 5px;*/
-    width:100%;
+    /*width:100%;*/
     display:flex;
-    position:relative;
+    /*position:relative;*/
 
 }
 .main-shop .vidrieraShop .productoVidriera .descripcion p {
     margin: 2px 15px 5px 7px;
     font-size: 1em;
-    position:absolute;
+    /*position:absolute;*/
 }
 .main-shop .vidrieraShop .productoVidriera .precio {
     display:flex;
-    width:100%;
+    /*width:100%;*/
     margin-left:15%;
-    position:relative;
+    /*position:relative;*/
     
 }
 .main-shop .vidrieraShop .productoVidriera .precio p {
     margin:1px 15px 25px 15px;
     font-size: 1em;
-    position: absolute
+    /*position: absolute*/
 }
 
 .main-shop .vidrieraShop .productoVidriera img{
@@ -1677,8 +1679,8 @@ ESTILOS DEL PRODUCTCART*/
     height: 8vh;
     top: 42%;
     left: 35%;*/
-    top: calc( 76% - 3vh);
-    left: calc( 73% - 10vh);
+    /*top: calc( 76% - 3vh);
+    left: calc( 73% - 10vh);*/
     position:absolute;
     width: 15vh;
 }
