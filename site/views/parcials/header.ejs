@@ -1,0 +1,118 @@
+
+<!--Top Header-->
+<div class="top-header">
+    <div class="container-top">
+        <div class="right-top-header">
+            <a href="#">Mi cuenta</a>
+            <a class="border-line" href="#">Mi lista de deseos</a>
+            <a class="border-line" href="#">Iniciar sesión</a>
+        </div>
+    </div>    
+</div>
+
+<!--Main Header-->
+<header class="main-header">
+    <div class="container">
+        <div id="btn-menu" class="btn-menu"><i class="fas fa-bars"></i></div>
+        <div class="logo"> <img src="../img/IconoThunderShoes.svg" alt="icono-thunder-shoes"> </div>
+        <div class="btn-cart">
+            <i class="fas fa-shopping-cart" onclick="toogleSummary()"></i>
+        </div>
+    </div>
+    <div class="container-desktop">
+        <div class="logo-completo">
+            <img src="../img/LogoyTipografia.svg" alt="Logo y tipo">
+        </div>
+        <nav class="menu-desktop">
+            <div class="main-menudesktop">
+                <a href="#">Hombres</a>
+                <a href="#">Mujeres</a>
+                <a href="#">Colección</a>
+                <a href="#">Ofertas</a>
+            </div>
+        </nav>
+        <div class="right-mainheader">
+            <div class="search-desktop">
+                <input type="text" name="search" placeholder="Buscar...">
+                <i class='fas fa-search'></i>
+            </div>    
+            <div class="btn-cart" onclick="toogleSummary()">
+                <i class="fas fa-shopping-cart"></i>
+            </div>
+        </div>
+    </div>
+
+</header>
+
+<!--Menu-->
+<nav id="menu" class="menu" style="left: -100vw;">
+    <div class="main-menu">
+        <a href="#">Hombres</a>
+        <a href="#">Mujeres</a>
+        <a href="#">Colección</a>
+        <a href="#">Oferta</a>
+        <a href="#">Buscar</a>
+    </div>
+    <div class="profile-menu">
+        <a class="btn-pmenu" href="#">
+            <i class='fas fa-heart'></i>
+            <span>Mi lista de deseos</span>
+        </a> 
+        <a class="btn-pmenu" href="#">
+            <i class="fas fa-user-circle"></i>
+            <span>Mi cuenta - Iniciar sesión</span>
+        </a>  
+    </div>
+</nav>
+
+<!-- Summary cart -->
+<div id="summary-container" class="summary-container" style="display: none;">
+    <p>PRODUCTOS AGREGADOS</p>
+    <span  onclick="toogleSummary()" >x</span>
+
+    <div class="summary-content">
+        <div class="summary-item">
+            <img src="/img/product.jpg" alt="">
+            <div class="item-detail">
+                <span>Zapatillas deportiva Ultra light</span>
+                <span>Color: Blanco</span>
+                <span>Cantidad: 1</span>
+                <span>$4.5600</span>
+            </div>
+        </div>
+        <div class="summary-item">
+            <img src="/img/product.jpg" alt="">
+            <div class="item-detail">
+                <span>Zapatillas deportiva Ultra light</span>
+                <span>Color: Blanco</span>
+                <span>Cantidad: 1</span>
+                <span>$4.5600</span>
+            </div>
+        </div>
+        <div class="summary-item">
+            <img src="/img/product.jpg" alt="">
+            <div class="item-detail">
+                <span>Zapatillas deportiva Ultra light</span>
+                <span>Color: Blanco</span>
+                <span>Cantidad: 1</span>
+                <span>$4.5600</span>
+            </div>
+        </div>
+        <div class="summary-item">
+            <img src="/img/product.jpg" alt="">
+            <div class="item-detail">
+                <span>Zapatillas deportiva Ultra light</span>
+                <span>Color: Blanco</span>
+                <span>Cantidad: 1</span>
+                <span>$4.5600</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="summary-footer">
+        <button>PAGAR</button>
+        <a href="productCart">
+            Ver carrito completo
+        </a>
+    </div>
+</div>
