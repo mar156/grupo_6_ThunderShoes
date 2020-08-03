@@ -24,27 +24,13 @@ if(menu.style.left == "-100vw"){
 });
 
 
-// function toogleSummary () {
-//     if ( summaryCart.style.display === "none" ) {
-//         summaryCart.style.display = "block";
-//     } else {
-//         summaryCart.style.display = "none";
-//     }
-// }
-
-// for (let i, )
-
-// for ( let i in thumnails ) {
-//     thumnail[i].addEventListener("click", e => {
-//         let imgPrincipal = document.getElementById("img-principal");
-//         // thumnail[i]
-//         console.log(e);
-//     });
-// }
-
-// thumnails.map( thumnail => {
-// });
-
+function toogleSummary () {
+    if ( summaryCart.style.display === "none" ) {
+        summaryCart.style.display = "block";
+    } else {
+        summaryCart.style.display = "none";
+    }
+}
 
 
 /* Prueba slideshow product detail*/
