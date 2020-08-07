@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://kit.fontawesome.com/464db6ba33.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
   
@@ -14,7 +14,7 @@
 <main class="main-shop">
     <div class="bannerSection">
         <span class="ubicacion"> ubicación en cuanto al sitio</span>
-        <img class="bannerShop" alt="banner" src="img/banner-hombre-logo.jpg">
+        <img class="bannerShop" alt="banner" src="/img/banner-hombre-logo.jpg">
     </div>
     
     <div class="filtrar-ordenar">
@@ -193,25 +193,28 @@
             </button>
         </form>
         <div class="vidrieraShop">
-            <div class="productoVidriera">
-                <img alt="zapatilla" src="img/product.jpg">
-                <div class="contenedor-boton-shop-now-icono">
-                    <button class="boton-shop-now">
-                        Agregar al carrito
-                    </button>
-                    <i class="fas fa-bolt"></i>
-                </div>  
-                <div class="descripcion"> 
-                    <i class="fas fa-tags"></i>
-                    <p> Zapatillas para running Mujer</p>
-                </div>
-                 <div class="precio">
-                    <i class="fas fa-hand-holding-usd"></i>
-                    <p>$2500</p>
-                </div>   
-            </div> 
-            <div class="productoVidriera" >
-                <img alt="zapatilla" src="img/product.jpg">
+            <% for (let i=0; i<8; i++){%>
+                <a href="/product/detail"><div class="productoVidriera">
+                    <img alt="zapatilla" src="/img/product.jpg">
+                    <div class="contenedor-boton-shop-now-icono">
+                        <button class="boton-shop-now">
+                            Agregar al carrito
+                        </button>
+                        <i class="fas fa-bolt"></i>
+                    </div>  
+                    <div class="descripcion"> 
+                        <i class="fas fa-tags"></i>
+                        <p> Zapatillas para running Mujer</p>
+                    </div>
+                     <div class="precio">
+                        <i class="fas fa-hand-holding-usd"></i>
+                        <p>$2500</p>
+                    </div>   
+                </div></a>
+            <% } %>
+            
+            <!--<div class="productoVidriera" >
+                <img alt="zapatilla" src="/img/product.jpg">
                 <div class="contenedor-boton-shop-now-icono">
                     <button class="boton-shop-now">
                         Agregar al carrito
@@ -229,7 +232,7 @@
     
             </div>
             <div class="productoVidriera">
-                <img alt="zapatilla" src="img/product.jpg">
+                <img alt="zapatilla" src="/img/product.jpg">
                 <div class="contenedor-boton-shop-now-icono">
                     <button class="boton-shop-now">
                         Agregar al carrito
@@ -246,7 +249,7 @@
                 </div>   
             </div>
             <div class="productoVidriera">
-                <img alt="zapatilla" src="img/product.jpg">
+                <img alt="zapatilla" src="/img/product.jpg">
                 <div class="contenedor-boton-shop-now-icono">
                     <button class="boton-shop-now">
                         Agregar al carrito
@@ -263,7 +266,7 @@
                 </div>   
             </div>
             <div class="productoVidriera">
-                <img alt="zapatilla" src="img/product.jpg">
+                <img alt="zapatilla" src="/img/product.jpg">
                 <div class="contenedor-boton-shop-now-icono">
                     <button class="boton-shop-now">
                         Agregar al carrito
@@ -280,7 +283,7 @@
                 </div>   
             </div>
             <div class="productoVidriera">
-                <img alt="zapatilla" src="img/product.jpg">
+                <img alt="zapatilla" src="/img/product.jpg">
                 <div class="contenedor-boton-shop-now-icono">
                     <button class="boton-shop-now">
                         Agregar al carrito
@@ -297,7 +300,7 @@
                 </div>    
             </div>
             <div class="productoVidriera">
-                <img alt="zapatilla" src="img/product.jpg">
+                <img alt="zapatilla" src="/img/product.jpg">
                 <div class="contenedor-boton-shop-now-icono">
                     <button class="boton-shop-now">
                         Agregar al carrito
@@ -314,7 +317,7 @@
                 </div>    
             </div>
             <div class="productoVidriera">
-                <img alt="zapatilla" src="img/product.jpg">
+                <img alt="zapatilla" src="/img/product.jpg">
                 <div class="contenedor-boton-shop-now-icono">
                     <button class="boton-shop-now">
                         Agregar al carrito
@@ -329,7 +332,7 @@
                     <i class="fas fa-hand-holding-usd"></i>
                     <p class="precio">$2500</p>
                 </div>    
-            </div>
+            </div>-->
         </div>
     </div>
     

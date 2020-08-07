@@ -26,6 +26,7 @@ body{
 
 a{
     text-decoration: none;
+    color: #000000;
 }
 
 
@@ -1761,6 +1762,10 @@ ESTILOS DEL PRODUCTCART*/
         margin: 0;
     }
 
+    .main-shop .vidrieraShop a{
+        width: 25%;
+    }
+
     .contenedor-vidriera-filtros{
         /*width: 100vw;*/
         width: auto;
@@ -1778,7 +1783,7 @@ ESTILOS DEL PRODUCTCART*/
         width:100%;
     }
     .main-shop .vidrieraShop .productoVidriera {
-        width: 25%;;
+        width: 100%;
      
     }
     .main-shop .vidrieraShop .productoVidriera .boton-shop-now {
