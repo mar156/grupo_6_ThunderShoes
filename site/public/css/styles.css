@@ -979,22 +979,6 @@ a{
 
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* ESTILOS FOOTER */
 footer{
     display: flex;
@@ -1354,9 +1338,7 @@ footer .contenedor-redes .contenedor-iconos i{
     border-radius: 20px;
 }
 
-/*<<<<<< HEAD
-=======
-
+/*
 Creo para tablets y el desktop del home después las unifico con las otras :D */
 @media(min-width:768px){
     .main-index .contenedor-imagenes-boton{
@@ -1407,6 +1389,9 @@ Creo para tablets y el desktop del home después las unifico con las otras :D */
         font-weight: bold;
         padding: 15px;
     }
+    .main-index .contenedor-imagenes-boton .contenedor-boton-shop-now-icono{
+        left: calc( 50% - 10%);
+    }
 
 }
 
@@ -1417,8 +1402,8 @@ Creo para tablets y el desktop del home después las unifico con las otras :D */
     }
 
     .main-index .contenedor-imagenes-boton .contenedor-boton-shop-now-icono{
-        top: calc( 50% - 4vh);
-        left: calc(50% - 11vw);
+        top: calc( 50% - 6%);
+        left: calc(50% - 10%);
     }
     .main-index .contenedor-imagenes-boton .contenedor-boton-shop-now-icono .boton-shop-now{
         width: 180px;
@@ -1808,7 +1793,3 @@ ESTILOS DEL PRODUCTCART*/
     }
 
 }
-
-/*ESTILOS DEL LOGIN*/
-
-/*ESTILOS DEL REGISTER*/
