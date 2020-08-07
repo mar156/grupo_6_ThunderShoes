@@ -10,7 +10,6 @@ app.use(express.static('public'));
 app.use('/product', productRoutes);
 app.use('/', mainRoutes);
 app.use('/users', usersRoutes);
-/* Aquí luego algunos serán por POST */
 
 app.listen(3000, ()=>{
     console.log('Servidor escuchando en el puerto 3000');
