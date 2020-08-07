@@ -849,25 +849,6 @@ footer .contenedor-redes .contenedor-iconos i{
     font-size: 25px;
 }
 
-/*FOOTER TABLETS*/
-@media(min-width:768px) and (max-width:1023px){
-    footer{
-        font-size: 20px;
-    }
-
-    footer .content .categorias-footer{
-        margin: 6px 80px;
-    }
-
-    footer .content .categorias-footer i{
-        font-size: 24px;
-    }
-
-    footer .contenedor-redes .contenedor-iconos i {
-        font-size: 30px;
-    }
-}
-
 /*HOME*/
 .main-index{
     width: auto;
@@ -1050,59 +1031,6 @@ footer .contenedor-redes .contenedor-iconos i{
     background: rgba(255, 229, 18, 0.8);
     padding: 10px;
     border-radius: 20px;
-}
-
-/* HOME TABLETS */
-@media(min-width:768px){
-    .main-index .contenedor-imagenes-boton{
-        height: 60vh;
-        width: auto;
-    }
-
-    .main-index .contenedor-imagenes-boton .imagenes{
-        height: 100%;
-        grid-template-columns: 30% 35% auto;
-        grid-template-rows: auto auto;
-    }
-    .main-index .contenedor-imagenes-boton .imagenes img{
-        width: auto !important;
-        height: 100%;
-    }
-    .main-index .contenedor-imagenes-boton .imagenes .gifs{
-        display: grid;
-        width: 100% !important;
-    }
-
-    .main-index .contenedor-imagenes-boton .imagenes .imagen-principal, .main-index .contenedor-imagenes-boton .imagenes .imagenes-secundarias{
-        width: 100% !important;
-    }
-
-    .main-index .contenedor-seccion-deporte {
-        display: grid;
-        grid-template-columns: repeat(4, 20vw);
-        grid-template-rows: 28vh;
-        margin: 5% 10%;
-    }
-
-    .main-index .contenedor-seccion-deporte article {
-        display: grid;
-        grid-template-rows: 40vh auto;
-        position: relative;
-    }
-
-    .main-index .contenedor-seccion-deporte article img{
-        height: 100%;
-    }
-    .main-index .contenedor-genero .btn-genero{
-        font-size: 1.3rem;
-        left: calc(50% - 5vw);
-        font-weight: bold;
-        padding: 15px;
-    }
-    .main-index .contenedor-imagenes-boton .contenedor-boton-shop-now-icono{
-        left: calc( 50% - 10%);
-    }
-
 }
 
 /*SHOP*/
@@ -1352,9 +1280,22 @@ footer .contenedor-redes .contenedor-iconos i{
     display: none;
 }
 
+.main-shop .vidrieraShop .productoVidriera img:hover{ 
+    padding:0;
 
-/* Shop tablets*/
-@media(min-width:768px) and (max-width:1023px){
+}
+.main-shop .vidrieraShop .productoVidriera:hover {
+    border:solid 1px rgba(255, 229, 18, 0.8) ;
+}
+
+.main-shop .vidrieraShop .productoVidriera:hover .contenedor-boton-shop-now-icono{
+    display:block;
+    
+}
+
+/* Estilo tablets*/
+@media(min-width:768px){
+    /*SHOP*/
     .main-shop .vidrieraShop .productoVidriera {
         width:33vw;
         
@@ -1372,19 +1313,74 @@ footer .contenedor-redes .contenedor-iconos i{
    .main-shop .vidrieraShop .productoVidriera .contenedor-boton-shop-now-icono { 
        width:15vw;
    }
-}
 
-.main-shop .vidrieraShop .productoVidriera img:hover{ 
-    padding:0;
+   /*FOOTER*/
+   footer{
+    font-size: 20px;
+    }
 
-}
-.main-shop .vidrieraShop .productoVidriera:hover {
-    border:solid 1px rgba(255, 229, 18, 0.8) ;
-}
+    footer .content .categorias-footer{
+        margin: 6px 80px;
+    }
 
-.main-shop .vidrieraShop .productoVidriera:hover .contenedor-boton-shop-now-icono{
-    display:block;
-    
+    footer .content .categorias-footer i{
+        font-size: 24px;
+    }
+
+    footer .contenedor-redes .contenedor-iconos i {
+        font-size: 30px;
+    }
+
+    /*HOME*/
+    .main-index .contenedor-imagenes-boton{
+        height: 60vh;
+        width: auto;
+    }
+
+    .main-index .contenedor-imagenes-boton .imagenes{
+        height: 100%;
+        grid-template-columns: 30% 35% auto;
+        grid-template-rows: auto auto;
+    }
+    .main-index .contenedor-imagenes-boton .imagenes img{
+        width: auto !important;
+        height: 100%;
+    }
+    .main-index .contenedor-imagenes-boton .imagenes .gifs{
+        display: grid;
+        width: 100% !important;
+    }
+
+    .main-index .contenedor-imagenes-boton .imagenes .imagen-principal, .main-index .contenedor-imagenes-boton .imagenes .imagenes-secundarias{
+        width: 100% !important;
+    }
+
+    .main-index .contenedor-seccion-deporte {
+        display: grid;
+        grid-template-columns: repeat(4, 20vw);
+        grid-template-rows: 28vh;
+        margin: 5% 10%;
+    }
+
+    .main-index .contenedor-seccion-deporte article {
+        display: grid;
+        grid-template-rows: 40vh auto;
+        position: relative;
+    }
+
+    .main-index .contenedor-seccion-deporte article img{
+        height: 100%;
+    }
+    .main-index .contenedor-genero .btn-genero{
+        font-size: 1.3rem;
+        left: calc(50% - 5vw);
+        font-weight: bold;
+        padding: 15px;
+    }
+    .main-index .contenedor-imagenes-boton .contenedor-boton-shop-now-icono{
+        left: calc( 50% - 10%);
+    }
+
 }
 
 /* ESTILOS ESCRITORIO */
