@@ -910,6 +910,11 @@ footer .contenedor-redes .contenedor-iconos i{
     background: rgba(255, 229, 18, 0.8);
 }
 
+.main-index .contenedor-imagenes-boton .contenedor-boton-shop-now-icono .boton-shop-now:hover{
+    background-color: #ffe512;
+    border: 5px solid #000000;
+}
+
 .main-index .contenedor-imagenes-boton .contenedor-boton-shop-now-icono i{
     position: absolute;
     top: 25%;
