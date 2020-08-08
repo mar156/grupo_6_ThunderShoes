@@ -9,42 +9,67 @@
 </head>
 <body>
     <%- include('../parcials/header') %>
-    <main>
-        <form action="" method="">
-            <label for="product-name">Nombre del producto: </label>
-            <input type="text" name="name" id="product-name">
-            <label for="product-desc">Descripción</label>
-            <input type="text" name="description" id="product-desc">
-            <input type="file" name="image" id="product-image">
-            <span>Categoría</span>
-            <label for="product-c-mujer">MUJER</label>
-            <input type="checkbox" name="categoria" id="product-c-mujer" value="mujer">
-            <label for="product-c-hombre">HOMBRE</label>
-            <input type="checkbox" name="categoria" id="product-c-hombre" value="hombre">
-            <label for="product-c-tennis">TENNIS</label>
-            <input type="checkbox" name="categoria" id="product-c-tennis" value="tennis">
-            <label for="product-c-running">RUNNING</label>
-            <input type="checkbox" name="categoria" id="product-c-running" value="running">
-            <label for="product-c-football">FOOTBALL</label>
-            <input type="checkbox" name="categoria" id="product-c-football" value="football">
-            <label for="product-c-volley">VOLLEY</label>
-            <input type="checkbox" name="categoria" id="product-c-volley" value="volley">
-            <label for="product-color">Color</label>
-            <select name="colors" id="product-color">
-                <option value="rojo">Rojo</option>
-                <option value="negro">Negro</option>
-                <option value="azul">Azul</option>
-            </select>
-            <label for="product-size">
-                TALLES
-            </label>
-            <select name="size" id="product-size">
-                <option value="35">35</option>
-                <option value="36">36</option>
-                <option value="38">38</option>
-            </select>
-            <button type="submit">Agregar producto</button>
-        </form>
+    <main class="main-crear-producto">
+        <div class="form-container">
+            <div class="form-content">
+                <h2>CREAR PRODUCTO</h2>
+                <form action="" method="">
+                    <label for="product-name">Nombre del producto: </label>
+                    <input type="text" name="name" id="product-name">
+        
+                    <label for="product-desc">Descripción</label>
+                    <input type="text" name="description" id="product-desc">
+        
+                    <input type="file" name="image" id="product-image">
+        
+                    <span>Categoría</span>
+                    <div class="contenedor-categorias">
+                        <div>
+                            <label for="product-c-mujer">MUJER</label>
+                            <input type="checkbox" name="categoria" id="product-c-mujer" value="mujer">
+                        </div>
+                        <div>
+                            <label for="product-c-hombre">HOMBRE</label>
+                            <input type="checkbox" name="categoria" id="product-c-hombre" value="hombre">
+                        </div>
+                        <div>
+                            <label for="product-c-tennis">TENNIS</label>
+                            <input type="checkbox" name="categoria" id="product-c-tennis" value="tennis">
+                        </div>
+                        <div>
+                            <label for="product-c-running">RUNNING</label>
+                            <input type="checkbox" name="categoria" id="product-c-running" value="running">
+                        </div>
+                        <div>
+                            <label for="product-c-football">FOOTBALL</label>
+                            <input type="checkbox" name="categoria" id="product-c-football" value="football">
+                        </div>
+                        <div>
+                            <label for="product-c-volley">VOLLEY</label>
+                            <input type="checkbox" name="categoria" id="product-c-volley" value="volley">
+                        </div>
+                    </div>
+                   
+                    
+                    <label for="product-color">Color</label>
+                    <select name="colors" id="product-color">
+                        <option value="rojo">Rojo</option>
+                        <option value="negro">Negro</option>
+                        <option value="azul">Azul</option>
+                    </select>
+                    
+                    <label for="product-size">TALLES</label>
+                    <select name="size" id="product-size">
+                        <option value="35">35</option>
+                        <option value="36">36</option>
+                        <option value="38">38</option>
+                    </select>
+                    
+                    <button type="submit">Agregar producto</button>
+                </form>
+            </div>
+        </div>
+        
     </main>
     <%- include('../parcials/footer') %>
     <script src="/script/script.js"></script>

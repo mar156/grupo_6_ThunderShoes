@@ -695,7 +695,8 @@ a{
 .form-content form input[type="email"],
 .form-content form input[type="password"],
 .form-content form input[type="text"],
-.form-content form input[type="tel"] {
+.form-content form input[type="tel"],
+.form-content form input[type="file"] {
     width: 90%;
     padding: 4px;
     border: 1px solid #ccc;
@@ -1739,3 +1740,23 @@ footer .contenedor-redes .contenedor-iconos i{
         display:block;  
     }
 }
+
+/*ESTILOS FORMULARIO DE CREACIÓN DE PRODUCTOS*/
+
+.main-crear-producto .form-container .form-content form .contenedor-categorias{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.main-crear-producto .form-container .form-content form .contenedor-categorias input{
+    margin: 0 10px 0 5px;
+}
+
+.main-crear-producto .form-container .form-content form .contenedor-categorias div{
+    height: auto;
+    width: auto;
+    font-size: 1rem;
+}
+
