@@ -53,18 +53,18 @@ a{
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    }
+}
     
-    .container i {
+.container i {
     color:whitesmoke;
     font-size: 24px;
-    }
+}
 
-    .logo {
-        text-align: center;
-        width: 80%;
-    }
-    .container .logo img{ height: 10vh; }
+.logo {
+    text-align: center;
+    width: 80%;
+}
+.container .logo img{ height: 10vh; }
   
     /*Navegador menu*/  
 .menu{
@@ -104,11 +104,11 @@ a{
 
 .summary-container {
     max-width: 300px;
-    position: absolute;
+    position: fixed;
     top: 12vh;
     right: 9px;
     min-height: 100px;
-    z-index: 99;
+    z-index: 101;
     padding: .2rem 1rem;
     font-family: "Raleway";
     background-color: whitesmoke;
