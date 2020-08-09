@@ -1753,24 +1753,38 @@ footer .contenedor-redes .contenedor-iconos i{
     .main-shop .vidrieraShop .productoVidriera:hover .contenedor-boton-shop-now-icono{
         display:block;  
     }
+
+    /*FORMULARIO DE CREACIÓN DE PRODUCTOS*/
+    .main-crear-producto .form-container .form-content{
+        margin: 0 auto;
+        border-right: solid 1px #cccccc;
+    }
 }
 
 /*ESTILOS FORMULARIO DE CREACIÓN DE PRODUCTOS*/
 
-.main-crear-producto .form-container .form-content form .contenedor-categorias{
+.main-crear-producto .form-container .form-content form .contenedor-talles,
+.main-crear-producto .form-container .form-content form .contenedor-categorias,
+.main-crear-producto .form-container .form-content form .contenedor-colores{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-.main-crear-producto .form-container .form-content form .contenedor-categorias input{
+.main-crear-producto .form-container .form-content form .contenedor-talles input,
+.main-crear-producto .form-container .form-content form .contenedor-categorias input,
+.main-crear-producto .form-container .form-content form .contenedor-colores input{
     margin: 0 10px 0 5px;
 }
 
+.main-crear-producto .form-container .form-content form .contenedor-talles div,
+.main-crear-producto .form-container .form-content form .contenedor-colores div,
 .main-crear-producto .form-container .form-content form .contenedor-categorias div{
     height: auto;
     width: auto;
     font-size: 1rem;
 }
+
+
 
