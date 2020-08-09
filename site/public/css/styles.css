@@ -1677,6 +1677,15 @@ footer .contenedor-redes .contenedor-iconos i{
         margin: 5% 10%;
     }
 
+    .main-index .contenedor-seccion-deporte article:hover, .main-index .contenedor-genero div:hover{
+        border: solid 3px #ffe512;
+        cursor: pointer;
+    }
+
+    .main-index .contenedor-seccion-deporte article:hover .btn-article-deporte, .main-index .contenedor-genero div:hover .btn-genero{
+        background-color: rgba(255, 229, 18, 1);
+    }
+
     /*SHOP*/
     .main-shop .filtrar-ordenar{
         margin: 15px 24px;
