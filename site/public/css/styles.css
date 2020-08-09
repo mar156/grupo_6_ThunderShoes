@@ -1602,6 +1602,7 @@ footer .contenedor-redes .contenedor-iconos i{
     footer .contenedor-secciones .content{
         border-left: solid 1px #3a3636;
         border-bottom: none;
+        width: 33%;
     }
 
     footer .contenedor-secciones .noborderleft{
