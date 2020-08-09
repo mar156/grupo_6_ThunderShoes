@@ -553,6 +553,7 @@ a{
 .product-detail-sticky { 
     position: relative;
 }
+.product-detail-sticky.desktop { display: none; }
 
 .product-detail-content {
     padding: 0 .5rem;
@@ -1504,6 +1505,8 @@ footer .contenedor-redes .contenedor-iconos i{
     .product-detail-sticky {
         width: 320px;
     }
+    .product-detail-sticky.mobile { display: none; }
+    .product-detail-sticky.desktop { display: block; }
 
     .product-detail-container {
         position: sticky;

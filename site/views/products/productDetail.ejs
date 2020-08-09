@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deetalle de producto</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1.7.3/glider.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
     <link rel="stylesheet" href="/css/styles.css">
+    <title>Deetalle de producto</title>
 </head>
 <body>
 
@@ -20,21 +20,80 @@
     <article>
         <div class="product-detail-flex-container">
 
-            <!--Slideshow-->
-            <div class="product-detail-slideshow">
-            
-                <img id="img-principal" src="/img/zapatilla1.png" alt="Zapatillas de niños New Balance Cruz Sport Grade">
-            
-                <div class="product-detail-thumnails">
-                    <img class="thumnails selected" src="/img/zapatilla1.png" alt="">
-                    <img class="thumnails" src="/img/zapatilla2.png" alt="">
-                    <img class="thumnails" src="/img/zapatilla3.png" alt="">
-                    <img class="thumnails" src="/img/zapatilla4.png" alt="">
+            <div class="product-detail-left-desktop">
+                <!--Slideshow-->
+                <div class="product-detail-slideshow">
+                
+                    <img id="img-principal" src="/img/zapatilla1.png" alt="Zapatillas de niños New Balance Cruz Sport Grade">
+                
+                    <div class="product-detail-thumnails">
+                        <img class="thumnails selected" src="/img/zapatilla1.png" alt="">
+                        <img class="thumnails" src="/img/zapatilla2.png" alt="">
+                        <img class="thumnails" src="/img/zapatilla3.png" alt="">
+                        <img class="thumnails" src="/img/zapatilla4.png" alt="">
+                    </div>
+    
                 </div>
-
-            </div>
+                
+                <div class="product-detail-sticky mobile"> 
+                    <div class="product-detail-container">
+                        <div class="product-detail-content">
+                            <h1>Zapatillas de niños New Balance Cruz Sport Grade</h1>
+                            <span>$4250</span><br>
+                            <span>Color</span>
+                            <div class="product-colors">
+                                <div class="color selected"></div>
+                                <div class="color"></div>
+                                <div class="color"></div>
+                                <div class="color"></div>
+                            </div>
+                        </div>
+                
+                        <div class="product-sizes-container">
+                            <span>Talle</span>
+                            <div class="product-sizes">
+                                <div class="size selected">7</div>
+                                <div class="size">7.5</div>
+                                <div class="size">8</div>
+                                <div class="size">8.5</div>
+                                <div class="size">9</div>
+                                <div class="size">9.5</div>
+                                <div class="size">10</div>
+                                <div class="size">10.5</div>
+                                <div class="size">11</div>
+                                <div class="size">11.5</div>
+                            </div>
+                        </div>
+                        
+                        <div class="purchase-detail">
+                            <div class="envio-gratis">
+                                <i class="fas fa-truck"></i>
+                                <span>Envío gratis a todo el país.</span>
+                            </div>
+                            <div class="devolucion-gratis">
+                                <i class='fas fa-undo-alt'></i>
+                                <span>Devolución gratis.</span>
+                            </div>
+                            <div class="paga-seguro">
+                                <i class="fas fa-hand-holding-usd"></i>
+                                <span>Paga seguro.</span>
+                            </div>
+                        </div>
             
-            <div class="product-detail-sticky">
+                        <button class="btn-add-cart">AÑADIR AL CARRITO</button>
+                    </div>
+                </div>
+        
+                <main class="product-description">
+                    <h3>Descripción</h3>
+                    <p>
+                        Nuestro clásico zapato de 3 ojales. 1461 El segundo estilo creado por Dr. Martens, hecho para el trabajo duro pero adoptado por generaciones de inconformistas. Esta versión es cruda, resistente y tiene un look desgastado desde el primer paso. Estos zapatos están hechos de cuero Ambassador, el cual conserva sus características y marcas naturales para envejecer de forma única.
+                    </p>
+                </main>
+            </div>
+
+
+            <div class="product-detail-sticky desktop"> 
                 <div class="product-detail-container">
                     <div class="product-detail-content">
                         <h1>Zapatillas de niños New Balance Cruz Sport Grade</h1>
@@ -82,25 +141,12 @@
                     <button class="btn-add-cart">AÑADIR AL CARRITO</button>
                 </div>
             </div>
-    
-            <main class="product-description">
-                <h3>Descripción</h3>
-                <p>
-                    Nuestro clásico zapato de 3 ojales. 1461 El segundo estilo creado por Dr. Martens, hecho para el trabajo duro pero adoptado por generaciones de inconformistas. Esta versión es cruda, resistente y tiene un look desgastado desde el primer paso. Estos zapatos están hechos de cuero Ambassador, el cual conserva sus características y marcas naturales para envejecer de forma única.
-                </p>
-    
-            </main>
 
             <h4 class="titulo-productos-destacados width-side-sticky"> PRODUCTOS DESTACADOS</h4>
-
             <%- include('../parcials/slider') %>
 
-
         </div>
-
-
     </article>
-
 </main>
 
 <%- include('../parcials/footer') %>
