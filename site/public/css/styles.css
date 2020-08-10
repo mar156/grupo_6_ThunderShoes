@@ -698,7 +698,9 @@ a{
 .form-content form input[type="password"],
 .form-content form input[type="text"],
 .form-content form input[type="tel"],
-.form-content form input[type="file"] {
+.form-content form input[type="file"],
+.form-content form input[type="number"],
+.form-content form textarea {
     width: 90%;
     padding: 4px;
     border: 1px solid #ccc;
@@ -1296,6 +1298,73 @@ footer .contenedor-redes .contenedor-iconos i{
     border:solid 1px rgba(255, 229, 18, 0.8) ;
 }
 
+/*ESTILOS FORMULARIO DE CREACIÓN DE PRODUCTOS*/
+
+
+.main-crear-producto .form-container .form-content form .contenedor-talles,
+.main-crear-producto .form-container .form-content form .contenedor-categorias,
+.main-crear-producto .form-container .form-content form .contenedor-colores{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.main-crear-producto .form-container .form-content form .contenedor-talles input,
+.main-crear-producto .form-container .form-content form .contenedor-categorias input,
+.main-crear-producto .form-container .form-content form .contenedor-colores input{
+    margin: 0 10px 0 5px;
+    cursor: pointer;
+}
+.main-crear-producto .form-container .form-content form .contenedor-talles label,
+.main-crear-producto .form-container .form-content form .contenedor-categorias label,
+.main-crear-producto .form-container .form-content form .contenedor-colores label {
+    cursor: pointer;
+}
+
+.main-crear-producto .form-container .form-content form .contenedor-talles div,
+.main-crear-producto .form-container .form-content form .contenedor-colores div,
+.main-crear-producto .form-container .form-content form .contenedor-categorias div{
+    height: auto;
+    width: auto;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+/* estilos para checkbox colores */ 
+.main-crear-producto .form-container .form-content form .contenedor-colores input[type="checkbox"],
+.main-crear-producto .form-container .form-content form .contenedor-colores label {
+    visibility: hidden;
+}
+
+.main-crear-producto .form-container .form-content form .contenedor-colores .checkbox {
+    width: 1.8rem;
+    height: 1.8rem;
+    margin: .5rem;
+    border: 2px solid transparent;
+    border-radius: 3px;
+    position: relative;
+    cursor: pointer;
+}
+.main-crear-producto .form-container .form-content form .contenedor-colores .checkbox:hover {
+    border-color: #0c0c0c;
+}
+
+.main-crear-producto .form-container .form-content form .contenedor-colores .checkbox.rojo { background-color: red; }
+.main-crear-producto .form-container .form-content form .contenedor-colores .checkbox.azul { background-color: blue; }
+.main-crear-producto .form-container .form-content form .contenedor-colores .checkbox.amarillo { background-color: yellow; }
+.main-crear-producto .form-container .form-content form .contenedor-colores .checkbox.negro { background-color: #0c0c0c; }
+.main-crear-producto .form-container .form-content form .contenedor-colores .checkbox.verde { background-color: green; }
+.main-crear-producto .form-container .form-content form .contenedor-colores .checkbox.gris { background-color: gray; }
+
+
+
+.main-crear-producto .form-container .form-content form .contenedor-colores .checkbox.selected {
+    outline: 1.5px solid #0c0c0c;
+    outline-offset: 2px;
+}
+
+
 /* Estilo tablets*/
 @media(min-width:768px){
     /*SHOP*/
@@ -1761,30 +1830,6 @@ footer .contenedor-redes .contenedor-iconos i{
     }
 }
 
-/*ESTILOS FORMULARIO DE CREACIÓN DE PRODUCTOS*/
-
-.main-crear-producto .form-container .form-content form .contenedor-talles,
-.main-crear-producto .form-container .form-content form .contenedor-categorias,
-.main-crear-producto .form-container .form-content form .contenedor-colores{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.main-crear-producto .form-container .form-content form .contenedor-talles input,
-.main-crear-producto .form-container .form-content form .contenedor-categorias input,
-.main-crear-producto .form-container .form-content form .contenedor-colores input{
-    margin: 0 10px 0 5px;
-}
-
-.main-crear-producto .form-container .form-content form .contenedor-talles div,
-.main-crear-producto .form-container .form-content form .contenedor-colores div,
-.main-crear-producto .form-container .form-content form .contenedor-categorias div{
-    height: auto;
-    width: auto;
-    font-size: 1rem;
-}
 
 
 

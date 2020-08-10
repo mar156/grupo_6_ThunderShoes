@@ -9,10 +9,14 @@
                 <h2>CREAR PRODUCTO</h2>
                 <form action="" method="">
                     <label for="product-name">Nombre del producto: </label>
-                    <input type="text" name="name" id="product-name">
+                    <input type="text" name="name" id="product-name" autofocus>
+
+                    <label for="product-price">Precio</label>
+                    <input type="number" min="0.00" max="1000000.00" step="0.01" name="price" id="product-price" placeholder="Ej. 4200.99">
         
                     <label for="product-desc">Descripción</label>
-                    <input type="text" name="description" id="product-desc">
+                    <textarea maxlength="500" name="description" id="product-desc" cols="60" rows="5" placeholder="Descripción del producto (Hasta 500 caracteres)"></textarea>
+                    <!-- <input type="text" name="description" id="product-desc"> -->
         
                     <input type="file" name="image" id="product-image">
         
@@ -46,27 +50,27 @@
                     
                     <span>Colores</span>
                     <div class="contenedor-colores">
-                        <div>
+                        <div class="checkbox rojo selected">
                             <label for="product-c-rojo">Rojo</label>
                             <input type="checkbox" name="color" id="product-c-rojo" value="rojo">
                         </div>
-                        <div>
+                        <div class="checkbox azul">
                             <label for="product-c-azul">Azul</label>
                             <input type="checkbox" name="color" id="product-c-azul" value="azul">
                         </div>
-                        <div>
+                        <div class="checkbox amarillo">
                             <label for="product-c-amarillo">Amarillo</label>
                             <input type="checkbox" name="color" id="product-c-amarillo" value="amarillo">
                         </div>
-                        <div>
+                        <div class="checkbox negro selected">
                             <label for="product-c-negro">Negro</label>
                             <input type="checkbox" name="color" id="product-c-negro" value="negro">
                         </div>
-                        <div>
+                        <div class="checkbox verde">
                             <label for="product-c-verde">Verde</label>
                             <input type="checkbox" name="color" id="product-c-verde" value="verde">
                         </div>
-                        <div>
+                        <div class="checkbox gris">
                             <label for="product-c-gris">Gris</label>
                             <input type="checkbox" name="color" id="product-c-gris" value="gris">
                         </div>
