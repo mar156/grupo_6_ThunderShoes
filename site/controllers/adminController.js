@@ -1,8 +1,9 @@
 const controller = {
     createProduct: (req, res)=>{
-
         res.render('admin/createProduct');
-        //res.send('TODO ESTÁ BIEN');
+    },
+    editProduct: (req, res) => {
+        res.render('admin/createProduct');
     }
 }
 
