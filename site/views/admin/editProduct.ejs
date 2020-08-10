@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../parcials/head') %>
+<body>
+    <%- include('../parcials/header') %>
+    <main class="main-crear-producto">
+        <div class="form-container">
+            <div class="form-content">
+                <h2>EDITANDO PRODUCTO id: <%= product && product.id %></h2>
+                <form action="" method="">
+                    <label for="product-name">Nombre del producto: </label>
+                    <input type="text" name="name" id="product-name" autofocus value="<%= product && product.nombre %>">
+
+                    <label for="product-price">Precio</label>
+                    <input type="number" min="0.00" max="1000000.00" step="0.01" name="price" id="product-price" placeholder="Ej. 4200.99" value="<%= product && product.precio %>">
+        
+                    <label for="product-desc">Descripción</label>
+                    <textarea maxlength="500" name="description" id="product-desc" cols="60" rows="5" placeholder="Descripción del producto (Hasta 500 caracteres)">
+                        <%= product && product.descripcion %>
+                    </textarea>
+        
+                    <input type="file" name="image" id="product-image">
+        
+                    <span>Categoría</span>
+                    <div class="contenedor-categorias">
+                        <div>
+                            <label for="product-c-mujer">MUJER</label>
+                            <input type="checkbox" name="categoria" id="product-c-mujer" value="mujer">
+                        </div>
+                        <div>
+                            <label for="product-c-hombre">HOMBRE</label>
+                            <input type="checkbox" name="categoria" id="product-c-hombre" value="hombre" checked="<%= product && product.categorias.hombre %>">
+                        </div>
+                        <div>
+                            <label for="product-c-tennis">TENNIS</label>
+                            <input type="checkbox" name="categoria" id="product-c-tennis" value="tennis">
+                        </div>
+                        <div>
+                            <label for="product-c-running">RUNNING</label>
+                            <input type="checkbox" name="categoria" id="product-c-running" value="running">
+                        </div>
+                        <div>
+                            <label for="product-c-football">FOOTBALL</label>
+                            <input type="checkbox" name="categoria" id="product-c-football" value="football">
+                        </div>
+                        <div>
+                            <label for="product-c-volley">VOLLEY</label>
+                            <input type="checkbox" name="categoria" id="product-c-volley" value="volley">
+                        </div>
+                    </div>
+                    
+                    <span>Colores</span>
+                    <div class="contenedor-colores">
+                        <div class="checkbox rojo">
+                            <label for="product-c-rojo">Rojo</label>
+                            <input type="checkbox" name="color" id="product-c-rojo" value="rojo" checked="<%= product && product.colores.rojo %>">
+                        </div>
+                        <div class="checkbox azul">
+                            <label for="product-c-azul">Azul</label>
+                            <input type="checkbox" name="color" id="product-c-azul" value="azul">
+                        </div>
+                        <div class="checkbox amarillo">
+                            <label for="product-c-amarillo">Amarillo</label>
+                            <input type="checkbox" name="color" id="product-c-amarillo" value="amarillo">
+                        </div>
+                        <div class="checkbox negro">
+                            <label for="product-c-negro">Negro</label>
+                            <input type="checkbox" name="color" id="product-c-negro" value="negro">
+                        </div>
+                        <div class="checkbox verde">
+                            <label for="product-c-verde">Verde</label>
+                            <input type="checkbox" name="color" id="product-c-verde" value="verde">
+                        </div>
+                        <div class="checkbox gris">
+                            <label for="product-c-gris">Gris</label>
+                            <input type="checkbox" name="color" id="product-c-gris" value="gris">
+                        </div>
+                    </div>
+                    
+                    <span>Talles</span>
+                    <div class="contenedor-talles">
+                        <div>
+                            <label for="product-t-35">35</label>
+                            <input type="checkbox" name="talle" id="product-t-35" value="35">
+                        </div>
+                        <div>
+                            <label for="product-t-36">36</label>
+                            <input type="checkbox" name="talle" id="product-t-36" value="36">
+                        </div>
+                        <div>
+                            <label for="product-t-37">37</label>
+                            <input type="checkbox" name="talle" id="product-t-37" value="37">
+                        </div>
+                        <div>
+                            <label for="product-t-38">38</label>
+                            <input type="checkbox" name="talle" id="product-t-38" value="38">
+                        </div>
+                        <div>
+                            <label for="product-t-39">39</label>
+                            <input type="checkbox" name="talle" id="product-t-39" value="39">
+                        </div>
+                        <div>
+                            <label for="product-t-40">40</label>
+                            <input type="checkbox" name="talle" id="product-t-40" value="40">
+                        </div>
+                    </div>
+                    
+                   
+                    
+                    <button type="submit">Agregar producto</button>
+                </form>
+            </div>
+        </div>
+        
+    </main>
+    <%- include('../parcials/footer') %>
+    <script src="/script/script.js"></script>
+    <script src="/script/footer.js"></script>
+</body>
+</html>
