@@ -29,4 +29,4 @@
 
 
 ### Instrucciones:
-Las instrucciones para la instalación de las dependencias necesarias para el funcionamiento del sitio se encuentran en la carpeta site. Puede acceder a las mismas por medio del siguiente link: 
+Las instrucciones para la instalación de las dependencias necesarias para el funcionamiento del sitio se encuentran en la carpeta site. Puede acceder a las mismas por medio del siguiente link: [Instrucciones]https://github.com/mar156/grupo_6_ThunderShoes/blob/master/site/Instrucciones.md
