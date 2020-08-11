@@ -26,3 +26,7 @@
 
 ### Tablero de trabajo:
  - [Trello](https://trello.com/b/e4QPLD2E)
+
+
+### Instrucciones:
+Las instrucciones para la instalación de las dependencias necesarias para el funcionamiento del sitio se encuentran en la carpeta site. Puede acceder a las mismas por medio del siguiente link: 
