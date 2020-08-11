@@ -1322,47 +1322,56 @@ footer .contenedor-redes .contenedor-iconos i{
     cursor: pointer;
 }
 
-.main-crear-producto .form-container .form-content form .contenedor-talles div,
-.main-crear-producto .form-container .form-content form .contenedor-colores div,
-.main-crear-producto .form-container .form-content form .contenedor-categorias div{
-    height: auto;
-    width: auto;
-    font-size: 1rem;
-    cursor: pointer;
+/* estilos para checkbox categorias */
+
+.main-crear-producto .form-container .form-content form .contenedor-categorias label {
+    width: 30%;
+    padding: .3rem .1rem;
+    margin-bottom: 1rem;
+    text-align: center;
 }
 
 /* estilos para checkbox colores */ 
-.main-crear-producto .form-container .form-content form .contenedor-colores input[type="checkbox"],
-.main-crear-producto .form-container .form-content form .contenedor-colores label {
+.main-crear-producto .form-container .form-content form input[type="checkbox"] {
     visibility: hidden;
+    display: none;
 }
 
-.main-crear-producto .form-container .form-content form .contenedor-colores .checkbox {
+.main-crear-producto .form-container .form-content form .contenedor-colores label {
+    font-size: 0;
+    line-height: 1.8rem;
     width: 1.8rem;
     height: 1.8rem;
-    margin: .5rem;
     border: 2px solid transparent;
     border-radius: 3px;
-    position: relative;
+    margin-bottom: 1rem;
     cursor: pointer;
 }
-.main-crear-producto .form-container .form-content form .contenedor-colores .checkbox:hover {
+
+.main-crear-producto .form-container .form-content form .contenedor-colores label:hover {
     border-color: #0c0c0c;
 }
 
-.main-crear-producto .form-container .form-content form .contenedor-colores .checkbox.rojo { background-color: red; }
-.main-crear-producto .form-container .form-content form .contenedor-colores .checkbox.azul { background-color: blue; }
-.main-crear-producto .form-container .form-content form .contenedor-colores .checkbox.amarillo { background-color: yellow; }
-.main-crear-producto .form-container .form-content form .contenedor-colores .checkbox.negro { background-color: #0c0c0c; }
-.main-crear-producto .form-container .form-content form .contenedor-colores .checkbox.verde { background-color: green; }
-.main-crear-producto .form-container .form-content form .contenedor-colores .checkbox.gris { background-color: gray; }
+.main-crear-producto .form-container .form-content form .contenedor-colores label.rojo { background-color: red; }
+.main-crear-producto .form-container .form-content form .contenedor-colores label.azul { background-color: blue; }
+.main-crear-producto .form-container .form-content form .contenedor-colores label.amarillo { background-color: yellow; }
+.main-crear-producto .form-container .form-content form .contenedor-colores label.negro { background-color: #0c0c0c; }
+.main-crear-producto .form-container .form-content form .contenedor-colores label.verde { background-color: green; }
+.main-crear-producto .form-container .form-content form .contenedor-colores label.gris { background-color: gray; }
 
-
-
-.main-crear-producto .form-container .form-content form .contenedor-colores .checkbox.selected {
+.main-crear-producto .form-container .form-content form .checked {
     outline: 1.5px solid #0c0c0c;
     outline-offset: 2px;
 }
+
+.main-crear-producto .form-container .form-content form .contenedor-talles .checked,
+.main-crear-producto .form-container .form-content form .contenedor-categorias .checked {
+    border-color: #0c0c0c; 
+    background-color: #0c0c0c;
+    color: #ffe512;
+    outline: none;
+}
+
 
 
 /* Estilo tablets*/
