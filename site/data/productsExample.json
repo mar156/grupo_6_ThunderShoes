@@ -1,0 +1,22 @@
+[{
+    "id": 1,
+    "name": "Zapatilla Nike",
+    "description": "La mejor zapatilla del mundo",
+    "category": ["in-sale", "running", "football", "men", "women"],
+    "colors": ["red", "blue", "white"],
+    "sizes": ["7", "7.5", "8","9.5", "10"],
+    "price": 3500,
+    "image": [ "zapanike2020.jpg", "zapanike2019.jpg",  "zapanike2015.jpg"]
+},
+{
+
+    "id": 2,
+    "name": "Zapatilla Adidas",
+    "description": "La peor zapatilla del mundo",
+    "category": ["in-sale", "running", "football", "men", "women"],
+    "colors": ["red", "blue", "white"],
+    "sizes": ["7", "7.5", "8","9.5", "10"],
+    "price": 5500,
+    "image": [ "zapaadidas2020.jpg", "zapaadidas2019.jpg",  "zapaadidas2015.jpg"]
+}
+]

@@ -1,0 +1,21 @@
+[{
+    "id": 1,
+    "first_name": "Cary",
+    "last_name": "Sangwin",
+    "email": "csangwin0@t.co",
+    "phone": 62101335525,
+    "password": "BqrQiyCxG",
+    "category": "user",
+    "image": "user_1.jpg"
+}, 
+{
+    "id": 2,
+    "first_name": "Edwin",
+    "last_name": "Missington",
+    "email": "emissington1@ebay.co.uk",
+    "phone": 33552562101,
+    "password": "11iJimOI5AoY",
+    "category": "admin",
+    "image": "user_2.jpg"
+}
+]
