@@ -253,14 +253,14 @@ a{
 }
 
 .search-desktop input{
-    padding: 4px;
+    padding: 10px;
     border: 0px;
-    border-radius: 2px;
+    border-radius: 30px;
 }
 .search-desktop i{
     position: absolute;
-    top: 18%;
-    right: 1%;
+    top: 28%;
+    right: 5%;
     font-size: 1rem;
     color: #0C0C0C;
     background-color: white;
@@ -702,9 +702,9 @@ a{
 .form-content form input[type="number"],
 .form-content form textarea {
     width: 90%;
-    padding: 4px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
+    padding: 10px;
+    border: 3px solid #ccc;
+    border-radius: 8px;
     margin-top: .5rem;
     margin-bottom: 1rem;
 }
@@ -1329,6 +1329,7 @@ footer .contenedor-redes .contenedor-iconos i{
     padding: .3rem .1rem;
     margin-bottom: 1rem;
     text-align: center;
+    border: solid 1px #ffe512;
 }
 
 /* estilos para checkbox colores */ 
