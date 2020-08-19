@@ -9,7 +9,6 @@
     "image": [ "zapanike2020.jpg", "zapanike2019.jpg",  "zapanike2015.jpg"]
 },
 {
-
     "id": 2,
     "name": "Zapatilla Adidas",
     "description": "La peor zapatilla del mundo",
@@ -18,5 +17,35 @@
     "sizes": ["7", "7.5", "8","9.5", "10"],
     "price": 5500,
     "image": [ "zapaadidas2020.jpg", "zapaadidas2019.jpg",  "zapaadidas2015.jpg"]
+},
+{
+    "id": 3,
+    "name": "Zapatillas de mujer New Balance Clay 996v3 Tenis",
+    "description": "Las zapatillas de tenis New Balance Clay 996v3 fueron diseñadas especialmente para canchas de polvo de ladrillo, con una suela Ndurance que brinda buen agarre y una tracción duradera.",
+    "category": ["running", "tennis", "football", "men", "women"],
+    "colors": ["red", "blue", "white"],
+    "sizes": ["7", "7.5", "8"],
+    "price": 12500,
+    "image": [ "img-product-01.jpg", "img-product-02.jpg",  "img-product-03.jpg"]   
+},
+{
+    "id": 4,
+    "name": "Cali Sport Wildcats Women's Sneakers",
+    "description": "Synthetic leather and suede upper with furry animal-printed panels. Full lace closure. Platform rubber midsole design with textured tooling. Rubber outsole provides durable traction and grip PUMA Formstrip overlay at side Gold metallic PUMA label at tongue",
+    "category": ["women"],
+    "colors": ["red", "white"],
+    "sizes": ["7", "7.5", "8","9.5", "10"],
+    "price": 9000,
+    "image": [ "img-product-04.jpg", "img-product-05.jpg"]
+},
+{
+    "id": 5,
+    "name": "Cali Sport Wildcats Women's Sneakers",
+    "description": "Synthetic leather and suede upper with furry animal-printed panels. Full lace closure. Platform rubber midsole design with textured tooling. Rubber outsole provides durable traction and grip PUMA Formstrip overlay at side Gold metallic PUMA label at tongue",
+    "category": ["women"],
+    "colors": ["red", "white"],
+    "sizes": ["7", "7.5", "8","9.5", "10"],
+    "price": 9000,
+    "image": [ "img-product-04.jpg", "img-product-05.jpg"]
 }
 ]
