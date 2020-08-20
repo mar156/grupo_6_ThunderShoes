@@ -1,6 +1,6 @@
 const path = require ('path')
 const fs = require('fs');
-const filePath =  path.join(__dirname, '../data/productsExample.json');
+const filePath =  path.join(__dirname, '../data/products.json');
 const controller = {
     index: (req, res) => {
         //Leer el json con los productos

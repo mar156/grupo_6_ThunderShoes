@@ -31,15 +31,24 @@ let product = {
         football: ''
     }
 };
+const destroyProduct = require("./adminController/delete");
+const listProduct = require("./adminController/index");
 
 const controller = {
+    listProduct: listProduct,
     createProduct: (req, res)=>{
         res.render('admin/createProduct');
     },
+    // storeProduct: ,
     editProduct: (req, res) => {
+        // leer el archivo y crear un array. 
+        // buscar id. si lo encontras lo separas.
+        // al obj producto lo completas con todos los datos incluido ID
         product.id = req.params.id;
         res.render('admin/editProduct', { product });
-    }
+    },
+    // update: ,
+    destroyProduct: destroyProduct
 }
 
 module.exports = controller;
