@@ -432,9 +432,9 @@ a{
             border-left: 1px solid #ccc;
             cursor: pointer;
         }
-        .main-admin-product-list .item-container form .edit-item-a,
+        .main-admin-product-list .item-container a .edit-item-a,
         .main-admin-product-list .item-container form .delete-item-a { width: 100%; }
-        .main-admin-product-list .item-container form button { width: 100%; }
+        .main-admin-product-list .item-container button { width: 100%; }
 
         .delete-item, .edit-item {
             display: flex;
@@ -1593,7 +1593,8 @@ footer .contenedor-redes .contenedor-iconos i{
         width: 50%;
     }
     .main-admin-product-list .item-value { width: 30%; }
-    .main-admin-product-list .item-container form { width: 10%; }
+    .main-admin-product-list .item-container form,
+    .main-admin-product-list .item-container a { width: 10%; }
 
     .item-container img{
         width: 8rem;

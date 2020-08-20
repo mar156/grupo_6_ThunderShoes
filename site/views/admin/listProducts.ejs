@@ -38,12 +38,13 @@
                         </div>
                     </div>
                 </div>
-                <form action="">
+                <a href="/admin/product/<%= product.id %>/edit">
                     <div class="edit-item-a">
                         <button type="submit"><i class="fas fa-edit"></i></button>
                     </div>
-                </form>
-                <form action="">
+                </a>
+                <form method="POST" action="/admin/product/<%=product.id%>?_method=DELETE">
+                    <input type="number" name="id" id="id" value="<%= product.id %>" style="display: none;" checked>
                     <div class="delete-item-a">
                         <button type="submit"><i class="far fa-trash-alt"></i></button>
                     </div>

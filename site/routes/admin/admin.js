@@ -13,6 +13,6 @@ router.get('/product/create', adminController.createProduct);     // Vista    - 
 router.get('/product/:id/edit', adminController.editProduct);     // Vista    - Editar producto
 //router.put('/product/:id', adminController.updateProduct);        // Put      - Editar producto
 
-//router.delete('product/:id', adminController.deleteProduct);      // Delete   - Eliminar producto
+router.delete('/product/:id', adminController.destroyProduct);      // Delete   - Eliminar producto
 
 module.exports = router;
