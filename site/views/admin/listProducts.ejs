@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../parcials/head') %>
+<body>
+
+    <%- include('../parcials/header') %>
+    
+<!--Banner-->   
+<!--<div class="banner-cart">
+    <span>MI CARRITO</span>
+    <img src="../img/banner-hombre-logo.jpg" alt="Banner carrito">
+</div>-->
+
+<!--Main-->
+<main class="main-product-cart">
+
+    <h3>Listado de productos</h3>
+    <div class="resumen-carrito">
+        
+        <% products.forEach(product => { %>
+            <div class="item-container">
+                <div class="item-cart">
+                    <div class="item-detail-container">   
+                        <img src="/img/<%= product.image[0]%>" alt="">
+                        <div class="item-detail">
+                            <span class="item-name"><%= product.name %></span> 
+                            <span class="item-size"><%= product.size %></span>  
+                            <span class="item-model"><%= product.brand %></span> <!--Aquí decía modelo x (? -->
+                        </div>
+                    </div> 
+                    <div class="item-value">
+                        <div class="precio-item"> 
+                            <span class="item-price">Precio</span>
+                            <span> <%= product.price %> </span>  
+                        </div>
+                        <div class="cantidad-item"> 
+                            <span> <input type="number" name="cantidad" id="cantidad" value=<%= product.stock %>></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="delete-item">
+                    <i class="far fa-trash-alt"></i>
+                </div>
+            </div>
+        <% }); %>
+
+    </div>
+
+</main>
+
+
+<%- include('../parcials/footer') %>
+
+
+<script src="/script/script.js"></script>
+<script src="/script/footer.js"></script>
+
+</body>
+</html>
