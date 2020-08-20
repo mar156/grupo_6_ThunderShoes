@@ -12,25 +12,33 @@ const editProduct = {
             return product.id == id;
         });
 
-        
-
         let product = {
             name: productToEdit.name,
-            price: productToEdit.price,
+            brand: productToEdit.brand,
             description: productToEdit.description,
             gender: {
                 male:'',
                 female: ''
             },
+            category: {
+                tennis: '',
+                running: '',
+                volley: '',
+                football: '',
+                collection: ''
+            },
+            onSale: productToEdit.onSale,
             colors: {                  // la lista de colors se carga desde BD/FileJson y se genera el listado de la propiedad colors, 
                 red: '',        // de cada producto se obtiene que colors seleccionados posee y se marca en 'checked' para pasar a la vista. 
                 green: '',              // Idem 'Talles' y 'Categorías'.
                 black: '',
                 blue: '',
                 yellow: '',
-                gray: ''
+                gray: '',
+                white: ''
             },
             sizes: {
+                t34: '',
                 t35: '',
                 t36: '',
                 t37: '',
@@ -38,17 +46,12 @@ const editProduct = {
                 t39: '',
                 t40: ''
             },
-            images: [
+            price: productToEdit.price,
+            image: [
                 'file1.jpg',
                 'file2.jpg'
             ],
-            category: {
-                tennis: '',
-                running: '',
-                volley: '',
-                football: '',
-                collection: ''
-            }
+            stock: productToEdit.stock
         };
  
         // Colores
@@ -90,37 +93,22 @@ const editProduct = {
             }
          
 
-
-        
-
-
-
-            
-            
- /*            for (const propiedad in product.colores) {
-
-                productToEdit.colors.forEach(function(color){
-                    
-                if (color == propiedad) {
-                    
-                    product.colores[propiedad] = 'checked';
-                
-                } else{
-
-                    product.colores[propiedad] = '';
-
-                }
-            })
-            } */
-
-
-
         res.render('admin/editProduct', { product , id });
 
     },
     update: function(req, res){
 
+        // Me paso el ID por url --> form action="/product/detail/<%= product && id %>?_method=PUT" method="POST"
 
+        let id = req.params.id;
+        let readProducts = fs.readFileSync(filePath, 'utf-8');
+        let products = JSON.parse(readProducts);
+        
+        // Al producto que me viene del form le añado el id (Como solucionar los cambios de ID cuando se elimina un producto?)
+
+        let productToEdit = req.body;
+
+        productToEdit.id = id;
 
 
 

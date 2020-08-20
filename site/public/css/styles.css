@@ -1391,6 +1391,13 @@ footer .contenedor-redes .contenedor-iconos i{
 .main-crear-producto .form-container .form-content form .contenedor-colores label.negro { background-color: #0c0c0c; }
 .main-crear-producto .form-container .form-content form .contenedor-colores label.verde { background-color: green; }
 .main-crear-producto .form-container .form-content form .contenedor-colores label.gris { background-color: gray; }
+.main-crear-producto .form-container .form-content form .contenedor-colores label.white { background-color: white; border: 1px solid #ccc;}
+
+.main-crear-producto .form-container .form-content form .contenedor-colores label.white:hover {
+    border-color: #0c0c0c;
+    border-width: 2px;
+}
+
 
 .main-crear-producto .form-container .form-content form .checked {
     outline: 1.5px solid #0c0c0c;

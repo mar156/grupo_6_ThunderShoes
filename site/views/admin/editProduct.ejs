@@ -7,7 +7,7 @@
         <div class="form-container">
             <div class="form-content">
                 <h2>EDITANDO PRODUCTO - id: <%= product && id %></h2>
-                <form action="" method="">
+                <form action="/product/detail/<%= product && id %>?_method=PUT" method="POST">
                     <label for="product-name">Nombre del producto: </label>
                     <input type="text" name="name" id="product-name" autofocus value="<%= product && product.name %>">
 
@@ -36,7 +36,6 @@
                     <span>Categoría</span>
                     <div class="contenedor-categorias">
 
-
                         <label for="product-c-tennis" class="<%= product && product.category.tennis%>">TENNIS 
                             <input type="checkbox" name="categoria" id="product-c-tennis" value="tennis"  checked="<%= product && product.category.tennis %>">
                         </label>
@@ -60,11 +59,14 @@
                             <input type="checkbox" name="categoria" id="product-c-collection" value="collection" checked="<%= product && product.category.collection %>">
                         </label>
                         
-
                     </div>
                     
                     <span>Colores</span>
                     <div class="contenedor-colores">
+
+                        <label for="product-c-white" class="white <%= product && product.colors.white %>">
+                            <input type="checkbox" name="color" id="product-c-white" value="white" checked="<%= product && product.colors.white %>">
+                        </label>
 
                         <label for="product-c-rojo" class="rojo <%= product && product.colors.red %>">
                             <input type="checkbox" name="color" id="product-c-rojo" value="rojo" checked="<%= product && product.colors.red %>">
@@ -95,6 +97,11 @@
                     <span>Talles</span>
                     <div class="contenedor-talles">
 
+                        <label for="product-t-34" class="size <%= product && product.sizes.t34 %>">34
+                            <input type="checkbox" name="talle" id="product-t-34" value="34" checked="<%= product && product.sizes.t34 %>">
+                        </label>
+
+
                         <label for="product-t-35" class="size <%= product && product.sizes.t35 %>">35
                             <input type="checkbox" name="talle" id="product-t-35" value="35" checked="<%= product && product.sizes.t35 %>">
                         </label>
@@ -121,8 +128,8 @@
 
                     </div>
 
-                    
-                    <button type="submit">Guardar cambios</button>
+
+                        <button type="submit">Guardar cambios</button>
                     
                 </form>
             </div>
