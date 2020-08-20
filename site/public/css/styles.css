@@ -417,7 +417,7 @@ a{
 
 
 
-        .delete-item {
+        .delete-item, .edit-item {
             display: flex;
             width: 10%;
             justify-content: center;
@@ -427,6 +427,10 @@ a{
         }
         .delete-item:hover{
             color: rgb(184, 0, 0);
+            font-size: 1.2rem;
+        }
+        .edit-item:hover{
+            color: rgb(30, 71, 2);
             font-size: 1.2rem;
         }
 

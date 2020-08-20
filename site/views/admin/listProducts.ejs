@@ -31,12 +31,15 @@
                     <div class="item-value">
                         <div class="precio-item"> 
                             <span class="item-price">Precio</span>
-                            <span> <%= product.price %> </span>  
+                            <span> $<%= product.price%> </span>  
                         </div>
                         <div class="cantidad-item"> 
-                            <span> <input type="number" name="cantidad" id="cantidad" value=<%= product.stock %>></span>
+                            <span> <input type="number" name="cantidad" id="cantidad" value="<%= product.stock %>" disabled></span> 
                         </div>
                     </div>
+                </div>
+                <div class="edit-item">
+                    <i class="fas fa-edit"></i>
                 </div>
                 <div class="delete-item">
                     <i class="far fa-trash-alt"></i>
