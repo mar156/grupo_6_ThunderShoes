@@ -33,6 +33,8 @@ let product = {
 };
 const destroyProduct = require("./adminController/delete");
 const listProduct = require("./adminController/index");
+const editProduct = require("./adminController/edit");
+
 
 const controller = {
     listProduct: listProduct,
@@ -40,13 +42,12 @@ const controller = {
         res.render('admin/createProduct');
     },
     // storeProduct: ,
-    editProduct: (req, res) => {
+    editProduct: editProduct.edit,
         // leer el archivo y crear un array. 
         // buscar id. si lo encontras lo separas.
         // al obj producto lo completas con todos los datos incluido ID
-        product.id = req.params.id;
-        res.render('admin/editProduct', { product });
-    },
+       
+    
     // update: ,
     destroyProduct: destroyProduct
 }
