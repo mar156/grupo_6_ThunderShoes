@@ -6,7 +6,7 @@ module.exports = (req, res) => {
     let id = Number(req.params.id);
     let products = fs.readFileSync(filePath, 'utf-8');
     products = JSON.parse(products);
-    let product = products.find(product => product.id === id ? true : false);
+    let product = products.find(product => product.id === id);
     if (product) {
         res.render('products/productDetail', {product});
     } else {
