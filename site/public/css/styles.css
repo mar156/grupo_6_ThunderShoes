@@ -415,7 +415,22 @@ a{
                         color: #3a3636;
                     }
 
-
+        
+        .edit-item-a, .delete-item-a{
+            width: 10%;
+            height: 100%;
+            display: flex;
+        }
+        .edit-item-a button, .delete-item-a button{
+            font-size: 1.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: none;
+            background: none;
+            border-left: 1px solid #ccc;
+            cursor: pointer;
+        }
 
         .delete-item, .edit-item {
             display: flex;
@@ -425,13 +440,16 @@ a{
             border-left: 1px solid #ccc;
             cursor: pointer;
         }
-        .delete-item:hover{
+        .delete-item:hover, .delete-item-a button:hover{
             color: rgb(184, 0, 0);
             font-size: 1.2rem;
         }
-        .edit-item:hover{
+        .edit-item:hover, .edit-item-a button:hover{
             color: rgb(30, 71, 2);
             font-size: 1.2rem;
+        }
+        .delete-item-a button:hover, .edit-item-a button:hover{
+            font-size: 2rem;
         }
 
 /* Checkout Cart */
