@@ -1,6 +1,9 @@
 const path = require ('path')
 const fs = require('fs');
 const filePath =  path.join(__dirname, '../data/products.json');
+
+const detail = require('./productController/detail');
+
 const controller = {
     index: (req, res) => {
         //Leer el json con los productos
@@ -12,9 +15,7 @@ const controller = {
         //res.send(products);
         res.render('products/shop', {products});
     },
-    detail: (req, res)=>{
-        res.render('products/productDetail');
-    },
+    detail: detail,
     cart: (req, res)=>{
         res.render('products/productCart');
     }
