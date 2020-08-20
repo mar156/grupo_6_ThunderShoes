@@ -1403,6 +1403,27 @@ footer .contenedor-redes .contenedor-iconos i{
     outline: none;
 }
 
+/* Admin Product List */
+.main-admin-product-list .resumen-carrito .btn-new_product {
+    position: absolute;
+    top: -46px;
+    right: 1rem;
+    text-align: center;
+    font-size: .9rem;
+    /* font-weight: bold; */
+    border: none;
+    padding: .5rem;
+    background-color: #ffe512;
+    cursor: pointer;
+}
+.main-admin-product-list .resumen-carrito .btn-new_product:hover {
+    color: #ffe512;
+    background-color: #0c0c0c;
+}
+
+.main-admin-product-list .resumen-carrito {
+    position: relative;
+}
 
 
 /* Estilo tablets*/
