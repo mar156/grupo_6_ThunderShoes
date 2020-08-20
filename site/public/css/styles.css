@@ -572,41 +572,48 @@ a{
     text-align: center;
 }
 
-.product-detail-content span:nth-child(4) {
+/* .product-detail-content span:nth-child(4) {
     display: block;
     text-align: center;
-}
+} */
 
 .product-colors {
     margin-top: 1rem;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 }
 
-.color {
+.product-colors input[type="radio"] {
+    display: none;
+}
+.product-colors input[type=radio] + label {
     border: 1px solid #ccc;
     border-radius: 3px;
     height: 40px;
     width: 40px;
-    /* text-align: center; */
-    margin-right: 1.5rem;
+    margin-right: .3rem;
+    margin-bottom: .3rem;
+    cursor: pointer;
 }
-.color:nth-child(1){ background-color: #0c0c0c; }
-.color:nth-child(2){ background-color: white; }
-.color:nth-child(3){ background-color: brown; }
-.color:nth-child(4){ background-color: red; }
-
-.color.selected {
+.product-colors input[type=radio]:checked + label {
     outline: 1.5px solid #0c0c0c;
     outline-offset: 2px;
 }
 
-
 .product-sizes-container {
     margin-top: 1rem;
     padding: 0 .5rem;
+}
+
+.product-sizes input[type="radio"] {
+    display: none;
+}
+.product-sizes input[type="radio"]:checked + label { 
+    border-color: #0c0c0c; 
+    background-color: #0c0c0c;
+    color: #ffe512;
 }
 
 .product-sizes {
@@ -628,12 +635,9 @@ a{
     margin-right: .3rem;
     margin-bottom: .3rem;
     font-size: 0.8rem;
+    cursor: pointer;
 }
-.size.selected { 
-    border-color: #0c0c0c; 
-    background-color: #0c0c0c;
-    color: #ffe512;
-}
+
 
 .purchase-detail {
     margin-top: 1rem;
@@ -1580,6 +1584,8 @@ footer .contenedor-redes .contenedor-iconos i{
 
     .product-detail-slideshow > img {
         width: calc(1024px - 1rem - 320px);
+        height: 526px;
+        object-fit: cover;
     }
 
     .product-detail-sticky {
@@ -1592,7 +1598,7 @@ footer .contenedor-redes .contenedor-iconos i{
         position: sticky;
         width: 100%;
         background-color: white;
-        top: 110px;
+        top: 122px;
     }
 
     .product-description {
