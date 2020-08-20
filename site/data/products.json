@@ -8,7 +8,7 @@
       "football",
       "tennis"
     ],
-    "on-sale": 44,
+    "onSale": 44,
     "colors": [
       "black"
     ],
@@ -35,7 +35,7 @@
       "tennis",
       "collection"
     ],
-    "on-sale": 3,
+    "onSale": 3,
     "colors": [
       "black"
     ],
@@ -66,7 +66,7 @@
     "category": [
       "football"
     ],
-    "on-sale": 3,
+    "onSale": 3,
     "colors": [
       "black"
     ],
@@ -100,7 +100,7 @@
       "tennis",
       "collection"
     ],
-    "on-sale": 34,
+    "onSale": 34,
     "colors": [
       "black",
       "white",
@@ -132,7 +132,7 @@
       "tennis",
       "collection"
     ],
-    "on-sale": 45,
+    "onSale": 45,
     "colors": [
       "black",
       "white",
@@ -165,7 +165,7 @@
       "football",
       "tennis"
     ],
-    "on-sale": 30,
+    "onSale": 30,
     "colors": [
       "black",
       "white",
@@ -198,7 +198,7 @@
     "category": [
       "football"
     ],
-    "on-sale": 31,
+    "onSale": 31,
     "colors": [
       "black"
     ],
@@ -228,7 +228,7 @@
       "collection",
       "volley"
     ],
-    "on-sale": 13,
+    "onSale": 13,
     "colors": [
       "black"
     ],
@@ -259,7 +259,7 @@
     "category": [
       "football"
     ],
-    "on-sale": 0,
+    "onSale": 0,
     "colors": [
       "black",
       "white"
@@ -288,7 +288,7 @@
       "football",
       "tennis"
     ],
-    "on-sale": 15,
+    "onSale": 15,
     "colors": [
       "black",
       "white",
@@ -322,7 +322,7 @@
       "tennis",
       "collection"
     ],
-    "on-sale": 26,
+    "onSale": 26,
     "colors": [
       "black",
       "white",
@@ -364,7 +364,7 @@
       "volley",
       "running"
     ],
-    "on-sale": 8,
+    "onSale": 8,
     "colors": [
       "black",
       "white",
@@ -402,7 +402,7 @@
       "football",
       "tennis"
     ],
-    "on-sale": 39,
+    "onSale": 39,
     "colors": [
       "black",
       "white",
@@ -432,7 +432,7 @@
       "tennis",
       "collection"
     ],
-    "on-sale": 15,
+    "onSale": 15,
     "colors": [
       "black",
       "white",
@@ -465,7 +465,7 @@
       "football",
       "tennis"
     ],
-    "on-sale": 14,
+    "onSale": 14,
     "colors": [
       "black"
     ],
@@ -498,7 +498,7 @@
       "tennis",
       "collection"
     ],
-    "on-sale": 3,
+    "onSale": 3,
     "colors": [
       "black",
       "white",
@@ -538,7 +538,7 @@
       "tennis",
       "collection"
     ],
-    "on-sale": 34,
+    "onSale": 34,
     "colors": [
       "black",
       "white",
@@ -573,7 +573,7 @@
       "football",
       "tennis"
     ],
-    "on-sale": 31,
+    "onSale": 31,
     "colors": [
       "black",
       "white",
@@ -606,7 +606,7 @@
       "tennis",
       "collection"
     ],
-    "on-sale": 4,
+    "onSale": 4,
     "colors": [
       "black",
       "white",
@@ -641,7 +641,7 @@
     "category": [
       "football"
     ],
-    "on-sale": 50,
+    "onSale": 50,
     "colors": [
       "black",
       "white",
@@ -677,7 +677,7 @@
       "collection",
       "volley"
     ],
-    "on-sale": 27,
+    "onSale": 27,
     "colors": [
       "black",
       "white",
@@ -709,7 +709,7 @@
       "volley",
       "running"
     ],
-    "on-sale": 40,
+    "onSale": 40,
     "colors": [
       "black",
       "white",
@@ -744,7 +744,7 @@
       "volley",
       "running"
     ],
-    "on-sale": 0,
+    "onSale": 0,
     "colors": [
       "black"
     ],
@@ -771,7 +771,7 @@
     "category": [
       "football"
     ],
-    "on-sale": 17,
+    "onSale": 17,
     "colors": [
       "black"
     ],
@@ -796,7 +796,7 @@
     "category": [
       "football"
     ],
-    "on-sale": 48,
+    "onSale": 48,
     "colors": [
       "black",
       "white",
@@ -824,7 +824,7 @@
     "category": [
       "football"
     ],
-    "on-sale": 14,
+    "onSale": 14,
     "colors": [
       "black",
       "white",
@@ -862,7 +862,7 @@
       "collection",
       "volley"
     ],
-    "on-sale": 8,
+    "onSale": 8,
     "colors": [
       "black",
       "white"
@@ -894,7 +894,7 @@
     "category": [
       "football"
     ],
-    "on-sale": 15,
+    "onSale": 15,
     "colors": [
       "black",
       "white",
@@ -925,7 +925,7 @@
       "tennis",
       "collection"
     ],
-    "on-sale": 43,
+    "onSale": 43,
     "colors": [
       "black",
       "white",
@@ -961,7 +961,7 @@
       "collection",
       "volley"
     ],
-    "on-sale": 19,
+    "onSale": 19,
     "colors": [
       "black",
       "white"
@@ -990,7 +990,7 @@
       "volley",
       "running"
     ],
-    "on-sale": 33,
+    "onSale": 33,
     "colors": [
       "black",
       "white",
@@ -1019,7 +1019,7 @@
     "category": [
       "football"
     ],
-    "on-sale": 14,
+    "onSale": 14,
     "colors": [
       "black",
       "white",
@@ -1051,7 +1051,7 @@
       "football",
       "tennis"
     ],
-    "on-sale": 43,
+    "onSale": 43,
     "colors": [
       "black",
       "white"
@@ -1081,7 +1081,7 @@
       "collection",
       "volley"
     ],
-    "on-sale": 26,
+    "onSale": 26,
     "colors": [
       "black",
       "white",
@@ -1118,7 +1118,7 @@
       "collection",
       "volley"
     ],
-    "on-sale": 30,
+    "onSale": 30,
     "colors": [
       "black",
       "white",
@@ -1148,7 +1148,7 @@
     "category": [
       "football"
     ],
-    "on-sale": 43,
+    "onSale": 43,
     "colors": [
       "black",
       "white",
@@ -1185,7 +1185,7 @@
       "collection",
       "volley"
     ],
-    "on-sale": 1,
+    "onSale": 1,
     "colors": [
       "black",
       "white",
@@ -1217,7 +1217,7 @@
       "volley",
       "running"
     ],
-    "on-sale": 27,
+    "onSale": 27,
     "colors": [
       "black",
       "white",
@@ -1243,7 +1243,7 @@
     "category": [
       "football"
     ],
-    "on-sale": 41,
+    "onSale": 41,
     "colors": [
       "black",
       "white",
@@ -1277,7 +1277,7 @@
       "tennis",
       "collection"
     ],
-    "on-sale": 23,
+    "onSale": 23,
     "colors": [
       "black",
       "white",
@@ -1317,7 +1317,7 @@
       "collection",
       "volley"
     ],
-    "on-sale": 47,
+    "onSale": 47,
     "colors": [
       "black",
       "white"
@@ -1353,7 +1353,7 @@
       "collection",
       "volley"
     ],
-    "on-sale": 18,
+    "onSale": 18,
     "colors": [
       "black",
       "white",
@@ -1380,7 +1380,7 @@
     "category": [
       "football"
     ],
-    "on-sale": 30,
+    "onSale": 30,
     "colors": [
       "black"
     ],
@@ -1410,7 +1410,7 @@
       "tennis",
       "collection"
     ],
-    "on-sale": 24,
+    "onSale": 24,
     "colors": [
       "black",
       "white",
@@ -1449,7 +1449,7 @@
       "collection",
       "volley"
     ],
-    "on-sale": 34,
+    "onSale": 34,
     "colors": [
       "black",
       "white",
@@ -1482,7 +1482,7 @@
       "football",
       "tennis"
     ],
-    "on-sale": 3,
+    "onSale": 3,
     "colors": [
       "black",
       "white",
@@ -1516,7 +1516,7 @@
     "category": [
       "football"
     ],
-    "on-sale": 18,
+    "onSale": 18,
     "colors": [
       "black",
       "white",
@@ -1547,7 +1547,7 @@
       "football",
       "tennis"
     ],
-    "on-sale": 21,
+    "onSale": 21,
     "colors": [
       "black",
       "white",
@@ -1582,7 +1582,7 @@
       "volley",
       "running"
     ],
-    "on-sale": 20,
+    "onSale": 20,
     "colors": [
       "black",
       "white",
@@ -1614,7 +1614,7 @@
       "collection",
       "volley"
     ],
-    "on-sale": 50,
+    "onSale": 50,
     "colors": [
       "black",
       "white",
@@ -1652,7 +1652,7 @@
       "tennis",
       "collection"
     ],
-    "on-sale": 31,
+    "onSale": 31,
     "colors": [
       "black",
       "white",
@@ -1683,7 +1683,7 @@
       "football",
       "tennis"
     ],
-    "on-sale": 30,
+    "onSale": 30,
     "colors": [
       "black",
       "white",
@@ -1718,7 +1718,7 @@
       "tennis",
       "collection"
     ],
-    "on-sale": 39,
+    "onSale": 39,
     "colors": [
       "black",
       "white",
@@ -1757,7 +1757,7 @@
       "volley",
       "running"
     ],
-    "on-sale": 10,
+    "onSale": 10,
     "colors": [
       "black",
       "white",
@@ -1792,7 +1792,7 @@
       "tennis",
       "collection"
     ],
-    "on-sale": 26,
+    "onSale": 26,
     "colors": [
       "black",
       "white"
@@ -1826,7 +1826,7 @@
       "collection",
       "volley"
     ],
-    "on-sale": 32,
+    "onSale": 32,
     "colors": [
       "black"
     ],
@@ -1855,7 +1855,7 @@
       "volley",
       "running"
     ],
-    "on-sale": 6,
+    "onSale": 6,
     "colors": [
       "black",
       "white",
@@ -1893,7 +1893,7 @@
       "volley",
       "running"
     ],
-    "on-sale": 14,
+    "onSale": 14,
     "colors": [
       "black",
       "white",
@@ -1928,7 +1928,7 @@
       "volley",
       "running"
     ],
-    "on-sale": 28,
+    "onSale": 28,
     "colors": [
       "black",
       "white",
@@ -1963,7 +1963,7 @@
       "volley",
       "running"
     ],
-    "on-sale": 6,
+    "onSale": 6,
     "colors": [
       "black",
       "white",
@@ -1999,7 +1999,7 @@
       "volley",
       "running"
     ],
-    "on-sale": 43,
+    "onSale": 43,
     "colors": [
       "black",
       "white",
@@ -2036,7 +2036,7 @@
       "football",
       "tennis"
     ],
-    "on-sale": 1,
+    "onSale": 1,
     "colors": [
       "black",
       "white",
@@ -2069,7 +2069,7 @@
       "volley",
       "running"
     ],
-    "on-sale": 22,
+    "onSale": 22,
     "colors": [
       "black",
       "white",
@@ -2101,7 +2101,7 @@
       "collection",
       "volley"
     ],
-    "on-sale": 36,
+    "onSale": 36,
     "colors": [
       "black",
       "white",
@@ -2134,7 +2134,7 @@
       "football",
       "tennis"
     ],
-    "on-sale": 44,
+    "onSale": 44,
     "colors": [
       "black"
     ],
@@ -2166,7 +2166,7 @@
       "collection",
       "volley"
     ],
-    "on-sale": 25,
+    "onSale": 25,
     "colors": [
       "black"
     ],
@@ -2195,7 +2195,7 @@
       "volley",
       "running"
     ],
-    "on-sale": 0,
+    "onSale": 0,
     "colors": [
       "black",
       "white",
@@ -2230,7 +2230,7 @@
     "category": [
       "football"
     ],
-    "on-sale": 47,
+    "onSale": 47,
     "colors": [
       "black"
     ],
@@ -2254,7 +2254,7 @@
     "category": [
       "football"
     ],
-    "on-sale": 16,
+    "onSale": 16,
     "colors": [
       "black",
       "white"
@@ -2290,7 +2290,7 @@
       "volley",
       "running"
     ],
-    "on-sale": 15,
+    "onSale": 15,
     "colors": [
       "black"
     ],
@@ -2324,7 +2324,7 @@
       "tennis",
       "collection"
     ],
-    "on-sale": 27,
+    "onSale": 27,
     "colors": [
       "black",
       "white"
@@ -2354,7 +2354,7 @@
       "collection",
       "volley"
     ],
-    "on-sale": 10,
+    "onSale": 10,
     "colors": [
       "black",
       "white",
@@ -2392,7 +2392,7 @@
       "collection",
       "volley"
     ],
-    "on-sale": 1,
+    "onSale": 1,
     "colors": [
       "black",
       "white",
@@ -2423,7 +2423,7 @@
     "category": [
       "football"
     ],
-    "on-sale": 48,
+    "onSale": 48,
     "colors": [
       "black",
       "white",
@@ -2455,7 +2455,7 @@
     "category": [
       "football"
     ],
-    "on-sale": 22,
+    "onSale": 22,
     "colors": [
       "black",
       "white",
@@ -2493,7 +2493,7 @@
     "category": [
       "football"
     ],
-    "on-sale": 36,
+    "onSale": 36,
     "colors": [
       "black",
       "white",
@@ -2522,7 +2522,7 @@
       "tennis",
       "collection"
     ],
-    "on-sale": 16,
+    "onSale": 16,
     "colors": [
       "black",
       "white",
@@ -2559,7 +2559,7 @@
     "category": [
       "football"
     ],
-    "on-sale": 10,
+    "onSale": 10,
     "colors": [
       "black",
       "white",
@@ -2588,7 +2588,7 @@
     "category": [
       "football"
     ],
-    "on-sale": 38,
+    "onSale": 38,
     "colors": [
       "black"
     ],
@@ -2618,7 +2618,7 @@
       "volley",
       "running"
     ],
-    "on-sale": 13,
+    "onSale": 13,
     "colors": [
       "black",
       "white",
@@ -2655,7 +2655,7 @@
       "collection",
       "volley"
     ],
-    "on-sale": 21,
+    "onSale": 21,
     "colors": [
       "black",
       "white",
@@ -2687,7 +2687,7 @@
       "collection",
       "volley"
     ],
-    "on-sale": 15,
+    "onSale": 15,
     "colors": [
       "black",
       "white",
@@ -2725,7 +2725,7 @@
       "volley",
       "running"
     ],
-    "on-sale": 20,
+    "onSale": 20,
     "colors": [
       "black",
       "white",
@@ -2762,7 +2762,7 @@
       "volley",
       "running"
     ],
-    "on-sale": 37,
+    "onSale": 37,
     "colors": [
       "black",
       "white",
@@ -2795,7 +2795,7 @@
     "category": [
       "football"
     ],
-    "on-sale": 11,
+    "onSale": 11,
     "colors": [
       "black"
     ],
@@ -2822,7 +2822,7 @@
     "category": [
       "football"
     ],
-    "on-sale": 44,
+    "onSale": 44,
     "colors": [
       "black",
       "white",
@@ -2856,7 +2856,7 @@
       "tennis",
       "collection"
     ],
-    "on-sale": 3,
+    "onSale": 3,
     "colors": [
       "black",
       "white",
@@ -2892,7 +2892,7 @@
       "volley",
       "running"
     ],
-    "on-sale": 22,
+    "onSale": 22,
     "colors": [
       "black"
     ],
@@ -2921,7 +2921,7 @@
       "football",
       "tennis"
     ],
-    "on-sale": 32,
+    "onSale": 32,
     "colors": [
       "black",
       "white",
@@ -2956,7 +2956,7 @@
       "collection",
       "volley"
     ],
-    "on-sale": 1,
+    "onSale": 1,
     "colors": [
       "black",
       "white",
@@ -2995,7 +2995,7 @@
       "collection",
       "volley"
     ],
-    "on-sale": 29,
+    "onSale": 29,
     "colors": [
       "black",
       "white",
@@ -3033,7 +3033,7 @@
     "category": [
       "football"
     ],
-    "on-sale": 42,
+    "onSale": 42,
     "colors": [
       "black"
     ],
@@ -3069,7 +3069,7 @@
       "volley",
       "running"
     ],
-    "on-sale": 44,
+    "onSale": 44,
     "colors": [
       "black",
       "white",
@@ -3098,7 +3098,7 @@
       "tennis",
       "collection"
     ],
-    "on-sale": 9,
+    "onSale": 9,
     "colors": [
       "black"
     ],
@@ -3132,7 +3132,7 @@
       "volley",
       "running"
     ],
-    "on-sale": 5,
+    "onSale": 5,
     "colors": [
       "black",
       "white",
@@ -3161,7 +3161,7 @@
       "tennis",
       "collection"
     ],
-    "on-sale": 37,
+    "onSale": 37,
     "colors": [
       "black",
       "white",
@@ -3197,7 +3197,7 @@
       "collection",
       "volley"
     ],
-    "on-sale": 21,
+    "onSale": 21,
     "colors": [
       "black",
       "white",
@@ -3227,7 +3227,7 @@
       "tennis",
       "collection"
     ],
-    "on-sale": 8,
+    "onSale": 8,
     "colors": [
       "black",
       "white",
@@ -3266,7 +3266,7 @@
       "tennis",
       "collection"
     ],
-    "on-sale": 34,
+    "onSale": 34,
     "colors": [
       "black"
     ],
@@ -3296,7 +3296,7 @@
       "volley",
       "running"
     ],
-    "on-sale": 21,
+    "onSale": 21,
     "colors": [
       "black",
       "white",

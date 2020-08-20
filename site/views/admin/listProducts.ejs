@@ -16,7 +16,7 @@
 
     <h3>Listado de productos</h3>
     <div class="resumen-carrito">
-        <a href="/admin/product/create" class="btn-new_product">Crear producto nuevo</a href="/admin/product/create">
+        <a href="/admin/product/create" class="btn-new_product"> + </a href="/admin/product/create">
         
         <% products.forEach(product => { %>
             <div class="item-container">
@@ -30,13 +30,21 @@
                         </div>
                     </div> 
                     <div class="item-value">
+
                         <div class="precio-item"> 
                             <span class="item-price">Precio</span>
                             <span> $<%= product.price%> </span>  
                         </div>
+
+                        <div class="discount-item">
+                            <span class="item-discount">Descuento</span>
+                            <span> <%= product.onSale %> % </span>
+                        </div>
+
                         <div class="cantidad-item"> 
                             <span> <input type="number" name="cantidad" id="cantidad" value="<%= product.stock %>" disabled></span> 
                         </div>
+                        
                     </div>
                 </div>
                 <a href="/admin/product/<%= product.id %>/edit">

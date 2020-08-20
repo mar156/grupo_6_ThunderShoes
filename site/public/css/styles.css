@@ -369,13 +369,15 @@ a{
             .main-admin-product-list .item-value { justify-content: space-around; }
 
 
-                .item-value .precio-item{
+                .item-value .precio-item,
+                .item-value .discount-item{
                     display: flex;
                     flex-direction: column;
                     align-items: center;
                     font-size: 1.2rem;
                 }
-                    .item-value .precio-item .item-price{
+                    .item-value .precio-item .item-price,
+                    .item-value .discount-item .item-discount{
                         font-size: .8rem;
                         font-weight: bold;
                         color: #3a3636;
@@ -384,7 +386,7 @@ a{
               
                 .item-value .cantidad-item input{
                     border: none;
-                    width: 1.5rem;
+                    width: 2.5rem;
                     height: 2.5rem;
                     text-align: center;
                     padding: 5px;
@@ -1405,14 +1407,16 @@ footer .contenedor-redes .contenedor-iconos i{
 
 /* Admin Product List */
 .main-admin-product-list .resumen-carrito .btn-new_product {
-    position: absolute;
-    top: -46px;
-    right: 1rem;
+    position: fixed;
+    /* top: -46px; */
+    bottom: 4vh;
+    right: 7vw;
     text-align: center;
-    font-size: .9rem;
+    font-size: 2.5rem;
     /* font-weight: bold; */
     border: none;
-    padding: .5rem;
+    border-radius: 50%;
+    padding: .3rem 1.2rem;
     background-color: #ffe512;
     cursor: pointer;
 }
