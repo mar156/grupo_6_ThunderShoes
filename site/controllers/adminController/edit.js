@@ -107,10 +107,35 @@ const editProduct = {
         // Al producto que me viene del form le añado el id (Como solucionar los cambios de ID cuando se elimina un producto?)
 
         let productToEdit = req.body;
-
         productToEdit.id = id;
 
+        // Updateo el producto ( terminar las propiedades )
 
+        let updatedProducts = products.map(function(product){
+            if(product.id == productToEdit.id){
+                let updatedOneProduct = product;
+                updatedOneProduct.name = productToEdit.name;
+                updatedOneProduct.price = Number(productToEdit.price);
+                //brand
+                updatedOneProduct.description = productToEdit.description;
+                // updatedOneProduct.image = productToEdit.image;
+                updatedOneProduct.gender = productToEdit.gender;
+                updatedOneProduct.category = productToEdit.category;
+                //on sale
+                updatedOneProduct.colors = productToEdit.colors;
+                updatedOneProduct.sizes = Number(productToEdit.sizes);
+                return updatedOneProduct;
+            } else{
+                return product;
+            }
+        }) 
+            
+        // escribo el JSON con el nuevo producto editado
+
+        let content = JSON.stringify(updatedProducts, null, " ");
+        fs.writeFileSync(filePath, content, 'utf-8');
+
+        res.redirect('/admin/product/');
 
     }
 }

@@ -11,7 +11,7 @@ router.get('/product/create', adminController.createProduct);     // Vista    - 
 //router.post('/product/', adminController.addProduct);             // Post     - Agregar un producto
 
 router.get('/product/:id/edit', adminController.editProduct);     // Vista    - Editar producto
-//router.put('/product/:id', adminController.updateProduct);        // Put      - Editar producto
+router.put('/product/:id', adminController.update);               // Put      - Editar producto
 
 router.delete('/product/:id', adminController.destroyProduct);      // Delete   - Eliminar producto
 

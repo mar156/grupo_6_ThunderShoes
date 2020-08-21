@@ -6,7 +6,10 @@ const usersRoutes = require('./routes/users/users');
 const adminRoutes = require('./routes/admin/admin');
 const methodOverride = require('method-override');
 
+
 app.set( 'view engine', 'ejs');
+
+app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
 
 app.use(express.static('public'));
