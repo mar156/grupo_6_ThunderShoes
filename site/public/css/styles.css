@@ -1278,11 +1278,16 @@ footer .contenedor-redes .contenedor-iconos i{
     width:50vw;
 }
 
+.main-shop .vidrieraShop a {
+    margin: 5px;
+}
+
 .main-shop .vidrieraShop .productoVidriera .descripcion {
     font-size: 15px;
     padding-left: 2%;
-    margin-left:15%;
+    /* margin-left:15%; */
     display:flex;
+    width: 100%;
 }
 
 .main-shop .vidrieraShop .productoVidriera .descripcion p {
@@ -1292,7 +1297,8 @@ footer .contenedor-redes .contenedor-iconos i{
 
 .main-shop .vidrieraShop .productoVidriera .precio {
     display:flex;
-    margin-left:15%;    
+    padding-left: 2%;
+    /* margin-left:15%;     */
 }
 
 .main-shop .vidrieraShop .productoVidriera .precio p {
@@ -1302,9 +1308,11 @@ footer .contenedor-redes .contenedor-iconos i{
 
 .main-shop .vidrieraShop .productoVidriera img{
     display:block;
-    width:96%;
+    width: 96%;
+    height: 190px;
+    object-fit: contain;
     padding:5px;
-    border: solid 1px #d3d3d3; 
+    /* border: solid 1px #d3d3d3;  */
     margin:2% 1% 2% 2% ;
     position: relative;
 }
@@ -1342,10 +1350,13 @@ footer .contenedor-redes .contenedor-iconos i{
 
 .main-shop .vidrieraShop .productoVidriera img:hover{ 
     padding:0;
-
+}
+.main-shop .vidrieraShop .productoVidriera { 
+    border: solid 1px #ccc; 
+    height: 290px;
 }
 .main-shop .vidrieraShop .productoVidriera:hover {
-    border:solid 1px rgba(255, 229, 18, 0.8) ;
+    border-color: rgba(255, 229, 18, 0.8);
 }
 
 /*ESTILOS FORMULARIO DE CREACIÓN DE PRODUCTOS*/
@@ -1437,11 +1448,11 @@ footer .contenedor-redes .contenedor-iconos i{
     bottom: 4vh;
     right: 7vw;
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 1.2rem;
     /* font-weight: bold; */
     border: none;
     border-radius: 50%;
-    padding: .3rem 1.2rem;
+    padding: 1rem 1.2rem;
     background-color: #ffe512;
     cursor: pointer;
 }
@@ -1881,13 +1892,14 @@ footer .contenedor-redes .contenedor-iconos i{
     }
 
     .main-shop .vidrieraShop a{
-        width: 25%;
+        width: 24%;
     }
 
     .contenedor-vidriera-filtros{
         width: auto;
         max-width: 1440px;
         display: flex;
+        margin: 0 auto;
     }
 
     .contenedor-vidriera-filtros form{
