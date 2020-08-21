@@ -1275,11 +1275,13 @@ footer .contenedor-redes .contenedor-iconos i{
 .main-shop .vidrieraShop .productoVidriera {
     display:flex;
     flex-wrap: wrap;
-    width:50vw;
+    /* width: 47%; */
 }
 
 .main-shop .vidrieraShop a {
-    margin: 5px;
+    margin: 5px auto;
+    width: 100%;
+    max-width: 400px;
 }
 
 .main-shop .vidrieraShop .productoVidriera .descripcion {
@@ -1469,23 +1471,19 @@ footer .contenedor-redes .contenedor-iconos i{
 /* Estilo tablets*/
 @media(min-width:768px){
     /*SHOP*/
-    .main-shop .vidrieraShop .productoVidriera {
+    /* .main-shop .vidrieraShop .productoVidriera {
         width:33vw;
-        
+    } */
+    .main-shop .vidrieraShop { justify-content: center; }
+    .main-shop .vidrieraShop a { width: 32%; }
+    .main-shop .vidrieraShop .productoVidriera .boton-shop-now {
+        width:15vw;
+        height:6vh;
+        margin-right: 5px;
     }
-   .main-shop .vidrieraShop {
-    justify-content: center;
-
-   }
-   .main-shop .vidrieraShop .productoVidriera .boton-shop-now {
-   width:15vw;
-   height:6vh;
-   margin-right: 5px;
-   
-   }
-   .main-shop .vidrieraShop .productoVidriera .contenedor-boton-shop-now-icono { 
+    .main-shop .vidrieraShop .productoVidriera .contenedor-boton-shop-now-icono { 
        width:15vw;
-   }
+    }
 
    /*FOOTER*/
    footer{
