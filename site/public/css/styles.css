@@ -1195,6 +1195,7 @@ footer .contenedor-redes .contenedor-iconos i{
     border-radius: 50px;
     padding: 8px;
     font-weight: bold;
+    cursor: pointer;
 }
 
 .main-shop form .contenedor-titulo-filtros .borrar-cerrar .cerrar, .main-shop .ordenar-por .contenedor-titulo-ordenar .borrar-cerrar .cerrar{
@@ -1206,7 +1207,7 @@ footer .contenedor-redes .contenedor-iconos i{
 .main-shop form .contenedor-filtros{
     display: flex;
     flex-direction: column;
-    margin: 12px;
+    margin: 0 12px;
     padding: 0 12px;
 }
 
@@ -1286,7 +1287,7 @@ footer .contenedor-redes .contenedor-iconos i{
 
 .main-shop .vidrieraShop .productoVidriera .descripcion {
     font-size: 15px;
-    padding-left: 2%;
+    padding-left: 10%;
     /* margin-left:15%; */
     display:flex;
     width: 100%;
@@ -1299,19 +1300,20 @@ footer .contenedor-redes .contenedor-iconos i{
 
 .main-shop .vidrieraShop .productoVidriera .precio {
     display:flex;
-    padding-left: 2%;
+    padding-left: 10%;
+    height: 2.5rem;
     /* margin-left:15%;     */
 }
 
 .main-shop .vidrieraShop .productoVidriera .precio p {
-    margin:1px 15px 25px 15px;
+    margin:1px 15px 0px 15px;
     font-size: 1em;
 }
 
 .main-shop .vidrieraShop .productoVidriera img{
     display:block;
     width: 96%;
-    height: 190px;
+    height: 165px;
     object-fit: contain;
     padding:5px;
     /* border: solid 1px #d3d3d3;  */
@@ -1337,6 +1339,7 @@ footer .contenedor-redes .contenedor-iconos i{
     border-radius: 50px;
     background: rgba(255, 229, 18, 0.8);   
     font-size: 0.7em;
+    cursor: pointer;
 }
 
 .main-shop .vidrieraShop .productoVidriera .contenedor-boton-shop-now-icono i{
@@ -1355,7 +1358,7 @@ footer .contenedor-redes .contenedor-iconos i{
 }
 .main-shop .vidrieraShop .productoVidriera { 
     border: solid 1px #ccc; 
-    height: 290px;
+    height: 246px;
 }
 .main-shop .vidrieraShop .productoVidriera:hover {
     border-color: rgba(255, 229, 18, 0.8);
@@ -1572,6 +1575,7 @@ footer .contenedor-redes .contenedor-iconos i{
         margin: 0 auto;
     }
     
+    .right-top-header { margin-right: 1rem; }
     .right-top-header a{
         font-size: 1rem;
         color: whitesmoke;
@@ -1901,9 +1905,13 @@ footer .contenedor-redes .contenedor-iconos i{
     }
 
     .contenedor-vidriera-filtros form{
-        width: 20%;
+        /* width: 20%; */
+        width: 280px;
         display: flex;
         flex-direction: column;
+        position: sticky;
+        top: 107px;
+        height: 768px;
     }
 
     .main-shop .bannerSection .bannerShop{

@@ -1,0 +1,102 @@
+<div class="filtrar-ordenar">
+    <div class="filtrar">
+        <span>FILTRAR POR</span>
+        <i class="fas fa-chevron-down"></i>
+    </div>
+    <div class="ordenar">
+        <span>ORDENAR POR</span>
+        <i class="fas fa-chevron-down"></i>
+    </div>
+</div>
+
+<div class="ordenar-por oculto">
+    <div class="contenedor-titulo-ordenar">
+        <h4>ORDENAR POR</h4>
+        <div class="borrar-cerrar">
+            <div class="cerrar"><i class="fas fa-times" aria-hidden="true"></i></div>
+        </div>
+    </div>
+    <div class="contenido">
+        <button>PRECIO(DE MAYOR A MENOR)</button>
+        <button>PRECIO(DE MENOR A MAYOR)</button>
+        <button>ORDEN ALFABÉTICO</button>
+    </div>
+</div>
+
+<div class="filtros oculto">
+    <form>
+        <div class="contenedor-titulo-filtros">
+            <h4>FILTRAR POR</h4>
+            <div class="borrar-cerrar">
+                <button type="reset">Borrar todo</button>
+                <div class="cerrar"><i class="fas fa-times" aria-hidden="true"></i></div>
+            </div>
+        </div>
+
+        <div class="contenedor-filtros">
+            <div class="filtro-sexo">
+                <div class="titulo">
+                    <h4 class="menu-desplegable">SEXO</h4>
+                    <i class="fas fa-chevron-down menu-desplegable"></i>
+                </div>
+                <div class="contenido oculto">
+                    <div>
+                        <input type="checkbox" name="sexo" id="mujer" value="f">
+                        <label for="mujer">MUJER</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="sexo" id="hombre" value="m">
+                        <label for="hombre">HOMBRE</label>
+                    </div>  
+                </div> 
+            </div>
+            <div class="filtro-talle">
+                <div class="titulo">
+                    <h4 class="menu-desplegable">TALLE</h4>
+                    <i class="fas fa-chevron-down menu-desplegable"></i>
+                </div>
+                <div class="contenido oculto">
+                    <div class="talles">
+                        <button class="size selected"> 35 </button>
+                        <button class="size"> 36 </button>
+                        <button class="size"> 37 </button>
+                        <button class="size"> 38 </button>
+                        <button class="size"> 39 </button>
+                        <button class="size"> 40 </button>
+                        <button class="size"> 41 </button>
+                        <button class="size"> 42 </button>
+                        <button class="size"> 43 </button>
+                    </div>
+                </div>
+            </div>
+            <div class="filtro-deporte">
+                <div class="titulo">
+                    <h4 class="menu-desplegable">DEPORTE</h4>
+                    <i class="fas fa-chevron-down menu-desplegable"></i>
+                </div>
+                <div class="contenido oculto">
+                    <div>
+                        <input type="checkbox" name="deporte" id="tenis" value="T">
+                        <label for="tenis">TENIS</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="deporte" id="football" value="F">
+                        <label for="football">FOOTBALL</label>
+                    </div> 
+                    <div>
+                        <input type="checkbox" name="deporte" id="running" value="R">
+                        <label for="running">RUNNING</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="deporte" id="volley" value="V">
+                        <label for="volley">VOLLEY</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button class="btn-aplicar-estilos" type="submit">
+            APLICAR
+        </button>
+    </form>
+</div>

@@ -3,7 +3,7 @@
 <%- include('../parcials/head') %>
 <body>
   
-    <%- include('../parcials/header') %>
+<%- include('../parcials/header') %>
   
 <main class="main-shop">
     <div class="bannerSection">
@@ -11,181 +11,10 @@
         <img class="bannerShop" alt="banner" src="/img/banner-hombre-logo.jpg">
     </div>
     
-    <div class="filtrar-ordenar">
-        <div class="filtrar">
-            <span>FILTRAR POR</span>
-            <i class="fas fa-chevron-down"></i>
-        </div>
-        <div class="ordenar">
-            <span>ORDENAR POR</span>
-            <i class="fas fa-chevron-down"></i>
-        </div>
-    </div>
-
-    <div class="filtros oculto">
-        <form>
-            <div class="contenedor-titulo-filtros">
-                <h4>FILTRAR POR</h4>
-                <div class="borrar-cerrar">
-                    <button type="reset">Borrar todo</button>
-                    <div class="cerrar"><i class="fas fa-times" aria-hidden="true"></i></div>
-                </div>
-            </div>
-
-            <div class="contenedor-filtros">
-                <div class="filtro-sexo">
-                    <div class="titulo">
-                        <h4 class="menu-desplegable">SEXO</h4>
-                        <i class="fas fa-chevron-down menu-desplegable"></i>
-                    </div>
-                    <div class="contenido oculto">
-                        <div>
-                            <input type="checkbox" name="sexo" id="mujer" value="f">
-                            <label for="mujer">MUJER</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" name="sexo" id="hombre" value="m">
-                            <label for="hombre">HOMBRE</label>
-                        </div>  
-                    </div> 
-                </div>
-                <div class="filtro-talle">
-                    <div class="titulo">
-                        <h4 class="menu-desplegable">TALLE</h4>
-                        <i class="fas fa-chevron-down menu-desplegable"></i>
-                    </div>
-                    <div class="contenido oculto">
-                        <div class="talles">
-                            <button class="size selected"> 35 </button>
-                            <button class="size"> 36 </button>
-                            <button class="size"> 37 </button>
-                            <button class="size"> 38 </button>
-                            <button class="size"> 39 </button>
-                            <button class="size"> 40 </button>
-                            <button class="size"> 41 </button>
-                            <button class="size"> 42 </button>
-                            <button class="size"> 43 </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="filtro-deporte">
-                    <div class="titulo">
-                        <h4 class="menu-desplegable">DEPORTE</h4>
-                        <i class="fas fa-chevron-down menu-desplegable"></i>
-                    </div>
-                    <div class="contenido oculto">
-                        <div>
-                            <input type="checkbox" name="deporte" id="tenis" value="T">
-                            <label for="tenis">TENIS</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" name="deporte" id="football" value="F">
-                            <label for="football">FOOTBALL</label>
-                        </div> 
-                        <div>
-                            <input type="checkbox" name="deporte" id="running" value="R">
-                            <label for="running">RUNNING</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" name="deporte" id="volley" value="V">
-                            <label for="volley">VOLLEY</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <button class="btn-aplicar-estilos" type="submit">
-                APLICAR
-            </button>
-        </form>
-    </div>
-
-    <div class="ordenar-por oculto">
-        <div class="contenedor-titulo-ordenar">
-            <h4>ORDENAR POR</h4>
-            <div class="borrar-cerrar">
-                <div class="cerrar"><i class="fas fa-times" aria-hidden="true"></i></div>
-            </div>
-        </div>
-        <div class="contenido">
-            <button>PRECIO(DE MAYOR A MENOR)</button>
-            <button>PRECIO(DE MENOR A MAYOR)</button>
-            <button>ORDEN ALFABÉTICO</button>
-        </div>
-    </div>
+    <%- include('../parcials/filters_mobile') %>
 
     <div class="contenedor-vidriera-filtros">
-        <form>
-            <div class="contenedor-titulo-filtros">
-                <h4>FILTRAR POR</h4>
-                <div class="borrar-cerrar">
-                    <button type="reset">Borrar todo</button>
-                </div>
-            </div>
-
-            <div class="contenedor-filtros">
-                <div class="filtro-sexo">
-                    <div class="titulo">
-                        <h4 class="menu-desplegable">SEXO</h4>
-                    </div>
-                    <div class="contenido oculto">
-                        <div>
-                            <input type="checkbox" name="sexo" id="mujerE" value="f">
-                            <label for="mujerE">MUJER</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" name="sexo" id="hombreE" value="m">
-                            <label for="hombreE">HOMBRE</label>
-                        </div>  
-                    </div> 
-                </div>
-                <div class="filtro-talle">
-                    <div class="titulo">
-                        <h4 class="menu-desplegable">TALLE</h4>
-                    </div>
-                    <div class="contenido oculto">
-                        <div class="talles">
-                            <button class="size selected"> 35 </button>
-                            <button class="size"> 36 </button>
-                            <button class="size"> 37 </button>
-                            <button class="size"> 38 </button>
-                            <button class="size"> 39 </button>
-                            <button class="size"> 40 </button>
-                            <button class="size"> 41 </button>
-                            <button class="size"> 42 </button>
-                            <button class="size"> 43 </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="filtro-deporte">
-                    <div class="titulo">
-                        <h4 class="menu-desplegable">DEPORTE</h4>
-                    </div>
-                    <div class="contenido oculto">
-                        <div>
-                            <input type="checkbox" name="deporte" id="tenisE" value="T">
-                            <label for="tenisE">TENIS</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" name="deporte" id="footballE" value="F">
-                            <label for="footballE">FOOTBALL</label>
-                        </div> 
-                        <div>
-                            <input type="checkbox" name="deporte" id="runningE" value="R">
-                            <label for="runningE">RUNNING</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" name="deporte" id="volleyE" value="V">
-                            <label for="volleyE">VOLLEY</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <button class="btn-aplicar-estilos" type="submit">
-                APLICAR
-            </button>
-        </form>
+        <%- include('../parcials/filters') %>
         <div class="vidrieraShop">
             <% products.forEach(product => { %>
                 <a href="/product/detail/<%= product.id %>"><div class="productoVidriera"><!--Debería ser product/detail/id-->
@@ -193,8 +22,8 @@
                     <div class="contenedor-boton-shop-now-icono">
                         <button class="boton-shop-now">
                             Agregar al carrito
+                            <i class="fas fa-bolt"></i>
                         </button>
-                        <i clcass="fas fa-bolt"></i>
                     </div>  
                     <div class="descripcion"> 
                         <i class="fas fa-tags"></i>
