@@ -88,7 +88,8 @@ a{
     padding: 0 1.5rem;
 }
 
-.main-menu a{ 
+.main-menu a,
+.main-menu div.search-desktop { 
     width: 100%;
     color: whitesmoke;
     font-size: 1.2rem;
@@ -96,6 +97,13 @@ a{
     line-height: 14vh;
     border-bottom: 0.5px #ccc solid;
 }
+.main-menu div.search-desktop { margin: 0; }
+
+.main-menu div.search-desktop input {
+    margin-left: 0;
+    width: 100%;
+}
+.main-menu div.search-desktop button { top: 41%; }
 
 .main-menu a:nth-child(5){ 
     border: none;
@@ -256,14 +264,24 @@ a{
     padding: 10px;
     border: 0px;
     border-radius: 30px;
+    width: 100px;
+    transition: all 1s;
+    outline: none;
+    margin-left: 4rem;
 }
-.search-desktop i{
+.search-desktop input:focus {
+    margin-left: 0;
+    width: 235px;
+}
+.search-desktop button{
     position: absolute;
-    top: 28%;
-    right: 5%;
+    top: 23%;
+    right: 3%;
     font-size: 1rem;
     color: #0C0C0C;
     background-color: white;
+    cursor: pointer;
+    border: none;
 }
 
 .btn-cart i {
