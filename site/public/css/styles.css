@@ -88,7 +88,8 @@ a{
     padding: 0 1.5rem;
 }
 
-.main-menu a{ 
+.main-menu a,
+.main-menu div.search-desktop { 
     width: 100%;
     color: whitesmoke;
     font-size: 1.2rem;
@@ -96,6 +97,13 @@ a{
     line-height: 14vh;
     border-bottom: 0.5px #ccc solid;
 }
+.main-menu div.search-desktop { margin: 0; }
+
+.main-menu div.search-desktop input {
+    margin-left: 0;
+    width: 100%;
+}
+.main-menu div.search-desktop button { top: 41%; }
 
 .main-menu a:nth-child(5){ 
     border: none;
@@ -256,14 +264,24 @@ a{
     padding: 10px;
     border: 0px;
     border-radius: 30px;
+    width: 100px;
+    transition: all 1s;
+    outline: none;
+    margin-left: 4rem;
 }
-.search-desktop i{
+.search-desktop input:focus {
+    margin-left: 0;
+    width: 235px;
+}
+.search-desktop button{
     position: absolute;
-    top: 28%;
-    right: 5%;
+    top: 23%;
+    right: 3%;
     font-size: 1rem;
     color: #0C0C0C;
     background-color: white;
+    cursor: pointer;
+    border: none;
 }
 
 .btn-cart i {
@@ -1177,6 +1195,7 @@ footer .contenedor-redes .contenedor-iconos i{
     border-radius: 50px;
     padding: 8px;
     font-weight: bold;
+    cursor: pointer;
 }
 
 .main-shop form .contenedor-titulo-filtros .borrar-cerrar .cerrar, .main-shop .ordenar-por .contenedor-titulo-ordenar .borrar-cerrar .cerrar{
@@ -1188,7 +1207,7 @@ footer .contenedor-redes .contenedor-iconos i{
 .main-shop form .contenedor-filtros{
     display: flex;
     flex-direction: column;
-    margin: 12px;
+    margin: 0 12px;
     padding: 0 12px;
 }
 
@@ -1257,14 +1276,21 @@ footer .contenedor-redes .contenedor-iconos i{
 .main-shop .vidrieraShop .productoVidriera {
     display:flex;
     flex-wrap: wrap;
-    width:50vw;
+    /* width: 47%; */
+}
+
+.main-shop .vidrieraShop a {
+    margin: 5px auto;
+    width: 100%;
+    max-width: 400px;
 }
 
 .main-shop .vidrieraShop .productoVidriera .descripcion {
     font-size: 15px;
-    padding-left: 2%;
-    margin-left:15%;
+    padding-left: 10%;
+    /* margin-left:15%; */
     display:flex;
+    width: 100%;
 }
 
 .main-shop .vidrieraShop .productoVidriera .descripcion p {
@@ -1274,19 +1300,23 @@ footer .contenedor-redes .contenedor-iconos i{
 
 .main-shop .vidrieraShop .productoVidriera .precio {
     display:flex;
-    margin-left:15%;    
+    padding-left: 10%;
+    height: 2.5rem;
+    /* margin-left:15%;     */
 }
 
 .main-shop .vidrieraShop .productoVidriera .precio p {
-    margin:1px 15px 25px 15px;
+    margin:1px 15px 0px 15px;
     font-size: 1em;
 }
 
 .main-shop .vidrieraShop .productoVidriera img{
     display:block;
-    width:96%;
+    width: 96%;
+    height: 165px;
+    object-fit: contain;
     padding:5px;
-    border: solid 1px #d3d3d3; 
+    /* border: solid 1px #d3d3d3;  */
     margin:2% 1% 2% 2% ;
     position: relative;
 }
@@ -1309,6 +1339,7 @@ footer .contenedor-redes .contenedor-iconos i{
     border-radius: 50px;
     background: rgba(255, 229, 18, 0.8);   
     font-size: 0.7em;
+    cursor: pointer;
 }
 
 .main-shop .vidrieraShop .productoVidriera .contenedor-boton-shop-now-icono i{
@@ -1324,10 +1355,13 @@ footer .contenedor-redes .contenedor-iconos i{
 
 .main-shop .vidrieraShop .productoVidriera img:hover{ 
     padding:0;
-
+}
+.main-shop .vidrieraShop .productoVidriera { 
+    border: solid 1px #ccc; 
+    height: 246px;
 }
 .main-shop .vidrieraShop .productoVidriera:hover {
-    border:solid 1px rgba(255, 229, 18, 0.8) ;
+    border-color: rgba(255, 229, 18, 0.8);
 }
 
 /*ESTILOS FORMULARIO DE CREACIÓN DE PRODUCTOS*/
@@ -1419,11 +1453,11 @@ footer .contenedor-redes .contenedor-iconos i{
     bottom: 4vh;
     right: 7vw;
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 1.2rem;
     /* font-weight: bold; */
     border: none;
     border-radius: 50%;
-    padding: .3rem 1.2rem;
+    padding: 1rem 1.2rem;
     background-color: #ffe512;
     cursor: pointer;
 }
@@ -1440,23 +1474,19 @@ footer .contenedor-redes .contenedor-iconos i{
 /* Estilo tablets*/
 @media(min-width:768px){
     /*SHOP*/
-    .main-shop .vidrieraShop .productoVidriera {
+    /* .main-shop .vidrieraShop .productoVidriera {
         width:33vw;
-        
+    } */
+    .main-shop .vidrieraShop { justify-content: center; }
+    .main-shop .vidrieraShop a { width: 32%; }
+    .main-shop .vidrieraShop .productoVidriera .boton-shop-now {
+        width:15vw;
+        height:6vh;
+        margin-right: 5px;
     }
-   .main-shop .vidrieraShop {
-    justify-content: center;
-
-   }
-   .main-shop .vidrieraShop .productoVidriera .boton-shop-now {
-   width:15vw;
-   height:6vh;
-   margin-right: 5px;
-   
-   }
-   .main-shop .vidrieraShop .productoVidriera .contenedor-boton-shop-now-icono { 
+    .main-shop .vidrieraShop .productoVidriera .contenedor-boton-shop-now-icono { 
        width:15vw;
-   }
+    }
 
    /*FOOTER*/
    footer{
@@ -1545,6 +1575,7 @@ footer .contenedor-redes .contenedor-iconos i{
         margin: 0 auto;
     }
     
+    .right-top-header { margin-right: 1rem; }
     .right-top-header a{
         font-size: 1rem;
         color: whitesmoke;
@@ -1863,19 +1894,24 @@ footer .contenedor-redes .contenedor-iconos i{
     }
 
     .main-shop .vidrieraShop a{
-        width: 25%;
+        width: 24%;
     }
 
     .contenedor-vidriera-filtros{
         width: auto;
         max-width: 1440px;
         display: flex;
+        margin: 0 auto;
     }
 
     .contenedor-vidriera-filtros form{
-        width: 20%;
+        /* width: 20%; */
+        width: 280px;
         display: flex;
         flex-direction: column;
+        position: sticky;
+        top: 107px;
+        height: 768px;
     }
 
     .main-shop .bannerSection .bannerShop{

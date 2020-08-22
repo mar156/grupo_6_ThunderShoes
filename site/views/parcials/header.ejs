@@ -32,8 +32,10 @@
         </nav>
         <div class="right-mainheader">
             <div class="search-desktop">
-                <input type="text" name="search" placeholder="Buscar...">
-                <i class='fas fa-search'></i>
+                <form action="/product/" method="get">
+                    <input type="text" name="search" placeholder="Buscar...">
+                    <button type="submit" class='fas fa-search'></button>
+                </form>
             </div>    
             <div class="btn-cart" onclick="toogleSummary()">
                 <i class="fas fa-shopping-cart"></i>
@@ -46,11 +48,17 @@
 <!--Menu-->
 <nav id="menu" class="menu" style="left: -100vw;">
     <div class="main-menu">
+        <!-- <a href="#">Buscar</a> -->
+        <div class="search-desktop">
+            <form action="/product/" method="get">
+                <input type="text" name="search" placeholder="Buscar...">
+                <button type="submit" class='fas fa-search'></button>
+            </form>
+        </div>    
         <a href="/product/hombres">Hombres</a>
         <a href="/product/mujeres">Mujeres</a>
         <a href="/product/coleccion">Colección</a>
         <a href="/product/ofertas">Oferta</a>
-        <a href="#">Buscar</a>
     </div>
     <div class="profile-menu">
         <a class="btn-pmenu" href="#">

@@ -49,8 +49,8 @@ const controller = {
         // buscar id. si lo encontras lo separas.
         // al obj producto lo completas con todos los datos incluido ID
        
-    
-    // update: ,
+
+    update: editProduct.update,
     destroyProduct: destroyProduct
 }
 

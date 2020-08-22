@@ -7,7 +7,7 @@
         <div class="form-container">
             <div class="form-content">
                 <h2>EDITANDO PRODUCTO - id: <%= product && id %></h2>
-                <form action="/product/detail/<%= product && id %>?_method=PUT" method="POST">
+                <form action="/admin/product/<%= product && id %>?_method=PUT" method="POST">
                     <label for="product-name">Nombre del producto: </label>
                     <input type="text" name="name" id="product-name" autofocus value="<%= product && product.name %>">
 
@@ -22,13 +22,15 @@
         
                     <span>Género</span>
                     <div class="contenedor-categorias"> 
+
+                        
                         <label for="product-c-mujer" class="<%= product && product.gender.female%>">MUJER 
-                            <input type="checkbox" name="categoria" id="product-c-mujer" value="mujer"  checked="<%= product && product.gender.female %>">
+                            <input type="checkbox" name="gender" id="product-c-mujer" value="Female"  checked="<%= product && product.gender.female %>">
                         </label>
                         
 
                         <label for="product-c-hombre" class="<%= product && product.gender.male%>">HOMBRE 
-                            <input type="checkbox" name="categoria" id="product-c-hombre" value="hombre" checked="<%= product && product.gender.male %>">
+                            <input type="checkbox" name="gender" id="product-c-hombre" value="Male" checked="<%= product && product.gender.male %>">
                         </label>
                     </div>
 
@@ -37,26 +39,26 @@
                     <div class="contenedor-categorias">
 
                         <label for="product-c-tennis" class="<%= product && product.category.tennis%>">TENNIS 
-                            <input type="checkbox" name="categoria" id="product-c-tennis" value="tennis"  checked="<%= product && product.category.tennis %>">
+                            <input type="checkbox" name="category" id="product-c-tennis" value="tennis"  checked="<%= product && product.category.tennis %>">
                         </label>
                         
 
                         <label for="product-c-running" class="<%= product && product.category.running%>">RUNNING 
-                            <input type="checkbox" name="categoria" id="product-c-running" value="running" checked="<%= product && product.category.running %>">
+                            <input type="checkbox" name="category" id="product-c-running" value="running" checked="<%= product && product.category.running %>">
                         </label>
                         
 
                         <label for="product-c-football" class="<%= product && product.category.football%>">FOOTBALL 
-                            <input type="checkbox" name="categoria" id="product-c-football" value="football" checked="<%= product && product.category.footbal %>">
+                            <input type="checkbox" name="category" id="product-c-football" value="football" checked="<%= product && product.category.footbal %>">
                         </label>
                         
 
                         <label for="product-c-volley" class="<%= product && product.category.volley%>">VOLLEY 
-                            <input type="checkbox" name="categoria" id="product-c-volley" value="volley" checked="<%= product && product.category.volley %>">
+                            <input type="checkbox" name="category" id="product-c-volley" value="volley" checked="<%= product && product.category.volley %>">
                         </label>
 
                         <label for="product-c-collection" class="<%= product && product.category.collection%>">COLLECTION 
-                            <input type="checkbox" name="categoria" id="product-c-collection" value="collection" checked="<%= product && product.category.collection %>">
+                            <input type="checkbox" name="category" id="product-c-collection" value="collection" checked="<%= product && product.category.collection %>">
                         </label>
                         
                     </div>
@@ -65,31 +67,31 @@
                     <div class="contenedor-colores">
 
                         <label for="product-c-white" class="white <%= product && product.colors.white %>">
-                            <input type="checkbox" name="color" id="product-c-white" value="white" checked="<%= product && product.colors.white %>">
+                            <input type="checkbox" name="colors" id="product-c-white" value="white" checked="<%= product && product.colors.white %>">
                         </label>
 
                         <label for="product-c-rojo" class="rojo <%= product && product.colors.red %>">
-                            <input type="checkbox" name="color" id="product-c-rojo" value="rojo" checked="<%= product && product.colors.red %>">
+                            <input type="checkbox" name="colors" id="product-c-rojo" value="red" checked="<%= product && product.colors.red %>">
                         </label>
                         
                         <label for="product-c-azul" class="azul <%= product && product.colors.blue %>">
-                            <input type="checkbox" name="color" id="product-c-azul" value="azul" checked="<%= product && product.colors.blue %>">
+                            <input type="checkbox" name="colors" id="product-c-azul" value="blue" checked="<%= product && product.colors.blue %>">
                         </label>
 
                         <label for="product-c-amarillo" class="amarillo <%= product && product.colors.yellow %>">
-                            <input type="checkbox" name="color" id="product-c-amarillo" value="amarillo" checked="<%= product && product.colors.yellow %>">
+                            <input type="checkbox" name="colors" id="product-c-amarillo" value="yellow" checked="<%= product && product.colors.yellow %>">
                         </label>
 
                         <label for="product-c-negro" class="negro <%= product && product.colors.black %>">
-                            <input type="checkbox" name="color" id="product-c-negro" value="negro" checked="<%= product && product.colors.black %>">
+                            <input type="checkbox" name="colors" id="product-c-negro" value="black" checked="<%= product && product.colors.black %>">
                         </label>
 
                         <label for="product-c-verde" class="verde <%= product && product.colors.green %>">
-                            <input type="checkbox" name="color" id="product-c-verde" value="verde" checked="<%= product && product.colors.green %>">
+                            <input type="checkbox" name="colors" id="product-c-verde" value="green" checked="<%= product && product.colors.green %>">
                         </label>
 
                         <label for="product-c-gris" class="gris <%= product && product.colors.gray %>">
-                            <input type="checkbox" name="color" id="product-c-gris" value="gris" checked="<%= product && product.colors.gray %>">
+                            <input type="checkbox" name="colors" id="product-c-gris" value="gray" checked="<%= product && product.colors.gray %>">
                         </label>
                         
                     </div>
@@ -98,32 +100,32 @@
                     <div class="contenedor-talles">
 
                         <label for="product-t-34" class="size <%= product && product.sizes.t34 %>">34
-                            <input type="checkbox" name="talle" id="product-t-34" value="34" checked="<%= product && product.sizes.t34 %>">
+                            <input type="checkbox" name="sizes" id="product-t-34" value="34" checked="<%= product && product.sizes.t34 %>">
                         </label>
 
 
                         <label for="product-t-35" class="size <%= product && product.sizes.t35 %>">35
-                            <input type="checkbox" name="talle" id="product-t-35" value="35" checked="<%= product && product.sizes.t35 %>">
+                            <input type="checkbox" name="sizes" id="product-t-35" value="35" checked="<%= product && product.sizes.t35 %>">
                         </label>
 
                         <label for="product-t-36" class="size <%= product && product.sizes.t36 %>">36
-                            <input type="checkbox" name="talle" id="product-t-36" value="36" checked="<%= product && product.sizes.t36 %>">
+                            <input type="checkbox" name="sizes" id="product-t-36" value="36" checked="<%= product && product.sizes.t36 %>">
                         </label>
 
                         <label for="product-t-37" class="size <%= product && product.sizes.t37 %>">37
-                            <input type="checkbox" name="talle" id="product-t-37" value="37" checked="<%= product && product.sizes.t37 %>">
+                            <input type="checkbox" name="sizes" id="product-t-37" value="37" checked="<%= product && product.sizes.t37 %>">
                         </label>
 
                         <label for="product-t-38" class="size <%= product && product.sizes.t38 %>">38
-                            <input type="checkbox" name="talle" id="product-t-38" value="38" checked="<%= product && product.sizes.t38 %>">
+                            <input type="checkbox" name="sizes" id="product-t-38" value="38" checked="<%= product && product.sizes.t38 %>">
                         </label>
 
                         <label for="product-t-39" class="size <%= product && product.sizes.t39 %>">39
-                            <input type="checkbox" name="talle" id="product-t-39" value="39" checked="<%= product && product.sizes.t39 %>">
+                            <input type="checkbox" name="sizes" id="product-t-39" value="39" checked="<%= product && product.sizes.t39 %>">
                         </label>
 
                         <label for="product-t-40" class="size <%= product && product.sizes.t40 %>">40
-                            <input type="checkbox" name="talle" id="product-t-40" value="40" checked="<%= product && product.sizes.t40 %>">
+                            <input type="checkbox" name="sizes" id="product-t-40" value="40" checked="<%= product && product.sizes.t40 %>">
                         </label>
 
                     </div>
