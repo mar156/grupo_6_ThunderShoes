@@ -124,35 +124,37 @@ const editProduct = {
         let productToEdit = req.body;
         productToEdit.id = id;
 
-        console.log(productToEdit.brand);
-
         // console.log(productToEdit);
+
 
         // Updateo el producto ( terminar las propiedades )
 
-   /*      let updatedProducts = products.map(function(product){
+         let updatedProducts = products.map(function(product){
             if(product.id == productToEdit.id){
                 let updatedOneProduct = product;
                 updatedOneProduct.name = productToEdit.name;
                 updatedOneProduct.price = Number(productToEdit.price);
                 //brand
+                updatedOneProduct.brand = productToEdit.brand;
                 updatedOneProduct.description = productToEdit.description;
-                // updatedOneProduct.image = productToEdit.image;
+                // updatedOneProduct.image = productToEdit.image;  MULTER --> agregar más de una imagen, tiene que llegar como array. No lo puse para que no se quede sin imagen testeando.
+                // Corregir gender si elige unisex (Male-Female --> llega como array. En BDJson esta como string)
                 updatedOneProduct.gender = productToEdit.gender;
                 updatedOneProduct.category = productToEdit.category;
                 updatedOneProduct.onSale = Number(productToEdit.onSale);
                 updatedOneProduct.colors = productToEdit.colors;
                 updatedOneProduct.sizes = productToEdit.sizes;
+                updatedOneProduct.stock = Number(productToEdit.stock);
                 return updatedOneProduct;
             } else{
                 return product;
             }
-        })   */
+        })   
             
         // escribo el JSON con el nuevo producto editado
 
-     /* let content = JSON.stringify(updatedProducts, null, " ");
-        fs.writeFileSync(filePath, content, 'utf-8'); */
+        let content = JSON.stringify(updatedProducts, null, " ");
+        fs.writeFileSync(filePath, content, 'utf-8'); 
 
         res.redirect('/admin/product/');
 
