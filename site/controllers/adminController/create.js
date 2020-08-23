@@ -7,8 +7,8 @@ const createProducts = {
     //res.render()
     //},
     addProduct: function(req,res) {
-        let products = fs.readFileSync(filePath, 'utf-8');
-        let archivoJSON= JSON.parse(products);
+        let productsJSON = fs.readFileSync(filePath, 'utf-8');
+        let products= JSON.parse(productsJSON);
         let newProduct = {
             id: 1,
             name: req.body.name,
@@ -24,6 +24,11 @@ const createProducts = {
             
 
         }
+       
+
+        products.push(newProduct);
+        let listaProductosJSON= JSON.stringify(products);
+        fs.writeFileSync(filePath, listaProductosJSON, 'utf-8');
         return res.send(newProduct);
 }
 
