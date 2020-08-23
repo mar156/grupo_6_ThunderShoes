@@ -14,7 +14,12 @@ const editProduct = {
 
         let product = {
             name: productToEdit.name,
-            brand: productToEdit.brand,
+            brand: {
+                newbalance:'',
+                puma: '',
+                nike:'',
+                adidas:''
+            },
             description: productToEdit.description,
             gender: {
                 male:'',
@@ -29,7 +34,7 @@ const editProduct = {
             },
             onSale: productToEdit.onSale,
             colors: {                  // la lista de colors se carga desde BD/FileJson y se genera el listado de la propiedad colors, 
-                red: '',        // de cada producto se obtiene que colors seleccionados posee y se marca en 'checked' para pasar a la vista. 
+                red: '',                // de cada producto se obtiene que colors seleccionados posee y se marca en 'checked' para pasar a la vista. 
                 green: '',              // Idem 'Talles' y 'Categorías'.
                 black: '',
                 blue: '',
@@ -86,12 +91,22 @@ const editProduct = {
 
         // Género
 
-            for (const propiedad in product.gender) {
-                if (productToEdit.gender.toLowerCase() == propiedad) {
-                    product.gender[propiedad] = 'checked';
-                } 
-            }
+        for (const propiedad in product.gender) {
+            if (productToEdit.gender.toLowerCase() == propiedad) {
+                product.gender[propiedad] = 'checked';
+            } 
+        }
+
+        // Marca
+        
+        for (const propiedad in product.brand) {
+            if (productToEdit.brand.split(" ").join("").toLowerCase() == propiedad) {
+                product.brand[propiedad] = 'checked';
+            } 
+        }
          
+       
+
 
         res.render('admin/editProduct', { product , id });
 
@@ -109,9 +124,13 @@ const editProduct = {
         let productToEdit = req.body;
         productToEdit.id = id;
 
+        console.log(productToEdit.brand);
+
+        // console.log(productToEdit);
+
         // Updateo el producto ( terminar las propiedades )
 
-        let updatedProducts = products.map(function(product){
+   /*      let updatedProducts = products.map(function(product){
             if(product.id == productToEdit.id){
                 let updatedOneProduct = product;
                 updatedOneProduct.name = productToEdit.name;
@@ -121,19 +140,19 @@ const editProduct = {
                 // updatedOneProduct.image = productToEdit.image;
                 updatedOneProduct.gender = productToEdit.gender;
                 updatedOneProduct.category = productToEdit.category;
-                //on sale
+                updatedOneProduct.onSale = Number(productToEdit.onSale);
                 updatedOneProduct.colors = productToEdit.colors;
-                updatedOneProduct.sizes = Number(productToEdit.sizes);
+                updatedOneProduct.sizes = productToEdit.sizes;
                 return updatedOneProduct;
             } else{
                 return product;
             }
-        }) 
+        })   */
             
         // escribo el JSON con el nuevo producto editado
 
-        let content = JSON.stringify(updatedProducts, null, " ");
-        fs.writeFileSync(filePath, content, 'utf-8');
+     /* let content = JSON.stringify(updatedProducts, null, " ");
+        fs.writeFileSync(filePath, content, 'utf-8'); */
 
         res.redirect('/admin/product/');
 

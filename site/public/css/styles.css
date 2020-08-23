@@ -1369,7 +1369,8 @@ footer .contenedor-redes .contenedor-iconos i{
 
 .main-crear-producto .form-container .form-content form .contenedor-talles,
 .main-crear-producto .form-container .form-content form .contenedor-categorias,
-.main-crear-producto .form-container .form-content form .contenedor-colores{
+.main-crear-producto .form-container .form-content form .contenedor-colores,
+.main-crear-producto .form-container .form-content form .contenedor-marcas{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -1384,7 +1385,8 @@ footer .contenedor-redes .contenedor-iconos i{
 }
 .main-crear-producto .form-container .form-content form .contenedor-talles label,
 .main-crear-producto .form-container .form-content form .contenedor-categorias label,
-.main-crear-producto .form-container .form-content form .contenedor-colores label {
+.main-crear-producto .form-container .form-content form .contenedor-colores label,
+.main-crear-producto .form-container .form-content form .contenedor-marcas label{
     cursor: pointer;
 }
 
@@ -1439,12 +1441,22 @@ footer .contenedor-redes .contenedor-iconos i{
 }
 
 .main-crear-producto .form-container .form-content form .contenedor-talles .checked,
-.main-crear-producto .form-container .form-content form .contenedor-categorias .checked {
+.main-crear-producto .form-container .form-content form .contenedor-categorias .checked, 
+.main-crear-producto .form-container .form-content form .contenedor-marcas .checked{
     border-color: #0c0c0c; 
     background-color: #0c0c0c;
     color: #ffe512;
     outline: none;
 }
+
+.main-crear-producto .form-container .form-content form .contenedor-marcas label {
+    width: 22%;
+    padding: .3rem .1rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    border: solid 1px #ffe512;
+}
+
 
 /* Admin Product List */
 .main-admin-product-list .resumen-carrito .btn-new_product {
