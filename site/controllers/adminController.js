@@ -34,15 +34,14 @@ let product = {
 const destroyProduct = require("./adminController/delete");
 const listProduct = require("./adminController/index");
 const editProduct = require("./adminController/edit");
-const guardarProduct = require("./adminController/create");
-const createProduct = require("./adminController/create");
+const createProducts= require("./adminController/create");
 
 const controller = {
     listProduct: listProduct,
     createProduct: (req, res)=>{
         res.render('admin/createProduct');
     },
-    guardarProduct: createProduct.guardarProducto,
+    addProduct: createProducts.addProduct,
     // storeProduct: ,
     editProduct: editProduct.edit,
         // leer el archivo y crear un array. 

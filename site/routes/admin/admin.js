@@ -8,7 +8,7 @@ const adminController= require(path.join(__dirname, '/../../controllers/adminCon
 router.get('/product', adminController.listProduct);                // Vista    - Listado de productos 
 
 router.get('/product/create', adminController.createProduct);     // Vista    - Creación de productos
-//router.post('/product/', adminController.addProduct);             // Post     - Agregar un producto
+router.post('/product/create', adminController.addProduct);             // Post     - Agregar un producto
 
 router.get('/product/:id/edit', adminController.editProduct);     // Vista    - Editar producto
 router.put('/product/:id', adminController.update);               // Put      - Editar producto
