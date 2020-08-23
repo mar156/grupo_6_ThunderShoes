@@ -13,6 +13,9 @@
 
                     <label for="product-price">Precio</label>
                     <input type="number" min="0.00" max="1000000.00" step="0.01" name="price" id="product-price" placeholder="Ej. 4200.99" value="<%= product && product.price %>">
+
+                    <label for="product-discount">Descuento</label>
+                    <input type="number" min="0.00" max="1000000.00" step="0.01" name="onSale" id="product-discount" placeholder="Ej. 50%" value="<%= product && product.onSale %>">
         
                     <label for="product-desc">Descripción</label>
                     <textarea maxlength="500" name="description" id="product-desc" cols="60" rows="5" 
@@ -28,11 +31,36 @@
                             <input type="checkbox" name="gender" id="product-c-mujer" value="Female"  checked="<%= product && product.gender.female %>">
                         </label>
                         
-
                         <label for="product-c-hombre" class="<%= product && product.gender.male%>">HOMBRE 
                             <input type="checkbox" name="gender" id="product-c-hombre" value="Male" checked="<%= product && product.gender.male %>">
                         </label>
+
                     </div>
+
+                    <span>Marca</span>
+                    <div class="contenedor-marcas">
+
+                        <label id="product-c-nike" for="product-c-nike" class="<%= product && product.brand.nike%>">NIKE
+                            <input type="checkbox" name="brand" id="product-c-nike" value="Nike"  <%= product && product.brand.nike %>>
+                        </label>
+                        
+
+                        <label id="product-c-adidas" for="product-c-adidas" class="<%= product && product.brand.adidas%>">ADIDAS 
+                            <input type="checkbox" name="brand" id="product-c-adidas" value="Adidas" <%= product && product.brand.adidas %>>
+                        </label>
+                        
+
+                        <label id="product-c-puma" for="product-c-puma" class="<%= product && product.brand.puma%>">PUMA 
+                            <input type="checkbox" name="brand" id="product-c-puma" value="Puma" <%= product && product.brand.puma %>>
+                        </label>
+                        
+
+                        <label id="product-c-newbalance" for="product-c-newbalance" class="<%= product && product.brand.newbalance%>">NEW BALANCE 
+                            <input type="checkbox" name="brand" id="product-c-newbalance" value="New Balance" <%= product && product.brand.newbalance %>>
+                        </label>
+                        
+                    </div>
+
 
 
                     <span>Categoría</span>
@@ -139,6 +167,8 @@
         
     </main>
     <%- include('../parcials/footer') %>
+
+    <script src="/script/script-checked.js"></script>
     <script src="/script/script.js"></script>
     <script src="/script/footer.js"></script>
 </body>
