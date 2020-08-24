@@ -1403,7 +1403,7 @@ footer .contenedor-redes .contenedor-iconos i{
 /* estilos para checkbox colores */ 
 .main-crear-producto .form-container .form-content form input[type="checkbox"] {
     visibility: hidden;
-    display: none;
+    display: none; 
 }
 
 .main-crear-producto .form-container .form-content form .contenedor-colores label {
