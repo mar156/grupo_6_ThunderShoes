@@ -1369,6 +1369,7 @@ footer .contenedor-redes .contenedor-iconos i{
 
 .main-crear-producto .form-container .form-content form .contenedor-talles,
 .main-crear-producto .form-container .form-content form .contenedor-categorias,
+.main-crear-producto .form-container .form-content form .contenedor-onSale
 .main-crear-producto .form-container .form-content form .contenedor-colores,
 .main-crear-producto .form-container .form-content form .contenedor-marcas{
     display: flex;
@@ -1379,12 +1380,14 @@ footer .contenedor-redes .contenedor-iconos i{
 
 .main-crear-producto .form-container .form-content form .contenedor-talles input,
 .main-crear-producto .form-container .form-content form .contenedor-categorias input,
+.main-crear-producto .form-container .form-content form .contenedor-onSale input,
 .main-crear-producto .form-container .form-content form .contenedor-colores input{
     margin: 0 10px 0 5px;
     cursor: pointer;
 }
 .main-crear-producto .form-container .form-content form .contenedor-talles label,
 .main-crear-producto .form-container .form-content form .contenedor-categorias label,
+.main-crear-producto .form-container .form-content form .contenedor-onSale label,
 .main-crear-producto .form-container .form-content form .contenedor-colores label,
 .main-crear-producto .form-container .form-content form .contenedor-marcas label{
     cursor: pointer;
@@ -1393,6 +1396,13 @@ footer .contenedor-redes .contenedor-iconos i{
 /* estilos para checkbox categorias */
 
 .main-crear-producto .form-container .form-content form .contenedor-categorias label {
+    width: 30%;
+    padding: .3rem .1rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    border: solid 1px #ffe512;
+}
+.main-crear-producto .form-container .form-content form .contenedor-onSale label {
     width: 30%;
     padding: .3rem .1rem;
     margin-bottom: 1rem;
@@ -1438,6 +1448,13 @@ footer .contenedor-redes .contenedor-iconos i{
 .main-crear-producto .form-container .form-content form .checked {
     outline: 1.5px solid #0c0c0c;
     outline-offset: 2px;
+}
+
+.main-crear-producto .form-container .form-content form .contenedor-onSale .checked{
+    border-color: #0C0C0C;
+    background-color: #0c0c0c;
+    color: #ffe512;
+
 }
 
 .main-crear-producto .form-container .form-content form .contenedor-talles .checked,
@@ -1969,11 +1986,6 @@ footer .contenedor-redes .contenedor-iconos i{
     }
 }
 
-.contenedor-onSale form input[type=checkbox]:checked + label:before{
-    content: '✔';
-    font-size: 1rem;
-    color: #000000;
-}
 
 
 
