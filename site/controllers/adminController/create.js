@@ -16,18 +16,21 @@ const createProducts = {
             description: req.body.description,
             gender: req.body.gender,
             category:req.body.category,
-            onSale: " ",
+            onSale: req.body.onSale,
             colors: req.body.colors,
             sizes: req.body.sizes,
             price: req.body.price,
             image: "" ,
+            stock: "", //cuando tengamos una planilla de stock
+            //puedo usarla para leer la cantidad de productos de ese tipo que
+            //hay y actualizar el número en función a ello
             
 
         }
        
 
         products.push(newProduct);
-        let listaProductosJSON= JSON.stringify(products);
+        let listaProductosJSON= JSON.stringify(products, null, " ");
         fs.writeFileSync(filePath, listaProductosJSON, 'utf-8');
         return res.send(newProduct);
 }

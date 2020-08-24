@@ -1969,6 +1969,11 @@ footer .contenedor-redes .contenedor-iconos i{
     }
 }
 
+.contenedor-onSale form input[type=checkbox]:checked + label:before{
+    content: '✔';
+    font-size: 1rem;
+    color: #000000;
+}
 
 
 
