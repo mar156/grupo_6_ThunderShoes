@@ -32,12 +32,13 @@ const controller = {
             
             res.render('users/login', { error: error});
         }else{
+            if(req.body.remember != undefined){
+                res.cookie("remember", userToLogin.email, {maxAge: 120000000});
+            }
             req.session.userLoggedIn = userToLogin;
             res.redirect("/");
         }
 
-        // csangwin0@t.co
-        // BqrQiyCxG
     },
     register: (req, res)=>{
         res.render('users/register');
