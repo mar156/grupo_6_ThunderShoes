@@ -15,7 +15,8 @@
     <div class="form-container">
         <div class="form-content">
             <h2>INICIAR SESION</h2>
-            <form>
+            <form action="" method="POST">
+                <span><%= error && error.msg %></span>
                 <label for="user">Email</label>
                 <input type="email" name="user" id="user" placeholder="Ingresá tu e-mail">
                 <label for="password">Contraseña</label>
