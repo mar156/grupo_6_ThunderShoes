@@ -2,6 +2,7 @@ const path = require ('path')
 const fs = require("fs");
 const filePath =  path.join(__dirname, '../data/users.json');
 
+const bcrypt = require('bcrypt');
 
 const controller = {
     login: (req, res)=>{
@@ -42,6 +43,36 @@ const controller = {
     },
     register: (req, res)=>{
         res.render('users/register');
+    },
+    userRegister: (req, res)=>{
+        //Verificar que haya completado todos los campos, por el momento vamos a confiar en que completó todo
+        
+        let usuariosJSON = fs.readFileSync(filePath, 'utf-8');
+        let users = JSON.parse(usuariosJSON);
+        let newUser = req.body;
+        let check;
+        
+        if(req.file){
+            newUser.image = req.file.filename
+        }
+        else{
+            newUser.image = "default-profile.png"
+        }
+        //Que la contraseña sea correcta, es decir que sea igual la contraseña con confirmar contraseña
+        if((req.body.password)&&(req.body.passwordConfirm)){
+            newUser.password = bcrypt.hashSync(req.body.password, 10);
+            check = bcrypt.compareSync(req.body.passwordConfirm, newUser.password);
+            newUser.passwordConfirm = '';//que no guarde ese dato en el JSON
+        }
+        if(check){//si la contraseña y el confirmar contraseña son iguales, entonces que cree el usuario
+            users.push(newUser);
+            let usersJson= JSON.stringify(users, null, " ");
+            fs.writeFileSync(filePath, usersJson);
+            res.send(usersJson);
+        }
+        else{
+            res.send('Hubo un error, seguramente no pusiste bien las contraseñas');
+        }
     }
 }
 

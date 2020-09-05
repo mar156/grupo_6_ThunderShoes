@@ -67,7 +67,7 @@
         <img src="/img/register-modelo.jpg" alt="">
         <div class="form-content">
             <h2>CREAR CUENTA</h2>
-            <form>
+            <form method="POST" action="" enctype="multipart/form-data">
                 <label for="name">Nombre</label>
                 <input type="text" name="name" id="name" placeholder="Juan Shoes">
 
@@ -80,11 +80,13 @@
                 <label for="phone-number">Teléfono</label>
                 <input type="tel" name="phone-number" id="phone-number" placeholder="Ej. cod (011) - 1544876235 ">
 
+                <input type="file" name="avatar">
+                
                 <label for="password">Contraseña</label>
                 <input type="password" name="password" id="password" placeholder="Ingresá tu contraseña">
 
                 <label for="password-confirm">Confirmar contraseña</label>
-                <input type="password" name="password-confirm" id="password-confirm" placeholder="Repetí tu contraseña">
+                <input type="password" name="passwordConfirm" id="password-confirm" placeholder="Repetí tu contraseña">
                 
                 <button type="submit">REGISTRARME</button>
                 <div>
