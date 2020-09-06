@@ -2,9 +2,21 @@
 <div class="top-header">
     <div class="container-top">
         <div class="right-top-header">
-            <a href="#">Mi cuenta</a>
+
+            <a href="/users/profile">Mi cuenta 
+                <% if (user) { %>
+                    (<%= user %>) 
+                <% } %>
+            </a>
+
             <a class="border-line" href="#">Mi lista de deseos</a>
-            <a class="border-line" href="/users/login">Iniciar sesión</a>
+
+            <% if (user === '') { %>
+                <a class="border-line" href="/users/login">Iniciar sesión</a>
+            <% } else {%>
+                <a class="border-line" href="/users/logout">Cerrar sesión</a>
+            <% } %>
+            
         </div>
     </div>    
 </div>

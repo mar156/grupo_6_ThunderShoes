@@ -41,6 +41,10 @@ const controller = {
         }
 
     },
+    logout: (req, res) => {
+        req.session.destroy();
+        res.redirect('/');
+    },
     register: (req, res)=>{
         res.render('users/register');
     },

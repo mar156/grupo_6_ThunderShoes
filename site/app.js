@@ -10,14 +10,17 @@ const bcrypt = require('bcryptjs');
 const cookieParser = require('cookie-parser');
 const adminMiddleware = require('./middlewares/adminMiddleware');
 const rememberMiddleware = require('./middlewares/rememberMiddleware');
+const userMiddleware = require('./middlewares/userMiddleware');
 
 app.set( 'view engine', 'ejs');
 
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
-app.use(session({secret: "Clave Secreta", resave: false, saveUninitialized: true, }));
+app.use(session({secret: "Clave Secreta", resave: true, saveUninitialized: true, }));
+// app.use(session({secret: "Clave Secreta"}));
 app.use(cookieParser());
 app.use(rememberMiddleware);
+app.use(userMiddleware);
 
 app.use(express.static('public'));
 app.use('/product', productRoutes);
