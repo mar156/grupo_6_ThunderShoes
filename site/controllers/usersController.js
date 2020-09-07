@@ -77,6 +77,76 @@ const controller = {
         else{
             res.send('Hubo un error, seguramente no pusiste bien las contraseñas');
         }
+    },
+    profile: (req, res) => {
+            // Leer id de params
+        let id = Number(req.params.id);
+            // Leer datos nuevos usuario de body
+        // let newUser = req.body;
+            // Leer archivo
+        let usuariosJSON = fs.readFileSync(filePath, 'utf-8');
+        let users = JSON.parse(usuariosJSON);
+            // Buscar usuario
+        let userToEdit = users.filter( user => {
+            return user.id === id
+        })[0];
+            // Eliminamos la contraseña 
+        delete userToEdit.password;
+
+            // Renderizar vista enviando objeto usuario
+        res.render('users/profile', { userToEdit });
+    },
+    update: (req, res) => {
+        let userToEdit = {
+            id: Number(req.params.id),
+            first_name: req.body.first_name,
+            last_name: req.body.last_name,
+            email: req.body.email,
+            phone: Number(req.body.phone),
+            address: {
+                address: req.body.address,
+                city: req.body.city,
+                state: req.body.state,
+                postal_code: Number(req.body.postal_code)
+            },
+            image: 'user_' + req.params.id + '.jpg',
+            password: ''
+        };
+
+        if ( req.body.password != '' && req.body.passwordConfirm != '' ) {
+            if ( req.body.password === req.body.passwordConfirm ) {
+                userToEdit.password = req.body.password;
+            } else {
+                    // Esta verificación será reemplazada de otra manera cuando se 
+                    // implemente middleware para verificar los datos, y aquí sólo llegue el nuevo
+                    // password en caso de pasar las validaciones y no se encontraron errores.
+                userToEdit.result = 'error';
+                userToEdit.msg = 'Las contraseñas ingresadas no coinciden';
+                return res.render('users/profile', { userToEdit })
+            }
+        }
+
+        const usuariosJSON = fs.readFileSync(filePath, 'utf-8');
+        const users = JSON.parse(usuariosJSON);
+
+        let newUsers = users.map( user => {
+            if ( user.id === userToEdit.id ) {
+                console.log(user);
+                user.first_name = userToEdit.first_name;
+                user.last_name = userToEdit.last_name;
+                user.email = userToEdit.email;
+                user.phone = userToEdit.phone;
+                user.address = userToEdit.address;
+                user.password = userToEdit.password != '' ? userToEdit.password : user.password;
+            }
+            return user
+        });
+
+        fs.writeFile(filePath, JSON.stringify(newUsers), () => {
+            userToEdit.result = 'done';
+            userToEdit.msg = 'Sus datos fueron actualizados exitosamente';
+            return res.render('users/profile', { userToEdit })
+        });
     }
 }
 

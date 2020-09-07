@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../parcials/head') %>
+<body>
+    <%- include('../parcials/header') %>
+
+<!-- Main Index -->
+<main class="main-register">
+    <div class="form-container">
+        <img src="/img/register-modelo.jpg" alt="">
+        <div class="form-content">
+            <h2>MI PERFIL</h2>
+            <% if (userToEdit) { %>
+                <h4 class="<%= userToEdit.result %>"><%= userToEdit.msg %></h4>
+                <form method="POST" action="/users/profile/<%= userToEdit.id %>?_method=PUT" 
+                enctype="multipart/form-data">
+
+                    <label for="first_name">Nombre</label>
+                    <input type="text" name="first_name" id="first_name" placeholder="Juan Shoes" 
+                    value="<%= userToEdit.first_name %>">
+    
+                    <label for="last_name">Apellido</label>
+                    <input type="text" name="last_name" id="last_name" placeholder="Thunder"
+                    value="<%= userToEdit.last_name %>">
+    
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" placeholder="Ej. thundershoes@gmail.com"
+                    value="<%= userToEdit.email %>">
+    
+                    <label for="phone">Teléfono</label>
+                    <input type="tel" name="phone" id="phone" 
+                    placeholder="Ej. cod (011) - 1544876235 "
+                    value="<%= userToEdit.phone %>">
+                    
+                    <h4>Domicilio</h4>
+
+                    <label for="address">Calle y número</label>
+                    <input type="text" name="address" id="address" placeholder="Nombre calle 123"
+                    value="<%= userToEdit.address.address %>">
+
+                    <label for="city">Ciudad</label>
+                    <input type="text" name="city" id="city" placeholder="Paraná"
+                    value="<%= userToEdit.address.city %>">
+
+                    <label for="state">Provincia</label>
+                    <input type="text" name="state" id="state" placeholder="Entre Rios"
+                    value="<%= userToEdit.address.state %>">
+
+                    <label for="postal_code">Código postal</label>
+                    <input type="number" name="postal_code" id="postal_code" 
+                    placeholder="3100" value="<%= userToEdit.address.postal_code %>">
+
+                    <label for="avatar">Imagen de perfil</label>
+                    <input type="file" name="avatar" id="avatar" value="<%= userToEdit.image %>">
+                    
+                    <h4>Cambiar contraseña</h4>
+
+                    <label for="password">Contraseña</label>
+                    <input type="password" name="password" id="password" 
+                    placeholder="Ingresá tu contraseña">
+    
+                    <label for="password-confirm">Confirmar contraseña</label>
+                    <input type="password" name="passwordConfirm" id="password-confirm" 
+                    placeholder="Repetí tu contraseña">
+                    
+                    <button type="submit">CONFIRMAR</button>
+                </form>
+            <% } else { %>
+                <p>Ocurrió un error al intentar cargar los datos</p>
+            <% } %>
+        </div>
+    </div>
+</main>
+
+<%- include('../parcials/footer') %>
+
+<script src="/script/script.js"></script>
+<script src="/script/footer.js"></script>
+
+
+</body>
+</html>
