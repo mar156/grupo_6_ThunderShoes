@@ -87,9 +87,9 @@ const controller = {
         let usuariosJSON = fs.readFileSync(filePath, 'utf-8');
         let users = JSON.parse(usuariosJSON);
             // Buscar usuario
-        let userToEdit = users.filter( user => {
+        let userToEdit = users.find( user => {
             return user.id === id
-        })[0];
+        });
             // Eliminamos la contraseña 
         delete userToEdit.password;
 
