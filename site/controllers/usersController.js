@@ -20,7 +20,7 @@ const controller = {
         let error;
 
         for(let i=0; i< users.length; i++){
-            if((users[i].email == req.body.user) && (users[i].password == req.body.password)){
+            if((users[i].email == req.body.user) && (bcrypt.compareSync(req.body.password, users[i].password))){
                 userToLogin = users[i];
                 break;
             }
@@ -115,7 +115,7 @@ const controller = {
 
         if ( req.body.password != '' && req.body.passwordConfirm != '' ) {
             if ( req.body.password === req.body.passwordConfirm ) {
-                userToEdit.password = req.body.password;
+                userToEdit.password = bcrypt.hashSync(req.body.password, 10);
             } else {
                     // Esta verificación será reemplazada de otra manera cuando se 
                     // implemente middleware para verificar los datos, y aquí sólo llegue el nuevo
@@ -131,7 +131,6 @@ const controller = {
 
         let newUsers = users.map( user => {
             if ( user.id === userToEdit.id ) {
-                console.log(user);
                 user.first_name = userToEdit.first_name;
                 user.last_name = userToEdit.last_name;
                 user.email = userToEdit.email;
@@ -142,7 +141,9 @@ const controller = {
             return user
         });
 
-        fs.writeFile(filePath, JSON.stringify(newUsers), () => {
+        // Probando método asincrono writeFile de fs. Se usa con callback como tercer parametro
+        // (Callback no recibe ningún parametro)
+        fs.writeFile(filePath, JSON.stringify(newUsers, null, ' '), () => {
             userToEdit.result = 'done';
             userToEdit.msg = 'Sus datos fueron actualizados exitosamente';
             return res.render('users/profile', { userToEdit })

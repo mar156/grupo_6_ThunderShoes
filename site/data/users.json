@@ -1,1 +1,63 @@
-[{"id":1,"first_name":"Cary","last_name":"Sangwin","email":"csangwin0@t.co","phone":62101335525,"address":{"address":"Av. Siempreviva 123","city":"Buenos Aires","state":"Buenos Aires","postal_code":5555},"password":"BqrQiyCxG","category":"user","image":"user_1.jpg","favorites":[1,5,0]},{"id":2,"first_name":"Edwin edited","last_name":"Missington","email":"emissington1@ebay.co.uk","phone":33552562101,"address":{"address":"Av. Pellegrini 222","city":"Chaco","state":"Chaco","postal_code":4213},"password":"clave","category":"admin","image":"user_2.jpg","favorites":[1,5,0]},{"name":"Juan","lastname":"Shoes","user":"juan@shoes.com","phone-number":"123456789","password":"$2b$10$wemUGCv7edYscxpybQw3YeBgW7do1hx.BRu7Z3grIiisC17TI8Obe","passwordConfirm":"","image":"default-profile.png"},{"name":"Matias","lastname":"Vieira","user":"vieiramatias@hotmail.com","phone-number":"3434465390","password":"$2b$10$rG6306g5z26b0UtuA06zzubWBMVWuTS1NVIeTh8Ad6ot38f7eZyri","passwordConfirm":"","category":"admin","image":"default-profile.png"}]
+[
+ {
+  "id": 1,
+  "first_name": "Cary",
+  "last_name": "Sangwin",
+  "email": "csangwin0@t.co",
+  "phone": 62101335525,
+  "address": {
+   "address": "Av. Siempreviva 123",
+   "city": "Buenos Aires",
+   "state": "Buenos Aires",
+   "postal_code": 5555
+  },
+  "password": "BqrQiyCxG",
+  "category": "user",
+  "image": "user_1.jpg",
+  "favorites": [
+   1,
+   5,
+   0
+  ]
+ },
+ {
+  "id": 2,
+  "first_name": "Edwin edited",
+  "last_name": "Missington",
+  "email": "emissington1@ebay.co.uk",
+  "phone": 33552562101,
+  "address": {
+   "address": "Av. Pellegrini 222",
+   "city": "Chaco",
+   "state": "Chaco",
+   "postal_code": 4212
+  },
+  "password": "$2b$10$BuwYZYqDQwpabrOqsUZnd.gxfqiOEOo6dwgQkQA5820UglVmsMM7K",
+  "category": "admin",
+  "image": "user_2.jpg",
+  "favorites": [
+   1,
+   5,
+   0
+  ]
+ },
+ {
+  "name": "Juan",
+  "lastname": "Shoes",
+  "user": "juan@shoes.com",
+  "phone-number": "123456789",
+  "password": "$2b$10$wemUGCv7edYscxpybQw3YeBgW7do1hx.BRu7Z3grIiisC17TI8Obe",
+  "passwordConfirm": "",
+  "image": "default-profile.png"
+ },
+ {
+  "name": "Matias",
+  "lastname": "Vieira",
+  "user": "vieiramatias@hotmail.com",
+  "phone-number": "3434465390",
+  "password": "$2b$10$rG6306g5z26b0UtuA06zzubWBMVWuTS1NVIeTh8Ad6ot38f7eZyri",
+  "passwordConfirm": "",
+  "category": "admin",
+  "image": "default-profile.png"
+ }
+]
