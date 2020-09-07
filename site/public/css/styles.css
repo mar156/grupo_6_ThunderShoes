@@ -84,7 +84,7 @@ a{
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    height: 80%;
+    height: 70%;
     padding: 0 1.5rem;
 }
 
@@ -94,7 +94,7 @@ a{
     color: whitesmoke;
     font-size: 1.2rem;
     text-align: center;
-    line-height: 14vh;
+    line-height: 12vh;
     border-bottom: 0.5px #ccc solid;
 }
 .main-menu div.search-desktop { margin: 0; }
@@ -195,7 +195,7 @@ a{
     flex-direction: column;
     justify-content: flex-start;
     background-color: #0C0C0C;
-    height: 20%;
+    height: 30%;
 }
 
 .btn-pmenu{
@@ -216,7 +216,8 @@ a{
     font-size: 1rem;
 }
 
-.profile-menu a:nth-child(1){
+.profile-menu a:nth-child(1),
+.profile-menu a:nth-child(2){
     border-bottom: 1px #0C0C0C solid ;
 }
 

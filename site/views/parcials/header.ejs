@@ -69,17 +69,28 @@
         <a href="/product/hombres">Hombres</a>
         <a href="/product/mujeres">Mujeres</a>
         <a href="/product/coleccion">Colección</a>
-        <a href="/product/ofertas">Oferta</a>
+        <a href="/product/ofertas">Ofertas</a>
     </div>
     <div class="profile-menu">
         <a class="btn-pmenu" href="#">
             <i class='fas fa-heart'></i>
             <span>Mi lista de deseos</span>
         </a> 
-        <a class="btn-pmenu" href="/users/login">
+        <a class="btn-pmenu" href="/users/profile/<%= user && user.id %>">
             <i class="fas fa-user-circle"></i>
-            <span>Mi cuenta - Iniciar sesión</span>
-        </a>  
+            <span>Mi cuenta</span>
+        </a>
+        <% if (user === '') { %>
+            <a class="btn-pmenu" href="/users/login">
+                <i class="fas fa-sign-in-alt"></i>
+                <span>Iniciar sesión</span>
+            </a>
+        <% } else {%>
+            <a class="btn-pmenu" href="/users/logout">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Cerrar sesión</span>
+            </a>
+        <% } %>
     </div>
 </nav>
 
