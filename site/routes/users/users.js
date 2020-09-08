@@ -12,7 +12,7 @@ var storage = multer.diskStorage({
         callback(null, path.join(__dirname,'../../public/img/users'))//carpeta donde se guardará el archivo
     },
     filename: (req, file, callback)=>{
-        callback(null, file.fieldname +'user'+Date.now())//nombre con el que se guardará el archivo
+        callback(null, file.fieldname + 'user' + Date.now() + path.extname(file.originalname))//nombre con el que se guardará el archivo
     }
 });
 var upload = multer({storage:storage});

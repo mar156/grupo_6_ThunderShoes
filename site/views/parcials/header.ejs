@@ -78,7 +78,11 @@
             <i class='fas fa-heart'></i>
             <span>Mi lista de deseos</span>
         </a> 
+        <% if (!!user) { %>
         <a class="btn-pmenu" href="/users/profile/<%= user && user.id %>">
+        <% } else { %>
+        <a class="btn-pmenu" href="/users/login">
+        <% } %>
             <i class="fas fa-user-circle"></i>
             <span>Mi cuenta</span>
         </a>
