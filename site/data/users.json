@@ -44,7 +44,7 @@
  {
   "name": "Juan",
   "lastname": "Shoes",
-  "user": "juan@shoes.com",
+  "email": "juan@shoes.com",
   "phone-number": "123456789",
   "password": "$2b$10$wemUGCv7edYscxpybQw3YeBgW7do1hx.BRu7Z3grIiisC17TI8Obe",
   "passwordConfirm": "",
@@ -53,11 +53,47 @@
  {
   "name": "Matias",
   "lastname": "Vieira",
-  "user": "vieiramatias@hotmail.com",
+  "email": "vieiramatias@hotmail.com",
   "phone-number": "3434465390",
   "password": "$2b$10$rG6306g5z26b0UtuA06zzubWBMVWuTS1NVIeTh8Ad6ot38f7eZyri",
   "passwordConfirm": "",
   "category": "admin",
+  "image": "default-profile.png"
+ },
+ {
+  "name": "Prueba",
+  "lastname": "1234",
+  "user": "prueba@prueba.com",
+  "phone-number": "1234",
+  "password": "$2b$10$R6I6RSD0KSZ9yIE38zpEZOwImr.v60IAe1rOub.Ox/OVY11ewPsJm",
+  "passwordConfirm": "",
+  "image": "default-profile.png"
+ },
+ {
+  "name": "Prueba2",
+  "lastname": "1234",
+  "user": "prueba2@prueba.com",
+  "phone-number": "1234",
+  "password": "$2b$10$2ECtMhoY39ChNhj6gwJ1E./YX5B9Q2m/diNM2.YqKKQZWi7SqTGNC",
+  "passwordConfirm": "",
+  "image": "default-profile.png"
+ },
+ {
+  "name": "Prueba",
+  "lastname": "1234",
+  "email": "prueba3@prueba.com",
+  "phone-number": "1234",
+  "password": "$2b$10$snA2DduyTfbn1cWkDRxU..teT9HnzU2LBkoLS2R/6xxcKTyKZV0Nu",
+  "passwordConfirm": "",
+  "image": "default-profile.png"
+ },
+ {
+  "name": "Prueba ",
+  "lastname": "Ultima",
+  "email": "prueba123@prueba.com",
+  "phone-number": "123",
+  "password": "$2b$10$poENnvWIOnuQFXPdTZBSFuocGCOFbzuPno1Q7D9pu3Lr1weD1th2e",
+  "passwordConfirm": "",
   "image": "default-profile.png"
  }
 ]

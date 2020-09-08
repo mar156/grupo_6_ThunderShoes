@@ -72,7 +72,8 @@ const controller = {
             users.push(newUser);
             let usersJson= JSON.stringify(users, null, " ");
             fs.writeFileSync(filePath, usersJson);
-            res.send(usersJson);
+            req.session.userLoggedIn = newUser;
+            res.redirect('/');
         }
         else{
             res.send('Hubo un error, seguramente no pusiste bien las contraseñas');
