@@ -2,11 +2,13 @@
 <div class="top-header">
     <div class="container-top">
         <div class="right-top-header">
-            <a href="/users/profile/<%= user && user.id %>">Mi cuenta 
-                <% if (!!user) { %>
+            <% if (!!user) { %>
+                <a href="/users/profile/<%= user && user.id %>">Mi cuenta 
                     (<%= user.name %>) 
-                <% } %>
-            </a>
+                </a>
+            <% } else { %>
+                <a href="/users/login">Mi cuenta</a>
+            <% } %>
 
             <a class="border-line" href="#">Mi lista de deseos</a>
 

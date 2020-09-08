@@ -138,6 +138,9 @@ const controller = {
                 user.phone = userToEdit.phone;
                 user.address = userToEdit.address;
                 user.password = userToEdit.password != '' ? userToEdit.password : user.password;
+
+                let userToLogin = user;
+                req.session.userLoggedIn = userToLogin;
             }
             return user
         });
