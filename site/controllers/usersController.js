@@ -80,78 +80,70 @@ const controller = {
         }
     },
     profile: (req, res) => {
-            // Leer id de params
-        let id = Number(req.params.id);
-            // Leer datos nuevos usuario de body
-        // let newUser = req.body;
-            // Leer archivo
-        let usuariosJSON = fs.readFileSync(filePath, 'utf-8');
-        let users = JSON.parse(usuariosJSON);
-            // Buscar usuario
-        let userToEdit = users.find( user => {
-            return user.id === id
-        });
-            // Eliminamos la contraseña 
-        delete userToEdit.password;
-
-            // Renderizar vista enviando objeto usuario
-        res.render('users/profile', { userToEdit });
+        // Leer Session para obtener el usuario logueado.
+        let profileStatus = {
+            result: '',
+            msg: '',
+        }
+        let userToEdit = req.session.userLoggedIn;
+            // Renderizar vista enviando objeto usuario a editar
+        res.render('users/profile', { userToEdit, profileStatus });
     },
     update: (req, res) => {
-        let userToEdit = {
-            id: Number(req.params.id),
-            first_name: req.body.first_name,
-            last_name: req.body.last_name,
-            email: req.body.email,
-            phone: Number(req.body.phone),
-            address: {
-                address: req.body.address,
-                city: req.body.city,
-                state: req.body.state,
-                postal_code: Number(req.body.postal_code)
-            },
-            image: 'user_' + req.params.id + '.jpg',
-            password: ''
-        };
+        let userToEdit = req.session.userLoggedIn;
+        let profileStatus = {};
 
-        if ( req.body.password != '' && req.body.passwordConfirm != '' ) {
+        if ( !!req.body.password || !!req.body.passwordConfirm ) {
             if ( req.body.password === req.body.passwordConfirm ) {
                 userToEdit.password = bcrypt.hashSync(req.body.password, 10);
             } else {
-                    // Esta verificación será reemplazada de otra manera cuando se 
-                    // implemente middleware para verificar los datos, y aquí sólo llegue el nuevo
-                    // password en caso de pasar las validaciones y no se encontraron errores.
-                userToEdit.result = 'error';
-                userToEdit.msg = 'Las contraseñas ingresadas no coinciden';
-                return res.render('users/profile', { userToEdit })
+                // Esta verificación será reemplazada de otra manera cuando se 
+                // implemente middleware para verificar los datos, y aquí sólo llegue el nuevo
+                // password en caso de pasar las validaciones y no se encontraron errores.
+                profileStatus.result = 'error';
+                profileStatus.msg = 'Las contraseñas ingresadas no coinciden';
+                return res.render('users/profile', { userToEdit, profileStatus })
             }
         }
+
+        userToEdit.first_name = req.body.first_name;
+        userToEdit.last_name = req.body.last_name;
+        userToEdit.email = req.body.email;
+        userToEdit.phone = Number(req.body.phone);
+        userToEdit.address = {
+            address: req.body.address,
+            city: req.body.city,
+            state: req.body.state,
+            postal_code: Number(req.body.postal_code)
+        };
 
         const usuariosJSON = fs.readFileSync(filePath, 'utf-8');
         const users = JSON.parse(usuariosJSON);
 
+        let isUpdated = false;
         let newUsers = users.map( user => {
-            if ( user.id === userToEdit.id ) {
-                user.first_name = userToEdit.first_name;
-                user.last_name = userToEdit.last_name;
-                user.email = userToEdit.email;
-                user.phone = userToEdit.phone;
-                user.address = userToEdit.address;
-                user.password = userToEdit.password != '' ? userToEdit.password : user.password;
-
-                let userToLogin = user;
-                req.session.userLoggedIn = userToLogin;
+            if (user.id && user.id === userToEdit.id) {
+                isUpdated = true;
+                // req.session.userLoggedIn = userToEdit;
+                return userToEdit
             }
             return user
         });
 
         // Probando método asincrono writeFile de fs. Se usa con callback como tercer parametro
         // (Callback no recibe ningún parametro)
-        fs.writeFile(filePath, JSON.stringify(newUsers, null, ' '), () => {
-            userToEdit.result = 'done';
-            userToEdit.msg = 'Sus datos fueron actualizados exitosamente';
-            return res.render('users/profile', { userToEdit })
-        });
+        if (isUpdated) {
+            fs.writeFile(filePath, JSON.stringify(newUsers, null, ' '), () => {
+                profileStatus.result = 'done';
+                profileStatus.msg = 'Sus datos fueron actualizados exitosamente';
+                req.session.userLoggedIn = userToEdit;
+                return res.render('users/profile', { userToEdit, profileStatus })
+            });
+        } else {
+            profileStatus.result = 'error';
+            profileStatus.msg = 'Error al actualizar los datos';
+            return res.render('users/profile', { userToEdit, profileStatus })
+        }
     }
 }
 

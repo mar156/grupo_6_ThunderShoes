@@ -11,8 +11,8 @@
         <div class="form-content">
             <h2>MI PERFIL</h2>
             <% if (userToEdit) { %>
-                <h4 class="<%= userToEdit.result %>"><%= userToEdit.msg %></h4>
-                <form method="POST" action="/users/profile/<%= userToEdit.id %>?_method=PUT" 
+                <h4 class="<%= profileStatus.result %>"><%= profileStatus.msg %></h4>
+                <form method="POST" action="/users/profile/?_method=PUT" 
                 enctype="multipart/form-data">
 
                     <label for="first_name">Nombre</label>
