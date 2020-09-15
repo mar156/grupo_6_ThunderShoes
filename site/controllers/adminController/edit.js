@@ -61,13 +61,25 @@ const editProduct = {
  
         // Colores
 
-        productToEdit.colors.forEach(function(color){
-            for (const propiedad in product.colors) {
-                if (color == propiedad) {
-                    product.colors[propiedad] = 'checked';
-                } 
-            }
-        }); 
+        if (Array.isArray(productToEdit.colors)){
+            productToEdit.colors.forEach(function(color){
+                for (const propiedad in product.colors) {
+                    if (color == propiedad) {
+                        product.colors[propiedad] = 'checked';
+                    } 
+                }
+            })
+        };
+
+       if (Array.isArray(productToEdit.colors) && Array.isArray(productToEdit.colors[0])){
+            productToEdit.colors[0].forEach(function(color){
+                for (const propiedad in product.colors) {
+                    if (color == propiedad) {
+                        product.colors[propiedad] = 'checked';
+                    } 
+                }
+            })
+        }; 
 
         // Talles
 
@@ -105,8 +117,7 @@ const editProduct = {
             } 
         }
          
-       
-
+      
 
         res.render('admin/editProduct', { product , id });
 
@@ -128,7 +139,7 @@ const editProduct = {
 
 
         // Updateo el producto ( terminar las propiedades )
-
+        
          let updatedProducts = products.map(function(product){
             if(product.id == productToEdit.id){
                 let updatedOneProduct = product;
@@ -142,7 +153,11 @@ const editProduct = {
                 updatedOneProduct.gender = productToEdit.gender;
                 updatedOneProduct.category = productToEdit.category;
                 updatedOneProduct.onSale = Number(productToEdit.onSale);
-                updatedOneProduct.colors = productToEdit.colors;
+                //Colores
+                let colorArray = [];
+                colorArray.push(productToEdit.colors);
+                updatedOneProduct.colors = colorArray;
+                
                 updatedOneProduct.sizes = productToEdit.sizes;
                 updatedOneProduct.stock = Number(productToEdit.stock);
                 return updatedOneProduct;

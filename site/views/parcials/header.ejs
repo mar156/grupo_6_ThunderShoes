@@ -2,13 +2,11 @@
 <div class="top-header">
     <div class="container-top">
         <div class="right-top-header">
-            <% if (!!user) { %>
-                <a href="/users/profile/<%= user && user.id %>">Mi cuenta 
+            <a href="/users/profile/">Mi cuenta 
+                <% if (!!user) { %>
                     (<%= user.name %>) 
-                </a>
-            <% } else { %>
-                <a href="/users/login">Mi cuenta</a>
-            <% } %>
+                <% } %>
+            </a>
 
             <a class="border-line" href="#">Mi lista de deseos</a>
 
@@ -78,11 +76,7 @@
             <i class='fas fa-heart'></i>
             <span>Mi lista de deseos</span>
         </a> 
-        <% if (!!user) { %>
-        <a class="btn-pmenu" href="/users/profile/<%= user && user.id %>">
-        <% } else { %>
-        <a class="btn-pmenu" href="/users/login">
-        <% } %>
+        <a class="btn-pmenu" href="/users/profile/">
             <i class="fas fa-user-circle"></i>
             <span>Mi cuenta</span>
         </a>

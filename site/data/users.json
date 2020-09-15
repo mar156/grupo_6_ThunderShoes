@@ -95,5 +95,15 @@
   "password": "$2b$10$poENnvWIOnuQFXPdTZBSFuocGCOFbzuPno1Q7D9pu3Lr1weD1th2e",
   "passwordConfirm": "",
   "image": "default-profile.png"
+ },
+ {
+  "name": "Pepito",
+  "lastname": "Pepitoso",
+  "email": "pepito@hotmail.com",
+  "phone-number": "1234567",
+  "password": "$2b$10$foM1jbM7X.DxWxU2BB2g5OK3jWrf3ogwaejymB30.G/4/nuNtXnNa",
+  "passwordConfirm": "",
+  "category": "admin",
+  "image": "default-profile.png"
  }
 ]
