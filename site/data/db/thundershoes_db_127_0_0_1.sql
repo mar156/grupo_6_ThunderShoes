@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-09-2020 a las 02:37:53
+-- Tiempo de generación: 17-09-2020 a las 00:58:36
 -- Versión del servidor: 10.4.13-MariaDB
 -- Versión de PHP: 7.2.31
 
@@ -51,14 +51,26 @@ CREATE TABLE `categories` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `categories_products`
+-- Estructura de tabla para la tabla `category_product`
 --
 
-DROP TABLE IF EXISTS `categories_products`;
-CREATE TABLE `categories_products` (
+DROP TABLE IF EXISTS `category_product`;
+CREATE TABLE `category_product` (
   `id` int(10) UNSIGNED NOT NULL,
   `product_id` int(10) UNSIGNED NOT NULL,
   `category_id` int(10) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `category_user`
+--
+
+DROP TABLE IF EXISTS `category_user`;
+CREATE TABLE `category_user` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(45) COLLATE utf8mb4_unicode_520_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 -- --------------------------------------------------------
@@ -76,26 +88,13 @@ CREATE TABLE `colors` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `colors_products`
+-- Estructura de tabla para la tabla `color_product`
 --
 
-DROP TABLE IF EXISTS `colors_products`;
-CREATE TABLE `colors_products` (
+DROP TABLE IF EXISTS `color_product`;
+CREATE TABLE `color_product` (
   `id` int(10) UNSIGNED NOT NULL,
   `color_id` int(10) UNSIGNED NOT NULL,
-  `product_id` int(10) UNSIGNED NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `favorites`
---
-
-DROP TABLE IF EXISTS `favorites`;
-CREATE TABLE `favorites` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `user_id` int(10) UNSIGNED NOT NULL,
   `product_id` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
@@ -126,11 +125,11 @@ CREATE TABLE `images` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `images_products`
+-- Estructura de tabla para la tabla `image_product`
 --
 
-DROP TABLE IF EXISTS `images_products`;
-CREATE TABLE `images_products` (
+DROP TABLE IF EXISTS `image_product`;
+CREATE TABLE `image_product` (
   `id` int(10) UNSIGNED NOT NULL,
   `product_id` int(10) UNSIGNED NOT NULL,
   `image_id` int(10) UNSIGNED NOT NULL
@@ -150,8 +149,33 @@ CREATE TABLE `products` (
   `description` varchar(255) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
   `gender_id` int(10) UNSIGNED NOT NULL,
   `on_sale` int(10) UNSIGNED ZEROFILL NOT NULL DEFAULT 0000000000,
-  `price` int(10) UNSIGNED ZEROFILL NOT NULL,
-  `stock` int(10) UNSIGNED ZEROFILL NOT NULL DEFAULT 0000000000
+  `price` int(10) UNSIGNED ZEROFILL NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `product_size`
+--
+
+DROP TABLE IF EXISTS `product_size`;
+CREATE TABLE `product_size` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `product_id` int(10) UNSIGNED NOT NULL,
+  `size_id` int(10) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `product_user`
+--
+
+DROP TABLE IF EXISTS `product_user`;
+CREATE TABLE `product_user` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `user_id` int(10) UNSIGNED NOT NULL,
+  `product_id` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 -- --------------------------------------------------------
@@ -164,19 +188,6 @@ DROP TABLE IF EXISTS `sizes`;
 CREATE TABLE `sizes` (
   `id` int(10) UNSIGNED NOT NULL,
   `size` int(10) UNSIGNED NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `sizes_products`
---
-
-DROP TABLE IF EXISTS `sizes_products`;
-CREATE TABLE `sizes_products` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `product_id` int(10) UNSIGNED NOT NULL,
-  `size_id` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 -- --------------------------------------------------------
@@ -201,18 +212,6 @@ CREATE TABLE `users` (
   `category_id` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `users_categories`
---
-
-DROP TABLE IF EXISTS `users_categories`;
-CREATE TABLE `users_categories` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `name` varchar(45) COLLATE utf8mb4_unicode_520_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
-
 --
 -- Índices para tablas volcadas
 --
@@ -232,13 +231,20 @@ ALTER TABLE `categories`
   ADD UNIQUE KEY `id_UNIQUE` (`id`);
 
 --
--- Indices de la tabla `categories_products`
+-- Indices de la tabla `category_product`
 --
-ALTER TABLE `categories_products`
+ALTER TABLE `category_product`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `id_UNIQUE` (`id`),
   ADD KEY `categories_products_product_id_foreign_idx` (`product_id`),
   ADD KEY `categories_products_category_id_foreign_idx` (`category_id`);
+
+--
+-- Indices de la tabla `category_user`
+--
+ALTER TABLE `category_user`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `id_UNIQUE` (`id`);
 
 --
 -- Indices de la tabla `colors`
@@ -248,22 +254,13 @@ ALTER TABLE `colors`
   ADD UNIQUE KEY `id_UNIQUE` (`id`);
 
 --
--- Indices de la tabla `colors_products`
+-- Indices de la tabla `color_product`
 --
-ALTER TABLE `colors_products`
+ALTER TABLE `color_product`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `id_UNIQUE` (`id`),
   ADD KEY `colors_products_color_id_foreign_idx` (`color_id`),
   ADD KEY `colors_products_product_id_foreign_idx` (`product_id`);
-
---
--- Indices de la tabla `favorites`
---
-ALTER TABLE `favorites`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `id_UNIQUE` (`id`),
-  ADD KEY `favorites_users_id_foreign_idx` (`user_id`),
-  ADD KEY `favorites_products_id_foreign_idx` (`product_id`);
 
 --
 -- Indices de la tabla `genders`
@@ -280,9 +277,9 @@ ALTER TABLE `images`
   ADD UNIQUE KEY `id_UNIQUE` (`id`);
 
 --
--- Indices de la tabla `images_products`
+-- Indices de la tabla `image_product`
 --
-ALTER TABLE `images_products`
+ALTER TABLE `image_product`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `id_UNIQUE` (`id`),
   ADD KEY `images_products_product_id_foreign_idx` (`product_id`),
@@ -298,20 +295,29 @@ ALTER TABLE `products`
   ADD KEY `products_brand_id_foreign_idx` (`brand_id`);
 
 --
+-- Indices de la tabla `product_size`
+--
+ALTER TABLE `product_size`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `id_UNIQUE` (`id`),
+  ADD KEY `sizes_products_size_id_foreign_idx` (`size_id`),
+  ADD KEY `sizes_products_product_id_foreign_idx` (`product_id`);
+
+--
+-- Indices de la tabla `product_user`
+--
+ALTER TABLE `product_user`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `id_UNIQUE` (`id`),
+  ADD KEY `favorites_users_id_foreign_idx` (`user_id`),
+  ADD KEY `favorites_products_id_foreign_idx` (`product_id`);
+
+--
 -- Indices de la tabla `sizes`
 --
 ALTER TABLE `sizes`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `id_UNIQUE` (`id`);
-
---
--- Indices de la tabla `sizes_products`
---
-ALTER TABLE `sizes_products`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `id_UNIQUE` (`id`),
-  ADD KEY `sizes_products_size_id_foreign_idx` (`size_id`),
-  ADD KEY `sizes_products_product_id_foreign_idx` (`product_id`);
 
 --
 -- Indices de la tabla `users`
@@ -320,13 +326,6 @@ ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `email_UNIQUE` (`email`),
   ADD KEY `users_category_id_foreign_idx` (`category_id`);
-
---
--- Indices de la tabla `users_categories`
---
-ALTER TABLE `users_categories`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `id_UNIQUE` (`id`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -345,9 +344,15 @@ ALTER TABLE `categories`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `categories_products`
+-- AUTO_INCREMENT de la tabla `category_product`
 --
-ALTER TABLE `categories_products`
+ALTER TABLE `category_product`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `category_user`
+--
+ALTER TABLE `category_user`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
@@ -357,15 +362,9 @@ ALTER TABLE `colors`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `colors_products`
+-- AUTO_INCREMENT de la tabla `color_product`
 --
-ALTER TABLE `colors_products`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `favorites`
---
-ALTER TABLE `favorites`
+ALTER TABLE `color_product`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
@@ -381,9 +380,9 @@ ALTER TABLE `images`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `images_products`
+-- AUTO_INCREMENT de la tabla `image_product`
 --
-ALTER TABLE `images_products`
+ALTER TABLE `image_product`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
@@ -393,15 +392,21 @@ ALTER TABLE `products`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `sizes`
+-- AUTO_INCREMENT de la tabla `product_size`
 --
-ALTER TABLE `sizes`
+ALTER TABLE `product_size`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `sizes_products`
+-- AUTO_INCREMENT de la tabla `product_user`
 --
-ALTER TABLE `sizes_products`
+ALTER TABLE `product_user`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `sizes`
+--
+ALTER TABLE `sizes`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
@@ -411,62 +416,56 @@ ALTER TABLE `users`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `users_categories`
---
-ALTER TABLE `users_categories`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
 -- Restricciones para tablas volcadas
 --
 
 --
--- Filtros para la tabla `categories_products`
+-- Filtros para la tabla `category_product`
 --
-ALTER TABLE `categories_products`
-  ADD CONSTRAINT `categories_products_category_id_foreign` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`),
-  ADD CONSTRAINT `categories_products_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`);
+ALTER TABLE `category_product`
+  ADD CONSTRAINT `category_product_category_id_foreign` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`),
+  ADD CONSTRAINT `category_product_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`);
 
 --
--- Filtros para la tabla `colors_products`
+-- Filtros para la tabla `color_product`
 --
-ALTER TABLE `colors_products`
-  ADD CONSTRAINT `colors_products_color_id_foreign` FOREIGN KEY (`color_id`) REFERENCES `colors` (`id`),
-  ADD CONSTRAINT `colors_products_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`);
+ALTER TABLE `color_product`
+  ADD CONSTRAINT `color_product_color_id_foreign` FOREIGN KEY (`color_id`) REFERENCES `colors` (`id`),
+  ADD CONSTRAINT `color_product_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`);
 
 --
--- Filtros para la tabla `favorites`
+-- Filtros para la tabla `image_product`
 --
-ALTER TABLE `favorites`
-  ADD CONSTRAINT `favorites_products_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`),
-  ADD CONSTRAINT `favorites_users_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
-
---
--- Filtros para la tabla `images_products`
---
-ALTER TABLE `images_products`
-  ADD CONSTRAINT `images_products_image_id_foreign` FOREIGN KEY (`image_id`) REFERENCES `images` (`id`),
-  ADD CONSTRAINT `images_products_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`);
+ALTER TABLE `image_product`
+  ADD CONSTRAINT `image_product_image_id_foreign` FOREIGN KEY (`image_id`) REFERENCES `images` (`id`),
+  ADD CONSTRAINT `image_product_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`);
 
 --
 -- Filtros para la tabla `products`
 --
 ALTER TABLE `products`
-  ADD CONSTRAINT `products_brand_id_foreign` FOREIGN KEY (`brand_id`) REFERENCES `brands` (`id`),
-  ADD CONSTRAINT `products_gender_id_foreign` FOREIGN KEY (`gender_id`) REFERENCES `genders` (`id`);
+  ADD CONSTRAINT `product_brand_id_foreign` FOREIGN KEY (`brand_id`) REFERENCES `brands` (`id`),
+  ADD CONSTRAINT `product_gender_id_foreign` FOREIGN KEY (`gender_id`) REFERENCES `genders` (`id`);
 
 --
--- Filtros para la tabla `sizes_products`
+-- Filtros para la tabla `product_size`
 --
-ALTER TABLE `sizes_products`
-  ADD CONSTRAINT `sizes_products_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`),
-  ADD CONSTRAINT `sizes_products_size_id_foreign` FOREIGN KEY (`size_id`) REFERENCES `sizes` (`id`);
+ALTER TABLE `product_size`
+  ADD CONSTRAINT `size_product_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`),
+  ADD CONSTRAINT `size_product_size_id_foreign` FOREIGN KEY (`size_id`) REFERENCES `sizes` (`id`);
+
+--
+-- Filtros para la tabla `product_user`
+--
+ALTER TABLE `product_user`
+  ADD CONSTRAINT `product_user_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`),
+  ADD CONSTRAINT `product_user_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 
 --
 -- Filtros para la tabla `users`
 --
 ALTER TABLE `users`
-  ADD CONSTRAINT `users_category_id_foreign` FOREIGN KEY (`category_id`) REFERENCES `users_categories` (`id`);
+  ADD CONSTRAINT `user_category_id_foreign` FOREIGN KEY (`category_id`) REFERENCES `category_user` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
