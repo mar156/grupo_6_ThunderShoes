@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-09-2020 a las 00:58:36
+-- Tiempo de generación: 17-09-2020 a las 01:49:02
 -- Versión del servidor: 10.4.13-MariaDB
 -- Versión de PHP: 7.2.31
 
@@ -146,7 +146,7 @@ CREATE TABLE `products` (
   `id` int(10) UNSIGNED NOT NULL,
   `name` varchar(100) COLLATE utf8mb4_unicode_520_ci NOT NULL,
   `brand_id` int(10) UNSIGNED NOT NULL,
-  `description` varchar(255) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `description` text COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
   `gender_id` int(10) UNSIGNED NOT NULL,
   `on_sale` int(10) UNSIGNED ZEROFILL NOT NULL DEFAULT 0000000000,
   `price` int(10) UNSIGNED ZEROFILL NOT NULL
