@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-09-2020 a las 01:49:02
--- Versión del servidor: 10.4.13-MariaDB
--- Versión de PHP: 7.2.31
+-- Tiempo de generación: 18-09-2020 a las 20:22:03
+-- Versión del servidor: 10.4.14-MariaDB
+-- Versión de PHP: 7.4.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -202,7 +202,7 @@ CREATE TABLE `users` (
   `first_name` varchar(100) COLLATE utf8mb4_unicode_520_ci NOT NULL,
   `last_name` varchar(100) COLLATE utf8mb4_unicode_520_ci NOT NULL,
   `email` varchar(100) COLLATE utf8mb4_unicode_520_ci NOT NULL,
-  `phone` int(11) NOT NULL,
+  `phone` bigint(20) NOT NULL,
   `address` varchar(255) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
   `postal_code` int(11) DEFAULT NULL,
   `state` varchar(45) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
