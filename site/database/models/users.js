@@ -14,10 +14,11 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   users.init({
+    category_id: DataTypes.INTEGER,
     first_name: DataTypes.STRING,
     last_name: DataTypes.STRING,
     email: DataTypes.STRING,
-    phone: DataTypes.INTEGER,
+    phone: DataTypes.BIGINT(20),
     address: DataTypes.STRING,
     postal_code: DataTypes.INTEGER,
     state: DataTypes.STRING,
