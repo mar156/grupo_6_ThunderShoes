@@ -13,6 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       this.belongsTo(models.brand);
       this.belongsTo(models.gender);
+      this.belongsToMany(models.category, { through: "category_product" });
     }
   };
   Product.init({
