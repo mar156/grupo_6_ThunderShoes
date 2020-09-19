@@ -14,6 +14,7 @@ module.exports = (sequelize, DataTypes) => {
       this.belongsTo(models.brand);
       this.belongsTo(models.gender);
       this.belongsToMany(models.category, { through: "category_product" });
+      this.belongsToMany(models.user, {through: "product_user"});
     }
   };
   Product.init({
