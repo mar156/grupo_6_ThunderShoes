@@ -13,7 +13,14 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       this.belongsTo(models.brand);
       this.belongsTo(models.gender);
+<<<<<<< HEAD
       this.belongsToMany(models.image, {through: 'image_product'});
+=======
+      this.belongsToMany(models.category, { through: "category_product" });
+      this.belongsToMany(models.user, {through: "product_user"});
+      this.belongsToMany(models.size, {through: "product_size"});
+      this.belongsToMany(models.color, {through: "color_product"});
+>>>>>>> b16ee538a7ea4d1d33bd0f646e021bdae8eac72f
     }
   };
   Product.init({
