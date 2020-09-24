@@ -1,4 +1,4 @@
-'use strict';
+'use strict'; 
 const {
   Model
 } = require('sequelize');
@@ -11,12 +11,15 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      this.belongsTo(models.category_user);
+      this.belongsTo(models.category_user, {
+        foreignKey: 'category_id'
+      });   // Fué necesario aclarar el foreignKey. sequelize supone u obtiene de algún lado que la FK es "category_user_id"
+      // this.belongsTo(models.category_user);
       this.belongsToMany(models.product, { through: "product_user" });
     }
   };
   User.init({
-    category_user_id: DataTypes.INTEGER,
+    category_id: DataTypes.INTEGER,
     first_name: DataTypes.STRING,
     last_name: DataTypes.STRING,
     email: DataTypes.STRING,
