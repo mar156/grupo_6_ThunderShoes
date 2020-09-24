@@ -8,6 +8,7 @@ const bcrypt = require('bcrypt');
 const { user, category_user, product } = require('../database/models');
 
 const controller = {
+
     login: (req, res) => {
         let error;
         error = {
@@ -71,8 +72,6 @@ const controller = {
     userRegister: (req, res)=>{
         // Verificar que haya completado todos los campos, por el momento vamos a confiar en que completó todo
         
-        let usuariosJSON = fs.readFileSync(filePath, 'utf-8'); // 
-        let users = JSON.parse(usuariosJSON); // 
         let newUser = req.body;
         let check;
 
@@ -100,13 +99,15 @@ const controller = {
                         // Guardamos los cambios efectuados en DB. (el nombre del archivo avatar)
                         result.save();
                     }
+
+                    req.session.userLoggedIn = newUser;
+                    res.redirect('/');
                 })
                 .catch( err => {
                     console.log('--------- Error ---------- >>>> ', err);
+                    res.redirect('/users/register'); // (Pendiente) Agregar error a mostrar
                 });
             
-            req.session.userLoggedIn = newUser;
-            res.redirect('/');
         }
         else{
             res.send('Hubo un error, seguramente no pusiste bien las contraseñas');
@@ -125,12 +126,14 @@ const controller = {
     },
 
     update: (req, res) => {
+        // Pendiente a resolver: Cuando se actualizan los datos, session no se actualiza inmediatamente y no se muestran los cambios hasta cambiar a una nueva vista.
+
         let userToEdit = req.session.userLoggedIn;
         let profileStatus = {};
-
+        let newPassword = '';
         if ( !!req.body.password || !!req.body.passwordConfirm ) {
             if ( req.body.password === req.body.passwordConfirm ) {
-                userToEdit.password = bcrypt.hashSync(req.body.password, 10);
+                newPassword = bcrypt.hashSync(req.body.password, 10);
             } else {
                 // Esta verificación será reemplazada de otra manera cuando se 
                 // implemente middleware para verificar los datos, y aquí sólo llegue el nuevo
@@ -141,44 +144,58 @@ const controller = {
             }
         }
 
-        userToEdit.first_name = req.body.first_name;
-        userToEdit.last_name = req.body.last_name;
-        userToEdit.email = req.body.email;
-        userToEdit.phone = Number(req.body.phone);
-        userToEdit.address = {
-            address: req.body.address,
-            city: req.body.city,
-            state: req.body.state,
-            postal_code: Number(req.body.postal_code)
-        };
+        user.findByPk(1, { 
+            attributes: [
+                'id',
+                'first_name', 
+                'last_name', 
+                'email', 
+                'phone',
+                'address',
+                'password',
+                'avatar',
+                // 'favorites'  // No implementado aún
+            ],
+            include: [category_user, product]
+        })
+        .then( user => {
+            user.first_name = req.body.first_name;
+            user.last_name = req.body.last_name;
+            user.email = req.body.email;
+            user.phone = Number(req.body.phone);
+            user.address = req.body.address;
+            user.postal_code = Number(req.body.postal_code);
+            user.state = req.body.state;
+            user.city = req.body.city;
+            user.password = newPassword ? newPassword : user.password;
 
-        const usuariosJSON = fs.readFileSync(filePath, 'utf-8');
-        const users = JSON.parse(usuariosJSON);
-
-        let isUpdated = false;
-        let newUsers = users.map( user => {
-            if (user.id && user.id === userToEdit.id) {
-                isUpdated = true;
-                // req.session.userLoggedIn = userToEdit;
-                return userToEdit
+            if (req.file) { // Si subió una imagen, reemplazar la imagen anterior. 
+                // Ya tenemos el ID, renombramos la imagen avatar con id.
+                fs.renameSync(
+                    path.join(__dirname, `/../public/img/users/${req.file.filename}`),
+                    path.join(__dirname, `/../public/img/users/avatar_${user.id}.jpg`)
+                );
+                // Actualizamos el valor de la propiedad al nuevo nombre
+                user.avatar = `avatar_${user.id}.jpg`;
+                // Guardamos los cambios efectuados en DB. (el nombre del archivo avatar)
             }
-            return user
-        });
 
-        // Probando método asincrono writeFile de fs. Se usa con callback como tercer parametro
-        // (Callback no recibe ningún parametro)
-        if (isUpdated) {
-            fs.writeFile(filePath, JSON.stringify(newUsers, null, ' '), () => {
-                profileStatus.result = 'done';
-                profileStatus.msg = 'Sus datos fueron actualizados exitosamente';
-                req.session.userLoggedIn = userToEdit;
-                return res.render('users/profile', { userToEdit, profileStatus })
-            });
-        } else {
+            user.save()
+
+            profileStatus.result = 'done';
+            profileStatus.msg = 'Sus datos fueron actualizados exitosamente';
+            let userToEdit = user;
+            req.session.userLoggedIn = userToEdit;
+            return res.render('users/profile', { userToEdit, profileStatus })
+        })
+        .catch( err => {
+            console.log('-----------------Error ----------------');
+            console.log(err);
+
             profileStatus.result = 'error';
             profileStatus.msg = 'Error al actualizar los datos';
-            return res.render('users/profile', { userToEdit, profileStatus })
-        }
+            return res.render('users/profile', { user, profileStatus })
+        });
     }
 }
 
