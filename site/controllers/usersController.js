@@ -71,27 +71,40 @@ const controller = {
     userRegister: (req, res)=>{
         // Verificar que haya completado todos los campos, por el momento vamos a confiar en que completó todo
         
-        let usuariosJSON = fs.readFileSync(filePath, 'utf-8');
-        let users = JSON.parse(usuariosJSON);
+        let usuariosJSON = fs.readFileSync(filePath, 'utf-8'); // 
+        let users = JSON.parse(usuariosJSON); // 
         let newUser = req.body;
         let check;
+
         
-        if(req.file){
-            newUser.image = req.file.filename
+        newUser.avatar = 'default-profile.jpg';
+        
+        if( (req.body.password) && (req.body.passwordConfirm) ){
+            check = req.body.password === req.body.passwordConfirm;
         }
-        else{
-            newUser.image = "default-profile.png"
-        }
-        //Que la contraseña sea correcta, es decir que sea igual la contraseña con confirmar contraseña
-        if((req.body.password)&&(req.body.passwordConfirm)){
+        if(check){
             newUser.password = bcrypt.hashSync(req.body.password, 10);
-            check = bcrypt.compareSync(req.body.passwordConfirm, newUser.password);
-            newUser.passwordConfirm = '';//que no guarde ese dato en el JSON
-        }
-        if(check){//si la contraseña y el confirmar contraseña son iguales, entonces que cree el usuario
-            users.push(newUser);
-            let usersJson= JSON.stringify(users, null, " ");
-            fs.writeFileSync(filePath, usersJson);
+            delete newUser.passwordConfirm;
+            newUser.category_id = 1; // Por defecto se asigna categoria 'user' que es id:1
+
+            user.create( newUser )
+                .then( result => {
+                    if (req.file) { // Si subió una imagen, reemplazar la imagen por defecto. 
+                        // Ya tenemos el ID, renombramos la imagen avatar con id.
+                        fs.renameSync(
+                            path.join(__dirname, `/../public/img/users/${req.file.filename}`), 
+                            path.join(__dirname, `/../public/img/users/avatar_${result.id}.jpg`)
+                        );
+                        // Actualizamos el valor de la propiedad al nuevo nombre
+                        result.avatar = `avatar_${result.id}.jpg`;
+                        // Guardamos los cambios efectuados en DB. (el nombre del archivo avatar)
+                        result.save();
+                    }
+                })
+                .catch( err => {
+                    console.log('--------- Error ---------- >>>> ', err);
+                });
+            
             req.session.userLoggedIn = newUser;
             res.redirect('/');
         }
