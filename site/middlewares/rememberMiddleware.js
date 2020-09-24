@@ -1,22 +1,37 @@
-const fs = require("fs");
 const path = require("path");
-const filePath =  path.join(__dirname, '../data/users.json');
 
+const { user, category_user, product } = require('../database/models');
 
 function rememberMiddleware(req, res, next){
     if(req.cookies.remember != undefined && req.session.userLoggedIn == undefined){
-        let usuariosJSON = fs.readFileSync(filePath, 'utf-8');
-        let users = JSON.parse(usuariosJSON);
+        let email = req.cookies.remember;
 
-        for(let i=0; i< users.length; i++){
-            if(users[i].email == req.cookies.remember){
-                req.session.userLoggedIn = users[i];
-                break;
-            }
-        }
+        user.findOne({ 
+            attributes: [
+                'id',
+                'first_name', 
+                'last_name', 
+                'email', 
+                'phone',
+                'address',
+                'password',
+                'avatar',
+                // 'favorites'  // No implementado aún
+            ],
+            where: { email },
+            include: [category_user, product]
+        })
+            .then( user => {
+                req.session.userLoggedIn = user;
+                next();
+            })
+            .catch( err => {
+                console.log('Hubo un error: ', err);    // Ver como informar a la vista.
+            });
+    } else {
+        next();
     }
 
-    next();
     
 }
 

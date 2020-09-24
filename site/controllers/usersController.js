@@ -55,7 +55,7 @@ const controller = {
                 }
             })
             .catch( err => {
-                console.log('Hubo un error: ', err);
+                console.log('Hubo un error: ', err);    // Ver como informar a la vista.
             });
     },
 
