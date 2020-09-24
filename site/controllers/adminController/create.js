@@ -43,10 +43,12 @@ const createProducts = {
                 include: [brand, gender, image, category, color, size ]
             }); 
 
-            /* newProduct.setImages(images); */
+            /* newProduct.addImages(images);     MULTER */
+            newProduct.setImages([7,9,10,11]);
             newProduct.setCategories(categories);
             newProduct.setColors(colors);
             newProduct.setSizes(sizes); 
+            
 
           
 
