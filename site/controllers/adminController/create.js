@@ -48,9 +48,7 @@ const createProducts = {
             newProduct.setColors(colors);
             newProduct.setSizes(sizes); 
 
-           /*  newProduct.addImages(images); */
-            
-            console.log(newProduct);
+          
 
             res.redirect('/admin/product/');
         }catch (error) {
@@ -59,8 +57,6 @@ const createProducts = {
         }
         } 
 
-
-      
         /* 
         let newProduct = {
             id: siguienteIndice,

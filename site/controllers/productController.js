@@ -23,7 +23,7 @@ const controller = {
             let products = await product.findAll({ include: [ brand, gender, image, category, color, size ]});
             res.render('products/shop', {products});
             } catch (e) {
-                console.log("Error");
+                console.log(e);
             }
 
     },

@@ -6,7 +6,7 @@ let searchController = {
     search: async function(req,res){
 
         let searchQuery = req.query.search;
-        console.log(searchQuery);
+        
     try {
         let products = await product.findAll({
             where: { name: 
@@ -18,21 +18,9 @@ let searchController = {
             return res.render('products/shop', {products});
          
         }   catch(error){
-             console.log("Ocurrió un error en la búsqueda");
+             console.log(error);
          };
 
- 
-
-
-
-         
-
-
-
-
-
-        // res.send(searchQuery);
-        // res.render('products/shop', {products});
     }
 
 

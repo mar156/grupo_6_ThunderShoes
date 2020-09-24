@@ -49,7 +49,6 @@ const controller = {
                     if(req.body.remember != undefined){
                         res.cookie("remember", userToLogin.email, {maxAge: 120000000});
                     }
-                    console.log('\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n', userToLogin);
                     req.session.userLoggedIn = userToLogin;
                     res.redirect("/");  // Falta capturar URL desde donde se le pidio logueo.
                 } else {
@@ -187,7 +186,7 @@ const controller = {
                 // Guardamos los cambios efectuados en DB. (el nombre del archivo avatar)
             }
 
-            user.save()
+            user.save();
 
             profileStatus.result = 'done';
             profileStatus.msg = 'Sus datos fueron actualizados exitosamente';
