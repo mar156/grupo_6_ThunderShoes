@@ -1,3 +1,6 @@
+window.addEventListener("load",function(){
+
+
 let btn = document.getElementById("btn-menu");
 let menu = document.getElementById("menu");
 
@@ -33,3 +36,30 @@ for(let i = 0; i < thumnails.length; i++){
         document.getElementById("img-principal").src = this.src;
     });
 }
+
+
+
+// Colores vista Detail
+
+let colors = document.getElementsByClassName("color-label");
+let codes = ["0011","0022","0033","0044","0055","0066","0077"]
+let colores = ["red","blue","yellow","green","black","white","gray"]
+
+console.log(colors);
+
+
+    // for (let i = 0; i < codes.length; i++) {
+    //     if(colors.classList == codes[i]){
+    //         colors.style.backgroundColor = colores[i];
+    //     }
+    // }
+for(let d = 0; d < colors.length; d++){
+    for (let i = 0; i < codes.length; i++) {
+        if(colors[d].classList.contains(codes[i])){
+            colors[d].style.backgroundColor = colores[i];
+        }
+    }
+}
+
+
+})

@@ -11,8 +11,8 @@
         <!-- <span>/ productos / mujer / deportica / Zapatillas de niños New Balance Cruz Sport Grade </span> -->
         <span>
             / <a href="/product">productos</a> 
-            / <a href="/product/<%= product && product.gender %>"><%= product && product.gender %></a>
-            / <a href="/product/<%= product && product.gender %>/<%= product && product.category[0] %>"><%= product && product.category[0] %></a>
+            / <a href="/product/<%= product && product.gender.name %>"><%= product && product.gender.name %></a>
+            / <a href="/product/<%= product && product.gender.name %>/<%= product && product.categories[0].name %>"><%= product && product.categories[0].name %></a>
             / <%= product && product.name %>
         </span>
     </div>
@@ -23,13 +23,13 @@
                 <!--Slideshow-->
                 <div class="product-detail-slideshow">
                 
-                    <img id="img-principal" src="/img/<%= product && product.image[0] %>" alt="Zapatillas de niños New Balance Cruz Sport Grade">
+                    <img id="img-principal" src="/img/<%= product && product.images[0].file_name %>" alt="Zapatillas de niños New Balance Cruz Sport Grade">
                 
                     <div class="product-detail-thumnails">
-                        <img class="thumnails selected" src="/img/<%= product && product.image[0] %>" alt="">
-                        <img class="thumnails" src="/img/<%= product && product.image[1] %>" alt="">
-                        <img class="thumnails" src="/img/<%= product && product.image[2] %>" alt="">
-                        <img class="thumnails" src="/img/<%= product && product.image[3] %>" alt="">
+                        <img class="thumnails selected" src="/img/<%= product && product.images[0].file_name %>" alt="">
+                        <img class="thumnails" src="/img/<%= product && product.images[1].file_name %>" alt="">
+                        <img class="thumnails" src="/img/<%= product && product.images[2].file_name %>" alt="">
+                        <img class="thumnails" src="/img/<%= product && product.images[3].file_name %>" alt="">
                     </div>
     
                 </div>
@@ -44,8 +44,8 @@
                                 <div class="product-colors">
                                     <% if(product && product.colors) { 
                                         product.colors.forEach(color => { %>
-                                            <input type="radio" name="color" id="m<%= color %>" value="<%= color %>">
-                                            <label class="color" for="m<%= color %>" style="background-color: <%= color %>;"></label>
+                                            <input type="radio" name="color" id="m<%= color.code %>" value="<%= color.code %>">
+                                            <label id="colors" class="color-label" for="m<%= color.code %>"></label>
                                         <% }); %>
                                     <% } %>
                                 </div>
@@ -56,8 +56,8 @@
                                 <div class="product-sizes">
                                     <% if(product && product.sizes) { 
                                         product.sizes.forEach(size => { %>
-                                            <input type="radio" name="size" id="m<%= size %>" value="<%= size %>">
-                                            <label class="size" for="m<%= size %>"><%= size %></label>
+                                            <input type="radio" name="size" id="m<%= size.size %>" value="<%= size.size %>">
+                                            <label class="size" for="m<%= size.size %>"><%= size.size %></label>
                                         <% }); %>
                                     <% } %>
                                 </div>
@@ -102,8 +102,8 @@
                             <div class="product-colors">
                                 <% if(product && product.colors) { 
                                     product.colors.forEach(color => { %>
-                                        <input type="radio" name="color" id="d<%= color %>" value="<%= color %>">
-                                        <label class="color" for="d<%= color %>" style="background-color: <%= color %>;"></label>
+                                        <input type="radio" name="color" id="m<%= color.code %>" value="<%= color.code %>">
+                                        <label id="colors" class="color-label <%= color.code %>" for="m<%= color.code %>"></label>
                                     <% }); %>
                                 <% } %>
                             </div>
@@ -114,8 +114,8 @@
                             <div class="product-sizes">
                                 <% if(product && product.sizes) { 
                                     product.sizes.forEach(size => { %>
-                                        <input type="radio" name="size" id="d<%= size %>" value="<%= size %>">
-                                        <label class="size" for="d<%= size %>"><%= size %></label>
+                                        <input type="radio" name="size" id="m<%= size.size %>" value="<%= size.size %>">
+                                            <label class="size" for="m<%= size.size %>"><%= size.size %></label>
                                     <% }); %>
                                 <% } %>
                             </div>
