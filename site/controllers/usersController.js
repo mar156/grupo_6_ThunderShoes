@@ -1,55 +1,75 @@
-const path = require ('path')
+const path = require ('path');
 const fs = require("fs");
 const filePath =  path.join(__dirname, '../data/users.json');
 
 const bcrypt = require('bcrypt');
 
+// Modelos
+const { user, category_user, product } = require('../database/models');
+
 const controller = {
-    login: (req, res)=>{
+    login: (req, res) => {
         let error;
         error = {
             msg: ""
         }
-        res.render("users/login", { error })
+        res.render("users/login", { error });
     },
-    authuser: (req, res)=>{
-        let usuariosJSON = fs.readFileSync(filePath, 'utf-8');
-        let users = JSON.parse(usuariosJSON);
 
-        let userToLogin;
-        let error;
+    authuser: (req, res) => {
+        let email = req.body.user;
+        let password = req.body.password;
 
-        for(let i=0; i< users.length; i++){
-            if((users[i].email == req.body.user) && (bcrypt.compareSync(req.body.password, users[i].password))){
-                userToLogin = users[i];
-                break;
-            }
-        }
+        // user.findOne( { where: { email }, include: category_user } )
+        user.findOne({ 
+            attributes: [
+                'id',
+                'first_name', 
+                'last_name', 
+                'email', 
+                'phone',
+                'address',
+                'password',
+                'avatar',
+                // 'favorites'  // No implementado aún
+            ],
+            where: { email },
+            include: [category_user, product]
+        })
+            .then( user => {
+                let error;
 
-        if(userToLogin == undefined){
-             error = {
-                 msg: "El email o la contraseña son incorrectas"
-             }
-            
-            res.render('users/login', { error: error});
-        }else{
-            if(req.body.remember != undefined){
-                res.cookie("remember", userToLogin.email, {maxAge: 120000000});
-            }
-            req.session.userLoggedIn = userToLogin;
-            res.redirect("/");
-        }
+                if ( user && bcrypt.compareSync(password, user.password)) {
+                    let userToLogin = user;
 
+                    if(req.body.remember != undefined){
+                        res.cookie("remember", userToLogin.email, {maxAge: 120000000});
+                    }
+                    req.session.userLoggedIn = userToLogin;
+                    res.redirect("/");  // Falta capturar URL desde donde se le pidio logueo.
+                } else {
+                    error = {
+                        msg: "El email o la contraseña son incorrectas"
+                    };
+                    return res.render('users/login', { error: error});
+                }
+            })
+            .catch( err => {
+                console.log('Hubo un error: ', err);
+            });
     },
+
     logout: (req, res) => {
         req.session.destroy();
         res.redirect('/');
     },
+
     register: (req, res)=>{
         res.render('users/register');
     },
+
     userRegister: (req, res)=>{
-        //Verificar que haya completado todos los campos, por el momento vamos a confiar en que completó todo
+        // Verificar que haya completado todos los campos, por el momento vamos a confiar en que completó todo
         
         let usuariosJSON = fs.readFileSync(filePath, 'utf-8');
         let users = JSON.parse(usuariosJSON);
@@ -79,6 +99,7 @@ const controller = {
             res.send('Hubo un error, seguramente no pusiste bien las contraseñas');
         }
     },
+
     profile: (req, res) => {
         // Leer Session para obtener el usuario logueado.
         let profileStatus = {
@@ -89,6 +110,7 @@ const controller = {
             // Renderizar vista enviando objeto usuario a editar
         res.render('users/profile', { userToEdit, profileStatus });
     },
+
     update: (req, res) => {
         let userToEdit = req.session.userLoggedIn;
         let profileStatus = {};
