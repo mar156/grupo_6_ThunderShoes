@@ -202,7 +202,7 @@ grayCheck.addEventListener("click", function(){
 
 // Talles
 
-const talle34Check = document.getElementById("product-t-34");
+
 const talle35Check = document.getElementById("product-t-35");
 const talle36Check = document.getElementById("product-t-36");
 const talle37Check = document.getElementById("product-t-37");
@@ -210,7 +210,7 @@ const talle38Check = document.getElementById("product-t-38");
 const talle39Check = document.getElementById("product-t-39");
 const talle40Check = document.getElementById("product-t-40");
 
-const talle34Label = document.getElementById("product-m-t-34");
+
 const talle35Label = document.getElementById("product-m-t-35");
 const talle36Label = document.getElementById("product-m-t-36");
 const talle37Label = document.getElementById("product-m-t-37");
@@ -218,13 +218,6 @@ const talle38Label = document.getElementById("product-m-t-38");
 const talle39Label = document.getElementById("product-m-t-39");
 const talle40Label = document.getElementById("product-m-t-40");
 
-talle34Check.addEventListener("click", function(){
-    if(this.checked){
-        talle34Label.classList.add("checked");
-    } else{
-        talle34Label.classList.remove("checked");
-    }
-})
 
 talle35Check.addEventListener("click", function(){
     if(this.checked){

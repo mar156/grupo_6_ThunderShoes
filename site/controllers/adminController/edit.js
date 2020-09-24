@@ -37,7 +37,7 @@ const editProduct = {
                     football: '',
                     collection: ''
                 },
-                onSale: productToEdit.onSale,
+                on_sale: productToEdit.on_sale,
                 colors: {                  // la lista de colors se carga desde BD/FileJson y se genera el listado de la propiedad colors, 
                     red: '',                // de cada producto se obtiene que colors seleccionados posee y se marca en 'checked' para pasar a la vista. 
                     green: '',              // Idem 'Talles' y 'Categorías'.
@@ -243,39 +243,72 @@ const editProduct = {
 
         // Me paso el ID por url --> form action="/product/detail/<%= product && id %>?_method=PUT" method="POST"
 
-        let id = req.params.id;
         /* let readProducts = fs.readFileSync(filePath, 'utf-8');
         let products = JSON.parse(readProducts); */
         
         // Al producto que me viene del form le añado el id (Como solucionar los cambios de ID cuando se elimina un producto?)
-
-        let productToEdit = req.body;
+        
+        
+        
+        /*  let productToEdit = req.body;
         productToEdit.id = id;
+        */
+       /* console.log(productToEdit); */
+       
+       //M:M
+       /*   let images = req.image; */
+       /*      let categories = req.body.category;
+       let colors = req.body.colors; 
+       let sizes = req.body.sizes;
+       
+       let updatedProduct = {
+           name: productToEdit.name,
+           description: productToEdit.description,
+           on_sale: productToEdit.onSale,
+           price: productToEdit.price,
+           // 1:M
+           brand_id: productToEdit.brand,
+           gender_id: productToEdit.gender,
+        }
+        */
+        let id = req.params.id;
+       
+        let categories = req.body.category;
+        let colors = req.body.colors; 
+        let sizes = req.body.sizes;
 
-        console.log(productToEdit);
+        try{ 
+            productExist = await product.findByPk(id);   
+            /* productExist.setImages(images);  */
+            await productExist.setCategories(categories);
+            await productExist.setColors(colors);
+            await productExist.setSizes(sizes); 
 
-        let updatedProduct = {
-            name: productToEdit.name,
-            description: productToEdit.description,
-            on_sale: productToEdit.onSale,
-            price: productToEdit.price,
-            // 1:M
-            brand_id: productToEdit.brand,
-            gender_id: productToEdit.gender,
+            productExist.name = req.body.name,
+            productExist.description = req.body.description,
+            productExist.on_sale = req.body.on_sale,
+            productExist.price = req.body.price,
+            productExist.gender_id = req.body.gender,
+            productExist.brand_id = req.body.brand,
+            productExist.save();
 
-            // M:M
-            // categories: [productToEdit.category],
-            // categories: [{name: productToEdit.category[0]}],   
+            return res.redirect('/admin/product/');
 
-          /*   colors: [
-                { name: "0033"},
-                { name: "0044"},
-              ]
- */
-
-            // sizes: productToEdit.sizes
+        } catch(error){
+            console.log(error);
         }
 
+           /*  newProduct.addImages(images); */    
+
+        // M:M
+        // categories: [productToEdit.category],
+        // categories: [{name: productToEdit.category[0]}],   
+       /*  colors: [
+            { name: "0033"},
+            { name: "0044"},
+          ] */
+
+        // sizes: productToEdit.sizes
 
 
         /* product.update( updatedProduct, { where: { id: id } , include: [brand, gender, color ] })
