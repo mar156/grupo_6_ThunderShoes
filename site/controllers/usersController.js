@@ -21,7 +21,6 @@ const controller = {
         let email = req.body.user;
         let password = req.body.password;
 
-        // user.findOne( { where: { email }, include: category_user } )
         user.findOne({ 
             attributes: [
                 'id',
@@ -32,6 +31,10 @@ const controller = {
                 'address',
                 'password',
                 'avatar',
+                'city',
+                'state',
+                'postal_code'
+
                 // 'favorites'  // No implementado aún
             ],
             where: { email },
@@ -46,6 +49,7 @@ const controller = {
                     if(req.body.remember != undefined){
                         res.cookie("remember", userToLogin.email, {maxAge: 120000000});
                     }
+                    console.log('\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n', userToLogin);
                     req.session.userLoggedIn = userToLogin;
                     res.redirect("/");  // Falta capturar URL desde donde se le pidio logueo.
                 } else {
@@ -154,6 +158,9 @@ const controller = {
                 'address',
                 'password',
                 'avatar',
+                'city',
+                'state',
+                'postal_code'
                 // 'favorites'  // No implementado aún
             ],
             include: [category_user, product]
