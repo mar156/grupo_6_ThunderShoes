@@ -10,10 +10,7 @@
                 <form id="create-product" action="" method="POST">
                     <label for="product-name">Nombre del producto: </label>
                     <input type="text" name="name" id="product-name" autofocus>
-                    
-                    <label for="product-brand">Marca</label>
-                    <input type="text" name="brand" id="product-brand" placeholder="Ej: Adidas, Nike, Puma.">
-                    
+                 
                     <label for="product-price">Precio</label>
                     <input type="number" min="0.00" max="1000000.00" step="0.01" name="price" id="product-price" placeholder="Ej. 4200.99">
         
@@ -21,37 +18,68 @@
                     <textarea maxlength="500" name="description" id="product-desc" cols="60" rows="5" placeholder="Descripción del producto (Hasta 500 caracteres)"></textarea>
         
                     <input type="file" name="image" id="product-image">
-        
-                    <span>Categoría</span>
+
+                    
+                    <span>Genero</span>
                     <div class="contenedor-categorias">
-
+                        
                         <label for="product-c-mujer">MUJER 
-                            <input type="checkbox" name="gender" id="product-c-mujer" value="mujer">
+                            <input type="checkbox" name="gender" id="product-c-mujer" value="1">
                         </label>
                         
-
+                        
                         <label for="product-c-hombre">HOMBRE 
-                            <input type="checkbox" name="gender" id="product-c-hombre" value="hombre">
+                            <input type="checkbox" name="gender" id="product-c-hombre" value="2">
+                        </label>
+                        
+                    </div> 
+                    <span>Marca</span>
+                    <div class="contenedor-marcas">
+
+                        <label id="product-m-nike" for="product-c-nike" >NIKE
+                            <input type="checkbox" name="brand" id="product-c-nike" value="1" >
                         </label>
                         
 
+                        <label id="product-m-adidas" for="product-c-adidas" >ADIDAS 
+                            <input type="checkbox" name="brand" id="product-c-adidas" value="2" >
+                        </label>
+                        
+
+                        <label id="product-m-puma" for="product-c-puma" >PUMA 
+                            <input type="checkbox" name="brand" id="product-c-puma" value="3" >
+                        </label>
+                        
+
+                        <label id="product-m-newbalance" for="product-c-newbalance" >NEW BALANCE 
+                            <input type="checkbox" name="brand" id="product-c-newbalance" value="4">
+                        </label>
+                        
+                    </div>
+                        
+                    <span>Categoría</span>
+                    <div class="contenedor-categorias">    
                         <label for="product-c-tennis">TENNIS 
-                            <input type="checkbox" name="category" id="product-c-tennis" value="tennis">
+                            <input type="checkbox" name="category" id="product-c-tennis" value="1">
                         </label>
                         
 
                         <label for="product-c-running">RUNNING 
-                            <input type="checkbox" name="category" id="product-c-running" value="running">
+                            <input type="checkbox" name="category" id="product-c-running" value="2">
                         </label>
                         
 
                         <label for="product-c-football">FOOTBALL 
-                            <input type="checkbox" name="category" id="product-c-football" value="football">
+                            <input type="checkbox" name="category" id="product-c-football" value="3">
                         </label>
                         
 
                         <label for="product-c-volley">VOLLEY 
-                            <input type="checkbox" name="category" id="product-c-volley" value="volley">
+                            <input type="checkbox" name="category" id="product-c-volley" value="4">
+                        </label>
+
+                        <label id="product-m-collection" for="product-c-collection" >COLLECTION 
+                            <input type="checkbox" name="category" id="product-c-collection" value="5">
                         </label>
                         
 
@@ -59,76 +87,81 @@
                     <span> On Sale </span>
                     <div class="contenedor-onSale" >
                             <label class="onSale-si"> Si 
-                            <input type="checkbox" name="onSale" id="Si" value="Si"></label>
+                            <input type="checkbox" name="onSale" id="Si" value=true></label>
                             <label class="onSale-no"> No 
-                            <input type="checkbox" name="onSale" id="No" value="No"></label>
-                            
+                            <input type="checkbox" name="onSale" id="No" value=false></label>
+                        
                     </div>    
 
+                    
                     <span>Colores</span>
                     <div class="contenedor-colores">
-
+                        
                         <label for="product-c-rojo" class="rojo">
-                            <input type="checkbox" name="color" id="product-c-rojo" value="rojo">
+                            <input type="checkbox" name="color" id="product-c-rojo" value="1">
                         </label>
                         
-
+                        
                         <label for="product-c-azul" class="azul">
-                            <input type="checkbox" name="color" id="product-c-azul" value="azul">
+                            <input type="checkbox" name="color" id="product-c-azul" value="2">
                         </label>
                         
-
+                        
                         <label for="product-c-amarillo" class="amarillo">
-                            <input type="checkbox" name="color" id="product-c-amarillo" value="amarillo">
+                            <input type="checkbox" name="color" id="product-c-amarillo" value="3">
                         </label>
                         
-
-                        <label for="product-c-negro" class="negro">
-                            <input type="checkbox" name="color" id="product-c-negro" value="negro">
-                        </label>
-                        
-
                         <label for="product-c-verde" class="verde">
-                            <input type="checkbox" name="color" id="product-c-verde" value="verde">
+                            <input type="checkbox" name="color" id="product-c-verde" value="4">
                         </label>
                         
-
+                        
+                        <label for="product-c-negro" class="negro">
+                            <input type="checkbox" name="color" id="product-c-negro" value="5">
+                        </label>
+                        
+                        <label for="product-c-white" class="white">
+                            <input type="checkbox" name="color" id="product-c-white" value="6">
+                        </label>
+                        
                         <label for="product-c-gris" class="gris">
-                            <input type="checkbox" name="color" id="product-c-gris" value="gris">
+                            <input type="checkbox" name="color" id="product-c-gris" value="7">
                         </label>
                         
                     </div>
                     
                     <span>Talles</span>
                     <div class="contenedor-talles">
-
+                        
                         <label for="product-t-35" class="size">35
-                            <input type="checkbox" name="size" id="product-t-35" value="35">
+                            <input type="checkbox" name="size" id="product-t-35" value="1">
                         </label>
-
+                        
                         <label for="product-t-36" class="size">36
-                            <input type="checkbox" name="size" id="product-t-36" value="36">
+                            <input type="checkbox" name="size" id="product-t-36" value="2">
                         </label>
-
+                        
                         <label for="product-t-37" class="size">37
-                            <input type="checkbox" name="size" id="product-t-37" value="37">
+                            <input type="checkbox" name="size" id="product-t-37" value="3">
                         </label>
-
+                        
                         <label for="product-t-38" class="size">38
-                            <input type="checkbox" name="size" id="product-t-38" value="38">
+                            <input type="checkbox" name="size" id="product-t-38" value="4">
                         </label>
-
+                        
                         <label for="product-t-39" class="size">39
-                            <input type="checkbox" name="size" id="product-t-39" value="39">
+                            <input type="checkbox" name="size" id="product-t-39" value="5">
                         </label>
-
+                        
                         <label for="product-t-40" class="size">40
-                            <input type="checkbox" name="size" id="product-t-40" value="40">
+                            <input type="checkbox" name="size" id="product-t-40" value="6">
                         </label>
-
+                        
                     </div>
                     
-                   
+                    <label for="product-stock">Stock: </label>
+                    <input type="text" name="on_sale" id="product-stock" autofocus >
+                    
                     
                     <button type="submit">Agregar producto</button>
                 </form>
