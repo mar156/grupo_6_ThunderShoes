@@ -8,6 +8,8 @@ const productController= require(path.join(__dirname, '/../../controllers/produc
 
 router.get('/', productController.index );
 
+router.get('/search', productController.search);
+
 router.get('/detail/:id?', productController.detail);   //Quitar el '?' opcional, se deja sólo para que funcione la vista actual.  
 
 router.get('/cart', authMiddleware ,productController.cart );

@@ -11,7 +11,7 @@ const controller = {
     
     editProduct: editProduct.edit,
     update: editProduct.update,
-
+    
     destroyProduct: destroyProduct
 }
 

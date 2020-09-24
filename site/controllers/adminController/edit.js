@@ -117,7 +117,7 @@ const editProduct = {
             }); 
 
 
-        res.render('admin/editProduct', { product: productToShow , id });
+            return res.render('admin/editProduct', { product: productToShow , id });
 
         })
         .catch(function(error){
@@ -239,25 +239,76 @@ const editProduct = {
         /* res.render('admin/editProduct', { product , id }); */
 
     },
-    update: function(req, res){
+    update: async function(req, res){
 
         // Me paso el ID por url --> form action="/product/detail/<%= product && id %>?_method=PUT" method="POST"
 
         let id = req.params.id;
-        let readProducts = fs.readFileSync(filePath, 'utf-8');
-        let products = JSON.parse(readProducts);
+        /* let readProducts = fs.readFileSync(filePath, 'utf-8');
+        let products = JSON.parse(readProducts); */
         
         // Al producto que me viene del form le añado el id (Como solucionar los cambios de ID cuando se elimina un producto?)
 
         let productToEdit = req.body;
         productToEdit.id = id;
 
-        // console.log(productToEdit);
+        console.log(productToEdit);
+
+        let updatedProduct = {
+            name: productToEdit.name,
+            description: productToEdit.description,
+            on_sale: productToEdit.onSale,
+            price: productToEdit.price,
+            // 1:M
+            brand_id: productToEdit.brand,
+            gender_id: productToEdit.gender,
+
+            // M:M
+            // categories: [productToEdit.category],
+            // categories: [{name: productToEdit.category[0]}],   
+
+          /*   colors: [
+                { name: "0033"},
+                { name: "0044"},
+              ]
+ */
+
+            // sizes: productToEdit.sizes
+        }
+
+
+
+        /* product.update( updatedProduct, { where: { id: id } , include: [brand, gender, color ] })
+        .then(function(editedProd){
+
+            console.log(JSON.stringify(updatedProduct));
+            return res.redirect('/admin/product/');
+        })
+ 
+
+        await product.findOne({
+            where: 
+                { id: id }
+            
+          }).then(function(editedProd) {
+            editedProd.type = 'IRONMAN';
+            editedProd.save()
+            .then(function() {
+              console.log('saved');
+            });
+          }); */
+
+       /*  movie.update({
+            title: 'titulo',
+            awards: 1,
+            rating: 6.4
+        }, { where: id: req.params.id }) */
+
 
 
         // Updateo el producto ( terminar las propiedades )
         
-         let updatedProducts = products.map(function(product){
+         /* let updatedProducts = products.map(function(product){
             if(product.id == productToEdit.id){
                 let updatedOneProduct = product;
                 updatedOneProduct.name = productToEdit.name;
@@ -289,7 +340,7 @@ const editProduct = {
         fs.writeFileSync(filePath, content, 'utf-8'); 
 
         res.redirect('/admin/product/');
-
+ */
     }
 }
 
