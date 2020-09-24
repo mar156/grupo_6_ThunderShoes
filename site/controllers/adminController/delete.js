@@ -11,13 +11,22 @@ module.exports = async (req, res) => {
     products = products.filter( product => product.id !== id )
     fs.writeFileSync(filePath, JSON.stringify(products), 'utf-8');
  */
-    let id = req.params.id;
-    productExist = await product.findByPk(id);
-
+    let id = Number(req.params.id);
+    
     try{
-    await product.destroy({ where:{id: id}})
-    return res.redirect('/admin/product/');
+        productExist = await product.findByPk(id); 
+        await productExist.setCategories([]);
+        await productExist.setColors([]);
+        await productExist.setSizes([]);
+        await productExist.setImages([]);
+
+        /* newProduct.setCategories(categories); */
+
+        await productExist.destroy()
+        return res.redirect('/admin/product/');
+
     }catch(error){
-        res.send("Error en borrar el producto con ID: " + id);
+        console.log(error);
+        res.send("Error en el borrado")
     }
 }

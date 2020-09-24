@@ -22,11 +22,10 @@
             <div class="item-container">
                 <div class="item-cart">
                     <div class="item-detail-container">   
-                        <img src="/img/<%= product.image[0]%>" alt="">
+                        <img src="/img/<%=product.images[0].file_name%>" alt="">
                         <div class="item-detail">
-                            <span class="item-name"><%= product.name %></span> 
-                            <span class="item-size"><%= product.size %></span>  
-                            <span class="item-model"><%= product.brand %></span> <!--Aquí decía modelo x (? -->
+                            <span class="item-name"><%= product.name %></span>   
+                            <span class="item-model"><%= product.brand.name %></span> <!--Aquí decía modelo x (? -->
                         </div>
                     </div> 
                     <div class="item-value">
@@ -38,11 +37,11 @@
 
                         <div class="discount-item">
                             <span class="item-discount">Descuento</span>
-                            <span> <%= product.onSale %> % </span>
+                            <span> <%= product.on_sale %> % </span>
                         </div>
 
                         <div class="cantidad-item"> 
-                            <span> <input type="number" name="cantidad" id="cantidad" value="<%= product.stock %>" disabled></span> 
+                            <span> <input type="number" name="cantidad" id="cantidad" value="00" disabled></span> 
                         </div>
                         
                     </div>
