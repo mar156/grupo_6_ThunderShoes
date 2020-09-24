@@ -18,48 +18,38 @@ const createProducts = {
         })
         let siguienteIndice = indiceMayor + 1; */
 
-        let newProduct = req.body;
-
+        /* let newProduct = req.body; */
         // console.log(newProduct);
-
+        
         try {
 
             let images = req.image;
-            /* let categories = req.body.category; */
-            let categories = [1,3,5];
-            /* let colors = req.body.color; */
-            let colors = [1, 2];
-            /* let sizes = req.body.sizes; */
-            let sizes = [1, 2];
-            let genders = req.body.gender;
-            let brands = req.body.brand;
+            let categories = req.body.category;
+            let colors = req.body.color; 
+            let sizes = req.body.size;
+
+            let genderId = req.body.gender;
+            let brandId = req.body.brand;
            
-            
             let newProduct = await product.create({
                 name: req.body.name,
                 price: req.body.price,
                 on_sale: req.body.on_sale,
                 description: req.body.description,
-                brand_id: Number(2),
-                gender_id: Number(1)
+                brand_id: brandId,
+                gender_id: genderId
                 
             }, {
                 include: [brand, gender, image, category, color, size ]
-            });
+            }); 
 
             /* newProduct.setImages(images); */
             newProduct.setCategories(categories);
             newProduct.setColors(colors);
-            newProduct.setSizes(sizes);
+            newProduct.setSizes(sizes); 
 
-
-           /*  newProduct.addImages(images);
-            newProduct.addCategories(categories);
-            newProduct.addColors(colors);
-            newProduct.addSizes(sizes); */
+           /*  newProduct.addImages(images); */
             
-
-            console.log(JSON.stringify(newProduct));
             console.log(newProduct);
 
             res.redirect('/admin/product/');
@@ -67,7 +57,7 @@ const createProducts = {
             console.log(error);
             res.status(500).send('Error');
         }
-        }
+        } 
 
 
       
@@ -97,7 +87,7 @@ const createProducts = {
         fs.writeFileSync(filePath, listaProductosJSON, 'utf-8');
         return res.send(newProduct); */
 
-
+    
 };
 
 module.exports = createProducts;
