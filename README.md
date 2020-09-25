@@ -21,8 +21,10 @@
 - CSS
 - JavaScript
 - Node 
+- Express
 - React
 - MySQL
+- Sequelize
 
 ### Tablero de trabajo:
  - [Trello](https://trello.com/b/e4QPLD2E)
