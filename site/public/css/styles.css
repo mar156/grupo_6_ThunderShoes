@@ -632,7 +632,7 @@ a{
     align-items: center;
 }
 
-.product-colors input[type="radio"], .contenedor-categorias input[type="radio"], .contenedor-onSale input[type="radio"]{
+.product-colors input[type="radio"], .contenedor-categorias input[type="radio"], .contenedor-onSale input[type="radio"], .contenedor-marcas input[type="radio"]{
     display: none;
 }
 .product-colors input[type=radio] + label {
@@ -657,7 +657,7 @@ a{
 .product-sizes input[type="radio"] {
     display: none;
 }
-.product-sizes input[type="radio"]:checked + label, .contenedor-categorias input[type="radio"]:checked + label, .contenedor-onSale input[type="radio"]:checked + label{ 
+.product-sizes input[type="radio"]:checked + label, .contenedor-categorias input[type="radio"]:checked + label, .contenedor-onSale input[type="radio"]:checked + label, .contenedor-marcas input[type="radio"]:checked + label{ 
     border-color: #0c0c0c; 
     background-color: #0c0c0c;
     color: #ffe512;

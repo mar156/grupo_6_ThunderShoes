@@ -52,24 +52,17 @@
                     <span>Marca</span>
                     <div class="contenedor-marcas">
 
-                        <label id="product-m-nike" for="product-c-nike" class="<%= product && product.brand.nike%>">NIKE
-                            <input type="checkbox" name="brand" id="product-c-nike" value="1"  <%= product && product.brand.nike %>>
-                        </label>
+                        <input type="radio" name="brand" id="product-c-nike" value="1"  <%= product && product.brand.nike %>>
+                        <label id="product-m-nike" for="product-c-nike" class="<%= product && product.brand.nike%>">NIKE</label>
                         
-
-                        <label id="product-m-adidas" for="product-c-adidas" class="<%= product && product.brand.adidas%>">ADIDAS 
-                            <input type="checkbox" name="brand" id="product-c-adidas" value="2" <%= product && product.brand.adidas %>>
-                        </label>
+                        <input type="radio" name="brand" id="product-c-adidas" value="2" <%= product && product.brand.adidas %>>
+                        <label id="product-m-adidas" for="product-c-adidas" class="<%= product && product.brand.adidas%>">ADIDAS </label>
                         
-
-                        <label id="product-m-puma" for="product-c-puma" class="<%= product && product.brand.puma%>">PUMA 
-                            <input type="checkbox" name="brand" id="product-c-puma" value="3" <%= product && product.brand.puma %>>
-                        </label>
+                        <input type="radio" name="brand" id="product-c-puma" value="3" <%= product && product.brand.puma %>>
+                        <label id="product-m-puma" for="product-c-puma" class="<%= product && product.brand.puma%>">PUMA </label>
                         
-
-                        <label id="product-m-newbalance" for="product-c-newbalance" class="<%= product && product.brand.newbalance%>">NEW BALANCE 
-                            <input type="checkbox" name="brand" id="product-c-newbalance" value="4" <%= product && product.brand.newbalance %>>
-                        </label>
+                        <input type="radio" name="brand" id="product-c-newbalance" value="4" <%= product && product.brand.newbalance %>>
+                        <label id="product-m-newbalance" for="product-c-newbalance" class="<%= product && product.brand.newbalance%>">NEW BALANCE </label>
                         
                     </div>
 
