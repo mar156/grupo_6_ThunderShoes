@@ -24,7 +24,7 @@
                     <input type="file" name="image" id="product-image">
         
                     <span>Género</span>
-                    <div class="contenedor-categorias"> 
+                    <!--<div class="contenedor-categorias"> 
 
                         
                         <label id="product-m-mujer" for="product-c-mujer" class="<%= product && product.gender.female%>">MUJER 
@@ -35,7 +35,19 @@
                             <input type="checkbox" name="gender" id="product-c-hombre" value="2" <%= product && product.gender.male %>>
                         </label>
 
-                    </div>
+                    </div>-->
+                    <div class="contenedor-categorias">
+                        
+                        <input type="radio" name="gender" id="product-c-mujer" value="1">
+                        <label for="product-c-mujer">MUJER</label>
+                        
+                        <input type="radio" name="gender" id="product-c-hombre" value="2">
+                        <label for="product-c-hombre" >HOMBRE</label>
+                        
+                        <input type="radio" name="gender" id="product-c-unisex" value="3">
+                        <label for="product-c-unisex">UNISEX</label>
+
+                    </div> 
 
                     <span>Marca</span>
                     <div class="contenedor-marcas">
