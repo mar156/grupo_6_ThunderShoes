@@ -4,6 +4,8 @@ const path = require('path');
 const adminController= require(path.join(__dirname, '/../../controllers/adminController'));
 const multer = require('multer');
 
+const validator = require('../../validators/admin');
+
 var storage = multer.diskStorage({
     destination: (req, file, callback)=>{
         callback(null, path.join(__dirname,'../../public/img'))//carpeta donde se guardará el archivo
@@ -20,7 +22,7 @@ router.get('/', adminController.listProduct)                        // Vista    
 router.get('/product', adminController.listProduct);                // Vista    - Listado de productos 
 
 router.get('/product/create', adminController.createProduct);       // Vista    - Creación de productos
-router.post('/product/create', upload.array('image', 4),adminController.addProduct);         // Post     - Agregar un producto
+router.post('/product/create', upload.array('image', 4), adminController.addProduct);         // Post     - Agregar un producto
 
 router.get('/product/:id/edit', adminController.editProduct);       // Vista    - Editar producto
 router.put('/product/:id', adminController.update);                 // Put      - Editar producto
