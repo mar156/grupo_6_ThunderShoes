@@ -15,8 +15,15 @@ const newbalanceLabel = document.getElementById("product-m-newbalance");
 nikeCheck.addEventListener("click", function(){
     if(this.checked){
         nikeLabel.classList.add("checked");
-    } else{
-        nikeLabel.classList.remove("checked");
+    } 
+    if(!adidasCheck.checked){
+        adidasLabel.classList.remove("checked");
+    }
+    if(!pumaCheck.checked){
+        pumaLabel.classList.remove("checked");
+    }
+    if(!newbalanceCheck.checked){
+        newbalanceLabel.classList.remove("checked");
     }
 })
 
@@ -24,16 +31,30 @@ nikeCheck.addEventListener("click", function(){
 adidasCheck.addEventListener("click", function(){
     if(this.checked){
         adidasLabel.classList.add("checked");
-    } else{
-        adidasLabel.classList.remove("checked");
+    } 
+    if(!nikeCheck.checked){
+        nikeLabel.classList.remove("checked");
+    }
+    if(!pumaCheck.checked){
+        pumaLabel.classList.remove("checked");
+    }
+    if(!newbalanceCheck.checked){
+        newbalanceLabel.classList.remove("checked");
     }
 })
 
 pumaCheck.addEventListener("click", function(){
     if(this.checked){
         pumaLabel.classList.add("checked");
-    } else{
-        pumaLabel.classList.remove("checked");
+    } 
+    if(!nikeCheck.checked){
+        nikeLabel.classList.remove("checked");
+    }
+    if(!adidasCheck.checked){
+        adidasLabel.classList.remove("checked");
+    }
+    if(!newbalanceCheck.checked){
+        newbalanceLabel.classList.remove("checked");
     }
 })
 
@@ -41,8 +62,15 @@ pumaCheck.addEventListener("click", function(){
 newbalanceCheck.addEventListener("click", function(){
     if(this.checked){
         newbalanceLabel.classList.add("checked");
-    } else{
-        newbalanceLabel.classList.remove("checked");
+    } 
+    if(!nikeCheck.checked){
+        nikeLabel.classList.remove("checked");
+    }
+    if(!adidasCheck.checked){
+        adidasLabel.classList.remove("checked");
+    }
+    if(!pumaCheck.checked){
+        pumaLabel.classList.remove("checked");
     }
 })
 
@@ -91,9 +119,6 @@ unisexCheck.addEventListener("click", function(){
         }
     } 
 })
-
-
-
 
 
 // Categorias
