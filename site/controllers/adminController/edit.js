@@ -28,7 +28,8 @@ const editProduct = {
                 description: productToEdit.description,
                 gender: {
                     male:'',
-                    female: ''
+                    female: '',
+                    unisex: ''
                 },
                 category: {
                     tennis: '',

@@ -50,25 +50,51 @@ newbalanceCheck.addEventListener("click", function(){
 
 const femaleCheck = document.getElementById("product-c-mujer");
 const maleCheck = document.getElementById("product-c-hombre");
+const unisexCheck = document.getElementById("product-c-unisex");
 
 const femaleLabel = document.getElementById("product-m-mujer");
 const maleLabel = document.getElementById("product-m-hombre");
+const unisexLabel = document.getElementById("product-m-unisex");
 
 femaleCheck.addEventListener("click", function(){
     if(this.checked){
         femaleLabel.classList.add("checked");
-    } else{
-        femaleLabel.classList.remove("checked");
-    }
+        if(!maleCheck.checked){
+            maleLabel.classList.remove("checked");
+        }
+        if(!unisexCheck.checked){
+            unisexLabel.classList.remove("checked");
+        }
+    } 
 })
 
 maleCheck.addEventListener("click", function(){
     if(this.checked){
         maleLabel.classList.add("checked");
-    } else{
-        maleLabel.classList.remove("checked");
+        if(!femaleCheck.checked){
+            femaleLabel.classList.remove("checked");
+        }
+        if(!unisexCheck.checked){
+            unisexLabel.classList.remove("checked");
+        }
     }
 })
+
+unisexCheck.addEventListener("click", function(){
+    if(this.checked){
+        unisexLabel.classList.add("checked");
+        if(!maleCheck.checked){
+            maleLabel.classList.remove("checked");
+        }
+        if(!femaleCheck.checked){
+            femaleLabel.classList.remove("checked");
+        }
+    } 
+})
+
+
+
+
 
 // Categorias
 

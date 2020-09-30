@@ -24,31 +24,22 @@
                     <input type="file" name="image" id="product-image">
         
                     <span>Género</span>
-                    <!--<div class="contenedor-categorias"> 
+                    <div class="contenedor-categorias"> 
 
-                        
                         <label id="product-m-mujer" for="product-c-mujer" class="<%= product && product.gender.female%>">MUJER 
-                            <input type="checkbox" name="gender" id="product-c-mujer" value="1"  <%= product && product.gender.female %>>
+                            <input type="radio" name="gender" id="product-c-mujer" value="1"  <%= product && product.gender.female %>>
                         </label>
                         
                         <label id="product-m-hombre" for="product-c-hombre" class="<%= product && product.gender.male%>">HOMBRE 
-                            <input type="checkbox" name="gender" id="product-c-hombre" value="2" <%= product && product.gender.male %>>
+                            <input type="radio" name="gender" id="product-c-hombre" value="2" <%= product && product.gender.male %>>
                         </label>
 
-                    </div>-->
-                    <div class="contenedor-categorias">
-                        
-                        <input type="radio" name="gender" id="product-c-mujer" value="1">
-                        <label for="product-c-mujer">MUJER</label>
-                        
-                        <input type="radio" name="gender" id="product-c-hombre" value="2">
-                        <label for="product-c-hombre" >HOMBRE</label>
-                        
-                        <input type="radio" name="gender" id="product-c-unisex" value="3">
-                        <label for="product-c-unisex">UNISEX</label>
+                        <label id="product-m-unisex" for="product-c-unisex" class="<%= product && product.gender.unisex%>">UNISEX 
+                            <input type="radio" name="gender" id="product-c-unisex" value="3" <%= product && product.gender.unisex %>>
+                        </label>
 
-                    </div> 
-
+                    </div>
+            
                     <span>Marca</span>
                     <div class="contenedor-marcas">
 
