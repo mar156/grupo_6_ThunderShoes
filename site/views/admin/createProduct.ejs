@@ -7,6 +7,8 @@
         <div class="form-container">
             <div class="form-content">
                 <h2>CREAR PRODUCTO</h2>
+
+                <% if(locals && locals.errors){console.log(errors)} %>
                 <form id="create-product" action="" method="POST" enctype="multipart/form-data">
                     <label for="product-name">Nombre del producto: </label>
                     <input type="text" name="name" id="product-name" autofocus>
@@ -50,7 +52,6 @@
                         <input type="radio" name="brand" id="product-c-puma" value="3" >
                         <label id="product-m-puma" for="product-c-puma" >PUMA </label>
                         
-
                         <input type="radio" name="brand" id="product-c-newbalance" value="4">
                         <label id="product-m-newbalance" for="product-c-newbalance" >NEW BALANCE </label>
                         
@@ -83,48 +84,39 @@
                         
 
                     </div>
-                    <span> On Sale </span>
-                    <div class="contenedor-onSale" >
-                            <input type="radio" name="onSale" id="Si" value=true>
-                            <label class="onSale-si" for="Si"> Si </label>
-                            <input type="radio" name="onSale" id="No" value=false>
-                            <label class="onSale-no" for="No"> No </label>
-                        
-                    </div>    
 
-                    
                     <span>Colores</span>
                     <div class="contenedor-colores">
                         
                         <label for="product-c-rojo" class="rojo">
-                            <input type="checkbox" name="color" id="product-c-rojo" value="1">
+                            <input type="checkbox" name="colors" id="product-c-rojo" value="1">
                         </label>
                         
                         
                         <label for="product-c-azul" class="azul">
-                            <input type="checkbox" name="color" id="product-c-azul" value="2">
+                            <input type="checkbox" name="colors" id="product-c-azul" value="2">
                         </label>
                         
                         
                         <label for="product-c-amarillo" class="amarillo">
-                            <input type="checkbox" name="color" id="product-c-amarillo" value="3">
+                            <input type="checkbox" name="colors" id="product-c-amarillo" value="3">
                         </label>
                         
                         <label for="product-c-verde" class="verde">
-                            <input type="checkbox" name="color" id="product-c-verde" value="4">
+                            <input type="checkbox" name="colors" id="product-c-verde" value="4">
                         </label>
                         
                         
                         <label for="product-c-negro" class="negro">
-                            <input type="checkbox" name="color" id="product-c-negro" value="5">
+                            <input type="checkbox" name="colors" id="product-c-negro" value="5">
                         </label>
                         
                         <label for="product-c-white" class="white">
-                            <input type="checkbox" name="color" id="product-c-white" value="6">
+                            <input type="checkbox" name="colors" id="product-c-white" value="6">
                         </label>
                         
                         <label for="product-c-gris" class="gris">
-                            <input type="checkbox" name="color" id="product-c-gris" value="7">
+                            <input type="checkbox" name="colors" id="product-c-gris" value="7">
                         </label>
                         
                     </div>
@@ -133,34 +125,32 @@
                     <div class="contenedor-talles">
                         
                         <label for="product-t-35" class="size">35
-                            <input type="checkbox" name="size" id="product-t-35" value="1">
+                            <input type="checkbox" name="sizes" id="product-t-35" value="1">
                         </label>
                         
                         <label for="product-t-36" class="size">36
-                            <input type="checkbox" name="size" id="product-t-36" value="2">
+                            <input type="checkbox" name="sizes" id="product-t-36" value="2">
                         </label>
                         
                         <label for="product-t-37" class="size">37
-                            <input type="checkbox" name="size" id="product-t-37" value="3">
+                            <input type="checkbox" name="sizes" id="product-t-37" value="3">
                         </label>
                         
                         <label for="product-t-38" class="size">38
-                            <input type="checkbox" name="size" id="product-t-38" value="4">
+                            <input type="checkbox" name="sizes" id="product-t-38" value="4">
                         </label>
                         
                         <label for="product-t-39" class="size">39
-                            <input type="checkbox" name="size" id="product-t-39" value="5">
+                            <input type="checkbox" name="sizes" id="product-t-39" value="5">
                         </label>
                         
                         <label for="product-t-40" class="size">40
-                            <input type="checkbox" name="size" id="product-t-40" value="6">
+                            <input type="checkbox" name="sizes" id="product-t-40" value="6">
                         </label>
                         
                     </div>
                     
-                    
-                    
-                    
+
                     <button type="submit">Agregar producto</button>
                 </form>
             </div>

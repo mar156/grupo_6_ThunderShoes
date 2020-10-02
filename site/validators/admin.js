@@ -19,14 +19,41 @@ module.exports = {
         check('description')
             .isLength({min: 20 }).withMessage('El campo descripción debe tener al menos 20 caracteres'),
 
-        check()
-            .custom( image => {
-                // Ver- no funciona-
-                let ext = path.extname(req.file.filename);
-                if ( ext.toLowerCase() === 'jpg' || ext.toLowerCase() === 'jpeg' || ext.toLowerCase() === 'png' || ext.toLowerCase() === 'gif' ) {
-                    return true
-                }
-                return false
-            })
-    ]
-}
+        check("image")
+            .custom( images => {           
+              let isExtValid = true;
+                images.forEach(image => {
+                  if (!(image.mimetype == "image/png" || image.mimetype == "image/jpg" || image.mimetype == "image/jpeg" || image.mimetype == "image/gif")){
+                    isExtValid = false;
+                  }
+                });
+                return isExtValid;
+            }).withMessage("Solo se permite formato .gif, .png, .jpg y .jpeg"),
+
+        check("gender")
+            .isIn([1,2,3]).withMessage("Debes seleccionar uno de los géneros"),
+
+        check("brand")
+            .isIn([1,2,3,4]).withMessage("Debes seleccionar una de las marcas disponibles"),
+
+        check("category")
+            .isIn([1,2,3,4,5]).withMessage("Debes seleccionar una de las categorías disponibles"),
+
+        check("colors")
+            .isIn([1,2,3,4,5,6,7]).withMessage("Debes seleccionar uno de los colores disponibles"),
+
+        check("sizes")
+            .isIn([1,2,3,4,5,6]).withMessage("Debes seleccionar uno de los talles disponibles"),          
+
+        ]
+    }
+
+
+
+               
+
+
+
+
+
+

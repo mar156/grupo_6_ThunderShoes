@@ -1,63 +1,56 @@
 const path = require ('path')
 const fs = require('fs');
 const filePath =  path.join(__dirname, '../../data/products.json');
-  
+
+const { validationResult } = require('express-validator');
+
 const {product, brand, gender, image, category, user, color, size } = require('../../database/models');
 
 const createProducts = {
-    //createVista: function (req, res) {
-    //res.render()
-    //},
+  
     addProduct: async function(req,res) {
 
-     /*    let productsJSON = fs.readFileSync(filePath, 'utf-8');
-        let products= JSON.parse(productsJSON);
-        let indiceMayor = 0;
-            products.forEach( producto => {
-            indiceMayor = producto.id > indiceMayor ? producto.id : indiceMayor;
-        })
-        let siguienteIndice = indiceMayor + 1; */
+        let errors = validationResult(req);
 
-        /* let newProduct = req.body; */
-        // console.log(newProduct);
-        
-        try {
+        if(errors.isEmpty()){ 
+            try {
 
-            let images = req.image;
-            let categories = req.body.category;
-            let colors = req.body.color; 
-            let sizes = req.body.size;
+                let images = req.image;
+                let categories = req.body.category;
+                let colors = req.body.colors; 
+                let sizes = req.body.sizes;
 
-            let genderId = req.body.gender;
-            let brandId = req.body.brand;
-           
-            let newProduct = await product.create({
-                name: req.body.name,
-                price: req.body.price,
-                on_sale: req.body.on_sale,
-                description: req.body.description,
-                brand_id: brandId,
-                gender_id: genderId
-                
-            }, {
-                include: [brand, gender, image, category, color, size ]
-            }); 
-
-            /* newProduct.addImages(images);     MULTER */
-            newProduct.setImages([7,9,10,11]);
-            newProduct.setCategories(categories);
-            newProduct.setColors(colors);
-            newProduct.setSizes(sizes); 
+                let genderId = req.body.gender;
+                let brandId = req.body.brand;
             
+                let newProduct = await product.create({
+                    name: req.body.name,
+                    price: req.body.price,
+                    on_sale: req.body.on_sale,
+                    description: req.body.description,
+                    brand_id: brandId,
+                    gender_id: genderId
+                    
+                }, {
+                    include: [brand, gender, image, category, color, size ]
+                }); 
 
-          
-
-            res.redirect('/admin/product/');
-        }catch (error) {
-            console.log(error);
-            res.status(500).send('Error');
+                /* newProduct.addImages(images);     MULTER */
+                newProduct.setImages([7,9,10,11]);
+                newProduct.setCategories(categories);
+                newProduct.setColors(colors);
+                newProduct.setSizes(sizes); 
+                
+                res.redirect('/admin/product/');
+            }catch (error) {
+                console.log(error);
+                res.status(500).send('Error');
+            }
+        }else{
+            let errorsMapped = errors.mapped();
+            res.render('admin/createProduct', {errors: errorsMapped});
         }
-        } 
+    }
 
         /* 
         let newProduct = {

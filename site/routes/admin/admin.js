@@ -14,7 +14,15 @@ var storage = multer.diskStorage({
         callback(null, 'zapatilla' + Date.now() + path.extname(file.originalname))//nombre con el que se guardará el archivo
     }
 });
-var upload = multer({storage:storage});
+
+
+var upload = multer({storage}).array('image', 4);
+
+const fileNameLoader = function (req,res,next){
+    req.body.image = req.files;
+    next();
+}
+
 
 
 // http://localhost:3000/admin/product/
@@ -22,7 +30,7 @@ router.get('/', adminController.listProduct)                        // Vista    
 router.get('/product', adminController.listProduct);                // Vista    - Listado de productos 
 
 router.get('/product/create', adminController.createProduct);       // Vista    - Creación de productos
-router.post('/product/create', upload.array('image', 4), adminController.addProduct);         // Post     - Agregar un producto
+router.post('/product/create', upload, fileNameLoader, validator.createForm ,adminController.addProduct);         // Post     - Agregar un producto
 
 router.get('/product/:id/edit', adminController.editProduct);       // Vista    - Editar producto
 router.put('/product/:id', adminController.update);                 // Put      - Editar producto
