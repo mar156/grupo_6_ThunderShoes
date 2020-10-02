@@ -28,7 +28,13 @@ module.exports = {
                   }
                 });
                 return isExtValid;
-            }).withMessage("Solo se permite formato .gif, .png, .jpg y .jpeg"),
+            }).withMessage("Solo se permite formato .gif, .png, .jpg y .jpeg").bail()
+            .custom( images => {
+              if(images.length < 4){
+                return false;
+              }
+                return true;
+            }).withMessage("Se deben subir 4 imágenes"),
 
         check("gender")
             .isIn([1,2,3]).withMessage("Debes seleccionar uno de los géneros"),
