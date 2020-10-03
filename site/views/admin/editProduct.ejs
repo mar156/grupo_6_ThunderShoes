@@ -6,22 +6,42 @@
     <main class="main-crear-producto">
         <div class="form-container">
             <div class="form-content">
-                <h2>EDITANDO PRODUCTO - id: <%= product && id %></h2>
-                <form action="/admin/product/<%= product && id %>?_method=PUT" method="POST">
-                    <label for="product-name">Nombre del producto: </label>
-                    <input type="text" name="name" id="product-name" autofocus value="<%= product && product.name %>">
+                <h2>EDITANDO PRODUCTO - id: <%= locals && locals.id %></h2>
+                <% if(locals && locals.errors){console.log(errors)} %>
+                <form id="product" action="/admin/product/<%= locals && locals.id  %>?_method=PUT" method="POST" enctype="multipart/form-data">
+                    <label  for="product-name">Nombre del producto: </label>
+                    <input class="<%if(locals&&locals.errors&&errors.name){%><%="error-input"%><%}%>" type="text" name="name" id="name" autofocus value="<%= product && product.name %>">
+                    <span id="name_error" class="error">
+                        <%= locals && locals.errors && locals.errors.name && locals.errors.name.msg %>
+                    </span>
+
 
                     <label for="product-price">Precio</label>
-                    <input type="number" min="0.00" max="1000000.00" step="0.01" name="price" id="product-price" placeholder="Ej. 4200.99" value="<%= product && product.price %>">
+                    <input class="<%if(locals&&locals.errors&&errors.price){%><%="error-input"%><%}%>" type="number" min="0.00" max="1000000.00" step="0.01" name="price" id="price" placeholder="Ej. 4200.99" value="<%= product && product.price %>">
+                    <span id="price_error" class="error">
+                        <%= locals && locals.errors && locals.errors.price && locals.errors.price.msg %>
+                    </span>
 
-                    <label for="product-discount">Descuento</label>
-                    <input type="number" min="0.00" max="1000000.00" step="0.01" name="on_sale" id="product-discount" placeholder="Ej. 50%" value="<%= product && product.on_sale %>">
-        
-                    <label for="product-desc">Descripción</label>
-                    <textarea maxlength="500" name="description" id="product-desc" cols="60" rows="5" 
+
+                    <label for="on_sale">Descuento</label>
+                    <input class="<%if(locals&&locals.errors&&errors.on_sale){%><%="error-input"%><%}%>" type="number" min="0.00" max="1000000.00" step="0.01" name="on_sale" id="on_sale" placeholder="Ej. 50%" value="<%= product && product.on_sale %>">
+                    <span id="on_sale_error" class="error">
+                        <%= locals && locals.errors && locals.errors.on_sale && locals.errors.on_sale.msg %>
+                    </span>
+
+
+                    <label for="description">Descripción</label>
+                    <textarea class="<%if(locals&&locals.errors&&errors.description){%><%="error-input"%><%}%>" maxlength="500" name="description" id="description" cols="60" rows="5" 
                         placeholder="Descripción del producto (Hasta 500 caracteres)"><%= product && product.description %></textarea>
-        
-                    <input type="file" name="image" id="product-image">
+                    <span id="description_error" class="error">
+                        <%= locals && locals.errors && locals.errors.description && locals.errors.description.msg %>
+                    </span>
+
+
+                    <input class="<%if(locals&&locals.errors&&errors.image){%><%="error-input"%><%}%>" multiple type="file" name="image" id="image" accept="image/*">
+                    <span id="image_error" class="error">
+                        <%= locals && locals.errors && locals.errors.image && locals.errors.image.msg %>
+                    </span>
         
                     <span>Género</span>
                     <div class="contenedor-categorias"> 
@@ -37,6 +57,10 @@
                         <label id="product-m-unisex" for="product-c-unisex" class="<%= product && product.gender.unisex%>">UNISEX 
                             <input type="radio" name="gender" id="product-c-unisex" value="3" <%= product && product.gender.unisex %>>
                         </label>
+
+                        <span id="gender_error" class="error width-95">
+                            <%= locals && locals.errors && locals.errors.gender && locals.errors.gender.msg %>
+                        </span>
 
                     </div>
             
@@ -55,6 +79,10 @@
                         <input type="radio" name="brand" id="product-c-newbalance" value="4" <%= product && product.brand.newbalance %>>
                         <label id="product-m-newbalance" for="product-c-newbalance" class="<%= product && product.brand.newbalance%>">NEW BALANCE </label>
                         
+                        <span id="brand_error" class="error width-95">
+                            <%= locals && locals.errors && locals.errors.brand && locals.errors.brand.msg %>
+                        </span>
+
                     </div>
 
 
@@ -84,7 +112,10 @@
                         <label id="product-m-collection" for="product-c-collection" class="<%= product && product.category.collection%>">COLLECTION 
                             <input type="checkbox" name="category" id="product-c-collection" value="2" <%= product && product.category.collection %>>
                         </label>
-                        
+
+                        <span id="category_error" class="error width-95">
+                            <%= locals && locals.errors && locals.errors.category && locals.errors.category.msg %>
+                        </span>
                     </div>
                     
                     <span>Colores</span>
@@ -118,7 +149,10 @@
                         <label id="product-m-gray" for="product-c-gris" class="gris <%= product && product.colors.gray %>">
                             <input type="checkbox" name="colors" id="product-c-gris" value="7" <%= product && product.colors.gray %>>
                         </label>
-                        
+
+                        <span id="color_error" class="error width-95">
+                            <%= locals && locals.errors && locals.errors.colors && locals.errors.colors.msg %>
+                        </span>
                         
                     </div>
                     
@@ -150,6 +184,10 @@
                             <input type="checkbox" name="sizes" id="product-t-40" value="6" <%= product && product.sizes.t40 %>>
                         </label>
 
+                        <span id="size_error" class="error width-95">
+                            <%= locals && locals.errors && locals.errors.sizes && locals.errors.sizes.msg %>
+                        </span>
+
                     </div>
 
                         <label for="product-stock">Stock: </label>
@@ -167,5 +205,6 @@
     <script src="/script/script-checked.js"></script>
     <script src="/script/script.js"></script>
     <script src="/script/footer.js"></script>
+    <script src="/script/edit-form-product-validation.js"></script>
 </body>
 </html>
