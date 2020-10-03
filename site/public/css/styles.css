@@ -754,11 +754,31 @@ a{
 .form-content form textarea {
     width: 90%;
     padding: 10px;
-    border: 3px solid #ccc;
+    border: 2px solid #ccc;
     border-radius: 8px;
     margin-top: .5rem;
-    margin-bottom: 1rem;
+    margin-bottom: .3rem;
+    outline: none;
 }
+.form-content form textarea { resize: none; } 
+.form-content form input:focus,
+.form-content form textarea:focus {
+    border-color: rgba(255, 229, 18, 1);
+    box-shadow: 7px 7px 21px -10px rgba(0,0,0,0.15);
+    -webkit-box-shadow: 7px 7px 21px -10px rgba(0,0,0,0.15);
+    -moz-box-shadow: 7px 7px 21px -10px rgba(0,0,0,0.15);
+}
+
+.form-content form input.error-input,
+.form-content form textarea.error-input { border-color:#b80000; }
+
+.form-content form span.error {
+    font-size: 0.88rem;
+    width: 85%;
+    color: #ff0000;
+    margin-bottom: 0.5rem;
+}
+.form-content form span.error.width-95 { width: 95%; }
 
 .form-content form > div {
     width: 90%;
@@ -767,6 +787,7 @@ a{
     display: flex;
     justify-content: space-around;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .form-content form div:nth-child(1) input, 
@@ -1399,7 +1420,7 @@ footer .contenedor-redes .contenedor-iconos i{
 .main-crear-producto .form-container .form-content form .contenedor-categorias label {
     width: 30%;
     padding: .3rem .1rem;
-    margin-bottom: 1rem;
+    margin-bottom: .5rem;
     text-align: center;
     border: solid 1px #ffe512;
 }
