@@ -11,31 +11,31 @@
                 <form id="product" action="" method="POST" enctype="multipart/form-data">
                     <label for="name">Nombre del producto: </label>
                     <input class="<%if(locals&&locals.errors&&errors.name){%><%="error-input"%><%}%>" type="text" name="name" id="name" autofocus>
-                    <span class="error">
+                    <span id="name_error" class="error">
                         <%= locals && locals.errors && locals.errors.name && locals.errors.name.msg %>
                     </span>
                  
                     <label for="price">Precio</label>
                     <input class="<%if(locals&&locals.errors&&errors.price){%><%="error-input"%><%}%>" type="number" min="0.00" max="1000000.00" step="0.01" 
                         name="price" id="price" placeholder="Ej. 4200.99">
-                    <span class="error">
+                    <span id="price_error" class="error">
                         <%= locals && locals.errors && locals.errors.price && locals.errors.price.msg %>
                     </span>
                     
                     <label for="stock">Descuento: </label>
-                    <input class="<%if(locals&&locals.errors&&errors.on_sale){%><%="error-input"%><%}%>" type="text" name="on_sale" id="stock" autofocus >
-                    <span class="error">
+                    <input class="<%if(locals&&locals.errors&&errors.on_sale){%><%="error-input"%><%}%>" type="number" name="on_sale" id="on_sale" autofocus >
+                    <span id="on_sale_error" class="error">
                         <%= locals && locals.errors && locals.errors.on_sale && locals.errors.on_sale.msg %>
                     </span>
                     
                     <label for="description">Descripción</label>
                     <textarea class="<%if(locals&&locals.errors&&errors.description){%><%="error-input"%><%}%>" maxlength="500" name="description" id="description" cols="60" rows="5" placeholder="Descripción del producto (Hasta 500 caracteres)"></textarea>
-                    <span class="error">
+                    <span id="description_error" class="error">
                         <%= locals && locals.errors && locals.errors.description && locals.errors.description.msg %>
                     </span>
 
-                    <input class="<%if(locals&&locals.errors&&errors.image){%><%="error-input"%><%}%>" type="file" multiple name="image" id="image">
-                    <span class="error">
+                    <input class="<%if(locals&&locals.errors&&errors.image){%><%="error-input"%><%}%>" type="file" multiple name="image" id="image" accept="image/*">
+                    <span id="image_error" class="error">
                         <%= locals && locals.errors && locals.errors.image && locals.errors.image.msg %>
                     </span>
                     
@@ -51,7 +51,7 @@
                         <input type="radio" name="gender" id="product-c-unisex" value="3">
                         <label for="product-c-unisex">UNISEX</label>
 
-                        <span class="error width-95">
+                        <span id="gender_error" class="error width-95">
                             <%= locals && locals.errors && locals.errors.gender && locals.errors.gender.msg %>
                         </span>
                     </div>
@@ -71,7 +71,7 @@
                         <input type="radio" name="brand" id="product-c-newbalance" value="4">
                         <label id="product-m-newbalance" for="product-c-newbalance" >NEW BALANCE </label>
 
-                        <span class="error width-95">
+                        <span id="brand_error" class="error width-95">
                             <%= locals && locals.errors && locals.errors.brand && locals.errors.brand.msg %>
                         </span>
                         
@@ -102,7 +102,7 @@
                             <input type="checkbox" name="category" id="product-c-collection" value="5">
                         </label>
                         
-                        <span class="error width-95">
+                        <span id="category_error" class="error width-95">
                             <%= locals && locals.errors && locals.errors.category && locals.errors.category.msg %>
                         </span>
                     </div>
@@ -141,7 +141,7 @@
                             <input type="checkbox" name="colors" id="product-c-gris" value="7">
                         </label>
                         
-                        <span class="error width-95">
+                        <span id="color_error" class="error width-95">
                             <%= locals && locals.errors && locals.errors.colors && locals.errors.colors.msg %>
                         </span>
                     </div>
@@ -173,7 +173,7 @@
                             <input type="checkbox" name="sizes" id="product-t-40" value="6">
                         </label>
                         
-                        <span class="error width-95">
+                        <span id="size_error" class="error width-95">
                             <%= locals && locals.errors && locals.errors.sizes && locals.errors.sizes.msg %>
                         </span>
                     </div>
