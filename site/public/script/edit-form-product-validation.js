@@ -1,14 +1,14 @@
 
 let form = document.getElementById('product');
 
-    const genderElements = document.getElementsByName('gender');
-    const brandElements = document.getElementsByName('brand');
-    const categoryElements = document.getElementsByName('category');
-    const colorElements = document.getElementsByName('colors');
-    const sizeElements = document.getElementsByName('sizes');
+const genderElements = document.getElementsByName('gender');
+const brandElements = document.getElementsByName('brand');
+const categoryElements = document.getElementsByName('category');
+const colorElements = document.getElementsByName('colors');
+const sizeElements = document.getElementsByName('sizes');
+
     
-    
-    form.addEventListener('submit', function (e) {
+form.addEventListener('submit', function (e) {
         let hasErrors = { 
             gender: true,
             brand: true,
