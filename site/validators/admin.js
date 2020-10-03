@@ -3,7 +3,7 @@ const path = require('path');
 
 
 module.exports = {
-    createForm: [
+    formProduct: [
         check('name')
             .notEmpty().withMessage('El campo nombre no puede estar vacío').bail()
             .isLength({min: 5 }).withMessage('El campo nombre debe tener al menos 5 caracteres'),
