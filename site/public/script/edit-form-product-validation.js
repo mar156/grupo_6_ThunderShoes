@@ -14,7 +14,12 @@ form.addEventListener('submit', function (e) {
             brand: true,
             category: true,
             color: true,
-            size: true
+            size: true,
+            name: true,
+            price: true,
+            onSale: true,
+            description: true,
+            image: true
         };
 
         // Hay errores hasta que se demuestre lo contrario. 
@@ -80,14 +85,17 @@ nameInput.addEventListener("blur", function(){
     if(!this.value){
         nameError.innerText = "El nombre no puede estar vacío";
         this.classList.add("error-input");
+        hasErrors.name = true;
     }
     if(this.value && this.value.length < 5){
         nameError.innerText = "El nombre debe tener al menos 5 caracteres";
         this.classList.add("error-input");
+        hasErrors.name = true;
     }
     if(this.value.length >= 5){
         this.classList.remove("error-input");
         nameError.innerText = "";
+        hasErrors.name = false;
     }   
 })
 
@@ -100,14 +108,17 @@ priceInput.addEventListener("blur", function(){
     if(!this.value){
         priceError.innerText = "El precio no puede estar vacío";
         this.classList.add("error-input");
+        hasErrors.price = true;
     }
     if(this.value && this.value <= 0){
         priceError.innerText = "El precio debe ser mayor a 0";
         this.classList.add("error-input");
+        hasErrors.price = true;
     }
     if(this.value > 0){
         priceError.innerText = "";
         this.classList.remove("error-input");
+        hasErrors.price = false;
     }
 })
 
@@ -120,11 +131,13 @@ discountInput.addEventListener("blur", function(){
     if(this.value && this.value < 0){
         discountError.innerText = "El descuento no puede ser negativo";
         this.classList.add("error-input");
+        hasErrors.onSale = true;
     }
 
     if (this.value >= 0 || !this.value) {
         discountError.innerText = "";
         this.classList.remove("error-input");
+        hasErrors.onSale = false;
     }
 })
 
@@ -137,9 +150,11 @@ descriptionInput.addEventListener("blur", function () {
     if (this.value.length < 20){
         descriptionError.innerText = 'La descripción debe tener al menos 20 caracteres';
         this.classList.add("error-input");
+        hasErrors.description = true;
     }else{
         descriptionError.innerText = "";
         this.classList.remove("error-input");
+        hasErrors.description = false;
     }
 });
 
@@ -156,15 +171,18 @@ inputImage.addEventListener("change", function () {
         if ( ext !== 'jpg' && ext !== 'jpeg' && ext !== 'png' && ext !== 'gif' ) {
             imageError.innerText = 'Solo se permite formato .gif, .png, .jpg y .jpeg';
             this.classList.add("error-input");
+            hasErrors.image = true;
         }
     }
     if (this.files.length != 4) {
         imageError.innerText = 'Se deben subir 4 imágenes';
         this.classList.add("error-input");
+        hasErrors.image = true;
     }
     if(this.files.length == 4){
     imageError.innerText = '';
     this.classList.remove("error-input");
+    hasErrors.image = false;
     }
 });
 
