@@ -4,6 +4,9 @@ const filePath =  path.join(__dirname, '../data/users.json');
 
 const bcrypt = require('bcrypt');
 
+const { validationResult } = require('express-validator');
+
+
 // Modelos
 const { user, category_user, product } = require('../database/models');
 
@@ -72,11 +75,12 @@ const controller = {
         res.render('users/register');
     },
 
-    userRegister: (req, res)=>{
-        // Verificar que haya completado todos los campos, por el momento vamos a confiar en que completó todo
+    userRegister: async function(req, res){
         
-        let newUser = req.body;
-        let check;
+        let errors = validationResult(req);
+        if(errors.isEmpty()){
+            let newUser = req.body;
+            let check;
 
         
         newUser.avatar = 'default-profile.jpg';
@@ -93,6 +97,7 @@ const controller = {
                 .then( result => {
                     if (req.file) { // Si subió una imagen, reemplazar la imagen por defecto. 
                         // Ya tenemos el ID, renombramos la imagen avatar con id.
+                        
                         fs.renameSync(
                             path.join(__dirname, `/../public/img/users/${req.file.filename}`), 
                             path.join(__dirname, `/../public/img/users/avatar_${result.id}.jpg`)
@@ -101,6 +106,8 @@ const controller = {
                         result.avatar = `avatar_${result.id}.jpg`;
                         // Guardamos los cambios efectuados en DB. (el nombre del archivo avatar)
                         result.save();
+                        console.log('Esto está en el controlador:');
+                        console.log(req.file);
                     }
 
                     req.session.userLoggedIn = newUser;
@@ -114,7 +121,13 @@ const controller = {
         }
         else{
             res.send('Hubo un error, seguramente no pusiste bien las contraseñas');
+            }
         }
+        else{
+            let errorsMapped = errors.mapped();
+            res.render('users/register', {errors: errorsMapped});
+        }
+        
     },
 
     profile: (req, res) => {
