@@ -7,29 +7,33 @@
         <div class="form-container">
             <div class="form-content">
                 <h2>CREAR PRODUCTO</h2>
-
                 <form id="product" action="" method="POST" enctype="multipart/form-data">
                     <label for="name">Nombre del producto: </label>
-                    <input class="<%if(locals&&locals.errors&&errors.name){%><%="error-input"%><%}%>" type="text" name="name" id="name" autofocus>
+                    <input class="<%if(locals&&locals.errors&&errors.name){%><%="error-input"%><%}%>" value="<%= locals && locals.product && product.name %>"
+                        type="text" name="name" id="name" autofocus>
                     <span id="name_error" class="error">
                         <%= locals && locals.errors && locals.errors.name && locals.errors.name.msg %>
                     </span>
                  
                     <label for="price">Precio</label>
-                    <input class="<%if(locals&&locals.errors&&errors.price){%><%="error-input"%><%}%>" type="number" min="0.00" max="1000000.00" step="0.01" 
+                    <input class="<%if(locals&&locals.errors&&errors.price){%><%="error-input"%><%}%>" value="<%= locals && locals.product && product.price %>"
+                        type="number" min="0.00" max="1000000.00" step="0.01" 
                         name="price" id="price" placeholder="Ej. 4200.99">
                     <span id="price_error" class="error">
                         <%= locals && locals.errors && locals.errors.price && locals.errors.price.msg %>
                     </span>
                     
-                    <label for="stock">Descuento: </label>
-                    <input class="<%if(locals&&locals.errors&&errors.on_sale){%><%="error-input"%><%}%>" type="number" name="on_sale" id="on_sale" autofocus >
+                    <label for="on_sale">Descuento: </label>
+                    <input class="<%if(locals&&locals.errors&&errors.on_sale){%><%="error-input"%><%}%>" type="number" name="on_sale" id="on_sale" autofocus 
+                        <% if (locals && locals.product && product.on_sale) { %> <%=`value="${product.on_sale}"`%> <% } %> placeholder="0 - 99">
                     <span id="on_sale_error" class="error">
                         <%= locals && locals.errors && locals.errors.on_sale && locals.errors.on_sale.msg %>
                     </span>
                     
                     <label for="description">Descripción</label>
-                    <textarea class="<%if(locals&&locals.errors&&errors.description){%><%="error-input"%><%}%>" maxlength="500" name="description" id="description" cols="60" rows="5" placeholder="Descripción del producto (Hasta 500 caracteres)"></textarea>
+                    <textarea class="<%if(locals&&locals.errors&&errors.description){%><%="error-input"%><%}%>" maxlength="500" name="description" 
+                        id="description" cols="60" rows="5" placeholder="Descripción del producto (Hasta 500 caracteres)"
+                    ><%= locals && locals.product && product.description %></textarea>
                     <span id="description_error" class="error">
                         <%= locals && locals.errors && locals.errors.description && locals.errors.description.msg %>
                     </span>
@@ -42,13 +46,13 @@
                     <span>Genero</span>
                     <div class="contenedor-categorias">
                         
-                        <input type="radio" name="gender" id="product-c-mujer" value="1">
+                        <input type="radio" name="gender" id="product-c-mujer" value="1" <% if (locals && locals.product && product.gender_id && product.gender_id == 1 ) { %><%='checked'%><% } %>>
                         <label for="product-c-mujer">MUJER</label>
                         
-                        <input type="radio" name="gender" id="product-c-hombre" value="2">
+                        <input type="radio" name="gender" id="product-c-hombre" value="2" <% if (locals && locals.product && product.gender_id && product.gender_id == 2 ) { %><%='checked'%><% } %>>
                         <label for="product-c-hombre">HOMBRE</label>
                         
-                        <input type="radio" name="gender" id="product-c-unisex" value="3">
+                        <input type="radio" name="gender" id="product-c-unisex" value="3" <% if (locals && locals.product && product.gender_id && product.gender_id == 3 ) { %><%='checked'%><% } %>>
                         <label for="product-c-unisex">UNISEX</label>
 
                         <span id="gender_error" class="error width-95">
@@ -59,16 +63,16 @@
                     <span>Marca</span>
                     <div class="contenedor-marcas">
 
-                        <input type="radio" name="brand" id="product-c-nike" value="1" >
+                        <input type="radio" name="brand" id="product-c-nike" value="1" <% if (locals && locals.product && product.brand_id && product.brand_id == 1 ) { %><%='checked'%><% } %>>
                         <label id="product-m-nike" for="product-c-nike" >NIKE</label>
                         
-                        <input type="radio" name="brand" id="product-c-adidas" value="2" >
+                        <input type="radio" name="brand" id="product-c-adidas" value="2" <% if (locals && locals.product && product.brand_id && product.brand_id == 2 ) { %><%='checked'%><% } %>>
                         <label id="product-m-adidas" for="product-c-adidas" >ADIDAS </label>
                         
-                        <input type="radio" name="brand" id="product-c-puma" value="3" >
+                        <input type="radio" name="brand" id="product-c-puma" value="3" <% if (locals && locals.product && product.brand_id && product.brand_id == 3 ) { %><%='checked'%><% } %>>
                         <label id="product-m-puma" for="product-c-puma" >PUMA </label>
                         
-                        <input type="radio" name="brand" id="product-c-newbalance" value="4">
+                        <input type="radio" name="brand" id="product-c-newbalance" value="4" <% if (locals && locals.product && product.brand_id && product.brand_id == 4 ) { %><%='checked'%><% } %>>
                         <label id="product-m-newbalance" for="product-c-newbalance" >NEW BALANCE </label>
 
                         <span id="brand_error" class="error width-95">
@@ -80,26 +84,31 @@
                     <span>Categoría</span>
                     <div class="contenedor-categorias">    
                         <label for="product-c-tennis">TENNIS 
-                            <input type="checkbox" name="category" id="product-c-tennis" value="1">
+                            <input type="checkbox" name="category" id="product-c-tennis" value="1" 
+                                <% if (locals && locals.product && product.categories && product.categories.indexOf('1') ) {%><%='checked'%><% } %>>
                         </label>
                         
 
                         <label for="product-c-running">RUNNING 
-                            <input type="checkbox" name="category" id="product-c-running" value="2">
+                            <input type="checkbox" name="category" id="product-c-running" value="2"
+                            <% if (locals && locals.product && product.categories && product.categories.indexOf('2') ) {%><%='checked'%><% } %>>
                         </label>
                         
 
                         <label for="product-c-football">FOOTBALL 
-                            <input type="checkbox" name="category" id="product-c-football" value="3">
+                            <input type="checkbox" name="category" id="product-c-football" value="3"
+                            <% if (locals && locals.product && product.categories && product.categories.indexOf('3') ) {%><%='checked'%><% } %>>
                         </label>
                         
 
                         <label for="product-c-volley">VOLLEY 
-                            <input type="checkbox" name="category" id="product-c-volley" value="4">
+                            <input type="checkbox" name="category" id="product-c-volley" value="4"
+                            <% if (locals && locals.product && product.categories && product.categories.indexOf('4') ) {%><%='checked'%><% } %>>
                         </label>
 
                         <label id="product-m-collection" for="product-c-collection" >COLLECTION 
-                            <input type="checkbox" name="category" id="product-c-collection" value="5">
+                            <input type="checkbox" name="category" id="product-c-collection" value="5"
+                            <% if (locals && locals.product && product.categories && product.categories.indexOf('5') ) {%><%='checked'%><% } %>>
                         </label>
                         
                         <span id="category_error" class="error width-95">
@@ -111,34 +120,41 @@
                     <div class="contenedor-colores">
                         
                         <label for="product-c-rojo" class="rojo">
-                            <input type="checkbox" name="colors" id="product-c-rojo" value="1">
+                            <input type="checkbox" name="colors" id="product-c-rojo" value="1"
+                            <% if (locals && locals.product && product.colors && product.colors.indexOf('1') ) {%><%='checked'%><% } %>>
                         </label>
                         
                         
                         <label for="product-c-azul" class="azul">
-                            <input type="checkbox" name="colors" id="product-c-azul" value="2">
+                            <input type="checkbox" name="colors" id="product-c-azul" value="2"
+                            <% if (locals && locals.product && product.colors && product.colors.indexOf('2') ) {%><%='checked'%><% } %>>
                         </label>
                         
                         
                         <label for="product-c-amarillo" class="amarillo">
-                            <input type="checkbox" name="colors" id="product-c-amarillo" value="3">
+                            <input type="checkbox" name="colors" id="product-c-amarillo" value="3"
+                            <% if (locals && locals.product && product.colors && product.colors.indexOf('3') ) {%><%='checked'%><% } %>>
                         </label>
                         
                         <label for="product-c-verde" class="verde">
-                            <input type="checkbox" name="colors" id="product-c-verde" value="4">
+                            <input type="checkbox" name="colors" id="product-c-verde" value="4"
+                            <% if (locals && locals.product && product.colors && product.colors.indexOf('4') ) {%><%='checked'%><% } %>>
                         </label>
                         
                         
                         <label for="product-c-negro" class="negro">
-                            <input type="checkbox" name="colors" id="product-c-negro" value="5">
+                            <input type="checkbox" name="colors" id="product-c-negro" value="5"
+                            <% if (locals && locals.product && product.colors && product.colors.indexOf('5') ) {%><%='checked'%><% } %>>
                         </label>
                         
                         <label for="product-c-white" class="white">
-                            <input type="checkbox" name="colors" id="product-c-white" value="6">
+                            <input type="checkbox" name="colors" id="product-c-white" value="6"
+                            <% if (locals && locals.product && product.colors && product.colors.indexOf('6') ) {%><%='checked'%><% } %>>
                         </label>
                         
                         <label for="product-c-gris" class="gris">
-                            <input type="checkbox" name="colors" id="product-c-gris" value="7">
+                            <input type="checkbox" name="colors" id="product-c-gris" value="7"
+                            <% if (locals && locals.product && product.colors && product.colors.indexOf('7') ) {%><%='checked'%><% } %>>
                         </label>
                         
                         <span id="color_error" class="error width-95">
@@ -150,27 +166,33 @@
                     <div class="contenedor-talles">
                         
                         <label for="product-t-35" class="size">35
-                            <input type="checkbox" name="sizes" id="product-t-35" value="1">
+                            <input type="checkbox" name="sizes" id="product-t-35" value="1"
+                            <% if (locals && locals.product && product.sizes && product.sizes.indexOf('1') ) {%><%='checked'%><% } %>>
                         </label>
                         
                         <label for="product-t-36" class="size">36
-                            <input type="checkbox" name="sizes" id="product-t-36" value="2">
+                            <input type="checkbox" name="sizes" id="product-t-36" value="2"
+                            <% if (locals && locals.product && product.sizes && product.sizes.indexOf('2') ) {%><%='checked'%><% } %>>
                         </label>
                         
                         <label for="product-t-37" class="size">37
-                            <input type="checkbox" name="sizes" id="product-t-37" value="3">
+                            <input type="checkbox" name="sizes" id="product-t-37" value="3"
+                            <% if (locals && locals.product && product.sizes && product.sizes.indexOf('3') ) {%><%='checked'%><% } %>>
                         </label>
                         
                         <label for="product-t-38" class="size">38
-                            <input type="checkbox" name="sizes" id="product-t-38" value="4">
+                            <input type="checkbox" name="sizes" id="product-t-38" value="4"
+                            <% if (locals && locals.product && product.sizes && product.sizes.indexOf('4') ) {%><%='checked'%><% } %>>
                         </label>
                         
                         <label for="product-t-39" class="size">39
-                            <input type="checkbox" name="sizes" id="product-t-39" value="5">
+                            <input type="checkbox" name="sizes" id="product-t-39" value="5"
+                            <% if (locals && locals.product && product.sizes && product.sizes.indexOf('5') ) {%><%='checked'%><% } %>>
                         </label>
                         
                         <label for="product-t-40" class="size">40
-                            <input type="checkbox" name="sizes" id="product-t-40" value="6">
+                            <input type="checkbox" name="sizes" id="product-t-40" value="6"
+                            <% if (locals && locals.product && product.sizes && product.sizes.indexOf('6') ) {%><%='checked'%><% } %>>
                         </label>
                         
                         <span id="size_error" class="error width-95">
@@ -189,6 +211,6 @@
     <script src="/script/script.js"></script>
     <script src="/script/product.js"></script>
     <script src="/script/footer.js"></script>
-    <script src="/script/form-product-validation.js"></script>
+    <!-- <script src="/script/form-product-validation.js"></script> -->
 </body>
 </html>

@@ -11,27 +11,23 @@ const createProducts = {
     addProduct: async function(req,res) {
 
         let errors = validationResult(req);
-
-        if(errors.isEmpty()){ 
+        
+        if(errors.isEmpty()){
             try {
-
+                let loadedData = {
+                    name : req.body.name,
+                    price: req.body.price,
+                    on_sale: req.body.on_sale,
+                    description: req.body.description,
+                    brand_id: req.body.gender,
+                    gender_id: req.body.brand
+                }
                 let images = req.image;
                 let categories = req.body.category;
                 let colors = req.body.colors; 
                 let sizes = req.body.sizes;
 
-                let genderId = req.body.gender;
-                let brandId = req.body.brand;
-            
-                let newProduct = await product.create({
-                    name: req.body.name,
-                    price: req.body.price,
-                    on_sale: req.body.on_sale,
-                    description: req.body.description,
-                    brand_id: brandId,
-                    gender_id: genderId
-                    
-                }, {
+                let newProduct = await product.create(loadedData, {
                     include: [brand, gender, image, category, color, size ]
                 }); 
 
@@ -47,8 +43,21 @@ const createProducts = {
                 res.status(500).send('Error');
             }
         }else{
+            let product = {
+                name: req.body.name,
+                price: req.body.price,
+                on_sale: req.body.on_sale,
+                description: req.body.description,
+                images: req.image,
+                gender_id: req.body.gender,
+                brand_id: req.body.brand,
+                categories: req.body.category,
+                colors: req.body.colors, 
+                sizes: req.body.sizes,
+            };
+
             let errorsMapped = errors.mapped();
-            res.render('admin/createProduct', {errors: errorsMapped});
+            res.render('admin/createProduct', {errors: errorsMapped, product});
         }
     }
 
