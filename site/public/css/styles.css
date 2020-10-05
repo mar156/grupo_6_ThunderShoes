@@ -644,6 +644,7 @@ a{
     margin-bottom: .3rem;
     cursor: pointer;
 }
+.main-crear-producto .form-container .form-content form .contenedor-colores input[type="checkbox"]:checked + label,
 .product-colors input[type=radio]:checked + label {
     outline: 1.5px solid #0c0c0c;
     outline-offset: 2px;
@@ -657,7 +658,13 @@ a{
 .product-sizes input[type="radio"] {
     display: none;
 }
-.product-sizes input[type="radio"]:checked + label, .contenedor-categorias input[type="radio"]:checked + label, .contenedor-onSale input[type="radio"]:checked + label, .contenedor-marcas input[type="radio"]:checked + label{ 
+.main-crear-producto .form-container .form-content form .contenedor-categorias input[type="checkbox"]:checked + label,
+.main-crear-producto .form-container .form-content form .contenedor-talles input[type="checkbox"]:checked + label, 
+.product-sizes input[type="radio"]:checked + label, 
+.contenedor-categorias input[type="checkbox"]:checked + label, 
+.contenedor-onSale input[type="radio"]:checked + label, 
+.contenedor-marcas input[type="radio"]:checked + label,
+.contenedor-generos input[type="radio"]:checked + label{ 
     border-color: #0c0c0c; 
     background-color: #0c0c0c;
     color: #ffe512;
