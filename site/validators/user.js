@@ -32,5 +32,11 @@ module.exports = {
             .isLength({min:8}).withMessage('La contraseña debe tener al menos 8 caracteres'),
         check('passwordConfirm')
             .isLength({min:8}).withMessage('La contraseña debe tener al menos 8 caracteres'),
+    ],
+    login: [
+        check('user')
+           .notEmpty().withMessage('Debe ingresar con su email de registro').bail(),
+        check('password')
+           .notEmpty().withMessage('Debes ingresar con su contraseña de registro').bail()
     ]
 }

@@ -26,7 +26,7 @@ const fileNameLoader = function (req,res,next){
 
 
 router.get('/login', guestMiddleware, usersController.login);
-router.post('/login', guestMiddleware, usersController.authuser);
+router.post('/login', guestMiddleware, validate.login, usersController.authuser);
 
 router.get('/logout', authMiddleware, usersController.logout);
 

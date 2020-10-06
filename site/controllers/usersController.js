@@ -19,30 +19,36 @@ const controller = {
         }
         res.render("users/login", { error });
     },
+    // userLoggin: (req, res)=> {
+    //    let email=req.body.user;
+    //    let password = req.
+    
 
     authuser: (req, res) => {
         let email = req.body.user;
         let password = req.body.password;
+        let errors = validationResult(req);
 
-        user.findOne({ 
-            attributes: [
-                'id',
-                'first_name', 
-                'last_name', 
-                'email', 
-                'phone',
-                'address',
-                'password',
-                'avatar',
-                'city',
-                'state',
-                'postal_code'
+        if (errors.isEmpty()) {
+            user.findOne({ 
+                attributes: [
+                    'id',
+                    'first_name', 
+                    'last_name', 
+                    'email', 
+                    'phone',
+                    'address',
+                    'password',
+                    'avatar',
+                    'city',
+                    'state',
+                    'postal_code'
 
                 // 'favorites'  // No implementado aún
-            ],
-            where: { email },
-            include: [category_user, product]
-        })
+                ],
+                where: { email },
+                include: [category_user, product]
+            })
             .then( user => {
                 let error;
 
@@ -64,6 +70,15 @@ const controller = {
             .catch( err => {
                 console.log('Hubo un error: ', err);    // Ver como informar a la vista.
             });
+
+        }
+       // else {
+       //     res.render('users/login', {error: errors})
+       // }
+       else{
+            let errorsMapped = errors.mapped();
+            res.render('users/login', {error: errorsMapped});
+        }      
     },
 
     logout: (req, res) => {
