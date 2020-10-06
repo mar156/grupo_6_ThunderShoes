@@ -11,7 +11,6 @@ const createProducts = {
     addProduct: async function(req,res) {
 
         let errors = validationResult(req);
-        
         if(errors.isEmpty()){
             try {
                 let loadedData = {
@@ -19,10 +18,10 @@ const createProducts = {
                     price: req.body.price,
                     on_sale: req.body.on_sale,
                     description: req.body.description,
-                    brand_id: req.body.gender,
+                    brand_id: req.body.gender, 
                     gender_id: req.body.brand
                 }
-                let images = req.image;
+                let filesname = req.files.map(image => filename = {file_name: image.filename});
                 let categories = req.body.category;
                 let colors = req.body.colors; 
                 let sizes = req.body.sizes;
@@ -31,11 +30,13 @@ const createProducts = {
                     include: [brand, gender, image, category, color, size ]
                 }); 
 
-                /* newProduct.addImages(images);     MULTER */
-                newProduct.setImages([7,9,10,11]);
-                newProduct.setCategories(categories);
-                newProduct.setColors(colors);
-                newProduct.setSizes(sizes); 
+                let savedImages = await image.bulkCreate(filesname)
+                let idImages = savedImages.map( image => image.dataValues.id);
+                // await newProduct.addImages(files);     // addImages() agrega imagenes sin eliminar las que estan, pero agrega la asociacion. hay que pasar los ID... No agrega las imagenes a la tabla images.
+                await newProduct.setImages(idImages);     // setImages() setea las relaciones eliminando toda relacion anterior.
+                await newProduct.setCategories(categories);
+                await newProduct.setColors(colors);
+                await newProduct.setSizes(sizes); 
                 
                 res.redirect('/admin/product/');
             }catch (error) {
