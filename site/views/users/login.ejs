@@ -18,7 +18,7 @@
             <% if(locals && locals.error){console.log(error)} %>
 
            
-            <form action="" method="POST">
+            <form action="" method="POST" id="form-login">
                 <span><%= error && error.msg %></span>
                 <label for="user">Email</label>
                 <input type="email" name="user" id="user" placeholder="Ingresá tu e-mail">
@@ -53,6 +53,7 @@
 
 
 <script src="/script/script.js"></script>
+<script src="/script/form-login-validator.js"></script>
 <script src="/script/footer.js"></script>
 
 
