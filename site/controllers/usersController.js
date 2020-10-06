@@ -97,7 +97,7 @@ const controller = {
             let newUser = req.body;
             let check;
 
-        
+                
         newUser.avatar = 'default-profile.jpg';
         
         if( (req.body.password) && (req.body.passwordConfirm) ){
@@ -139,8 +139,18 @@ const controller = {
             }
         }
         else{
+            let user = {
+                first_name: req.body.first_name,
+                last_name: req.body.last_name,
+                email: req.body.email,
+                phone: req.body.phone,
+                avatar: req.avatar,
+                password: req.body.password,
+                passwordConfirm: req.body.passwordConfirm,
+               
+            };
             let errorsMapped = errors.mapped();
-            res.render('users/register', {errors: errorsMapped});
+            res.render('users/register', {errors: errorsMapped, user});
         }
         
     },
