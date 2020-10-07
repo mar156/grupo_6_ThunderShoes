@@ -15,12 +15,21 @@
     <div class="form-container">
         <div class="form-content">
             <h2>INICIAR SESION</h2>
-            <form action="" method="POST">
+            <% if(locals && locals.error){console.log(error)} %>
+
+           
+            <form action="" method="POST" id="form-login">
                 <span><%= error && error.msg %></span>
                 <label for="user">Email</label>
                 <input type="email" name="user" id="user" placeholder="Ingresá tu e-mail">
+                <span id="user_error" class="error">
+                <%= locals && locals.error && locals.error.user && locals.error.user.msg %>
+                </span>
                 <label for="password">Contraseña</label>
                 <input type="password" name="password" id="password" placeholder="Ingresá tu contraseña">
+                 <span id="password_error" class="error">
+                <%= locals && locals.error && locals.error.password && locals.error.password.msg %>
+                </span>
                 <div>
                     <div>
                         <input type="checkbox" name="remember" id="remember" value="recordarme">
@@ -44,6 +53,7 @@
 
 
 <script src="/script/script.js"></script>
+<script src="/script/form-login-validator.js"></script>
 <script src="/script/footer.js"></script>
 
 

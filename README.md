@@ -25,6 +25,7 @@
 - React
 - MySQL
 - Sequelize
+- APIs
 
 ### Tablero de trabajo:
  - [Trello](https://trello.com/b/e4QPLD2E)

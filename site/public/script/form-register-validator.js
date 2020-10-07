@@ -1,57 +1,208 @@
+let errors = {};
+
 //Capturar elementos 
-
-const user = require("../../validators/user");
-
 const form = document.getElementById('form-register');
 const firstName = document.getElementById('first_name');
 const lastName = document.getElementById('last_name');
 const email = document.getElementById('email');
 const phone = document.getElementById('phone');
 const password = document.getElementById('password');
-const passwordConfirm = document.getElementById('passwordConfirm');
+const passwordConfirm = document.getElementById('password-confirm');
 
-//Eventos
+let fieldIsEmpty = function(field){
+    if(field.value.trim() == '' ){
+        return 'Este campo no puede estar vacío';
+    }
+    else{
+        return '';
+    }
+}
+
+let fieldMin = function(field, min){
+    if(field.value.trim().length < min){
+        return `Este campo tiene que tener por lo menos ${min} caracteres`;
+    }
+    else{
+        return '';
+    }
+}
+
+let fieldRegex = function(field, regex, message){
+    if(!regex){//Si contiene números o caracteres raros
+        return message;
+    }
+    else{
+        return '';
+    }
+}
+
+let validateFirstName = function(){
+    let feedback = '';
+    let feedbackElement = firstName.nextElementSibling;
+    let regex = /^[A-zÁÉÍÓÚáéíóúñNüÜöÖËë\- ']+$/.test(firstName.value);
+    let message = 'El nombre no puede contener números, "," o ";"';
+
+    if(fieldIsEmpty(firstName)){
+        feedback = fieldIsEmpty(firstName);
+    }
+    else if(fieldMin(firstName, 3)){
+        feedback = fieldMin(firstName, 3);
+    }
+    else if(fieldRegex(firstName, regex, message)){
+        feedback = fieldRegex(firstName, regex, message);
+    }
+
+    if(feedback){
+        firstName.classList.add('error-input');
+        errors.firstName = feedback;
+    }
+    else{
+        firstName.classList.remove('error-input');
+        delete errors.firstName;
+    }
+
+    feedbackElement.innerText = feedback;
+}
+
+let validateLastName = function(){
+    let feedback = '';
+    let feedbackElement = lastName.nextElementSibling;
+    let regex =  /^[A-zÁÉÍÓÚáéíóúñNüÜöÖËë\- ']+$/.test(lastName.value);
+    let message = 'El nombre no puede contener números, "," o ";"';
+
+    if(fieldIsEmpty(lastName)){
+        feedback = fieldIsEmpty(lastName);
+    }
+    else if(fieldMin(lastName, 3)){
+        feedback = fieldMin(lastName, 3);
+    }
+    else if(fieldRegex(lastName, regex, message)){
+        feedback = fieldRegex(lastName, regex, message);
+    }
+
+    if(feedback){
+        lastName.classList.add('error-input');
+        errors.lastName = feedback;
+    }
+    else{
+        lastName.classList.remove('error-input');
+        //feedbackElement.remove();
+        delete errors.lastName;
+    }
+
+    feedbackElement.innerText = feedback;
+}
+
+let validateEmail = function(){
+    let feedback = '';
+    let feedbackElement = email.nextElementSibling;
+
+    if(fieldIsEmpty(email)){
+        feedback = fieldIsEmpty(email);
+    }
+    //evaluar email con expresión regular -
+
+    if(feedback){
+        email.classList.add('error-input');
+        errors.email = feedback;
+    }
+    else{
+        email.classList.remove('error-input');
+        delete errors.email;
+    }
+
+    feedbackElement.innerText = feedback;
+}
+
+let validatePhone = function(){
+    let feedback = '';
+    let feedbackElement = phone.nextElementSibling;
+    let regex = /[0-9]{10}$/.test(phone.value);
+    let message = "Ingrese sólo números";
+
+    if(fieldIsEmpty(phone)){
+        feedback = fieldIsEmpty(phone);
+    }
+    else if(phone.value.length != 10){
+        feedback = 'El teléfono tiene que tener 10 dígitos';
+    }
+    else if(fieldRegex(regex, message)){
+        feedback = fieldRegex(regex, message);
+    }
+
+    if(feedback){
+        phone.classList.add('error-input');
+        errors.phone = feedback;
+    }
+    else{
+        phone.classList.remove('error-input');
+        delete errors.phone;
+    }
+
+    feedbackElement.innerText = feedback;
+}
+
+let validatePassword = function(){
+    let feedback = '';
+    let feedbackElement = password.nextElementSibling;
+
+    if(fieldIsEmpty(password)){
+        feedback = fieldIsEmpty(password);
+    }
+    else if(fieldMin(password, 8)){
+        feedback = fieldMin(password, 8);
+    }
+    
+    if(feedback){
+        password.classList.add('error-input');
+        errors.password = feedback;
+    }
+    else{
+        password.classList.remove('error-input');
+        delete errors.password;
+    }
+
+    feedbackElement.innerText = feedback;
+}
+
+let validatePasswordConfirm = function(){
+    let feedback = '';
+    let feedbackElement = passwordConfirm.nextElementSibling;
+
+    if(fieldIsEmpty(passwordConfirm)){
+        feedback = fieldIsEmpty(passwordConfirm);
+    }
+    else if(fieldMin(passwordConfirm, 8)){
+        feedback = fieldMin(passwordConfirm, 8);
+    }
+
+    if(feedback){
+        passwordConfirm.classList.add('error-input');
+        errors.passwordConfirm = feedback;
+    }
+    else{
+        passwordConfirm.classList.remove('error-input');
+        delete errors.passwordConfirm;
+    }
+
+    feedbackElement.innerText = feedback;
+}
+
+firstName.addEventListener('blur', validateFirstName)
+lastName.addEventListener('blur', validateLastName);
+email.addEventListener('blur', validateEmail);
+phone.addEventListener('blur', validatePhone);
+password.addEventListener('blur', validatePassword);
+passwordConfirm.addEventListener('blur', validatePasswordConfirm);
 
 form.addEventListener('submit', function(e){
-    let hasError = {
-        firstName: userNameValidator(),
-        lastName: userLastNameValidator(),
-        email: userEmailValidator(),
-        phone: userPhoneValidator(),
-        password: userPasswordValidator(),
-        passwordConfirm: userPasswordConfirmValidator()
+    validateFirstName();
+    validateLastName();
+    validateEmail();
+    validatePhone();
+    validatePassword();
+    validatePasswordConfirm();
+    if(Object.keys(errors).length){
+        e.preventDefault();
     }
-    if(hasError.firstName || hasError.lastName || hasError.email || hasError.phone || hasError.password || hasError.passwordConfirm) 
-    e.preventDefault();
-    
-});
-firstName.addEventListener('blur', userNameValidator);
-lastName.addEventListener('blur', userLastNameValidator);
-email.addEventListener('blur', userEmailValidator);
-phone.addEventListener('blur', userPhoneValidator);
-password.addEventListener('blur', userPasswordValidator);
-passwordConfirm.addEventListener('blur', userPasswordConfirmValidator);
-//inputImage.addEventListener('change', imageValidator);
-
-// Funciones 
-writeMsg = ( ...arrToWrite ) => {
-    arrToWrite.forEach( elemToWrite => {
-        document.getElementById(elemToWrite.id).innerText = elemToWrite.msg;
-    });
-}
-
-function userNameValidator(){
-    let id = 'name_error';
-    if (!firstName.value) {
-        writeMsg( { id, msg: 'El nombre no puede estar vacío' } );
-        firstName.classList.add('error-input');
-        return true
-    } else if (first_name.value.length < 3) {
-        writeMsg( { id, msg: 'El nombre debe tener almenos 3 caracteres' } );
-        firstName.classList.add('error-input');
-        return true
-    }
-    writeMsg( { id, msg: '' } );
-    firstName.classList.remove('error-input');
-    return false
-}
+})
