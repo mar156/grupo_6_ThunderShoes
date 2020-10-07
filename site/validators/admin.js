@@ -28,13 +28,7 @@ module.exports = {
                   }
                 });
                 return isExtValid;
-            }).withMessage("Solo se permite formato .gif, .png, .jpg y .jpeg").bail()
-            .custom( images => {
-              if(images.length < 4){
-                return false;
-              }
-                return true;
-            }).withMessage("Se deben subir 4 imágenes"),
+            }).withMessage("Solo se permite formato .gif, .png, .jpg y .jpeg"),
 
         check("gender")
             .isIn([1,2,3]).withMessage("Debes seleccionar uno de los géneros"),
@@ -51,8 +45,17 @@ module.exports = {
         check("sizes")
             .isIn([1,2,3,4,5,6]).withMessage("Debes seleccionar uno de los talles disponibles"),          
 
-        ]
-    }
+        ],
+    imagesCreateProduct: [
+        check('image')
+            .custom( images => {
+                if(images.length < 4) {
+                  return false;
+                }
+                  return true;
+            }).withMessage("Se deben subir 4 imágenes"),
+    ]
+}
 
 
 

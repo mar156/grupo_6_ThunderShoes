@@ -19,6 +19,7 @@ module.exports = async (req, res) => {
         await productExist.setColors([]);
         await productExist.setSizes([]);
         await productExist.setImages([]);
+        // Falta eliminar las imagenes, sólo se elimina las relaciones
 
         /* newProduct.setCategories(categories); */
 
