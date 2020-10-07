@@ -15,20 +15,13 @@ let hasErrorsInput = {
     image: true
 };
 
-
-    
 form.addEventListener('submit', function (e) {
         let hasErrors = { 
             gender: true,
             brand: true,
             category: true,
             color: true,
-            size: true,
-            name: true,
-            price: true,
-            onSale: true,
-            description: true,
-            image: true
+            size: true
         };
 
         // Hay errores hasta que se demuestre lo contrario. 
@@ -94,17 +87,17 @@ nameInput.addEventListener("blur", function(){
     if(!this.value){
         nameError.innerText = "El nombre no puede estar vacío";
         this.classList.add("error-input");
-        hasErrorsInput = true;
+        hasErrorsInput.name = true;
     }
     if(this.value && this.value.length < 5){
         nameError.innerText = "El nombre debe tener al menos 5 caracteres";
         this.classList.add("error-input");
-        hasErrorsInput = true;
+        hasErrorsInput.name = true;
     }
     if(this.value.length >= 5){
         this.classList.remove("error-input");
         nameError.innerText = "";
-        hasErrorsInput = false;
+        hasErrorsInput.name = false;
     }   
 })
 
@@ -117,17 +110,17 @@ priceInput.addEventListener("blur", function(){
     if(!this.value){
         priceError.innerText = "El precio no puede estar vacío";
         this.classList.add("error-input");
-        hasErrorsInpute = true;
+        hasErrorsInput.price = true;
     }
     if(this.value && this.value <= 0){
         priceError.innerText = "El precio debe ser mayor a 0";
         this.classList.add("error-input");
-        hasErrorsInpute = true;
+        hasErrorsInput.price = true;
     }
     if(this.value > 0){
         priceError.innerText = "";
         this.classList.remove("error-input");
-        hasErrorsInpute = false;
+        hasErrorsInpute.price = false;
     }
 })
 
@@ -140,13 +133,13 @@ discountInput.addEventListener("blur", function(){
     if(this.value && this.value < 0){
         discountError.innerText = "El descuento no puede ser negativo";
         this.classList.add("error-input");
-        hasErrorsInputle = true;
+        hasErrorsInput.onSale = true;
     }
 
     if (this.value >= 0 || !this.value) {
         discountError.innerText = "";
         this.classList.remove("error-input");
-        hasErrorsInputle = false;
+        hasErrorsInput.onSale = false;
     }
 })
 
@@ -159,11 +152,11 @@ descriptionInput.addEventListener("blur", function () {
     if (this.value.length < 20){
         descriptionError.innerText = 'La descripción debe tener al menos 20 caracteres';
         this.classList.add("error-input");
-        hasErrorsInputription = true;
+        hasErrorsInput.description = true;
     }else{
         descriptionError.innerText = "";
         this.classList.remove("error-input");
-        hasErrorsInputription = false;
+        hasErrorsInput.description = false;
     }
 });
 
@@ -180,18 +173,18 @@ inputImage.addEventListener("change", function () {
         if ( ext !== 'jpg' && ext !== 'jpeg' && ext !== 'png' && ext !== 'gif' ) {
             imageError.innerText = 'Solo se permite formato .gif, .png, .jpg y .jpeg';
             this.classList.add("error-input");
-            hasErrorsInpute = true;
+            hasErrorsInput.image = true;
         }
     }
     if (this.files.length != 4) {
         imageError.innerText = 'Se deben subir 4 imágenes';
         this.classList.add("error-input");
-        hasErrorsInpute = true;
+        hasErrorsInput.image = true;
     }
     if(this.files.length == 4){
     imageError.innerText = '';
     this.classList.remove("error-input");
-    hasErrorsInpute = false;
+    hasErrorsInput.image = false;
     }
 });
 
