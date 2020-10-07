@@ -7,6 +7,15 @@ const categoryElements = document.getElementsByName('category');
 const colorElements = document.getElementsByName('colors');
 const sizeElements = document.getElementsByName('sizes');
 
+let hasErrorsInput = { 
+    name: true,
+    price: true,
+    onSale: true,
+    description: true,
+    image: true
+};
+
+
     
 form.addEventListener('submit', function (e) {
         let hasErrors = { 
@@ -64,7 +73,7 @@ form.addEventListener('submit', function (e) {
         })
 
         if ( hasErrors.gender || hasErrors.brand || hasErrors.category || hasErrors.color || hasErrors.size || 
-            hasErrors.name || hasErrors.price || hasErrors.onSale || hasErrors.description || hasErrors.image 
+            hasErrorsInput.name || hasErrorsInput.price || hasErrorsInput.onSale || hasErrorsInput.description || hasErrorsInput.image 
         ){ 
             e.preventDefault();
             document.getElementById('gender_error').innerText = hasErrors.gender ? 'Debe seleccionar un género': '';
@@ -85,17 +94,17 @@ nameInput.addEventListener("blur", function(){
     if(!this.value){
         nameError.innerText = "El nombre no puede estar vacío";
         this.classList.add("error-input");
-        hasErrors.name = true;
+        hasErrorsInput = true;
     }
     if(this.value && this.value.length < 5){
         nameError.innerText = "El nombre debe tener al menos 5 caracteres";
         this.classList.add("error-input");
-        hasErrors.name = true;
+        hasErrorsInput = true;
     }
     if(this.value.length >= 5){
         this.classList.remove("error-input");
         nameError.innerText = "";
-        hasErrors.name = false;
+        hasErrorsInput = false;
     }   
 })
 
@@ -108,17 +117,17 @@ priceInput.addEventListener("blur", function(){
     if(!this.value){
         priceError.innerText = "El precio no puede estar vacío";
         this.classList.add("error-input");
-        hasErrors.price = true;
+        hasErrorsInpute = true;
     }
     if(this.value && this.value <= 0){
         priceError.innerText = "El precio debe ser mayor a 0";
         this.classList.add("error-input");
-        hasErrors.price = true;
+        hasErrorsInpute = true;
     }
     if(this.value > 0){
         priceError.innerText = "";
         this.classList.remove("error-input");
-        hasErrors.price = false;
+        hasErrorsInpute = false;
     }
 })
 
@@ -131,13 +140,13 @@ discountInput.addEventListener("blur", function(){
     if(this.value && this.value < 0){
         discountError.innerText = "El descuento no puede ser negativo";
         this.classList.add("error-input");
-        hasErrors.onSale = true;
+        hasErrorsInputle = true;
     }
 
     if (this.value >= 0 || !this.value) {
         discountError.innerText = "";
         this.classList.remove("error-input");
-        hasErrors.onSale = false;
+        hasErrorsInputle = false;
     }
 })
 
@@ -150,11 +159,11 @@ descriptionInput.addEventListener("blur", function () {
     if (this.value.length < 20){
         descriptionError.innerText = 'La descripción debe tener al menos 20 caracteres';
         this.classList.add("error-input");
-        hasErrors.description = true;
+        hasErrorsInputription = true;
     }else{
         descriptionError.innerText = "";
         this.classList.remove("error-input");
-        hasErrors.description = false;
+        hasErrorsInputription = false;
     }
 });
 
@@ -171,18 +180,18 @@ inputImage.addEventListener("change", function () {
         if ( ext !== 'jpg' && ext !== 'jpeg' && ext !== 'png' && ext !== 'gif' ) {
             imageError.innerText = 'Solo se permite formato .gif, .png, .jpg y .jpeg';
             this.classList.add("error-input");
-            hasErrors.image = true;
+            hasErrorsInpute = true;
         }
     }
     if (this.files.length != 4) {
         imageError.innerText = 'Se deben subir 4 imágenes';
         this.classList.add("error-input");
-        hasErrors.image = true;
+        hasErrorsInpute = true;
     }
     if(this.files.length == 4){
     imageError.innerText = '';
     this.classList.remove("error-input");
-    hasErrors.image = false;
+    hasErrorsInpute = false;
     }
 });
 
