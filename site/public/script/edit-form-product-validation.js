@@ -7,13 +7,11 @@ const categoryElements = document.getElementsByName('category');
 const colorElements = document.getElementsByName('colors');
 const sizeElements = document.getElementsByName('sizes');
 
-let hasErrorsInput = { 
-    name: true,
-    price: true,
-    onSale: true,
-    description: true,
-    image: true
-};
+let nameInput = document.getElementById("name");
+let priceInput = document.getElementById("price");
+let discountInput = document.getElementById("on_sale");
+let descriptionInput = document.getElementById("description");
+let inputImage = document.getElementById("image");
 
 form.addEventListener('submit', function (e) {
         let hasErrors = { 
@@ -21,52 +19,22 @@ form.addEventListener('submit', function (e) {
             brand: true,
             category: true,
             color: true,
-            size: true
+            size: true,
+            name: nameValidator(),
+            price: priceValidator(),
+            onSale: discountValidator(),
+            description: descriptionValidator(),
+            image: imageValidator()
         };
-
-        // Hay errores hasta que se demuestre lo contrario. 
-        genderElements.forEach(function(gender){
-            if(gender.checked){
-                hasErrors.gender = false; 
-            }else{
-                hasErrors.gender = hasErrors.gender;
-            }
-        })
-
-        brandElements.forEach(function(brand){
-            if(brand.checked){
-                hasErrors.brand = false;
-            }else{
-                hasErrors.brand = hasErrors.brand;
-            }
-        })
-
-        categoryElements.forEach(function(category){
-            if(category.checked){
-                hasErrors.category = false;
-            }else{
-                hasErrors.category = hasErrors.category;
-            }
-        })
-
-        colorElements.forEach(function(color){
-            if(color.checked){
-                hasErrors.color = false;
-            }else{
-                hasErrors.color = hasErrors.color;
-            }
-        })
-
-        sizeElements.forEach(function(size){
-            if(size.checked){
-                hasErrors.size = false;
-            }else{
-                hasErrors.size = hasErrors.size;
-            }
-        })
+         
+        genderElements.forEach(genderElement => { hasErrors.gender = genderElement.checked ? false : hasErrors.gender });
+        brandElements.forEach(brandElement => { hasErrors.brand = brandElement.checked ? false : hasErrors.brand });
+        categoryElements.forEach(categoryElement => { hasErrors.category = categoryElement.checked ? false : hasErrors.category });
+        colorElements.forEach(colorElement => { hasErrors.color = colorElement.checked ? false : hasErrors.color });
+        sizeElements.forEach(sizeElement => { hasErrors.size = sizeElement.checked ? false : hasErrors.size }); 
 
         if ( hasErrors.gender || hasErrors.brand || hasErrors.category || hasErrors.color || hasErrors.size || 
-            hasErrorsInput.name || hasErrorsInput.price || hasErrorsInput.onSale || hasErrorsInput.description || hasErrorsInput.image 
+            hasErrors.name || hasErrors.price || hasErrors.onSale || hasErrors.description || hasErrors.image 
         ){ 
             e.preventDefault();
             document.getElementById('gender_error').innerText = hasErrors.gender ? 'Debe seleccionar un género': '';
@@ -77,115 +45,119 @@ form.addEventListener('submit', function (e) {
         }
     
     });
-    
+
+    nameInput.addEventListener("blur", nameValidator);
+    priceInput.addEventListener("blur", priceValidator);
+    discountInput.addEventListener("blur", discountValidator);
+    descriptionInput.addEventListener("blur", descriptionValidator);
+    inputImage.addEventListener("blur", imageValidator);
+
 
 // Nombre
 
-let nameInput = document.getElementById("name");
-nameInput.addEventListener("blur", function(){
+
+function nameValidator(){
     let nameError = document.getElementById("name_error");
-    if(!this.value){
+    if(!nameInput.value){
         nameError.innerText = "El nombre no puede estar vacío";
-        this.classList.add("error-input");
-        hasErrorsInput.name = true;
+        nameInput.classList.add("error-input");
+        return true;
     }
-    if(this.value && this.value.length < 5){
+    if(nameInput.value && nameInput.value.length < 5){
         nameError.innerText = "El nombre debe tener al menos 5 caracteres";
-        this.classList.add("error-input");
-        hasErrorsInput.name = true;
+        nameInput.classList.add("error-input");
+        return true;
     }
-    if(this.value.length >= 5){
-        this.classList.remove("error-input");
+    if(nameInput.value.length >= 5){
+        nameInput.classList.remove("error-input");
         nameError.innerText = "";
-        hasErrorsInput.name = false;
+        return false;
     }   
-})
+}
 
 // Precio
 
-let priceInput = document.getElementById("price");
-
-priceInput.addEventListener("blur", function(){
+function priceValidator(){
     let priceError = document.getElementById("price_error");
-    if(!this.value){
+    if(!priceInput.value){
         priceError.innerText = "El precio no puede estar vacío";
-        this.classList.add("error-input");
-        hasErrorsInput.price = true;
+        priceInput.classList.add("error-input");
+        return true;
     }
-    if(this.value && this.value <= 0){
+    if(priceInput.value && priceInput.value <= 0){
         priceError.innerText = "El precio debe ser mayor a 0";
-        this.classList.add("error-input");
-        hasErrorsInput.price = true;
+        priceInput.classList.add("error-input");
+        return true;
     }
-    if(this.value > 0){
+    if(priceInput.value > 0){
         priceError.innerText = "";
-        this.classList.remove("error-input");
-        hasErrorsInpute.price = false;
+        priceInput.classList.remove("error-input");
+       return false;
     }
-})
+}
 
 // Descuento
 
-let discountInput = document.getElementById("on_sale");
 
-discountInput.addEventListener("blur", function(){
+
+function discountValidator(){
     let discountError = document.getElementById("on_sale_error");
-    if(this.value && this.value < 0){
+    if(discountInput.value && discountInput.value < 0){
         discountError.innerText = "El descuento no puede ser negativo";
-        this.classList.add("error-input");
-        hasErrorsInput.onSale = true;
+        discountInput.classList.add("error-input");
+        return true;
     }
 
-    if (this.value >= 0 || !this.value) {
+    if (discountInput.value >= 0 || !discountInput.value) {
         discountError.innerText = "";
-        this.classList.remove("error-input");
-        hasErrorsInput.onSale = false;
+        discountInput.classList.remove("error-input");
+        return false;
     }
-})
+}
 
 
 // Descripcion
-let descriptionInput = document.getElementById("description");
 
-descriptionInput.addEventListener("blur", function () {
+
+function descriptionValidator () {
     let descriptionError = document.getElementById("description_error");
-    if (this.value.length < 20){
+    if (descriptionInput.value.length < 20){
         descriptionError.innerText = 'La descripción debe tener al menos 20 caracteres';
-        this.classList.add("error-input");
-        hasErrorsInput.description = true;
+        descriptionInput.classList.add("error-input");
+        return true;
     }else{
         descriptionError.innerText = "";
-        this.classList.remove("error-input");
-        hasErrorsInput.description = false;
+        descriptionInput.classList.remove("error-input");
+        return false;
     }
-});
+}
 
 
 // Imagenes
 
-let inputImage = document.getElementById("image");
 
-inputImage.addEventListener("change", function () {
+
+function imageValidator() {
     let imageError = document.getElementById("image_error");
-    for (file of this.files) {
+    for (file of inputImage.files) {
         let ext = file.name.split('.')[1];
         console.log(ext);
         if ( ext !== 'jpg' && ext !== 'jpeg' && ext !== 'png' && ext !== 'gif' ) {
             imageError.innerText = 'Solo se permite formato .gif, .png, .jpg y .jpeg';
-            this.classList.add("error-input");
-            hasErrorsInput.image = true;
+            inputImage.classList.add("error-input");
+            return true;
         }
     }
-    if (this.files.length != 4) {
+    if (inputImage.files.length != 4) {
         imageError.innerText = 'Se deben subir 4 imágenes';
-        this.classList.add("error-input");
-        hasErrorsInput.image = true;
+        inputImage.classList.add("error-input");
+        return true;
     }
-    if(this.files.length == 4){
+    if(inputImage.files.length == 4){
     imageError.innerText = '';
-    this.classList.remove("error-input");
-    hasErrorsInput.image = false;
+    inputImage.classList.remove("error-input");
+    return false;
     }
-});
+}
 
 
