@@ -131,31 +131,37 @@ const editProduct = {
     update: async function(req, res){
 
        let errors = validationResult(req);
-       let id = req.params.id;
        if(errors.isEmpty()){    
            
-           let categories = req.body.category;
-           let colors = req.body.colors; 
-           let sizes = req.body.sizes;
-           let images = req.image;
-            console.log(images);
-           try{ 
-            productExist = await product.findByPk(id);   
-            /* productExist.setImages(images);  */
-            await productExist.setImages(images); 
-            await productExist.setCategories(categories);
-            await productExist.setColors(colors);
-            await productExist.setSizes(sizes); 
+            let id = req.params.id;
+            let categories = req.body.category;
+            let colors = req.body.colors; 
+            let sizes = req.body.sizes;
+            let images = req.files;
 
-            productExist.name = req.body.name,
-            productExist.description = req.body.description,
-            productExist.on_sale = req.body.on_sale,
-            productExist.price = req.body.price,
-            productExist.gender_id = req.body.gender,
-            productExist.brand_id = req.body.brand,
-            productExist.save();
+            try{ 
+                productExist = await product.findByPk(id);   
+                
+                if(images){
+                    let filesname = images.map(function(image){
+                        return {file_name: image.filename};
+                    })
+                    let savedImages = await image.bulkCreate(filesname)
+                    await productExist.setImages(savedImages);
+                }
+                await productExist.setCategories(categories);
+                await productExist.setColors(colors);
+                await productExist.setSizes(sizes); 
 
-            return res.redirect('/admin/product/');
+                productExist.name = req.body.name,
+                productExist.description = req.body.description,
+                productExist.on_sale = req.body.on_sale,
+                productExist.price = req.body.price,
+                productExist.gender_id = req.body.gender,
+                productExist.brand_id = req.body.brand,
+                productExist.save();
+
+                return res.redirect('/admin/product/');
 
             } catch(error){
                 console.log(error);
