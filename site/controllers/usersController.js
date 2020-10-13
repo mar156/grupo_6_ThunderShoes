@@ -9,6 +9,7 @@ const { validationResult } = require('express-validator');
 
 // Modelos
 const { user, category_user, product } = require('../database/models');
+const { errorMonitor } = require('stream');
 
 const controller = {
 
@@ -90,26 +91,20 @@ const controller = {
         res.render('users/register');
     },
 
-    userRegister: async function(req, res){
+    userRegister: async function(req, res) {
         
         let errors = validationResult(req);
-        if(errors.isEmpty()){
+        if( errors.isEmpty() ) {
             let newUser = req.body;
-            let check;
-
+            
+            if( (req.body.password) && (req.body.passwordConfirm) && req.body.password === req.body.passwordConfirm ) {
+                newUser.password = bcrypt.hashSync(req.body.password, 10);
+                delete newUser.passwordConfirm;
+                newUser.category_id = 1; // Por defecto se asigna categoria 'user' que es id:1
                 
-        newUser.avatar = 'default-profile.jpg';
-        
-        if( (req.body.password) && (req.body.passwordConfirm) ){
-            check = req.body.password === req.body.passwordConfirm;
-        }
-        if(check){
-            newUser.password = bcrypt.hashSync(req.body.password, 10);
-            delete newUser.passwordConfirm;
-            newUser.category_id = 1; // Por defecto se asigna categoria 'user' que es id:1
-
-            user.create( newUser )
+                user.create( newUser )
                 .then( result => {
+                    newUser.avatar = 'default-profile.jpg';
                     if (req.file) { // Si subió una imagen, reemplazar la imagen por defecto. 
                         // Ya tenemos el ID, renombramos la imagen avatar con id.
                         
@@ -121,10 +116,8 @@ const controller = {
                         result.avatar = `avatar_${result.id}.jpg`;
                         // Guardamos los cambios efectuados en DB. (el nombre del archivo avatar)
                         result.save();
-                        console.log('Esto está en el controlador:');
-                        console.log(req.file);
                     }
-
+                    delete newUser.password;    // Se elimina password antes de enviar a Session.
                     req.session.userLoggedIn = newUser;
                     res.redirect('/');
                 })
@@ -132,13 +125,29 @@ const controller = {
                     console.log('--------- Error ---------- >>>> ', err);
                     res.redirect('/users/register'); // (Pendiente) Agregar error a mostrar
                 });
-            
-        }
-        else{
-            res.send('Hubo un error, seguramente no pusiste bien las contraseñas');
+                
+            } else {
+                let user = {
+                    first_name: req.body.first_name,
+                    last_name: req.body.last_name,
+                    email: req.body.email,
+                    phone: req.body.phone,
+                    avatar: req.avatar,
+                    password: req.body.password,
+                    passwordConfirm: req.body.passwordConfirm,
+                
+                };
+                let errorsMapped = errors.mapped();;
+                if (!errorsMapped.password) {
+                    errorsMapped.password = {
+                        msg: 'Las contraseñas ingresadas no coinciden'
+                    };
+                }
+                console.log('error de contraseñas diferentes');
+                console.log(errorsMapped);
+                res.render('users/register', {errors: errorsMapped, user});
             }
-        }
-        else{
+        } else {
             let user = {
                 first_name: req.body.first_name,
                 last_name: req.body.last_name,
@@ -147,12 +156,15 @@ const controller = {
                 avatar: req.avatar,
                 password: req.body.password,
                 passwordConfirm: req.body.passwordConfirm,
-               
             };
             let errorsMapped = errors.mapped();
+            if (!errorsMapped.password) {   // Si no hay errores de contraseña pero estas no coinciden se agrega esto como error
+                errorsMapped.password = {
+                    msg: 'Las contraseñas ingresadas no coinciden'
+                };
+            }
             res.render('users/register', {errors: errorsMapped, user});
         }
-        
     },
 
     profile: (req, res) => {
