@@ -143,11 +143,22 @@ const controller = {
                         msg: 'Las contraseñas ingresadas no coinciden'
                     };
                 }
-                console.log('error de contraseñas diferentes');
-                console.log(errorsMapped);
                 res.render('users/register', {errors: errorsMapped, user});
             }
         } else {
+            let errorsMapped = errors.mapped();
+
+            // Se elimina la imagen subida en caso de error - (Pendiente: reemplazar por validación dentro de multer y que no se guarde en disco el archivo.)
+            if ( errorsMapped.avatar && req.file && fs.existsSync(__dirname, `/../public/img/users/${req.file.filename}`) ) {
+                fs.unlink(__dirname, `/../public/img/users/${req.file.filename}`) // Podría ser Sync, pero no se toma acción en caso de error o pos eliminado el archivo.
+                .then( result => {
+                    console.log(result)
+                })
+                .catch( err => {
+                    console.log(err);
+                });
+            }
+
             let user = {
                 first_name: req.body.first_name,
                 last_name: req.body.last_name,
@@ -157,7 +168,6 @@ const controller = {
                 password: req.body.password,
                 passwordConfirm: req.body.passwordConfirm,
             };
-            let errorsMapped = errors.mapped();
             if (!errorsMapped.password) {   // Si no hay errores de contraseña pero estas no coinciden se agrega esto como error
                 errorsMapped.password = {
                     msg: 'Las contraseñas ingresadas no coinciden'
