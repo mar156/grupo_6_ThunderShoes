@@ -37,11 +37,13 @@ let fieldRegex = function(field, regex, message){
     }
 }
 
-let fileExtValidate = function (path, msg, values ) {
+const fileExtValidate = function (path, msg, values ) {
     let pathExt = path.split('.')[path.split('.').length - 1 ];
 
     return values.some(value => value === pathExt) ? '' : msg;
 }
+
+const areSameValues = (value1, value2, msg) => value1 == value2 ? '' : msg ;
 
 let validateFirstName = function(){
     let feedback = '';
@@ -189,22 +191,23 @@ let validatePassword = function(){
     feedbackElement.innerText = feedback;
 }
 
-let validatePasswordConfirm = function(){
+let validatePasswordConfirm = function() {
     let feedback = '';
     let feedbackElement = passwordConfirm.nextElementSibling;
+    let msg = 'Las contraseñas ingresadas no coinciden';
 
-    if(fieldIsEmpty(passwordConfirm)){
-        feedback = fieldIsEmpty(passwordConfirm);
-    }
-    else if(fieldMin(passwordConfirm, 8)){
+    if(fieldIsEmpty( passwordConfirm) ) {
+        feedback = fieldIsEmpty( passwordConfirm );
+    } else if( fieldMin(passwordConfirm, 8) ) {
         feedback = fieldMin(passwordConfirm, 8);
+    } else if( areSameValues(password.value, passwordConfirm.value, msg) ) {
+        feedback = areSameValues(password.value, passwordConfirm.value, msg);
     }
 
-    if(feedback){
+    if(feedback) {
         passwordConfirm.classList.add('error-input');
         errors.passwordConfirm = feedback;
-    }
-    else{
+    } else {
         passwordConfirm.classList.remove('error-input');
         delete errors.passwordConfirm;
     }
