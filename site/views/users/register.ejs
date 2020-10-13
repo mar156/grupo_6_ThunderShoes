@@ -94,7 +94,10 @@
                     <%= locals && locals.errors && locals.errors.phone && locals.errors.phone.msg %>
                 </span>
 
-                <input type="file" name="avatar">
+                <input type="file" name="avatar" id="file">
+                <span id="file_ext_error" class="error">
+                    <%= locals && locals.errors && locals.errors.avatar && locals.errors.avatar.msg %>
+                </span>
                 
                 <label for="password">Contraseña</label>
                 <input type="password" class="<%if(locals&&locals.errors&&errors.password){%><%="error-input"%><%}%>" name="password" id="password" placeholder="Ingresá tu contraseña" value="<%=locals && locals.user && user.password%>" autofocus>
