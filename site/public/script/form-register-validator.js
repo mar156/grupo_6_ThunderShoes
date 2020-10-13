@@ -8,6 +8,7 @@ const email = document.getElementById('email');
 const phone = document.getElementById('phone');
 const password = document.getElementById('password');
 const passwordConfirm = document.getElementById('password-confirm');
+const file = document.getElementById('file');
 
 let fieldIsEmpty = function(field){
     if(field.value.trim() == '' ){
@@ -34,6 +35,12 @@ let fieldRegex = function(field, regex, message){
     else{
         return '';
     }
+}
+
+let fileExtValidate = function (path, msg, values ) {
+    let pathExt = path.split('.')[path.split('.').length - 1 ];
+
+    return values.some(value => value === pathExt) ? '' : msg;
 }
 
 let validateFirstName = function(){
@@ -69,7 +76,7 @@ let validateLastName = function(){
     let feedbackElement = lastName.nextElementSibling;
     let regex =  /^[A-zÁÉÍÓÚáéíóúñNüÜöÖËë\- ']+$/.test(lastName.value);
     let message = 'El nombre no puede contener números, "," o ";"';
-
+    console.log(regex);
     if(fieldIsEmpty(lastName)){
         feedback = fieldIsEmpty(lastName);
     }
@@ -142,6 +149,23 @@ let validatePhone = function(){
     feedbackElement.innerText = feedback;
 }
 
+let validateFileName = function () {
+    let validExt = [ 'jpg', 'jpeg', 'png', 'gif' ];
+    let errorMsg = 'Solo se permite formato .gif, .png, .jpg y .jpeg';
+    let feedback = fileExtValidate( file.value, errorMsg, validExt );
+    let feedbackElement = file.nextElementSibling;
+    console.log(feedback);
+    if (!!feedback) {
+        file.classList.add('error-input');
+        errors.file = feedback;
+    } else {
+        file.classList.remove('error-input');
+        delete errors.file;
+    }
+
+    feedbackElement.innerText = feedback;
+}
+
 let validatePassword = function(){
     let feedback = '';
     let feedbackElement = password.nextElementSibling;
@@ -194,6 +218,7 @@ email.addEventListener('blur', validateEmail);
 phone.addEventListener('blur', validatePhone);
 password.addEventListener('blur', validatePassword);
 passwordConfirm.addEventListener('blur', validatePasswordConfirm);
+file.addEventListener('change', validateFileName);
 
 form.addEventListener('submit', function(e){
     validateFirstName();
@@ -202,6 +227,7 @@ form.addEventListener('submit', function(e){
     validatePhone();
     validatePassword();
     validatePasswordConfirm();
+    validateFileName();
     if(Object.keys(errors).length){
         e.preventDefault();
     }
