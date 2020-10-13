@@ -16,20 +16,20 @@ module.exports = {
             .notEmpty({ignore_whitespace:true }).withMessage('Debe ingresar un teléfono').bail()
             .isNumeric().withMessage('Debe ingresar sólo números')
             .isLength({min:10}).withMessage('Debe ingresar un número válido'),
-        /*check('avatar')
+        check('avatar')
+            // .custom( image => {
+            //     if(image.length != 1){ 
+            //         return false;
+            //     }
+            //     return true;
+            // }).withMessage("Se debe subir una imagen").bail()
             .custom( image => {           
                 let isExtValid = true;
                 if (!(image.mimetype == "image/png" || image.mimetype == "image/jpg" || image.mimetype == "image/jpeg")){
                     isExtValid = false;
                 }
                 return isExtValid;
-            }).withMessage("Solo se permite formato .png, .jpg y .jpeg").bail()
-            .custom( image => {
-                if(image.length != 1){ 
-                    return false;
-                }
-                return true;
-            }).withMessage("Se debe subir una imagen"),*/
+            }).withMessage("Solo se permite formato .png, .jpg y .jpeg"),
         check('password')
             .notEmpty({ignore_whitespace:true }).withMessage('Debe ingresar una contraseña')
             .isLength({min:8}).withMessage('La contraseña debe tener al menos 8 caracteres'),
