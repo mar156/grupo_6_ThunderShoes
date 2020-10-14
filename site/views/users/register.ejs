@@ -66,7 +66,7 @@
     <div class="form-container">
         <img src="/img/register-modelo.jpg" alt="">
         <div class="form-content">
-            <h2>CREAR CUENTA</h2>
+            <h2>CREAR CUENTA</h2> 
             
             <form method="POST" action="" enctype="multipart/form-data" id="form-register">
                 <label for="first_name">Nombre</label>
@@ -76,20 +76,20 @@
                 </span>
 
                 <label for="last_name">Apellido</label>
-                <input type="text"  class="<%if(locals&&locals.errors&&errors.last_name){%><%="error-input"%><%}%>" name="last_name" id="last_name" placeholder="Thunder" value="<%=locals && locals.user && user.last_name%>" autofocus >
+                <input type="text" class="<%if(locals&&locals.errors&&errors.last_name){%><%="error-input"%><%}%>" name="last_name" id="last_name" placeholder="Thunder" value="<%=locals && locals.user && user.last_name%>" >
                 <span id="last_name_error" class="error">
                     <%= locals && locals.errors && locals.errors.last_name && locals.errors.last_name.msg %>
                 </span>
                
 
                 <label for="email">Email</label>
-                <input type="email" class="<%if(locals&&locals.errors&&errors.email){%><%="error-input"%><%}%>" name="email" id="email" placeholder="Ej. thundershoes@gmail.com" value="<%=locals && locals.user && user.email%>" autofocus>
+                <input type="email" class="<%if(locals&&locals.errors&&errors.email){%><%="error-input"%><%}%>" name="email" id="email" placeholder="Ej. thundershoes@gmail.com" value="<%=locals && locals.user && user.email%>" >
                 <span id="email_error" class="error">
                     <%= locals && locals.errors && locals.errors.email && locals.errors.email.msg %>
                 </span>
 
                 <label for="phone">Teléfono</label>
-                <input type="tel"  class="<%if(locals&&locals.errors&&errors.phone){%><%="error-input"%><%}%>" name="phone" id="phone" placeholder="Ej. cod (011) - 1544876235 " value="<%=locals && locals.user && user.phone%>" autofocus>
+                <input type="tel" class="<%if(locals&&locals.errors&&errors.phone){%><%="error-input"%><%}%>" name="phone" id="phone" placeholder="Ej. cod (011) - 1544876235 " value="<%=locals && locals.user && user.phone%>" >
                 <span id="phone_error" class="error">
                     <%= locals && locals.errors && locals.errors.phone && locals.errors.phone.msg %>
                 </span>
@@ -100,13 +100,13 @@
                 </span>
                 
                 <label for="password">Contraseña</label>
-                <input type="password" class="<%if(locals&&locals.errors&&errors.password){%><%="error-input"%><%}%>" name="password" id="password" placeholder="Ingresá tu contraseña" value="<%=locals && locals.user && user.password%>" autofocus>
+                <input type="password" class="<%if(locals&&locals.errors&&errors.password){%><%="error-input"%><%}%>" name="password" id="password" placeholder="Ingresá tu contraseña" value="<%=locals && locals.user && user.password%>" >
                 <span id="password_error" class="error">
                     <%= locals && locals.errors && locals.errors.password && locals.errors.password.msg %>
                 </span>
 
                 <label for="password-confirm">Confirmar contraseña</label>
-                <input type="password" class="<%if(locals&&locals.errors&&errors.passwordConfirm){%><%="error-input"%><%}%>" name="passwordConfirm" id="password-confirm" placeholder="Repetí tu contraseña" value="<%=locals && locals.user && user.passwordConfirm%>" autofocus>
+                <input type="password" class="<%if(locals&&locals.errors&&errors.passwordConfirm){%><%="error-input"%><%}%>" name="passwordConfirm" id="password-confirm" placeholder="Repetí tu contraseña" value="<%=locals && locals.user && user.passwordConfirm%>" >
                 <span id="password_confirm_error" class="error">
                     <%= locals && locals.errors && locals.errors.passwordConfirm && locals.errors.passwordConfirm.msg %>
                 </span>
