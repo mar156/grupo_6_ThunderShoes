@@ -193,75 +193,104 @@ const controller = {
 
         let userToEdit = req.session.userLoggedIn;
         let profileStatus = {};
+        let newDataUser = {
+            first_name: req.body.first_name,
+            last_name: req.body.last_name,
+            email: req.body.email,
+            phone: Number(req.body.phone),
+            address: req.body.address,
+            postal_code: req.body.postal_code,
+            state: req.body.state,
+            city: req.body.city,
+            password: req.body.password,
+            passwordConfirm: req.body.passwordConfirm
+        };
         let newPassword = '';
-        if ( !!req.body.password || !!req.body.passwordConfirm ) {
-            if ( req.body.password === req.body.passwordConfirm ) {
-                newPassword = bcrypt.hashSync(req.body.password, 10);
-            } else {
-                // Esta verificación será reemplazada de otra manera cuando se 
-                // implemente middleware para verificar los datos, y aquí sólo llegue el nuevo
-                // password en caso de pasar las validaciones y no se encontraron errores.
-                profileStatus.result = 'error';
-                profileStatus.msg = 'Las contraseñas ingresadas no coinciden';
-                return res.render('users/profile', { userToEdit, profileStatus })
+        let errors = validationResult(req);
+        let errorsMapped = {};
+
+        if ( !errors.isEmpty() ) errorsMapped = errors.mapped();
+
+        if ( (!!req.body.password || !!req.body.passwordConfirm) && !errorsMapped.password && !errorsMapped.passwordConfirm ) {
+            if ( req.body.password !== req.body.passwordConfirm ) {
+                errorsMapped.password = {
+                    msg: 'Las contraseñas ingresadas no coinciden'
+                };
             }
         }
 
-        user.findByPk(1, { 
-            attributes: [
-                'id',
-                'first_name', 
-                'last_name', 
-                'email', 
-                'phone',
-                'address',
-                'password',
-                'avatar',
-                'city',
-                'state',
-                'postal_code'
-                // 'favorites'  // No implementado aún
-            ],
-            include: [category_user, product]
-        })
-        .then( user => {
-            user.first_name = req.body.first_name;
-            user.last_name = req.body.last_name;
-            user.email = req.body.email;
-            user.phone = Number(req.body.phone);
-            user.address = req.body.address;
-            user.postal_code = Number(req.body.postal_code);
-            user.state = req.body.state;
-            user.city = req.body.city;
-            user.password = newPassword ? newPassword : user.password;
-
-            if (req.file) { // Si subió una imagen, reemplazar la imagen anterior. 
-                // Ya tenemos el ID, renombramos la imagen avatar con id.
-                fs.renameSync(
-                    path.join(__dirname, `/../public/img/users/${req.file.filename}`),
-                    path.join(__dirname, `/../public/img/users/avatar_${user.id}.jpg`)
-                );
-                // Actualizamos el valor de la propiedad al nuevo nombre
-                user.avatar = `avatar_${user.id}.jpg`;
-                // Guardamos los cambios efectuados en DB. (el nombre del archivo avatar)
+        if ( Object.keys(errorsMapped).length < 1 ) {
+            newPassword = bcrypt.hashSync(req.body.password, 10);
+    
+            user.findByPk(1, { 
+                attributes: [
+                    'id',
+                    'first_name', 
+                    'last_name', 
+                    'email', 
+                    'phone',
+                    'address',
+                    'password',
+                    'avatar',
+                    'city',
+                    'state',
+                    'postal_code'
+                    // 'favorites'  // No implementado aún
+                ],
+                include: [category_user, product]
+            })
+            .then( user => {
+                user.first_name = req.body.first_name;
+                user.last_name = req.body.last_name;
+                user.email = req.body.email;
+                user.phone = Number(req.body.phone);
+                user.address = req.body.address;
+                user.postal_code = Number(req.body.postal_code);
+                user.state = req.body.state;
+                user.city = req.body.city;
+                user.password = newPassword ? newPassword : user.password;
+    
+                if (req.file) { // Si subió una imagen, reemplazar la imagen anterior. 
+                    // Ya tenemos el ID, renombramos la imagen avatar con id.
+                    fs.renameSync(
+                        path.join(__dirname, `/../public/img/users/${req.file.filename}`),
+                        path.join(__dirname, `/../public/img/users/avatar_${user.id}.jpg`)
+                    );
+                    // Actualizamos el valor de la propiedad al nuevo nombre
+                    user.avatar = `avatar_${user.id}.jpg`;
+                    // Guardamos los cambios efectuados en DB. (el nombre del archivo avatar)
+                }
+    
+                user.save();
+    
+                profileStatus.result = 'done';
+                profileStatus.msg = 'Sus datos fueron actualizados exitosamente';
+                let userToEdit = user;
+                req.session.userLoggedIn = userToEdit;
+                return res.render('users/profile', { userToEdit, profileStatus })
+            })
+            .catch( err => {
+                console.log('-----------------Error ----------------');
+                console.log(err);
+    
+                profileStatus.result = 'error';
+                profileStatus.msg = 'Error al actualizar los datos';
+                return res.render('users/profile', { userToEdit: newDataUser, profileStatus })
+            });
+        } else {
+            // Se elimina la imagen subida en caso de error - (Pendiente: reemplazar por validación dentro de multer y que no se guarde en disco el archivo.)
+            if ( errorsMapped.avatar && req.file && fs.existsSync(__dirname, `/../public/img/users/${req.file.filename}`) ) {
+                fs.unlink(__dirname, `/../public/img/users/${req.file.filename}`) // Podría ser Sync, pero no se toma acción en caso de error o pos eliminado el archivo.
+                .then( result => {
+                    console.log(result)
+                })
+                .catch( err => {
+                    console.log(err);
+                });
             }
 
-            user.save();
-
-            profileStatus.result = 'done';
-            profileStatus.msg = 'Sus datos fueron actualizados exitosamente';
-            let userToEdit = user;
-            req.session.userLoggedIn = userToEdit;
-            return res.render('users/profile', { userToEdit, profileStatus })
-        })
-        .catch( err => {
-            console.log('-----------------Error ----------------');
-            console.log(err);
-
-            profileStatus.result = 'error';
-            profileStatus.msg = 'Error al actualizar los datos';
-            return res.render('users/profile', { user, profileStatus })
-        });
+            return res.render('users/profile', {errors: errorsMapped, userToEdit: newDataUser});
+        }
     }
 }
 

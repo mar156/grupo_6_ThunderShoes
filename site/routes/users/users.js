@@ -20,7 +20,7 @@ var storage = multer.diskStorage({
 var upload = multer({storage:storage});
 
 const fileNameLoader = function (req,res,next){
-    req.body.avatar = req.file;
+    if (req.file) req.body.avatar = req.file;
     next();
 }
 
@@ -34,6 +34,6 @@ router.get('/register',guestMiddleware,  usersController.register);
 router.post('/register', guestMiddleware, upload.single('avatar'), fileNameLoader, validate.register, usersController.userRegister);
 
 router.get('/profile/', authMiddleware, usersController.profile);
-router.put('/profile/', authMiddleware, upload.single('avatar'), usersController.update);
+router.put('/profile/', authMiddleware, upload.single('avatar'), fileNameLoader, validate.profile, usersController.update);
 
 module.exports = router;
