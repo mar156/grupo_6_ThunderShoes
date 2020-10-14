@@ -152,11 +152,10 @@ let validatePhone = function(){
 }
 
 let validateFileName = function () {
-    let validExt = [ 'jpg', 'jpeg', 'png', 'gif' ];
-    let errorMsg = 'Solo se permite formato .gif, .png, .jpg y .jpeg';
-    let feedback = fileExtValidate( file.value, errorMsg, validExt );
+    let validExt = [ 'jpg', 'jpeg', 'png'];
+    let errorMsg = 'Solo se permite formato .png, .jpg y .jpeg';
+    let feedback = !!file.value ? fileExtValidate( file.value, errorMsg, validExt ) : '';
     let feedbackElement = file.nextElementSibling;
-    console.log(feedback);
     if (!!feedback) {
         file.classList.add('error-input');
         errors.file = feedback;
