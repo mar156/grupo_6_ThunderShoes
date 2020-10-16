@@ -1,4 +1,4 @@
-const list = require('./branchController/list');
+const list = require('./brandController/list');
 
 
 const controller = {

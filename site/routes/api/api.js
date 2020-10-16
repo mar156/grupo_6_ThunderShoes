@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const branchController = require('../../controllers/api/branchController');
+const brandController = require('../../controllers/api/brandController');
 const productController = require('../../controllers/api/productController');
 const userController = require('../../controllers/api/userController');
 
@@ -13,6 +13,6 @@ router.get('/products', productController.list);            // Detalle de produc
 router.get('/products/latest', productController.latest);   // Ultimo producto creado
 router.get('/products/:id', productController.detail);      // Detalle de producto
 
-router.get('/branches', branchController.list);             // Listado de marcas
+router.get('/brand', brandController.list);             // Listado de marcas
 
 module.exports = router
