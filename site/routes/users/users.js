@@ -17,7 +17,18 @@ var storage = multer.diskStorage({
     }
 });
 
-var upload = multer({storage:storage});
+const fileFilter = (req, file, cb) => {
+    const ALLOWED_MIME_TYPES = ["image/jpg", "image/jpeg", "image/png", "image/gif", "image/webp"];
+    if(!ALLOWED_MIME_TYPES.includes(file.mimetype)) {
+        file.error = 'type';
+        req.file = file;
+        console.log('imagen no subida');
+        return cb(null, false);
+    }
+    return cb(null, true);
+}
+
+var upload = multer({storage, fileFilter});
 
 const fileNameLoader = function (req,res,next){
     if (req.file) req.body.avatar = req.file;
