@@ -93,87 +93,58 @@ const controller = {
 
     userRegister: async function(req, res) {
         
+        let newUser = req.body;
         let errors = validationResult(req);
-        if( errors.isEmpty() ) {
-            let newUser = req.body;
-            
-            if( (req.body.password) && (req.body.passwordConfirm) && req.body.password === req.body.passwordConfirm ) {
-                newUser.password = bcrypt.hashSync(req.body.password, 10);
-                delete newUser.passwordConfirm;
-                newUser.category_id = 1; // Por defecto se asigna categoria 'user' que es id:1
-                
-                user.create( newUser )
-                .then( result => {
-                    newUser.avatar = 'default-profile.jpg';
-                    if (req.file) { // Si subió una imagen, reemplazar la imagen por defecto. 
-                        // Ya tenemos el ID, renombramos la imagen avatar con id.
-                        
-                        fs.renameSync(
-                            path.join(__dirname, `/../public/img/users/${req.file.filename}`), 
-                            path.join(__dirname, `/../public/img/users/avatar_${result.id}.jpg`)
-                        );
-                        // Actualizamos el valor de la propiedad al nuevo nombre
-                        result.avatar = `avatar_${result.id}.jpg`;
-                        // Guardamos los cambios efectuados en DB. (el nombre del archivo avatar)
-                        result.save();
-                    }
-                    delete newUser.password;    // Se elimina password antes de enviar a Session.
-                    req.session.userLoggedIn = newUser;
-                    res.redirect('/');
-                })
-                .catch( err => {
-                    console.log('--------- Error ---------- >>>> ', err);
-                    res.redirect('/users/register'); // (Pendiente) Agregar error a mostrar
-                });
-                
-            } else {
-                let user = {
-                    first_name: req.body.first_name,
-                    last_name: req.body.last_name,
-                    email: req.body.email,
-                    phone: req.body.phone,
-                    avatar: req.avatar,
-                    password: req.body.password,
-                    passwordConfirm: req.body.passwordConfirm,
-                
-                };
-                let errorsMapped = errors.mapped();;
-                if (!errorsMapped.password) {
-                    errorsMapped.password = {
-                        msg: 'Las contraseñas ingresadas no coinciden'
-                    };
-                }
-                res.render('users/register', {errors: errorsMapped, user});
-            }
-        } else {
-            let errorsMapped = errors.mapped();
+        let errorsMapped = {};
+        if ( !errors.isEmpty() ) errorsMapped = errors.mapped();
 
-            // Se elimina la imagen subida en caso de error - (Pendiente: reemplazar por validación dentro de multer y que no se guarde en disco el archivo.)
-            if ( errorsMapped.avatar && req.file && fs.existsSync(__dirname, `/../public/img/users/${req.file.filename}`) ) {
-                fs.unlink(__dirname, `/../public/img/users/${req.file.filename}`) // Podría ser Sync, pero no se toma acción en caso de error o pos eliminado el archivo.
-                .then( result => {
-                    console.log(result)
-                })
-                .catch( err => {
-                    console.log(err);
-                });
-            }
-
-            let user = {
-                first_name: req.body.first_name,
-                last_name: req.body.last_name,
-                email: req.body.email,
-                phone: req.body.phone,
-                avatar: req.avatar,
-                password: req.body.password,
-                passwordConfirm: req.body.passwordConfirm,
-            };
-            if (!errorsMapped.password) {   // Si no hay errores de contraseña pero estas no coinciden se agrega esto como error
+        if ( (!!req.body.password || !!req.body.passwordConfirm) && !errorsMapped.password && !errorsMapped.passwordConfirm ) {
+            if ( req.body.password !== req.body.passwordConfirm ) {
                 errorsMapped.password = {
                     msg: 'Las contraseñas ingresadas no coinciden'
                 };
             }
-            res.render('users/register', {errors: errorsMapped, user});
+        }
+        
+        if( Object.keys(errorsMapped).length < 1 ) {
+            newUser.password = bcrypt.hashSync(req.body.password, 10);
+            delete newUser.passwordConfirm;
+            newUser.category_id = 1; // Por defecto se asigna categoria 'user' que es id:1
+            
+            user.create( newUser )
+            .then( result => {
+                newUser.avatar = 'default-profile.jpg';
+                if (req.file) { // Si subió una imagen, reemplazar la imagen por defecto. 
+                    // Ya tenemos el ID, renombramos la imagen avatar con id.
+                    
+                    fs.renameSync(
+                        path.join(__dirname, `/../public/img/users/${req.file.filename}`), 
+                        path.join(__dirname, `/../public/img/users/avatar_${result.id}.jpg`)
+                    );
+                    // Actualizamos el valor de la propiedad al nuevo nombre
+                    result.avatar = `avatar_${result.id}.jpg`;
+                    // Guardamos los cambios efectuados en DB. (el nombre del archivo avatar)
+                    result.save();
+                }
+                delete newUser.password;    // Se elimina password antes de enviar a Session.
+                req.session.userLoggedIn = newUser;
+                res.redirect('/');
+            })
+            .catch( err => {
+                delete newUser.password;    
+                if ( err.original.errno === 1062 ) {
+                    errorsMapped.email = {
+                        msg: 'El usuario / email ingresado ya existe',
+                    }
+                    return res.render('users/register', {errors: errorsMapped, user: newUser});
+                }
+                console.log('--------- Error ---------- >>>> ', err);
+                res.redirect('users/register', {errors: errorsMapped, user: newUser}); // (Pendiente) Agregar mensaje para mostrar por error que no pudo ser manejado.
+            });
+        } else {
+            delete newUser.password;
+            delete newUser.passwordConfirm;
+            res.render('users/register', {errors: errorsMapped, user: newUser});
         }
     },
 
@@ -265,6 +236,7 @@ const controller = {
     
                 profileStatus.result = 'done';
                 profileStatus.msg = 'Sus datos fueron actualizados exitosamente';
+                delete user.password;
                 let userToEdit = user;
                 req.session.userLoggedIn = userToEdit;
                 return res.render('users/profile', { userToEdit, profileStatus })
@@ -279,15 +251,15 @@ const controller = {
             });
         } else {
             // Se elimina la imagen subida en caso de error - (Pendiente: reemplazar por validación dentro de multer y que no se guarde en disco el archivo.)
-            if ( errorsMapped.avatar && req.file && fs.existsSync(__dirname, `/../public/img/users/${req.file.filename}`) ) {
-                fs.unlink(__dirname, `/../public/img/users/${req.file.filename}`) // Podría ser Sync, pero no se toma acción en caso de error o pos eliminado el archivo.
-                .then( result => {
-                    console.log(result)
-                })
-                .catch( err => {
-                    console.log(err);
-                });
-            }
+            // if ( errorsMapped.avatar && req.file && fs.existsSync(__dirname, `/../public/img/users/${req.file.filename}`) ) {
+            //     fs.unlink(__dirname, `/../public/img/users/${req.file.filename}`) // Podría ser Sync, pero no se toma acción en caso de error o pos eliminado el archivo.
+            //     .then( result => {
+            //         console.log(result)
+            //     })
+            //     .catch( err => {
+            //         console.log(err);
+            //     });
+            // }
 
             return res.render('users/profile', {errors: errorsMapped, userToEdit: newDataUser});
         }
