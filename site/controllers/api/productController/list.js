@@ -1,29 +1,37 @@
-const path = require ('path')
-
-const {product, brand, gender, image, category, user, color, size } = require('../../../database/models');
+const {product, brand, gender, image, category, color, size } = require('../../../database/models');
 
 module.exports = (req, res) => {
 
     let response = {
-        status: 'error',
-        msg: '',
-        count: 0,
-        countByBrands: {},
-        products: []
+        meta: {
+            status: 500,
+            msg: '',
+        },
+        data: {
+            count: 0,
+            countByBrands: {},
+            products: []
+        }
     }
-
-    let findAndCountAllProducts = product.findAndCountAll( {include: [ brand, gender, image, category, color, size ]} );
-    let findAndCountAllbrand = brand.findAndCountAll();
-    Promise.all( [findAndCountAllProducts, findAndCountAllbrand] )
+    // Pendiente: Incluir categorías, colores y talles, en el resumen de cantidad
+    let promises = [
+        product.findAndCountAll( {include: [ brand, gender, image, category, color, size ]} ),
+        brand.findAll(),
+        category.findAll(),
+        gender.findAll(),
+        color.findAll(),
+        size.findAll(),
+    ];
+    Promise.all( promises )
     .then( result => {
         let products = result[0];
         let brands = result[1];
-        brands.rows.forEach(brand => {
-            response.countByBrands[brand.name] = 0;
+        brands.forEach(brand => {
+            response.data.countByBrands[brand.name] = 0;
         });
-        response.count = products.rows.length;
-        response.products = products.rows.map( row => {
-            response.countByBrands[row.brand.name]++;
+        response.data.count = products.rows.length;
+        response.data.products = products.rows.map( row => {
+            response.data.countByBrands[row.brand.name]++;
             let product = {
                 id: row.id,
                 name: row.name,
@@ -33,13 +41,13 @@ module.exports = (req, res) => {
             }
             return product
         });
-        response.status = 'ok';
-        response.msg = 'Listado de productos obtenido exitsamente';
+        response.meta.status = 200;
+        response.meta.msg = 'Listado de productos obtenido exitsamente';
         return res.json(response);
     })
     .catch( err => {
-        response.msg = 'Error inesperado al obtener listado de productos';
+        response.meta.msg = 'Error inesperado al obtener listado de productos';
         console.log(err);
-        return res.json(response);
+        return res.status(500).json(response);
     });
 }
