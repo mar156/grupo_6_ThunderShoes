@@ -9,11 +9,15 @@ module.exports = (req, res) => {
         },
         data: {
             count: 0,
-            countByBrands: {},
-            products: []
+            countByBrand: {},
+            products: [],
+            countByCategory: {},
+            countByGender: {},
+            countByColor: {},
+            countBySize: {},
         }
     }
-    // Pendiente: Incluir categorías, colores y talles, en el resumen de cantidad
+
     let promises = [
         product.findAndCountAll( {include: [ brand, gender, image, category, color, size ]} ),
         brand.findAll(),
@@ -26,13 +30,41 @@ module.exports = (req, res) => {
     .then( result => {
         let products = result[0];
         let brands = result[1];
+        let categories = result[2];
+        let genders = result[3];
+        let colors = result[4];
+        let sizes = result[5];
+        
         brands.forEach(brand => {
-            response.data.countByBrands[brand.name] = 0;
+            response.data.countByBrand[brand.name] = 0;
         });
-        response.data.countByBrands.totalBrands = brands.length;
+        categories.forEach( category => {
+            response.data.countByCategory[category.name] = 0;
+        });
+        genders.forEach( gender => {
+            response.data.countByGender[gender.name] = 0;
+        });
+        colors.forEach( color => {
+            response.data.countByColor[color.code] = 0;
+        });
+        sizes.forEach( size => {
+            response.data.countBySize[size.size] = 0;
+        });
+
+        response.data.countByBrand.totalBrands = brands.length;
+        response.data.countByCategory.totalCategories = categories.length;
+        response.data.countByGender.totalGenders = genders.length;
+        response.data.countByColor.totalColors = colors.length;
+        response.data.countBySize.totalSizes = sizes.length;
         response.data.count = products.rows.length;
+
         response.data.products = products.rows.map( row => {
-            response.data.countByBrands[row.brand.name]++;
+            response.data.countByBrand[row.brand.name]++;
+            response.data.countByGender[row.gender.name]++;
+            row.categories.forEach( category => response.data.countByCategory[category.dataValues.name]++);
+            row.colors.forEach( color => response.data.countByColor[color.dataValues.code]++);
+            row.sizes.forEach( size => response.data.countBySize[size.dataValues.size]++);
+
             let product = {
                 id: row.id,
                 name: row.name,
