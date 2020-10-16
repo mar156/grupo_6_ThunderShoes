@@ -29,6 +29,7 @@ module.exports = (req, res) => {
         brands.forEach(brand => {
             response.data.countByBrands[brand.name] = 0;
         });
+        response.data.countByBrands.totalBrands = brands.length;
         response.data.count = products.rows.length;
         response.data.products = products.rows.map( row => {
             response.data.countByBrands[row.brand.name]++;
