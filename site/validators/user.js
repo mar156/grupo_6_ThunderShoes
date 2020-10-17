@@ -18,22 +18,33 @@ module.exports = {
             .isNumeric().withMessage('Debe ingresar sólo números')
             .isLength({min:10}).withMessage('Debe ingresar un número válido'),
         check('avatar')
-            // .custom( image => {
-            //     if(image.length != 1){ 
-            //         return false;
-            //     }
-            //     return true;
-            // }).withMessage("Se debe subir una imagen").bail()
             .custom( image => {
                 if (image) return (image.mimetype == "image/png" || image.mimetype == "image/jpg" || image.mimetype == "image/jpeg");
                 return true
             }).withMessage("Solo se permite formato .png, .jpg y .jpeg"),
         check('password')
-            .notEmpty({ignore_whitespace:true }).withMessage('Debe ingresar una contraseña')
-            .isLength({min:8}).withMessage('La contraseña debe tener al menos 8 caracteres'),
+            .notEmpty({ignore_whitespace:true }).withMessage('Debe ingresar una contraseña').bail()
+            .isLength({min:8}).withMessage('La contraseña debe tener al menos 8 caracteres').bail()
+            .custom( value => {
+                let pwdRegEx = /^[A-z]+/;
+                return pwdRegEx.test(value);
+            }).withMessage('La contraseña debe comenzar con una letra').bail()
+            .custom( value => {
+                let pwdRegEx = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-])[A-Za-z][A-Za-z\d!@#$%^&*()_+]{7,}$/;
+                return pwdRegEx.test(value);
+            }).withMessage('La contraseña debe incluir mayúscula, minúscula, número y caracter especial'),
+            
         check('passwordConfirm')
-            .notEmpty({ignore_whitespace:true }).withMessage('Debe ingresar una contraseña')
-            .isLength({min:8}).withMessage('La contraseña debe tener al menos 8 caracteres'),
+            .notEmpty({ignore_whitespace:true }).withMessage('Debe ingresar una contraseña').bail()
+            .isLength({min:8}).withMessage('La contraseña debe tener al menos 8 caracteres').bail()
+            .custom( value => {
+                let pwdRegEx = /^[A-z]+/;
+                return pwdRegEx.test(value);
+            }).withMessage('La contraseña debe comenzar con una letra').bail()
+            .custom( value => {
+                let pwdRegEx = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-])[A-Za-z][A-Za-z\d!@#$%^&*()_+]{7,}$/;
+                return pwdRegEx.test(value);
+            }).withMessage('La contraseña debe incluir mayúscula, minúscula, número y caracter especial'),
     ],
     login: [
         check('user')
@@ -56,27 +67,29 @@ module.exports = {
             .isNumeric().withMessage('Debe ingresar sólo números')
             .isLength({min:10}).withMessage('Debe ingresar un número válido'),
         check('avatar')
-            // .custom( image => {
-            //     if(image.length != 1){ 
-            //         return false;
-            //     }
-            //     return true;
-            // }).withMessage("Se debe subir una imagen").bail()
             .custom( image => {
                 if (image) return (image.mimetype == "image/png" || image.mimetype == "image/jpg" || image.mimetype == "image/jpeg");
                 return true
             }).withMessage("Solo se permite formato .png, .jpg y .jpeg"),
         check('password')
-            .custom( value => { 
-                if (!!value) return value.trim().length >= 8
-                return true
-            })
-            .withMessage('La contraseña debe tener al menos 8 caracteres'),
+            .isLength({min:8}).withMessage('La contraseña debe tener al menos 8 caracteres').bail()
+            .custom( value => {
+                let pwdRegEx = /^[A-z]+/;
+                return pwdRegEx.test(value);
+            }).withMessage('La contraseña debe comenzar con una letra').bail()
+            .custom( value => {
+                let pwdRegEx = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-])[A-Za-z][A-Za-z\d!@#$%^&*()_+]{7,}$/;
+                return pwdRegEx.test(value);
+            }).withMessage('La contraseña debe incluir mayúscula, minúscula, número y caracter especial'),
         check('passwordConfirm')
-            .custom( value => { 
-                if (!!value) return value.trim().length >= 8
-                return true
-            })
-            .withMessage('La contraseña debe tener al menos 8 caracteres'),
+            .isLength({min:8}).withMessage('La contraseña debe tener al menos 8 caracteres').bail()
+            .custom( value => {
+                let pwdRegEx = /^[A-z]+/;
+                return pwdRegEx.test(value);
+            }).withMessage('La contraseña debe comenzar con una letra').bail()
+            .custom( value => {
+                let pwdRegEx = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-])[A-Za-z][A-Za-z\d!@#$%^&*()_+]{7,}$/;
+                return pwdRegEx.test(value);
+            }).withMessage('La contraseña debe incluir mayúscula, minúscula, número y caracter especial'),
     ]
 }

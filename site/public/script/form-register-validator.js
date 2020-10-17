@@ -1,5 +1,9 @@
 let errors = {};
 
+// Regex
+const startWithLetter = /^[A-z]+/;
+const isValidPwd = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-])[A-Za-z][A-Za-z\d!@#$%^&*()_+]{7,}$/;
+
 //Capturar elementos 
 const form = document.getElementById('form-register');
 const firstName = document.getElementById('first_name');
@@ -43,6 +47,24 @@ const fileExtValidate = function (path, msg, values ) {
     return values.some(value => value === pathExt) ? '' : msg;
 }
 
+const isEmailAvailable = function (email) {
+    let host = window.location.href.replace('users/register', 'api/users/isEmailAvailable/');
+    return new Promise(resolve => {
+        fetch(host + email)
+        .then(response => response.json())
+        .then(data => {
+            if (data.data.isAvailable) resolve (true)
+            resolve (false)
+        })
+        .catch( err => {
+            console.log(err);
+            throw (err)
+        });
+    });
+}
+
+// /api/users/isEmailAvailable/
+
 const areSameValues = (value1, value2, msg) => value1 == value2 ? '' : msg ;
 
 let validateFirstName = function(){
@@ -78,7 +100,6 @@ let validateLastName = function(){
     let feedbackElement = lastName.nextElementSibling;
     let regex =  /^[A-zÁÉÍÓÚáéíóúñNüÜöÖËë\- ']+$/.test(lastName.value);
     let message = 'El nombre no puede contener números, "," o ";"';
-    console.log(regex);
     if(fieldIsEmpty(lastName)){
         feedback = fieldIsEmpty(lastName);
     }
@@ -102,14 +123,19 @@ let validateLastName = function(){
     feedbackElement.innerText = feedback;
 }
 
-let validateEmail = function(){
+let validateEmail = async function(){
     let feedback = '';
     let feedbackElement = email.nextElementSibling;
+    let emailRegEx = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
     if(fieldIsEmpty(email)){
         feedback = fieldIsEmpty(email);
+    } else if ( !emailRegEx.test(email.value) ) {
+        feedback = 'Debe ingresar un email valido';
+    } else if ( !(await isEmailAvailable(email.value)) ) {
+        feedback = 'El email ingresado ya existe';
     }
-    //evaluar email con expresión regular -
+    
 
     if(feedback){
         email.classList.add('error-input');
@@ -173,9 +199,12 @@ let validatePassword = function(){
 
     if(fieldIsEmpty(password)){
         feedback = fieldIsEmpty(password);
-    }
-    else if(fieldMin(password, 8)){
+    } else if ( fieldMin(password, 8) ) {
         feedback = fieldMin(password, 8);
+    } else if ( !startWithLetter.test(password.value) ) {
+        feedback = 'La contraseña debe comenzar con letra/s';
+    } else if ( !isValidPwd.test(password.value) ){
+        feedback = 'La contraseña debe incluir mayúscula, minúscula, número y caracter especial';
     }
     
     if(feedback){
@@ -193,14 +222,17 @@ let validatePassword = function(){
 let validatePasswordConfirm = function() {
     let feedback = '';
     let feedbackElement = passwordConfirm.nextElementSibling;
-    let msg = 'Las contraseñas ingresadas no coinciden';
 
-    if(fieldIsEmpty( passwordConfirm) ) {
-        feedback = fieldIsEmpty( passwordConfirm );
-    } else if( fieldMin(passwordConfirm, 8) ) {
+    if(fieldIsEmpty(passwordConfirm)){
+        feedback = fieldIsEmpty(passwordConfirm);
+    } else if ( fieldMin(passwordConfirm, 8) ) {
         feedback = fieldMin(passwordConfirm, 8);
-    } else if( areSameValues(password.value, passwordConfirm.value, msg) ) {
-        feedback = areSameValues(password.value, passwordConfirm.value, msg);
+    } else if ( !startWithLetter.test(passwordConfirm.value) ) {
+        feedback = 'La contraseña debe comenzar con letra/s';
+    } else if ( !isValidPwd.test(passwordConfirm.value) ){
+        feedback = 'La contraseña debe incluir mayúscula, minúscula, número y caracter especial';
+    } else if( areSameValues(password.value, passwordConfirm.value, 'Las contraseñas ingresadas no coinciden') ) {
+        feedback = areSameValues(password.value, passwordConfirm.value, 'Las contraseñas ingresadas no coinciden');
     }
 
     if(feedback) {
@@ -219,7 +251,9 @@ lastName.addEventListener('blur', validateLastName);
 email.addEventListener('blur', validateEmail);
 phone.addEventListener('blur', validatePhone);
 password.addEventListener('blur', validatePassword);
+password.addEventListener('keyup', validatePassword);
 passwordConfirm.addEventListener('blur', validatePasswordConfirm);
+passwordConfirm.addEventListener('keyup', validatePasswordConfirm);
 file.addEventListener('change', validateFileName);
 
 form.addEventListener('submit', function(e){
