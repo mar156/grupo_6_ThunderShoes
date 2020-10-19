@@ -72,24 +72,42 @@ module.exports = {
                 return true
             }).withMessage("Solo se permite formato .png, .jpg y .jpeg"),
         check('password')
-            .isLength({min:8}).withMessage('La contraseña debe tener al menos 8 caracteres').bail()
+            .custom( value => value.length >= 8 || value.length < 1 )
+            .withMessage('La contraseña debe tener al menos 8 caracteres').bail()
             .custom( value => {
-                let pwdRegEx = /^[A-z]+/;
-                return pwdRegEx.test(value);
-            }).withMessage('La contraseña debe comenzar con una letra').bail()
+                if ( value.length >= 1 ) {
+                    let pwdRegEx = /^[A-z]+/;
+                    return pwdRegEx.test(value);
+                }
+                return true
+            })
+            .withMessage('La contraseña debe comenzar con una letra').bail()
             .custom( value => {
-                let pwdRegEx = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-])[A-Za-z][A-Za-z\d!@#$%^&*()_+]{7,}$/;
-                return pwdRegEx.test(value);
-            }).withMessage('La contraseña debe incluir mayúscula, minúscula, número y caracter especial'),
+                if ( value.length >= 1 ) {
+                    let pwdRegEx = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-])[A-Za-z][A-Za-z\d!@#$%^&*()_+]{7,}$/;
+                    return pwdRegEx.test(value);
+                }
+                return true
+            })
+            .withMessage('La contraseña debe incluir mayúscula, minúscula, número y caracter especial'),
         check('passwordConfirm')
-            .isLength({min:8}).withMessage('La contraseña debe tener al menos 8 caracteres').bail()
+            .custom( value => value.length >= 8 || value.length < 1 )
+            .withMessage('La contraseña debe tener al menos 8 caracteres').bail()
             .custom( value => {
-                let pwdRegEx = /^[A-z]+/;
-                return pwdRegEx.test(value);
-            }).withMessage('La contraseña debe comenzar con una letra').bail()
+                if ( value.length >= 1 ) {
+                    let pwdRegEx = /^[A-z]+/;
+                    return pwdRegEx.test(value);
+                }
+                return true
+            })
+            .withMessage('La contraseña debe comenzar con una letra').bail()
             .custom( value => {
-                let pwdRegEx = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-])[A-Za-z][A-Za-z\d!@#$%^&*()_+]{7,}$/;
-                return pwdRegEx.test(value);
-            }).withMessage('La contraseña debe incluir mayúscula, minúscula, número y caracter especial'),
+                if ( value.length >= 1 ) {
+                    let pwdRegEx = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-])[A-Za-z][A-Za-z\d!@#$%^&*()_+]{7,}$/;
+                    return pwdRegEx.test(value);
+                }
+                return true
+            })
+            .withMessage('La contraseña debe incluir mayúscula, minúscula, número y caracter especial'),
     ]
 }
