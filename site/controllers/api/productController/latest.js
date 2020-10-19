@@ -1,4 +1,4 @@
-const {product, brand, gender, image, category, color, size, sequelize } = require('../../../database/models');
+const {product, brand, gender, image, category, color, size } = require('../../../database/models');
 
 module.exports = (req, res) => {
     let response = {
@@ -41,7 +41,7 @@ module.exports = (req, res) => {
         response.data.product.discount = result.on_sale;
         response.data.product.brand = result.brand.name;
         response.data.product.gender = result.gender.name;
-        response.data.product.images = result.images.map( image => `/img/${image.file_name}` );
+        response.data.product.images = result.images.map( image => `http://localhost:3000/img/${image.file_name}` );
         response.data.product.categories = result.categories.map( category => category.name );
         response.data.product.colors = result.colors.map( color => color.code );
         response.data.product.sizes = result.sizes.map( size => size.size );
