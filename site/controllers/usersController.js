@@ -105,7 +105,6 @@ const controller = {
                 };
             }
         }
-        
         if( Object.keys(errorsMapped).length < 1 ) {
             newUser.password = bcrypt.hashSync(req.body.password, 10);
             delete newUser.passwordConfirm;
@@ -142,6 +141,12 @@ const controller = {
                 res.redirect('users/register', {errors: errorsMapped, user: newUser}); // (Pendiente) Agregar mensaje para mostrar por error que no pudo ser manejado.
             });
         } else {
+            // Se elimina la imagen subida en caso de error - (
+            if ( !!req.file && fs.existsSync(path.join(__dirname, `/../public/img/users/${req.file.filename}`)) ) {
+                fs.unlink( path.join(__dirname, `/../public/img/users/${req.file.filename}`), // Podría ser Sync, pero no se toma acción en caso de error o pos eliminado el archivo.
+                err => {if (err) console.log(err)} ) 
+            }
+
             delete newUser.password;
             delete newUser.passwordConfirm;
             res.render('users/register', {errors: errorsMapped, user: newUser});
@@ -189,7 +194,7 @@ const controller = {
                 };
             }
         }
-
+        console.log(Object.keys(errorsMapped));
         if ( Object.keys(errorsMapped).length < 1 ) {
             newPassword = bcrypt.hashSync(req.body.password, 10);
     
@@ -250,16 +255,11 @@ const controller = {
                 return res.render('users/profile', { userToEdit: newDataUser, profileStatus })
             });
         } else {
-            // Se elimina la imagen subida en caso de error - (Pendiente: reemplazar por validación dentro de multer y que no se guarde en disco el archivo.)
-            // if ( errorsMapped.avatar && req.file && fs.existsSync(__dirname, `/../public/img/users/${req.file.filename}`) ) {
-            //     fs.unlink(__dirname, `/../public/img/users/${req.file.filename}`) // Podría ser Sync, pero no se toma acción en caso de error o pos eliminado el archivo.
-            //     .then( result => {
-            //         console.log(result)
-            //     })
-            //     .catch( err => {
-            //         console.log(err);
-            //     });
-            // }
+            // Se elimina la imagen subida en caso de error - 
+            if ( !!req.file && fs.existsSync(path.join(__dirname, `/../public/img/users/${req.file.filename}`)) ) {
+                fs.unlink( path.join(__dirname, `/../public/img/users/${req.file.filename}`), // Podría ser Sync, pero no se toma acción en caso de error o pos eliminado el archivo.
+                err => {if (err) console.log(err)} ) 
+            }
 
             return res.render('users/profile', {errors: errorsMapped, userToEdit: newDataUser});
         }
