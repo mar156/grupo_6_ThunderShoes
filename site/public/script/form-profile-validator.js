@@ -78,7 +78,6 @@ let validateLastName = function(){
     let feedbackElement = lastName.nextElementSibling;
     let regex =  /^[A-zÁÉÍÓÚáéíóúñNüÜöÖËë\- ']+$/.test(lastName.value);
     let message = 'El nombre no puede contener números, "," o ";"';
-    console.log(regex);
     if(fieldIsEmpty(lastName)){
         feedback = fieldIsEmpty(lastName);
     }

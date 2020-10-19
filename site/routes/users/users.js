@@ -22,7 +22,6 @@ const fileFilter = (req, file, cb) => {
     if(!ALLOWED_MIME_TYPES.includes(file.mimetype)) {
         file.error = 'type';
         req.file = file;
-        console.log('imagen no subida');
         return cb(null, false);
     }
     return cb(null, true);

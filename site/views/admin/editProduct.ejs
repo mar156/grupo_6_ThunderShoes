@@ -7,7 +7,6 @@
         <div class="form-container">
             <div class="form-content">
                 <h2>EDITANDO PRODUCTO - id: <%= locals && locals.id %></h2>
-                <% if(locals && locals.errors){console.log(errors)} %>
                 <form id="product" action="/admin/product/<%= locals && locals.id  %>?_method=PUT" method="POST" enctype="multipart/form-data">
                     <label  for="product-name">Nombre del producto: </label>
                     <input class="<%if(locals&&locals.errors&&errors.name){%><%="error-input"%><%}%>" type="text" name="name" id="name" autofocus value="<%= product && product.name %>">
@@ -205,6 +204,6 @@
     <script src="/script/script-checked.js"></script>
     <script src="/script/script.js"></script>
     <script src="/script/footer.js"></script>
-    <script src="/script/edit-form-product-validation.js"></script>
+    <!-- <script src="/script/edit-form-product-validation.js"></script> -->
 </body>
 </html>
