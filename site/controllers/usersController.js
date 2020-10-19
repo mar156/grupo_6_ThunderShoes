@@ -194,7 +194,6 @@ const controller = {
                 };
             }
         }
-        console.log(Object.keys(errorsMapped));
         if ( Object.keys(errorsMapped).length < 1 ) {
             newPassword = bcrypt.hashSync(req.body.password, 10);
     
