@@ -43,8 +43,19 @@ const createProducts = {
                 console.log(error);
                 res.status(500).send('Error');
             }
-        }else{
-            let product = {
+        } else {
+            // Se elimina las imagenes subidas en caso de error - 
+            let filesname = req.files.map(image => filename = {file_name: image.filename});
+            if ( filesname.length ) {
+                filesname.forEach(file => {
+                    if ( fs.existsSync( path.join(__dirname, `../../public/img/${file.file_name}`)) ) {
+                        fs.unlink( path.join(__dirname, `../../public/img/${file.file_name}`), // Podría ser Sync, pero no se toma acción en caso de error o pos eliminado el archivo.
+                        err => {if (err) console.log(err)} ) 
+                    }
+                });
+            }
+
+            let product = { 
                 name: req.body.name,
                 price: req.body.price,
                 on_sale: req.body.on_sale,
@@ -61,34 +72,6 @@ const createProducts = {
             res.render('admin/createProduct', {errors: errorsMapped, product});
         }
     }
-
-        /* 
-        let newProduct = {
-            id: siguienteIndice,
-            name: req.body.name,
-            brand: req.body.brand,
-            description: req.body.description,
-            gender: req.body.gender,
-            category:req.body.category,
-            onSale: req.body.onSale,
-            colors: req.body.colors,
-            sizes: req.body.sizes,
-            price: req.body.price,
-            image: " " ,
-            stock: 1, //cuando tengamos una planilla de stock
-            //puedo usarla para leer la cantidad de productos de ese tipo que
-            //hay y actualizar el número en función a ello
-            
-
-        }
-       
-
-        products.push(newProduct);
-        let listaProductosJSON= JSON.stringify(products, null, " ");
-        fs.writeFileSync(filePath, listaProductosJSON, 'utf-8');
-        return res.send(newProduct); */
-
-    
 };
 
 module.exports = createProducts;

@@ -128,6 +128,7 @@ const editProduct = {
         });   
     
     },
+
     update: async function(req, res){
 
        let errors = validationResult(req);
@@ -141,8 +142,7 @@ const editProduct = {
 
             try{ 
                 productExist = await product.findByPk(id);   
-                
-                if(images){
+                if(images.length){
                     let filesname = images.map(function(image){
                         return {file_name: image.filename};
                     })
@@ -166,118 +166,128 @@ const editProduct = {
             } catch(error){
                 console.log(error);
             }
-        }else{
+        } else {
+            // Se elimina las imagenes subidas en caso de error - 
+            let filesname = req.files.map(image => filename = {file_name: image.filename});
+            if ( filesname.length ) {
+                filesname.forEach(file => {
+                    if ( fs.existsSync( path.join(__dirname, `../../public/img/${file.file_name}`)) ) {
+                        fs.unlink( path.join(__dirname, `../../public/img/${file.file_name}`), // Podría ser Sync, pero no se toma acción en caso de error o pos eliminado el archivo.
+                        err => {if (err) console.log(err)} ) 
+                    }
+                });
+            }
 
-        product.findByPk(id, { include: [brand, gender, image, category, color, size] })
-        .then(function(productToEdit){
+            product.findByPk(id, { include: [brand, gender, image, category, color, size] })
+            .then(function(productToEdit){
+                
+                let productToShow = {
+                    name: productToEdit.name,
+                    brand: {
+                        newbalance:'',
+                        puma: '',
+                        nike:'',
+                        adidas:''
+                    },
+                    description: productToEdit.description,
+                    gender: {
+                        male:'',
+                        female: '',
+                        unisex: ''
+                    },
+                    category: {
+                        tennis: '',
+                        running: '',
+                        volley: '',
+                        football: '',
+                        collection: ''
+                    },
+                    on_sale: productToEdit.on_sale,
+                    colors: {                  // la lista de colors se carga desde BD/FileJson y se genera el listado de la propiedad colors, 
+                        red: '',                // de cada producto se obtiene que colors seleccionados posee y se marca en 'checked' para pasar a la vista. 
+                        green: '',              // Idem 'Talles' y 'Categorías'.
+                        black: '',
+                        blue: '',
+                        yellow: '',
+                        gray: '',
+                        white: ''
+                    },
+                    sizes: {
+                        t34: '',
+                        t35: '',
+                        t36: '',
+                        t37: '',
+                        t38: '',
+                        t39: '',
+                        t40: ''
+                    },
+                    price: productToEdit.price,
+                    image: [
+                        'file1.jpg',
+                        'file2.jpg'
+                    ],
+                    stock: productToEdit.stock
+                };
+    
+                // Marca
             
-             let productToShow = {
-                 name: productToEdit.name,
-                 brand: {
-                     newbalance:'',
-                     puma: '',
-                     nike:'',
-                     adidas:''
-                 },
-                 description: productToEdit.description,
-                 gender: {
-                     male:'',
-                     female: '',
-                     unisex: ''
-                 },
-                 category: {
-                     tennis: '',
-                     running: '',
-                     volley: '',
-                     football: '',
-                     collection: ''
-                 },
-                 on_sale: productToEdit.on_sale,
-                 colors: {                  // la lista de colors se carga desde BD/FileJson y se genera el listado de la propiedad colors, 
-                     red: '',                // de cada producto se obtiene que colors seleccionados posee y se marca en 'checked' para pasar a la vista. 
-                     green: '',              // Idem 'Talles' y 'Categorías'.
-                     black: '',
-                     blue: '',
-                     yellow: '',
-                     gray: '',
-                     white: ''
-                 },
-                 sizes: {
-                     t34: '',
-                     t35: '',
-                     t36: '',
-                     t37: '',
-                     t38: '',
-                     t39: '',
-                     t40: ''
-                 },
-                 price: productToEdit.price,
-                 image: [
-                     'file1.jpg',
-                     'file2.jpg'
-                 ],
-                 stock: productToEdit.stock
-             };
- 
-             // Marca
-         
-             for (const propiedad in productToShow.brand) {
-                 if (productToEdit.brand.name.split(" ").join("").toLowerCase() == propiedad) {
-                     productToShow.brand[propiedad] = 'checked';
-                 } 
-             }
- 
-             // Género
- 
-             for (const propiedad in productToShow.gender) {
-                 if (productToEdit.gender.name.toLowerCase() == propiedad) {
-                     productToShow.gender[propiedad] = 'checked';
-                 } 
-             }
- 
-             // Categorias
- 
-             productToEdit.categories.forEach(function(category){
-                 for (const propiedad in productToShow.category) {
-                     if (category.name.toLowerCase() == propiedad) {
-                         productToShow.category[propiedad] = 'checked';
-                     } 
-                 }
-             });  
- 
-             // Colores
- 
-             productToEdit.colors.forEach(function(color){
-                 for (const propiedad in productToShow.colors) {
-                     if (color.code == "0011" && propiedad == "red") {
-                         productToShow.colors[propiedad] = 'checked';
-                     } 
-                     else if (color.code == "0022"&& propiedad == "green"){ productToShow.colors[propiedad] = 'checked';}
-                     else if (color.code == "0033" && propiedad == "black"){ productToShow.colors[propiedad] = 'checked';}
-                     else if (color.code == "0044" && propiedad == "blue"){ productToShow.colors[propiedad] = 'checked';}
-                     else if (color.code == "0055" && propiedad == "yellow"){ productToShow.colors[propiedad] = 'checked';}
-                     else if (color.code == "0066" && propiedad == "grey"){ productToShow.colors[propiedad] = 'checked';}
-                     else if (color.code == "0077" && propiedad == "white"){ productToShow.colors[propiedad] = 'checked';}
-                 }
-             });
- 
-             // Talles
- 
-             productToEdit.sizes.forEach(function(size){
-                 for (const propiedad in productToShow.sizes) {
-                     if (("t"+size.size) == propiedad) {
-                         productToShow.sizes[propiedad] = 'checked';
-                     } 
-                 }
-             }); 
- 
-             let errorsMapped = errors.mapped();
-             return res.render('admin/editProduct', {errors: errorsMapped, id, product: productToShow});
-         })
-         .catch(function(error){
-              console.log(error);
-         });   
-    }
+                for (const propiedad in productToShow.brand) {
+                    if (productToEdit.brand.name.split(" ").join("").toLowerCase() == propiedad) {
+                        productToShow.brand[propiedad] = 'checked';
+                    } 
+                }
+    
+                // Género
+    
+                for (const propiedad in productToShow.gender) {
+                    if (productToEdit.gender.name.toLowerCase() == propiedad) {
+                        productToShow.gender[propiedad] = 'checked';
+                    } 
+                }
+    
+                // Categorias
+    
+                productToEdit.categories.forEach(function(category){
+                    for (const propiedad in productToShow.category) {
+                        if (category.name.toLowerCase() == propiedad) {
+                            productToShow.category[propiedad] = 'checked';
+                        } 
+                    }
+                });  
+    
+                // Colores
+    
+                productToEdit.colors.forEach(function(color){
+                    for (const propiedad in productToShow.colors) {
+                        if (color.code == "0011" && propiedad == "red") {
+                            productToShow.colors[propiedad] = 'checked';
+                        } 
+                        else if (color.code == "0022"&& propiedad == "green"){ productToShow.colors[propiedad] = 'checked';}
+                        else if (color.code == "0033" && propiedad == "black"){ productToShow.colors[propiedad] = 'checked';}
+                        else if (color.code == "0044" && propiedad == "blue"){ productToShow.colors[propiedad] = 'checked';}
+                        else if (color.code == "0055" && propiedad == "yellow"){ productToShow.colors[propiedad] = 'checked';}
+                        else if (color.code == "0066" && propiedad == "grey"){ productToShow.colors[propiedad] = 'checked';}
+                        else if (color.code == "0077" && propiedad == "white"){ productToShow.colors[propiedad] = 'checked';}
+                    }
+                });
+    
+                // Talles
+    
+                productToEdit.sizes.forEach(function(size){
+                    for (const propiedad in productToShow.sizes) {
+                        if (("t"+size.size) == propiedad) {
+                            productToShow.sizes[propiedad] = 'checked';
+                        } 
+                    }
+                }); 
+    
+                let errorsMapped = errors.mapped();
+                return res.render('admin/editProduct', {errors: errorsMapped, id, product: productToShow});
+            })
+            .catch(function(error){
+                console.log(error);
+            });   
+        }
     }
 }
 
