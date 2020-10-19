@@ -26,7 +26,7 @@
         <div id="btn-menu" class="btn-menu"><i class="fas fa-bars"></i></div>
         <a href="/"><div class="logo"> <img src="/img/IconoThunderShoes.svg" alt="icono-thunder-shoes"> </div></a>
         <div class="btn-cart">
-            <i class="fas fa-shopping-cart" onclick="toogleSummary()"></i>
+            <i class="fas fa-shopping-cart toggle-summary"></i>
         </div>
     </div>
     <div class="container-desktop">
@@ -48,7 +48,7 @@
                     <button type="submit" class='fas fa-search'></button>
                 </form>
             </div>    
-            <div class="btn-cart" onclick="toogleSummary()">
+            <div class="btn-cart toggle-summary">
                 <i class="fas fa-shopping-cart"></i>
             </div>
         </div>
@@ -97,7 +97,7 @@
 <!-- Summary cart -->
 <div id="summary-container" class="summary-container" style="display: none;">
     <p>PRODUCTOS AGREGADOS</p>
-    <span  onclick="toogleSummary()" >x</span>
+    <span class="toggle-summary">x</span>
 
     <div class="summary-content">
         <div class="summary-item">
@@ -145,3 +145,4 @@
         </a>
     </div>
 </div>
+<script src="/script/script.js"></script>
