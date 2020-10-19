@@ -148,15 +148,15 @@ function imageValidator() {
             return true;
         }
     }
-    if (inputImage.files.length != 4) {
+    if (inputImage.files.length != 4 && inputImage.files.length != 0) {
         imageError.innerText = 'Se deben subir 4 imágenes';
         inputImage.classList.add("error-input");
         return true;
     }
-    if(inputImage.files.length == 4){
-    imageError.innerText = '';
-    inputImage.classList.remove("error-input");
-    return false;
+    if(inputImage.files.length == 4 || inputImage.files.length != 0){
+        imageError.innerText = '';
+        inputImage.classList.remove("error-input");
+        return false;
     }
 }
 
