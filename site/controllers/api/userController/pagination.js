@@ -84,11 +84,11 @@ module.exports = (req, res) => {
             'state',
             'postal_code'
         ],
-        where: { 
-            first_name: { [Op.substring]: response.meta.query.firstName }, 
-            last_name: { [Op.substring]: response.meta.query.lastName }, 
-            email: { [Op.substring]: response.meta.query.email }, 
-        },
+        // where: { 
+        //     first_name: { [Op.substring]: response.meta.query.firstName }, 
+        //     last_name: { [Op.substring]: response.meta.query.lastName }, 
+        //     email: { [Op.substring]: response.meta.query.email }, 
+        // },
         order: [ 
             ['first_name', 'DESC'], 
             ['last_name', 'DESC'], 
@@ -96,6 +96,7 @@ module.exports = (req, res) => {
         ],
         limit: response.meta.query.perPage,
         offset,
+        distinct: true,
         include: [ product ]
     })
     .then( result => JSON.parse(JSON.stringify(result)) )
@@ -103,7 +104,7 @@ module.exports = (req, res) => {
         if (result.rows.length) {
             response.meta.status = 200;
             response.meta.msg = 'Listado de usuarios paginado obtenido exitosamente';
-            response.meta.count = result.rows.length;
+            response.meta.count = result.count;
             response.meta.totalPages = Math.ceil(response.meta.count / response.meta.query.perPage);
 
             let currentPage = response.meta.query;
@@ -140,7 +141,7 @@ module.exports = (req, res) => {
                     postalCode: row.postal_code,
                     state: row.state,
                     city: row.city,
-                    avatar: `http://localhost:3000/img/users/${row.avatar}`,
+                    avatar: row.avatar ? `http://localhost:3000/img/users/${row.avatar}`: null,
                     favorites: row.products.map( fav => {
                         return {
                             id: fav.id,

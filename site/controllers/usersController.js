@@ -109,7 +109,8 @@ const controller = {
             newUser.password = bcrypt.hashSync(req.body.password, 10);
             delete newUser.passwordConfirm;
             newUser.category_id = 1; // Por defecto se asigna categoria 'user' que es id:1
-            
+            newUser.avatar = 'default-profile.jpg';
+            console.log('\n----------------------------------------',newUser, '----------------------------------------\n');
             user.create( newUser )
             .then( result => {
                 newUser.avatar = 'default-profile.jpg';
@@ -131,14 +132,16 @@ const controller = {
             })
             .catch( err => {
                 delete newUser.password;    
-                if ( err.original.errno === 1062 ) {
+                console.log('--------- Error ---------- >>>> ', err);
+                if ( err.original && err.original.errno === 1062 ) {
                     errorsMapped.email = {
                         msg: 'El usuario / email ingresado ya existe',
                     }
                     return res.render('users/register', {errors: errorsMapped, user: newUser});
                 }
-                console.log('--------- Error ---------- >>>> ', err);
-                res.redirect('users/register', {errors: errorsMapped, user: newUser}); // (Pendiente) Agregar mensaje para mostrar por error que no pudo ser manejado.
+                res.render('users/register', {errors: errorsMapped, user: newUser});
+                // Redireccionar a pagina de error 500 - Crear vista
+                // res.redirect('users/register', {errors: errorsMapped, user: newUser}); // (Pendiente) Agregar mensaje para mostrar por error que no pudo ser manejado.
             });
         } else {
             // Se elimina la imagen subida en caso de error - (
@@ -168,6 +171,7 @@ const controller = {
         // Pendiente a resolver: Cuando se actualizan los datos, session no se actualiza inmediatamente y no se muestran los cambios hasta cambiar a una nueva vista.
 
         let userToEdit = req.session.userLoggedIn;
+        console.log(userToEdit);
         let profileStatus = {};
         let newDataUser = {
             first_name: req.body.first_name,
@@ -197,7 +201,7 @@ const controller = {
         if ( Object.keys(errorsMapped).length < 1 ) {
             newPassword = bcrypt.hashSync(req.body.password, 10);
     
-            user.findByPk(1, { 
+            user.findByPk(userToEdit.id, { 
                 attributes: [
                     'id',
                     'first_name', 
