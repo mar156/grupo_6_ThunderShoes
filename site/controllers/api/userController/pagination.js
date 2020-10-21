@@ -140,7 +140,7 @@ module.exports = (req, res) => {
                     postalCode: row.postal_code,
                     state: row.state,
                     city: row.city,
-                    avatar: row.avatar,
+                    avatar: `http://localhost:3000/img/users/${row.avatar}`,
                     favorites: row.products.map( fav => {
                         return {
                             id: fav.id,
