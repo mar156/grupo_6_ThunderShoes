@@ -46,7 +46,6 @@ module.exports = (req, res) => {
     .then( result => {
         response.meta.status = 200;
         response.meta.msg = 'último usuario obtenido exitosamente';
-        console.log(result);
 
         response.data.user.id = result.id;
         response.data.user.firstName = result.first_name;
