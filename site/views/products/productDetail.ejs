@@ -23,14 +23,20 @@
                 <!--Slideshow-->
                 <div class="product-detail-slideshow">
                 
-                    <img id="img-principal" src="/img/<%= product && product.images[0].file_name %>" alt="Zapatillas de niños New Balance Cruz Sport Grade">
-                
-                    <div class="product-detail-thumnails">
-                        <img class="thumnails selected" src="/img/<%= product && product.images[0].file_name %>" alt="">
-                        <img class="thumnails" src="/img/<%= product && product.images[1].file_name %>" alt="">
-                        <img class="thumnails" src="/img/<%= product && product.images[2].file_name %>" alt="">
-                        <img class="thumnails" src="/img/<%= product && product.images[3].file_name %>" alt="">
-                    </div>
+                    <% if (product && product.images.length) { %>
+                        <img id="img-principal" src="/img/<%= product && product.images[0].file_name %>" alt="Zapatillas de niños New Balance Cruz Sport Grade">
+                        <div class="product-detail-thumnails">
+                            <% product.images.forEach((image, i) => { %>
+                                <% if ( !i ) { %>
+                                    <img class="thumnails selected" src="/img/<%= image.file_name %>" alt="">
+                                <% } else { %>
+                                    <img class="thumnails" src="/img/<%= image.file_name %>" alt="">        
+                                <% } %>
+                            <% }); %>
+                        </div>
+                    <% } else { %>
+                        <img id="img-principal" src="/img/no_image_available.jpg" alt="Zapatillas de niños New Balance Cruz Sport Grade">
+                    <% } %>
     
                 </div>
                 
