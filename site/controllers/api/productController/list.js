@@ -6,9 +6,9 @@ module.exports = (req, res) => {
         meta: {
             status: 500,
             msg: '',
+            count: 0
         },
         data: {
-            count: 0,
             countByBrand: {},
             products: [],
             countByCategory: {},
@@ -56,7 +56,7 @@ module.exports = (req, res) => {
         response.data.countByGender.totalGenders = genders.length;
         response.data.countByColor.totalColors = colors.length;
         response.data.countBySize.totalSizes = sizes.length;
-        response.data.count = products.rows.length;
+        response.meta.count = products.rows.length;
 
         response.data.products = products.rows.map( row => {
             response.data.countByBrand[row.brand.name]++;

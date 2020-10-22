@@ -3,6 +3,7 @@ const app = express();
 const methodOverride = require('method-override');
 const session = require("express-session");
 const cookieParser = require('cookie-parser');
+const cors = require('cors');
 
 const adminMiddleware = require('./middlewares/adminMiddleware');
 const rememberMiddleware = require('./middlewares/rememberMiddleware');
@@ -16,6 +17,7 @@ const apiRoutes = require('./routes/api/api');
 
 app.set( 'view engine', 'ejs');
 
+app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
 app.use(session({secret: "Clave Secreta", resave: true, saveUninitialized: true, }));
