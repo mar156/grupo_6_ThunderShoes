@@ -3,6 +3,7 @@ import TotalAmountPanel from './components/totalamountpanel/TotalAmountPanel'
 import BigPanel from './components/bigpanel/BigPanel'
 import Category from './components/Category'
 import DetailPanel from './components/DetailPanel'
+import Table from './components/Table'
 
 
 class App extends Component {
@@ -10,7 +11,11 @@ class App extends Component {
     super(props);
     this.state = {
         metrics: [],
-        categories: []
+        countByCategory: [],
+        countByBrand: [],
+        countByGender: [],
+        countByColor: [],
+        countBySize: []
     }
   }
 
@@ -25,31 +30,55 @@ class App extends Component {
     .then(result => {
 
       let products = result[0];
-      let users = result[1]
+      let users = result[1];
 
-      let totalBrands = result[0].data.countByBrand.totalBrands; 
+      let totalBrands = products.data.countByBrand.totalBrands;
+      let totalCategories = products.data.countByCategory.totalCategories;
+
+      let {
+        countByCategory,
+        countByBrand,
+        countByColor,
+        countByGender,
+        countBySize
+      } = products.data;
+      delete countByCategory.totalCategories;
+      delete countByBrand.totalBrands;
+      delete countByColor.totalColors;
+      delete countByGender.totalGenders;
+      delete countBySize.totalSizes;
 
       this.setState({
-        categories: Object.keys(products.data.countByCategory),
+        countByCategory,
+        countByBrand,
+        countByGender,
+        countByColor,
+        countBySize,
         metrics: [
-        {
-          title: "Total de productos",
-          color: "primary",
-          iconClass: "fa-clipboard-list",
-          value: products.meta.count
-        },
-        {
-          title: "Total de usuarios",
-          color: "success",
-          iconClass: "fa-dollar-sign",
-          value: users.meta.count
-        },
-        {
-          title: "Total de marcas",
-          color: "danger",
-          iconClass: "fa-dollar-sign",
-          value: totalBrands
-        }
+          {
+            title: "Total de productos",
+            color: "primary",
+            iconClass: "fa-clipboard-list",
+            value: products.meta.count
+          },
+          {
+            title: "Total de usuarios",
+            color: "success",
+            iconClass: "fa-dollar-sign",
+            value: users.meta.count
+          },
+          {
+            title: "Total de marcas",
+            color: "danger",
+            iconClass: "fa-dollar-sign",
+            value: totalBrands
+          },
+          {
+            title: "Total de categorías",
+            color: "info",
+            iconClass: "fa-dollar-sign",
+            value: totalCategories
+          }
         ]
       })
 
@@ -155,7 +184,7 @@ class App extends Component {
             {/* Content Row */}
             <div className="row">
 
-              { this.state.metrics ?
+              { this.state.metrics.length ?
               this.state.metrics.map((metric,index) =>
                 <TotalAmountPanel 
                 title = {metric.title}
@@ -178,19 +207,78 @@ class App extends Component {
               </BigPanel>
   
               {/* Categories in DB */}
-              <BigPanel title={"Categorías"}>
+              <BigPanel title={"Productos por categorías"}>
               <div className="row">
                 {
-                  this.state.categories.length ? this.state.categories.map( (category, i) => 
-                    <Category 
-                      category= {category}
-                      key = {i}
-                    />
-                  ) : <p> Cargando categorías </p>
+                  Object.keys(this.state.countByCategory).length ? 
+                    Object.keys(this.state.countByCategory).map( key => 
+                      <Category 
+                        category= {key}
+                        value= {this.state.countByCategory[key]}
+                        key = {key}
+                      />
+                    ) 
+                  : <p> Cargando categorías </p>
+                }
+              </div>
+              </BigPanel>
+
+              <BigPanel title={"Productos por Marcas"}>
+              <div className="row">
+                {
+                  Object.keys(this.state.countByBrand).length ? 
+                    Object.keys(this.state.countByBrand).map( key => 
+                      <Category 
+                        category= {key}
+                        value= {this.state.countByBrand[key]}
+                        key = {key}
+                      />
+                    ) 
+                  : <p> Cargando categorías </p>
                 }
               </div>
               </BigPanel>
               
+              <BigPanel title={"Productos por genero"}>
+              <div className="row">
+                {
+                  Object.keys(this.state.countByGender).length ? 
+                    Object.keys(this.state.countByGender).map( key => 
+                      <Category 
+                        category= {key}
+                        value= {this.state.countByGender[key]}
+                        key = {key}
+                      />
+                    ) 
+                  : <p> Cargando generos </p>
+                }
+              </div>
+              </BigPanel>
+            </div>
+            <div className="row">
+              <BigPanel title={"Listado de productos"} key='productsPanel'>
+                <Table heads={[
+                  {prop: 'id', title: 'ID'},
+                  {prop: 'name', title: 'Nombre'},
+                  {prop: 'price', title: 'Precio'},
+                  {prop: 'gender', title: 'Sexo'}
+                ]} 
+                fetch={'http://localhost:3000/api/products/'}
+                key={'products'}
+                />
+              </BigPanel>
+              <BigPanel title={"Listado de usuarios"} key={'usersPanel'}>
+              <Table 
+                heads={[
+                  {prop: 'id', title: 'ID'},
+                  {prop: 'first_name', title: 'Nombre'},
+                  {prop: 'last_name', title: 'Apellido'},
+                  {prop: 'email', title: 'Correo'},
+                ]} 
+                fetch={'http://localhost:3000/api/users/'}
+                key={'users'}
+              />
+              </BigPanel> 
             </div>
           </div>
           {/* /.container-fluid */}
