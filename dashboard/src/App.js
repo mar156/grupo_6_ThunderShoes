@@ -9,7 +9,8 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-        metrics: []
+        metrics: [],
+        categories: []
     }
   }
 
@@ -29,6 +30,7 @@ class App extends Component {
       let totalBrands = result[0].data.countByBrand.totalBrands; 
 
       this.setState({
+        categories: Object.keys(products.data.countByCategory),
         metrics: [
         {
           title: "Total de productos",
@@ -176,9 +178,16 @@ class App extends Component {
               </BigPanel>
   
               {/* Categories in DB */}
-              <BigPanel title={"Probando Children Category"}>
+              <BigPanel title={"Categorías"}>
               <div className="row">
-                  <Category />
+                {
+                  this.state.categories.length ? this.state.categories.map( (category, i) => 
+                    <Category 
+                      category= {category}
+                      key = {i}
+                    />
+                  ) : <p> Cargando categorías </p>
+                }
               </div>
               </BigPanel>
               
