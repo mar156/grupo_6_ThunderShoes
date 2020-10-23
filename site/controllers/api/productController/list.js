@@ -70,6 +70,8 @@ module.exports = (req, res) => {
                 name: row.name,
                 description: row.description,
                 categories: row.categories.map(cat => cat.name),
+                price: row.price,
+                gender: row.gender.name,
                 url: `http://localhost:3000/api/products/${row.id}`   //Capturar location host y agregar a la url al comienzo
             }
             return product
