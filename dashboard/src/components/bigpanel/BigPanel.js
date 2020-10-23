@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-import Category from '../Category';
-import DetailPanel from '../DetailPanel';
-
 
 class BigPanel extends Component {
   constructor(props){
