@@ -26,7 +26,7 @@ class App extends Component {
 
       let products = result[0];
       let users = result[1]
-
+      
       let totalBrands = result[0].data.countByBrand.totalBrands; 
 
       this.setState({
@@ -52,7 +52,6 @@ class App extends Component {
         }
         ]
       })
-
 
     })
 
@@ -173,7 +172,7 @@ class App extends Component {
             {/* Content Row */}
             <div className="row">
               {/* Last Product in DB */}
-              <BigPanel title={"Probando Children Detail"}> 
+              <BigPanel title={"Último producto cargado"}> 
                   <DetailPanel />
               </BigPanel>
   
