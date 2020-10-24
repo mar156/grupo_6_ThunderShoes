@@ -260,7 +260,7 @@ class App extends Component {
                   {prop: 'id', title: 'ID'},
                   {prop: 'name', title: 'Nombre'},
                   {prop: 'price', title: 'Precio'},
-                  {prop: 'gender', title: 'Sexo'}
+                  {prop: 'gender', title: 'Género'}
                 ]} 
                 fetch={'http://localhost:3000/api/products/'}
                 key={'products'}
