@@ -2,7 +2,7 @@ const path = require ('path');
 const fs = require("fs");
 const filePath =  path.join(__dirname, '../data/users.json');
 
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 
 const { validationResult } = require('express-validator');
 
