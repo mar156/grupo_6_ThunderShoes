@@ -262,7 +262,7 @@ class App extends Component {
                   {prop: 'price', title: 'Precio'},
                   {prop: 'gender', title: 'Género'}
                 ]} 
-                fetch={'http://localhost:3000/api/products/'}
+                fetch={'http://localhost:3000/api/products/?query={"page":"1","perPage":"4","name":"","description":""}'}
                 key={'products'}
                 />
               </BigPanel>
