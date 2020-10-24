@@ -82,7 +82,6 @@ class App extends Component {
         ]
       })
 
-
     })
 
   }
@@ -202,7 +201,7 @@ class App extends Component {
             {/* Content Row */}
             <div className="row">
               {/* Last Product in DB */}
-              <BigPanel title={"Probando Children Detail"}> 
+              <BigPanel title={"Último producto cargado"}> 
                   <DetailPanel />
               </BigPanel>
   

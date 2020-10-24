@@ -1,7 +1,4 @@
-import React, { Children, Component } from 'react';
-import Category from '../Category';
-import DetailPanel from '../DetailPanel';
-
+import React, { Component } from 'react';
 
 class BigPanel extends Component {
   constructor(props){
@@ -11,15 +8,9 @@ class BigPanel extends Component {
     }
   }
 
-
-
   componentDidMount(){
-
-
-
+ 
   }
-
-
 
   render(){
     return(
@@ -29,7 +20,6 @@ class BigPanel extends Component {
               <h6 className="m-0 font-weight-bold text-primary">{ this.state.title }</h6>
             </div>
             <div className="card-body">
-
 
             { /* Component */ }
 
