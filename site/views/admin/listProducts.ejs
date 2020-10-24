@@ -22,7 +22,11 @@
             <div class="item-container">
                 <div class="item-cart">
                     <div class="item-detail-container">   
-                        <img src="/img/<%=product.images[0].file_name%>" alt="">
+                        <% if (product.images.length) { %> 
+                            <img src="/img/<%=product.images[0].file_name%>" alt="">
+                        <% } else { %>
+                            <img src="/img/no_image_available.jpg">
+                        <% } %>
                         <div class="item-detail">
                             <span class="item-name"><%= product.name %></span>   
                             <span class="item-model"><%= product.brand.name %></span> <!--Aquí decía modelo x (? -->
