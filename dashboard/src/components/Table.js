@@ -14,18 +14,10 @@ class Table extends Component {
     fetch(this.props.fetch)
     .then( result => result.json())
     .then( data => {
-      // Parche para no tener que acomodar la API de products y en consecuencia las 
-      // propiedades que se manejan en App.js - Hasta todo esté andando y se adapta.
-
-      if (this.props.fetch === 'http://localhost:3000/api/products/') {
-        this.setState({
-          data: data.data.products
-        });  
-      } else {
-        this.setState({
-          data: data.data
-        });
-      }
+      console.log(data.data);
+      this.setState({
+        data: data.data.list 
+      });  
     })
     .catch( err => console.log(err))
   }
