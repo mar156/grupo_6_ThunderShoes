@@ -17,13 +17,6 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
 
---
--- Base de datos: `thundershoes_db`
---
-CREATE DATABASE IF NOT EXISTS `thundershoes_db` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci;
-USE `thundershoes_db`;
-
---
 -- Volcado de datos para la tabla `brands`
 --
 
