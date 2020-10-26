@@ -260,9 +260,9 @@ class App extends Component {
                   {prop: 'id', title: 'ID'},
                   {prop: 'name', title: 'Nombre'},
                   {prop: 'price', title: 'Precio'},
-                  {prop: 'gender', title: 'Sexo'}
+                  {prop: 'gender', title: 'Género'}
                 ]} 
-                fetch={'http://localhost:3000/api/products/'}
+                fetch={'http://localhost:3000/api/products/?query={"page":"1","perPage":"4","name":"","description":""}'}
                 key={'products'}
                 />
               </BigPanel>
@@ -270,11 +270,11 @@ class App extends Component {
               <Table 
                 heads={[
                   {prop: 'id', title: 'ID'},
-                  {prop: 'first_name', title: 'Nombre'},
-                  {prop: 'last_name', title: 'Apellido'},
+                  {prop: 'firstName', title: 'Nombre'},
+                  {prop: 'lastName', title: 'Apellido'},
                   {prop: 'email', title: 'Correo'},
                 ]} 
-                fetch={'http://localhost:3000/api/users/'}
+                fetch={'http://localhost:3000/api/users/?query={"page":"1","perPage":"2","firstName":"","lastName":"","email":""}'}
                 key={'users'}
               />
               </BigPanel> 

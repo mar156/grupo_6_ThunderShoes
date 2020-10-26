@@ -18,7 +18,11 @@
         <div class="vidrieraShop">
             <% products.forEach(product => { %>
                 <a href="/product/detail/<%= product.id %>"><div class="productoVidriera"><!--Debería ser product/detail/id-->
-                    <img alt="zapatilla" src="/img/<%=product.images[0].file_name%>">
+                    <% if (product.images.length) { %>
+                        <img alt="zapatilla" src="/img/<%=product.images[0].file_name%>">
+                    <% } else { %>
+                        <img alt="zapatilla" src="/img/no_image_available.jpg">
+                    <% } %>
                     <div class="contenedor-boton-shop-now-icono">
                         <button class="boton-shop-now">
                             Agregar al carrito

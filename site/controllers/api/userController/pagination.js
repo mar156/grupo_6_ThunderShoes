@@ -9,7 +9,7 @@ http://localhost:3000/api/users/?query={"page":"1","perPage":"2","firstName":"ma
 
 Ruta base: http://localhost:3000/api/users/ (Que devuelve listado completo)
 
-Ruta paginada: http://localhost:3000/api/users/?query={} (JSON query)
+Ruta paginada: http://localhost:3000/api/users/?query={} (JSON query) 
     -ruta minima para alcanzar paginado con los siguientes valores por defecto [iniciales]:
         -page: 1
         -perPage: 10
@@ -23,7 +23,7 @@ La ruta paginada devuelve un objeto JSON que indica:
         -> status: 500 || 404 || 200
         -> msg: (Mensaje de error o exito acorde a cada status)
         -> count: 0 a N cantidad de registros totales encontrados
-        -> next
+        -> next: Objeto literal con las propiedades de query y url de la siguiente página. 
     En data: 
 */
 
@@ -50,7 +50,7 @@ module.exports = (req, res) => {
             }
         },
         data: {
-            users: [
+            list: [
                 {
                     id: null,
                     firstName: '',
@@ -84,11 +84,11 @@ module.exports = (req, res) => {
             'state',
             'postal_code'
         ],
-        // where: { 
-        //     first_name: { [Op.substring]: response.meta.query.firstName }, 
-        //     last_name: { [Op.substring]: response.meta.query.lastName }, 
-        //     email: { [Op.substring]: response.meta.query.email }, 
-        // },
+        where: { 
+            first_name: { [Op.substring]: response.meta.query.firstName }, 
+            last_name: { [Op.substring]: response.meta.query.lastName }, 
+            email: { [Op.substring]: response.meta.query.email }, 
+        },
         order: [ 
             ['first_name', 'DESC'], 
             ['last_name', 'DESC'], 
@@ -130,7 +130,7 @@ module.exports = (req, res) => {
                 response.meta.prev.url = `http://localhost:3000/api/users/?query=${JSON.stringify(response.meta.prev)}`;
             }
 
-            response.data.users = result.rows.map(row => {
+            response.data.list = result.rows.map(row => {
                 let user = {
                     id: row.id,
                     firstName: row.first_name,
