@@ -128,6 +128,7 @@ const controller = {
                 }
                 delete newUser.password;    // Se elimina password antes de enviar a Session.
                 req.session.userLoggedIn = newUser;
+                req.session.userLoggedIn.category_user = { id: newUser.category_id }
                 res.redirect('/');
             })
             .catch( err => {
