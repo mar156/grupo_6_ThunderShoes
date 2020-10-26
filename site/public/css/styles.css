@@ -1575,6 +1575,7 @@ footer .contenedor-redes .contenedor-iconos i{
         grid-template-rows: auto auto;
     }
     .main-index .contenedor-imagenes-boton .imagenes img{
+        object-fit: cover;
         width: auto !important;
         height: 100%;
     }
@@ -1901,7 +1902,7 @@ footer .contenedor-redes .contenedor-iconos i{
 
     /* HOME */
     .main-index .contenedor-imagenes-boton{
-        height: 80vh;
+        height: 87vh;
         width: auto;
     }
 
