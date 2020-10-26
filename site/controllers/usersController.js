@@ -83,6 +83,7 @@ const controller = {
     },
 
     logout: (req, res) => {
+        res.cookie("remember", "", {maxAge: -120000000});
         req.session.destroy();
         res.redirect('/');
     },
