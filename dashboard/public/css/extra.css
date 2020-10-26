@@ -1,0 +1,44 @@
+.box-color {
+    float: left;
+    height: 20px;
+    width: 20px;
+    margin-bottom: 15px;
+    border: 1px solid black;
+    clear: both;
+    margin-left: 2px;
+  }
+  
+.box-color:first-child{
+margin-left: 1rem;
+} 
+  .red-color {
+    background-color: red;
+  }
+  
+  .green-color {
+    background-color: green;
+  }
+  
+  .blue-color {
+    background-color: blue;
+  }
+
+  .yellow-color {
+    background-color: yellow;
+  }
+
+  .black-color {
+    background-color: black;
+  }
+
+  .white-color {
+    background-color: whitesmoke;
+  }
+
+  .gray-color {
+    background-color: gray;
+  }
+
+.cursor-pointer {
+  cursor: pointer;
+}

@@ -6,11 +6,11 @@ module.exports = (req, res) => {
         meta: {
             status: 500,
             msg: '',
+            count: 0
         },
         data: {
-            count: 0,
             countByBrand: {},
-            products: [],
+            list: [],
             countByCategory: {},
             countByGender: {},
             countByColor: {},
@@ -56,9 +56,9 @@ module.exports = (req, res) => {
         response.data.countByGender.totalGenders = genders.length;
         response.data.countByColor.totalColors = colors.length;
         response.data.countBySize.totalSizes = sizes.length;
-        response.data.count = products.rows.length;
+        response.meta.count = products.rows.length;
 
-        response.data.products = products.rows.map( row => {
+        response.data.list = products.rows.map( row => {
             response.data.countByBrand[row.brand.name]++;
             response.data.countByGender[row.gender.name]++;
             row.categories.forEach( category => response.data.countByCategory[category.dataValues.name]++);
@@ -70,6 +70,8 @@ module.exports = (req, res) => {
                 name: row.name,
                 description: row.description,
                 categories: row.categories.map(cat => cat.name),
+                price: row.price,
+                gender: row.gender.name,
                 url: `http://localhost:3000/api/products/${row.id}`   //Capturar location host y agregar a la url al comienzo
             }
             return product

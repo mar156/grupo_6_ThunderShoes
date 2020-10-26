@@ -2,17 +2,22 @@
 <div class="top-header">
     <div class="container-top">
         <div class="right-top-header">
-            <a href="/users/profile/">Mi cuenta 
+            
+            
+            <% if (user === '') { %>
+                <a href="/users/register">Registrarme</a>
+                <a class="border-line" href="/users/login">Iniciar sesión</a>
+            <% } else { %>
+                <a href="/users/profile/">Mi cuenta 
                 <% if (!!user) { %>
                     (<%= user.name %>) 
+                    <% } %>
+                </a>
+                <a class="border-line" href="#">Mi lista de deseos</a>
+                <% if (user && user.category == 2) { %>
+                    <a class="border-line" href="/admin">Admin</a>
+                    <a target="_blank" class="border-line" href="http://localhost:3001/">Dashboard</a>
                 <% } %>
-            </a>
-
-            <a class="border-line" href="#">Mi lista de deseos</a>
-
-            <% if (user === '') { %>
-                <a class="border-line" href="/users/login">Iniciar sesión</a>
-            <% } else {%>
                 <a class="border-line" href="/users/logout">Cerrar sesión</a>
             <% } %>
             
