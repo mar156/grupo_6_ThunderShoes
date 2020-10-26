@@ -48,12 +48,12 @@ class Table extends Component {
   render() {
     return(
       <React.Fragment>
-        <table className="table table-dark">
+        <table className="table bg-dark-thunder rounded">
           <thead>
             <tr>
               {
                 this.props.heads.map( (head, i) =>
-                  <th key={head.title + i} scope="col">{head.title}</th>
+                  <th className="text-gray" key={head.title + i} scope="col">{head.title}</th>
                 )
               }
             </tr>
@@ -61,10 +61,10 @@ class Table extends Component {
           <tbody>
             {
               Object.keys(this.state.data).map( (value, i) =>
-                <tr key={`row${i}`}>
+                <tr className="text-white" key={`row${i}`}>
                     {
                       this.props.heads.map( (head, i) => 
-                        i === 0 ? <th key={i} scope="row">{this.state.data[value][head.prop]}</th>
+                        i === 0 ? <th className="letters-color" key={i} scope="row">{this.state.data[value][head.prop]}</th>
                         : <td key={i}>{this.state.data[value][head.prop]}</td>
                       )
                     }

@@ -64,19 +64,19 @@ class App extends Component {
           {
             title: "Total de usuarios",
             color: "success",
-            iconClass: "fa-dollar-sign",
+            iconClass: "fa-users",
             value: users.meta.count
           },
           {
             title: "Total de marcas",
             color: "danger",
-            iconClass: "fa-dollar-sign",
+            iconClass: "fa-shoe-prints",
             value: totalBrands
           },
           {
             title: "Total de categorías",
             color: "info",
-            iconClass: "fa-dollar-sign",
+            iconClass: "fa-grip-vertical",
             value: totalCategories
           }
         ]
@@ -92,13 +92,13 @@ class App extends Component {
     return (
       <div id="wrapper">
       {/* Sidebar */}
-      <ul className="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+      <ul className="navbar-nav bg-dark-thunder sidebar sidebar-dark accordion" id="accordionSidebar">
         {/* Sidebar - Brand */}
         <a className="sidebar-brand d-flex align-items-center justify-content-center" href="/">
           <div className="sidebar-brand-icon">
-            <i className="fas fa-chart-line" />
+            <i className="fas fa-chart-line letters-color" />
           </div>
-          <div className="sidebar-brand-text mx-3">Admin</div>
+          <div className="sidebar-brand-text mx-3 ">Admin</div>
         </a>
         {/* Divider */}
         <hr className="sidebar-divider my-0" />
@@ -116,20 +116,20 @@ class App extends Component {
         <li className="nav-item">
           <a className="nav-link collapsed" href="/">
             <i className="fas fa-fw fa-folder" />
-            <span>Pages</span>
+            <span className="letters-color-white font-weight-normal">Pages</span>
           </a>
         </li>
         {/* Nav Item - Charts */}
         <li className="nav-item">
           <a className="nav-link" href="/">
             <i className="fas fa-fw fa-chart-area" />
-            <span>Charts</span></a>
+            <span className="letters-color-white font-weight-normal">Charts</span></a>
         </li>
         {/* Nav Item - Tables */}
         <li className="nav-item">
           <a className="nav-link" href="/">
             <i className="fas fa-fw fa-table" />
-            <span>Tables</span></a>
+            <span className="letters-color-white font-weight-normal">Tables</span></a>
         </li>
         {/* Divider */}
         <hr className="sidebar-divider d-none d-md-block" />
@@ -150,17 +150,17 @@ class App extends Component {
               {/* Nav Item - Alerts */}
               <li className="nav-item dropdown no-arrow mx-1">
                 <a className="nav-link dropdown-toggle" href="/" id="alertsDropdown">
-                  <i className="fas fa-bell fa-fw" />
+                  <i className="fas fa-bell fa-fw icons-color" />
                   {/* Counter - Alerts */}
-                  <span className="badge badge-danger badge-counter">3+</span>
+                  <span className="badge badge-warning-thunder badge-counter">3+</span>
                 </a>
               </li>
               {/* Nav Item - Messages */}
               <li className="nav-item dropdown no-arrow mx-1">
                 <a className="nav-link dropdown-toggle" href="/" id="messagesDropdown">
-                  <i className="fas fa-envelope fa-fw" />
+                  <i className="fas fa-envelope fa-fw icons-color" />
                   {/* Counter - Messages */}
-                  <span className="badge badge-danger badge-counter">7</span>
+                  <span className="badge badge-warning-thunder badge-counter">7</span>
                 </a>
               </li>
               <div className="topbar-divider d-none d-sm-block" />
@@ -178,7 +178,7 @@ class App extends Component {
           <div className="container-fluid">
             {/* Page Heading */}
             <div className="d-sm-flex align-items-center justify-content-between mb-4">
-              <h1 className="h3 mb-0 text-gray-800">App Dashboard</h1>
+              <h1 className="h3 mb-0 text-gray-800">ThunderShoes Dashboard</h1>
             </div>
             {/* Content Row */}
             <div className="row">

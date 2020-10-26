@@ -42,3 +42,37 @@ margin-left: 1rem;
 .cursor-pointer {
   cursor: pointer;
 }
+
+
+
+/* Estilos ThunderShoes Dashboard */
+
+/* Header */
+
+.bg-dark-thunder{background-color: #0C0C0C;}
+
+.bg-yellow-thunder{background-color: #ffe512;}
+
+.bg-gray-thunder{background-color: #3A3636;}
+
+
+.icons-color{
+  color: #3A3636;
+}
+
+.letters-color{
+  color: #ffe512;
+}
+
+.letters-color-dark{
+  color: #0C0C0C;
+}
+
+.letters-color-white{
+  color: white;
+}
+
+.badge-warning-thunder{
+  color:#0C0C0C;
+  background-color: #ffe512;
+}

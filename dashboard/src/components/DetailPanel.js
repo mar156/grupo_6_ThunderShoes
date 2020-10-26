@@ -94,27 +94,27 @@ componentDidMount(){
         <div className="text-center">
           <img className="img-fluid px-3 px-sm-4 mt-3 mb-4" style={{width: '25rem'}} src={`${this.state.latestProductDetail.image}`} alt="latest-product" />
         </div>
-        <span className="text-center font-weight-bold text-info text-uppercase">  {this.state.latestProductDetail.name}   </span>
+        <span className="text-center font-weight-bold letters-color-dark rounded text-uppercase">  {this.state.latestProductDetail.name}   </span>
         <p> {this.state.latestProductDetail.description} </p>
         { this.state.completeDetail ? 
           <div>
-          <p><span className="font-weight-bold text-info" key="1">ID:</span> {this.state.latestProductDetail.id} </p>
-          <p><span className="font-weight-bold text-info" key="23">Marca:</span> {this.state.latestProductDetail.brand} </p>
-          <p><span className="font-weight-bold text-info" key="42">Precio:</span> {this.state.latestProductDetail.price} </p>
-          <p><span className="font-weight-bold text-info" key="231">Descuento:</span> {this.state.latestProductDetail.discount}% </p>
-          <p><span className="font-weight-bold text-info" key="153">Género:</span> {this.state.latestProductDetail.gender} </p>
-          <span className="font-weight-bold text-info">Colores:</span>  
+          <p><span className="font-weight-bold text-dark" key="1">ID:</span> {this.state.latestProductDetail.id} </p>
+          <p><span className="font-weight-bold text-dark" key="23">Marca:</span> {this.state.latestProductDetail.brand} </p>
+          <p><span className="font-weight-bold text-dark" key="42">Precio:</span> {this.state.latestProductDetail.price} </p>
+          <p><span className="font-weight-bold text-dark" key="231">Descuento:</span> {this.state.latestProductDetail.discount}% </p>
+          <p><span className="font-weight-bold text-dark" key="153">Género:</span> {this.state.latestProductDetail.gender} </p>
+          <span className="font-weight-bold text-dark">Colores:</span>  
           <div className="row">
               { this.state.colors.map(color => color) }
           </div>
-          <p><span className="font-weight-bold text-info" key="11">Talles:</span> 
+          <p><span className="font-weight-bold text-dark" key="11">Talles:</span> 
           {this.state.latestProductDetail.sizes.map(size => {
             return size + ",";})} 
           </p>
-          <span onClick={ () => this.lessInfo() } target="_blank" rel="nofollow" id="less-info" className="text-center text-dark text-uppercase border-bottom" key="00">ver menos información</span> 
+          <span onClick={ () => this.lessInfo() } target="_blank" rel="nofollow" id="less-info" className="text-center text-dark text-uppercase btn btn-outline-warning" key="00">ver menos información</span> 
           </div>
         : 
-        <span onClick={ () => this.completeInfo() } target="_blank" rel="nofollow" id="more-info" className="text-center text-dark text-uppercase border-bottom" key="013">Ver más información</span> 
+        <span onClick={ () => this.completeInfo() } target="_blank" rel="nofollow" id="more-info" className="text-center text-dark text-uppercase btn btn-outline-warning" key="013">Ver más información</span> 
         }
 
       </React.Fragment>

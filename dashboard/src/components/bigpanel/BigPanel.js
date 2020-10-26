@@ -17,7 +17,7 @@ class BigPanel extends Component {
         <div className="col-lg-6 mb-4">						
           <div className="card shadow mb-4">
             <div className="card-header py-3">
-              <h6 className="m-0 font-weight-bold text-primary">{ this.state.title }</h6>
+              <h6 className="m-0 font-weight-bold icons-color">{ this.state.title }</h6>
             </div>
             <div className="card-body">
 
