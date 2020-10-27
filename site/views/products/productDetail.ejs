@@ -51,7 +51,7 @@
                                     <% if(product && product.colors) { 
                                         product.colors.forEach(color => { %>
                                             <input type="radio" name="color" id="m<%= color.code %>" value="<%= color.code %>">
-                                            <label id="colors" class="color-label" for="m<%= color.code %>"></label>
+                                            <label id="colors" class="color-label <%= color.code %>" for="m<%= color.code %>"></label>
                                         <% }); %>
                                     <% } %>
                                 </div>
