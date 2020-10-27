@@ -37,7 +37,7 @@
                 </span>
 
                 <label for="phone">Teléfono</label>
-                <input type="tel" class="<%if(locals&&locals.errors&&errors.phone){%><%="error-input"%><%}%>" name="phone" id="phone" placeholder="Ej. cod (011) - 1544876235 " value="<%=locals && locals.user && user.phone%>" >
+                <input type="tel" class="<%if(locals&&locals.errors&&errors.phone){%><%="error-input"%><%}%>" name="phone" id="phone" placeholder="Ej. 1544876235 " value="<%=locals && locals.user && user.phone%>" >
                 <span id="phone_error" class="error">
                     <%= locals && locals.errors && locals.errors.phone && locals.errors.phone.msg %>
                 </span>
