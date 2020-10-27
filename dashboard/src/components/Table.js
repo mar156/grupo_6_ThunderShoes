@@ -48,7 +48,7 @@ class Table extends Component {
   render() {
     return(
       <React.Fragment>
-        <table className="table bg-dark-thunder rounded">
+        <table className="table bg-dark-thunder rounded table-responsive">
           <thead>
             <tr>
               {
