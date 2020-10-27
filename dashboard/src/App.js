@@ -167,8 +167,8 @@ class App extends Component {
               {/* Nav Item - User Information */}
               <li className="nav-item dropdown no-arrow">
                 <a className="nav-link dropdown-toggle" href="/" id="userDropdown">
-                  <span className="mr-2 d-none d-lg-inline text-gray-600 small">Walter White</span>
-                  <img className="img-profile rounded-circle" src="images/dummy-avatar.jpg" alt="profile-pic-avatar" width={60} />
+                  <span className="mr-2 d-none d-lg-inline text-gray-600 small">Admin</span>
+                  <img className="img-profile rounded-circle" src="images/dummy-avatar.png" alt="profile-pic-avatar" width={60} />
                 </a>
               </li>
             </ul>
